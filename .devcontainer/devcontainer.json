@@ -8,7 +8,7 @@
       "installGradle": false,
       "installMaven": false
     },
-    "ghcr.io/devcontainers/features/docker-in-docker:2": {
+    "ghcr.io/devcontainers/features/docker-in-docker:4": {
       "dockerDashComposeVersion": "v2"
     },
     "ghcr.io/devcontainers/features/python:1": {
