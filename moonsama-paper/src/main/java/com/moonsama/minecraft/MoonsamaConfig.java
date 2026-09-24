@@ -28,7 +28,9 @@ public record MoonsamaConfig(
         Duration holdingsTtl,
         Duration changesInterval,
         Duration erasuresInterval,
-        Duration receiptsInterval
+        Duration receiptsInterval,
+        String mineskinApiKey,
+        URI mineskinUrl
 ) {
     static MoonsamaConfig load(JavaPlugin plugin) {
         FileConfiguration config = plugin.getConfig();
@@ -57,7 +59,9 @@ public record MoonsamaConfig(
                 Duration.ofSeconds(config.getLong("sync.holdings-ttl-seconds", 60)),
                 Duration.ofSeconds(config.getLong("sync.changes-interval-seconds", 5)),
                 Duration.ofSeconds(config.getLong("sync.erasures-interval-seconds", 86_400)),
-                Duration.ofSeconds(config.getLong("sync.receipts-interval-seconds", 30))
+                Duration.ofSeconds(config.getLong("sync.receipts-interval-seconds", 30)),
+                value(config, "skins.mineskin-api-key", "MINESKIN_API_KEY"),
+                uri(config.getString("skins.mineskin-url", "https://api.mineskin.org"))
         );
     }
 

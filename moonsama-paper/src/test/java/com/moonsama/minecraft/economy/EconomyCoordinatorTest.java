@@ -175,7 +175,9 @@ class EconomyCoordinatorTest {
                 Duration.ofSeconds(60),
                 Duration.ofSeconds(5),
                 Duration.ofDays(1),
-                Duration.ofSeconds(30)
+                Duration.ofSeconds(30),
+                "",
+                URI.create("https://api.mineskin.org")
         );
     }
 

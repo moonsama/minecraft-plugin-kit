@@ -8,6 +8,7 @@ import com.moonsama.minecraft.api.EconomyRefundRequest;
 import com.moonsama.minecraft.api.EconomyRequest;
 import com.moonsama.minecraft.api.HoldingsSnapshot;
 import com.moonsama.minecraft.api.MoonsamaService;
+import com.moonsama.minecraft.api.SkinSigner;
 import com.moonsama.minecraft.api.PortalPlayer;
 import com.moonsama.minecraft.api.event.AssetHoldChangedEvent;
 import com.moonsama.minecraft.api.event.EconomyOperationEvent;
@@ -15,6 +16,8 @@ import com.moonsama.minecraft.api.event.PortalHoldingsLoadedEvent;
 import com.moonsama.minecraft.api.event.PortalPlayerErasedEvent;
 import com.moonsama.minecraft.api.event.PortalPlayerLinkedEvent;
 import com.moonsama.minecraft.economy.EconomyCoordinator;
+import com.moonsama.minecraft.skins.MineskinSigner;
+import com.moonsama.minecraft.skins.SignatureCache;
 import com.moonsama.minecraft.economy.HoldCoordinator;
 import com.moonsama.minecraft.economy.PortalSyncService;
 import com.moonsama.minecraft.store.LinkStore;
@@ -48,6 +51,7 @@ import java.util.concurrent.ScheduledExecutorService;
 
 public final class MoonsamaPaperPlugin extends JavaPlugin implements MoonsamaService, Listener {
     private final ExecutorService storageExecutor = Executors.newSingleThreadExecutor();
+    private final ExecutorService signingExecutor = Executors.newSingleThreadExecutor();
     private final ScheduledExecutorService workerScheduler =
             Executors.newScheduledThreadPool(2);
     private MoonsamaConfig config;
@@ -117,6 +121,7 @@ public final class MoonsamaPaperPlugin extends JavaPlugin implements MoonsamaSer
                 this,
                 ServicePriority.Normal
         );
+        registerSkinSigner();
 
         MoonsamaCommand command = new MoonsamaCommand(this);
         var registeredCommand = getCommand("moonsama");
@@ -170,9 +175,29 @@ public final class MoonsamaPaperPlugin extends JavaPlugin implements MoonsamaSer
         }
     }
 
+    private void registerSkinSigner() {
+        SignatureCache signatures = new SignatureCache(getDataFolder().toPath().resolve("skin-signatures.json"));
+        signatures.load();
+        MineskinSigner signer = new MineskinSigner(
+                config.mineskinUrl(),
+                config.mineskinApiKey(),
+                "MoonsamaMinecraftKit/" + getPluginMeta().getVersion() + " (+https://moonsama.com)",
+                signatures,
+                signingExecutor,
+                message -> getLogger().info(message)
+        );
+        Bukkit.getServicesManager().register(SkinSigner.class, signer, this, ServicePriority.Normal);
+        if (signer.isAvailable()) {
+            getLogger().info("Skin signing through MineSkin is enabled (" + signatures.size() + " cached textures).");
+        } else {
+            getLogger().info("Skin signing is disabled; set MINESKIN_API_KEY to enable composed skins.");
+        }
+    }
+
     @Override
     public void onDisable() {
         Bukkit.getServicesManager().unregisterAll(this);
+        signingExecutor.shutdownNow();
         if (callbackServer != null) {
             callbackServer.close();
         }

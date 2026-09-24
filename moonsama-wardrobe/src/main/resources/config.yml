@@ -1,0 +1,22 @@
+# MoonsamaWardrobe configuration.
+#
+# The wardrobe renders a skin from NFT parts (skin-compositor) and needs it Mojang-signed
+# before a player can wear it. Signing is done by MoonsamaCore through MineSkin; set
+# MINESKIN_API_KEY in MoonsamaCore's environment. Without it the wardrobe opens but cannot
+# apply looks.
+
+# Portal collections that can be customized (must be composable: moonsama, exosama).
+collections:
+  - moonsama
+  - exosama
+
+# Customizable slots that are not offered. Backgrounds and companions never show up on a
+# Minecraft skin, so they are hidden by default.
+hidden-slots:
+  - background
+  - companion
+
+# Display names for collections in messages.
+collection-names:
+  moonsama: Moonsama
+  exosama: Exosama

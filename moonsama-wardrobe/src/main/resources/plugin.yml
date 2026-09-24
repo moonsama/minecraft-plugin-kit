@@ -1,0 +1,20 @@
+name: MoonsamaWardrobe
+version: '${version}'
+main: com.moonsama.minecraft.wardrobe.MoonsamaWardrobePlugin
+api-version: '26.3'
+authors: [Moonsama]
+description: Mix and match the parts of the Moonsama NFTs you hold into a custom Minecraft skin.
+website: https://moonsama.com
+depend: [MoonsamaCore, MoonsamaSkins]
+
+commands:
+  wardrobe:
+    description: Customize the skin of one of your Moonsama NFTs.
+    usage: /wardrobe [<collection> <id>|reset|status]
+    aliases: [mwardrobe]
+    permission: moonsama.wardrobe.use
+
+permissions:
+  moonsama.wardrobe.use:
+    description: Allows composing custom skins from owned NFT parts.
+    default: true

@@ -80,7 +80,10 @@ command should place a renamed custom-model feather in the offhand.
 
 With an account that holds Moonsama NFTs on the production app, `/skins` and
 `/items` list the skins, weapon skins and off-hands it unlocks; `/items` needs the
-resource pack to show the models.
+resource pack to show the models. `/wardrobe` lets that account mix parts of its
+Moonsamas/Exosamas; to actually wear a composed look, put a MineSkin API key in
+`MINESKIN_API_KEY` (see `.env.example`) — MoonsamaCore logs
+`Skin signing is disabled` when it is missing and the wardrobe stays browse-only.
 
 `/buyrelic` spends 10 token units of `sandbox-gold` and delivers another relic.
 The checked-in `.env.example` enables spend for this sandbox test only. Use

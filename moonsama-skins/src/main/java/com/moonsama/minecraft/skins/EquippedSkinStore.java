@@ -102,14 +102,26 @@ public final class EquippedSkinStore {
     }
 
     /**
-     * @param ref               the NFT currently worn
+     * @param ref               the NFT currently worn (for custom compositions: the NFT it is based on)
      * @param originalValue     the player's own textures value before any NFT skin, or null
      * @param originalSignature signature of {@code originalValue}, or null
      * @param equippedAt        when the current skin was chosen
+     * @param customValue       signed textures value of a composed (wardrobe) skin, or null for the NFT's own skin
+     * @param customSignature   signature of {@code customValue}, or null
      */
-    public record Equipped(SkinRef ref, String originalValue, String originalSignature, Instant equippedAt) {
+    public record Equipped(SkinRef ref, String originalValue, String originalSignature, Instant equippedAt,
+                           String customValue, String customSignature) {
+        public Equipped(SkinRef ref, String originalValue, String originalSignature, Instant equippedAt) {
+            this(ref, originalValue, originalSignature, equippedAt, null, null);
+        }
+
         public boolean hasOriginal() {
             return originalValue != null && originalSignature != null;
+        }
+
+        /** True when the worn texture is a composed skin rather than the NFT's bundled one. */
+        public boolean isCustom() {
+            return customValue != null && customSignature != null;
         }
 
         JsonObject toJson() {
@@ -123,16 +135,25 @@ public final class EquippedSkinStore {
                 original.addProperty("signature", originalSignature);
                 json.add("original", original);
             }
+            if (isCustom()) {
+                JsonObject custom = new JsonObject();
+                custom.addProperty("value", customValue);
+                custom.addProperty("signature", customSignature);
+                json.add("custom", custom);
+            }
             return json;
         }
 
         static Equipped fromJson(JsonObject json) {
             JsonObject original = json.getAsJsonObject("original");
+            JsonObject custom = json.getAsJsonObject("custom");
             return new Equipped(
                     new SkinRef(json.get("collection").getAsString(), json.get("tokenId").getAsLong()),
                     original == null ? null : original.get("value").getAsString(),
                     original == null ? null : original.get("signature").getAsString(),
-                    Instant.parse(json.get("equippedAt").getAsString())
+                    Instant.parse(json.get("equippedAt").getAsString()),
+                    custom == null ? null : custom.get("value").getAsString(),
+                    custom == null ? null : custom.get("signature").getAsString()
             );
         }
     }

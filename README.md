@@ -67,6 +67,12 @@ See [local development](docs/local-development.md) for setup and troubleshooting
   and off-hand items unlocked by `moonsama-x` (Multiverse Items) tokens, plus the 3D hats
   that belong to a worn Moonsama/Exosama skin (with `MoonsamaSkins`). Purely visual; the
   old gameplay perks are not implemented.
+- `moonsama-wardrobe`: `/wardrobe` plugin replacing the Customizer. A player picks a
+  Moonsama or Exosama they hold, swaps parts (hair, hat, outfit, costume, …) for parts
+  unlocked by their other holdings, and wears the composed skin. Composed skins need a
+  Mojang signature, which `MoonsamaCore` obtains from MineSkin when `MINESKIN_API_KEY`
+  is set; without it the wardrobe is browse/save only. See
+  [moonsama-wardrobe/README.md](moonsama-wardrobe/README.md).
 - `examples/offhand-demo`: minimal plugin consuming the builder API.
 - `resourcepack`: Minecraft 26.3 pack (format 97) with the ported legacy models for item
   skins, off-hands and hats. Regenerate the ported part with
@@ -87,6 +93,8 @@ do not depend on them.
   `/skins reset`, `/skins status`
 - `/items` (menu of owned item skins and off-hands), `/items skin <id>|clear`,
   `/items offhand <id>|none`, `/items list`, `/items status`
+- `/wardrobe` (pick NFT → slot → part, then "Wear this look"),
+  `/wardrobe <collection> <id>`, `/wardrobe reset <collection> <id>`, `/wardrobe status`
 - `/offhanddemo`
 - `/buyrelic`
 - `/moonsama admin status` (server operators)
@@ -110,8 +118,7 @@ All value-moving routes are operator gated. The environment template enables
 only spend for the sandbox `/buyrelic` demo; reward, refund, and holds remain
 disabled until explicitly enabled.
 
-Velocity support, a wardrobe for custom skin compositions, and production callback
-hosting remain follow-up work.
+Velocity support and production callback hosting remain follow-up work.
 
 Before public redistribution, the project also needs an explicit source and
 asset license. The resource pack contains Moonsama's own legacy item, off-hand and hat

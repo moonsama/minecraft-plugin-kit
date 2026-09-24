@@ -21,6 +21,7 @@ include(
     "skin-compositor",
     "moonsama-skins",
     "moonsama-items",
+    "moonsama-wardrobe",
     "examples:offhand-demo",
     "resourcepack",
 )

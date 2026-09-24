@@ -19,10 +19,18 @@ slots.removeIf(s -> s.slot().equals("costume"));
 slots.add(new CompositorData.SlotValue("costume", "multiverse-costumes", "multiverse_costumes:kringle_kap"));
 rendered = compositor.render(Composition.of("moonsama", 276, slots));
 rendered.warnings(); // missing layer files etc.; never throws for data problems
+
+// What a wardrobe can offer: slots, the parts permitted in a slot, display names, and
+// the Customizer's unlock rules (CollectionDef.unlockRules) with legacy contracts
+// mapped to Portal collections (CompositorData.portalCollectionOf).
+compositor.customizableSlots("moonsama");
+compositor.permittedAssets("moonsama", "hat");
+compositor.assetName(new CompositorData.SlotValue("hat", "moonsama", "moonsama:aviator")); // "Aviator"
 ```
 
 The output is an unsigned PNG. To put it on a player it still has to be signed by Mojang
-(e.g. through Mineskin) — that is the job of a wardrobe plugin, not of this library.
+(e.g. through Mineskin) — `moonsama-wardrobe` does that through `MoonsamaCore`'s
+`SkinSigner` service, not this library.
 
 ## What is ported
 

@@ -32,6 +32,7 @@ public final class CompositorData {
     public static final String RESOURCE_ROOT = "moonsama/cosmetics/compositor/";
 
     private final Map<String, String> portalToComposer;
+    private final Map<String, String> legacyContracts;
     private final Map<String, Map<String, String>> renderVariants;
     private final Map<String, CollectionDef> collections;
     private final Map<String, List<Component>> componentsByCollection;
@@ -41,12 +42,14 @@ public final class CompositorData {
 
     private CompositorData(
             Map<String, String> portalToComposer,
+            Map<String, String> legacyContracts,
             Map<String, Map<String, String>> renderVariants,
             Map<String, CollectionDef> collections,
             Map<String, List<Component>> componentsByCollection,
             Function<String, InputStream> opener
     ) {
         this.portalToComposer = portalToComposer;
+        this.legacyContracts = legacyContracts;
         this.renderVariants = renderVariants;
         this.collections = collections;
         this.componentsByCollection = componentsByCollection;
@@ -84,6 +87,17 @@ public final class CompositorData {
             portalToComposer.put(entry.getKey(),
                     entry.getValue().getAsJsonObject().get("composerCollection").getAsString());
         }
+        Map<String, String> legacyContracts = new LinkedHashMap<>();
+        JsonElement contracts = portal.get("legacyContracts");
+        if (contracts != null && contracts.isJsonArray()) {
+            for (JsonElement element : contracts.getAsJsonArray()) {
+                JsonObject row = element.getAsJsonObject();
+                if (row.has("portal") && !row.get("portal").isJsonNull()) {
+                    legacyContracts.put(contractKey(row.get("chainId").getAsLong(), row.get("address").getAsString()),
+                            row.get("portal").getAsString());
+                }
+            }
+        }
 
         JsonObject root = readJson(opener, "compositor/collections.json").getAsJsonObject();
         Map<String, Map<String, String>> variants = new LinkedHashMap<>();
@@ -120,6 +134,7 @@ public final class CompositorData {
         }
         return new CompositorData(
                 Collections.unmodifiableMap(portalToComposer),
+                Collections.unmodifiableMap(legacyContracts),
                 Collections.unmodifiableMap(variants),
                 Collections.unmodifiableMap(collections),
                 Collections.unmodifiableMap(components),
@@ -150,6 +165,21 @@ public final class CompositorData {
 
     public Optional<String> composerCollection(String portalCollection) {
         return Optional.ofNullable(portalToComposer.get(portalCollection));
+    }
+
+    /**
+     * Portal collection slug of a legacy on-chain contract referenced by unlock rules, empty when
+     * the contract is not represented in Portal (e.g. Multiverse Costumes).
+     */
+    public Optional<String> portalCollectionOf(long chainId, String address) {
+        if (address == null) {
+            return Optional.empty();
+        }
+        return Optional.ofNullable(legacyContracts.get(contractKey(chainId, address)));
+    }
+
+    static String contractKey(long chainId, String address) {
+        return chainId + ":" + address.trim().toLowerCase(java.util.Locale.ROOT);
     }
 
     public Map<String, String> portalCollections() {
@@ -305,7 +335,8 @@ public final class CompositorData {
             Map<String, SlotDef> slots,
             List<Permission> permissions,
             Map<String, AssetDef> assets,
-            Map<String, List<String>> proxyTags
+            Map<String, List<String>> proxyTags,
+            Map<String, JsonObject> unlockRules
     ) {
         static CollectionDef parse(String referenceId, JsonObject json) {
             List<ResultType> resultTypes = new ArrayList<>();
@@ -338,9 +369,20 @@ public final class CompositorData {
                 JsonObject row = e.getAsJsonObject();
                 proxies.put(row.get("referenceId").getAsString(), strings(row.get("tags")));
             }
+            Map<String, JsonObject> unlockRules = new LinkedHashMap<>();
+            JsonElement rules = json.get("unlockRules");
+            if (rules != null && rules.isJsonArray()) {
+                for (JsonElement e : rules.getAsJsonArray()) {
+                    JsonObject row = e.getAsJsonObject();
+                    if (row.has("referenceId") && row.has("unlock") && row.get("unlock").isJsonObject()) {
+                        unlockRules.put(row.get("referenceId").getAsString(), row.getAsJsonObject("unlock"));
+                    }
+                }
+            }
             return new CollectionDef(referenceId, optString(json, "type"), optString(json, "parentCollection"),
                     List.copyOf(resultTypes), Collections.unmodifiableMap(slots), List.copyOf(permissions),
-                    Collections.unmodifiableMap(assets), Collections.unmodifiableMap(proxies));
+                    Collections.unmodifiableMap(assets), Collections.unmodifiableMap(proxies),
+                    Collections.unmodifiableMap(unlockRules));
         }
     }
 }

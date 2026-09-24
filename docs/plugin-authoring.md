@@ -45,6 +45,16 @@ Cosmetic items it hands out are tagged in the persistent data container and
 protected against dropping, storing and death drops by cancelling the relevant
 events; ownership is re-checked from `PortalHoldingsLoadedEvent`.
 
+`moonsama-wardrobe` shows how to build on two services at once. It depends on
+`MoonsamaSkins` (`SkinService.wearCustom` wears a Mojang-signed texture that is
+still tied to an owned NFT, so ownership revalidation keeps working) and asks
+`MoonsamaCore` for the optional `SkinSigner` service. Credentials for the
+signer (the MineSkin key) live only in `MoonsamaCore`'s config/environment;
+feature plugins never see them and degrade gracefully when
+`SkinSigner.isAvailable()` is false. Rendering runs on the plugin's own
+single-thread executor and signing on Core's, so neither touches the main
+thread; only the final `wearCustom` hops back to it.
+
 ## Spend, reward, and refund
 
 Feature plugins choose the collection, token, amount, and a stable business

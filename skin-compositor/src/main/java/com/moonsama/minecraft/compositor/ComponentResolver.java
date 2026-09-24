@@ -99,6 +99,38 @@ public final class ComponentResolver {
         return new Resolution(main, mainRepresentation, List.copyOf(slots), List.copyOf(components));
     }
 
+    /**
+     * Every asset (own or from an equippable collection) the slot permissions of {@code collection}
+     * allow in {@code slot}, as slot values ready for a {@link Composition}.
+     */
+    public List<SlotValue> permittedAssets(String collection, String slot) {
+        CollectionDef main = data.collection(collection)
+                .orElseThrow(() -> new IllegalArgumentException("Unknown collection " + collection));
+        SlotDef slotDef = main.slots().get(slot);
+        if (slotDef == null) {
+            return List.of();
+        }
+        List<SlotValue> values = new ArrayList<>();
+        Set<String> seen = new LinkedHashSet<>();
+        for (Permission permission : main.permissions()) {
+            if (!permission.slot().equals(slot)) {
+                continue;
+            }
+            String source = permission.sourceCollection() != null ? permission.sourceCollection() : main.referenceId();
+            CollectionDef assetCollection = data.collection(source).orElse(null);
+            if (assetCollection == null) {
+                continue;
+            }
+            for (AssetDef asset : assetCollection.assets().values()) {
+                if (matchesAnyOption(main, permission, assetCollection, asset)
+                        && seen.add(source + "/" + asset.referenceId())) {
+                    values.add(new SlotValue(slot, source, asset.referenceId()));
+                }
+            }
+        }
+        return List.copyOf(values);
+    }
+
     private static String key(Component component) {
         return component.collection() + "/" + component.referenceId();
     }

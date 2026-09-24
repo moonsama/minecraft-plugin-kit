@@ -25,6 +25,12 @@ economy:
   refund-enabled: false
   holds-enabled: false
 
+# Optional: sign composed skins (wardrobe) through MineSkin. Prefer the MINESKIN_API_KEY
+# environment variable over writing the key here. Leave empty to disable signing.
+skins:
+  mineskin-api-key: ''
+  mineskin-url: 'https://api.mineskin.org'
+
 sync:
   holdings-ttl-seconds: 60
   changes-interval-seconds: 5

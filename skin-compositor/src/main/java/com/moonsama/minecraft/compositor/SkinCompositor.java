@@ -58,6 +58,37 @@ public final class SkinCompositor {
         return Optional.ofNullable(byToken.get(tokenId));
     }
 
+    /** Composer collection id behind a Portal collection slug. */
+    public Optional<String> composerCollection(String portalCollection) {
+        return data.composerCollection(portalCollection);
+    }
+
+    /**
+     * Slots of a Portal collection that players may change, in definition order (e.g. hair, hat,
+     * outfit). Base and dimension are fixed per token and therefore excluded.
+     */
+    public List<CompositorData.SlotDef> customizableSlots(String portalCollection) {
+        return data.composerCollection(portalCollection)
+                .flatMap(data::collection)
+                .map(def -> def.slots().values().stream().filter(CompositorData.SlotDef::customizable).toList())
+                .orElse(List.of());
+    }
+
+    /** Assets the collection's slot permissions allow in {@code slot}, before any ownership check. */
+    public List<SlotValue> permittedAssets(String portalCollection, String slot) {
+        return data.composerCollection(portalCollection)
+                .map(composer -> resolver.permittedAssets(composer, slot))
+                .orElse(List.of());
+    }
+
+    /** Display name of an asset, falling back to its reference id. */
+    public String assetName(SlotValue value) {
+        return data.collection(value.collection())
+                .map(def -> def.assets().get(value.asset()))
+                .map(asset -> asset.name() == null || asset.name().isBlank() ? value.asset() : asset.name())
+                .orElse(value.asset());
+    }
+
     /** Renders a token in its default look, keyed by Portal collection slug. */
     public Optional<Rendered> renderToken(String portalCollection, long tokenId) {
         String composer = data.composerCollection(portalCollection).orElse(null);

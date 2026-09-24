@@ -47,6 +47,11 @@ public final class SkinService {
         return store.get(mojangUuid).map(EquippedSkinStore.Equipped::ref);
     }
 
+    /** True when the player wears a composed (wardrobe) skin rather than an NFT's bundled one. */
+    public boolean wearsCustom(UUID mojangUuid) {
+        return store.get(mojangUuid).map(EquippedSkinStore.Equipped::isCustom).orElse(false);
+    }
+
     /**
      * NFTs the player holds (per MoonsamaCore's cache) for which a signed skin is bundled.
      */
@@ -71,6 +76,33 @@ public final class SkinService {
         if (skin.isEmpty()) {
             return CompletableFuture.completedFuture(Result.UNKNOWN_SKIN);
         }
+        return verifyOwnership(player, ref).thenCompose(result -> onMain(() -> {
+            if (result == Result.APPLIED && player.isOnline()) {
+                apply(player, ref, skin.get().value(), skin.get().signature(), null, null,
+                        MoonsamaSkinChangedEvent.Reason.SELECTED);
+            }
+            return result;
+        }));
+    }
+
+    /**
+     * Wears a composed skin (e.g. from the wardrobe) that is based on {@code base}, which the
+     * player must own. {@code value}/{@code signature} must be a Mojang-signed textures property.
+     * Completes on the main thread with the outcome.
+     */
+    public CompletableFuture<Result> wearCustom(Player player, SkinRef base, String value, String signature) {
+        if (value == null || signature == null || value.isBlank() || signature.isBlank()) {
+            return CompletableFuture.completedFuture(Result.UNKNOWN_SKIN);
+        }
+        return verifyOwnership(player, base).thenCompose(result -> onMain(() -> {
+            if (result == Result.APPLIED && player.isOnline()) {
+                apply(player, base, value, signature, value, signature, MoonsamaSkinChangedEvent.Reason.SELECTED);
+            }
+            return result;
+        }));
+    }
+
+    private CompletableFuture<Result> verifyOwnership(Player player, SkinRef ref) {
         UUID mojangUuid = player.getUniqueId();
         return moonsama.linkedPlayer(mojangUuid)
                 .thenCompose(linked -> {
@@ -92,13 +124,7 @@ public final class SkinService {
                 .exceptionally(failure -> {
                     plugin.getLogger().log(Level.WARNING, "Could not verify ownership of " + ref, failure);
                     return Result.UNAVAILABLE;
-                })
-                .thenCompose(result -> onMain(() -> {
-                    if (result == Result.APPLIED && player.isOnline()) {
-                        apply(player, skin.get(), MoonsamaSkinChangedEvent.Reason.SELECTED);
-                    }
-                    return result;
-                }));
+                });
     }
 
     /**
@@ -123,12 +149,19 @@ public final class SkinService {
         if (record.isEmpty()) {
             return;
         }
-        Optional<SignedSkin> skin = catalog.find(record.get().ref());
+        EquippedSkinStore.Equipped equipped = record.get();
+        if (equipped.isCustom()) {
+            apply(player, equipped.ref(), equipped.customValue(), equipped.customSignature(),
+                    equipped.customValue(), equipped.customSignature(), MoonsamaSkinChangedEvent.Reason.REAPPLIED);
+            return;
+        }
+        Optional<SignedSkin> skin = catalog.find(equipped.ref());
         if (skin.isEmpty()) {
             store.remove(player.getUniqueId());
             return;
         }
-        apply(player, skin.get(), MoonsamaSkinChangedEvent.Reason.REAPPLIED);
+        apply(player, equipped.ref(), skin.get().value(), skin.get().signature(), null, null,
+                MoonsamaSkinChangedEvent.Reason.REAPPLIED);
     }
 
     /**
@@ -143,7 +176,8 @@ public final class SkinService {
         return restore(player, MoonsamaSkinChangedEvent.Reason.UNOWNED);
     }
 
-    private void apply(Player player, SignedSkin skin, MoonsamaSkinChangedEvent.Reason reason) {
+    private void apply(Player player, SkinRef ref, String value, String signature,
+                       String customValue, String customSignature, MoonsamaSkinChangedEvent.Reason reason) {
         UUID mojangUuid = player.getUniqueId();
         PlayerProfile profile = player.getPlayerProfile();
         EquippedSkinStore.Equipped previous = store.get(mojangUuid).orElse(null);
@@ -156,13 +190,13 @@ public final class SkinService {
         }
 
         profile.removeProperty(TEXTURES);
-        profile.setProperty(new ProfileProperty(TEXTURES, skin.value(), skin.signature()));
+        profile.setProperty(new ProfileProperty(TEXTURES, value, signature));
         player.setPlayerProfile(profile);
 
         store.put(mojangUuid, new EquippedSkinStore.Equipped(
-                skin.ref(), originalValue, originalSignature, Instant.now()
+                ref, originalValue, originalSignature, Instant.now(), customValue, customSignature
         ));
-        plugin.getServer().getPluginManager().callEvent(new MoonsamaSkinChangedEvent(player, skin.ref(), reason));
+        plugin.getServer().getPluginManager().callEvent(new MoonsamaSkinChangedEvent(player, ref, reason));
     }
 
     private boolean restore(Player player, MoonsamaSkinChangedEvent.Reason reason) {
