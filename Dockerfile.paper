@@ -1,4 +1,4 @@
-FROM curlimages/curl:8.16.0 AS downloader
+FROM curlimages/curl:8.22.0 AS downloader
 
 ARG PAPER_URL
 ARG PAPER_SHA256
