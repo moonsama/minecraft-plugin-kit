@@ -46,6 +46,11 @@ Without a key the wardrobe still opens and saves looks but tells the player the 
 cannot sign yet. Signing takes a few seconds per new look; the player is told to wait and
 only one apply per player runs at a time.
 
+Every *new* look is one request against the operator's MineSkin quota, so applies are
+budgeted per player (`signing-budget`: 20 s cooldown and 20 new looks per rolling hour by
+default). Looks already signed on this server are cache hits and never count, and players
+with `moonsama.wardrobe.unlimited` (ops) are exempt. Set both values to `0` to disable.
+
 ## Data
 
 `plugins/MoonsamaWardrobe/looks.json` holds saved looks keyed by Minecraft UUID and
@@ -60,5 +65,8 @@ look on the next `PortalHoldingsLoadedEvent`, and losing the base NFT itself is 
 collections: [moonsama, exosama]      # composable Portal collections
 hidden-slots: [background, companion] # customizable slots to leave out of the menu
 parts-outside-portal: locked          # or "free": costume-only parts for everyone
+signing-budget:                       # per player; only NEW looks count (0 = off)
+  cooldown-seconds: 20
+  max-per-hour: 20
 collection-names: { moonsama: Moonsama, exosama: Exosama }
 ```

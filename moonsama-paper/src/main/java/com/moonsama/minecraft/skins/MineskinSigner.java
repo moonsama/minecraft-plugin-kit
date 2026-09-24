@@ -68,6 +68,11 @@ public final class MineskinSigner implements SkinSigner {
     }
 
     @Override
+    public boolean isCached(byte[] png, Variant variant) {
+        return cache.get(sha256(png), variant).isPresent();
+    }
+
+    @Override
     public CompletableFuture<SignedTexture> sign(byte[] png, Variant variant) {
         if (!isAvailable()) {
             return CompletableFuture.failedFuture(new SigningException(

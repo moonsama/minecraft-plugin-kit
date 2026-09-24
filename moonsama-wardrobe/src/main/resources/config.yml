@@ -22,6 +22,16 @@ hidden-slots:
 #   free   - every linked player may use them
 parts-outside-portal: locked
 
+# Per-player budget for "Wear this look". Every NEW look costs one MineSkin request on the
+# operator's API key; looks that were already signed on this server are cache hits and never
+# count. This stops one player from cycling outfits until the key's quota is gone.
+# Players with the permission moonsama.wardrobe.unlimited (default: ops) are exempt.
+signing-budget:
+  # Minimum seconds between two new looks (0 = no cooldown).
+  cooldown-seconds: 20
+  # New looks per rolling hour (0 = unlimited).
+  max-per-hour: 20
+
 # Display names for collections in messages.
 collection-names:
   moonsama: Moonsama

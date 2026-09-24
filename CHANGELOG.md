@@ -31,7 +31,8 @@ with direct Moonsama Portal integration.
 - **MoonsamaItems**: legacy off-hand cosmetics and gameplay perks (Moonbag, scepters, …)
   gated on Portal holdings, with custom models in the resource pack.
 - **MoonsamaWardrobe**: custom skin compositions (Java port of the legacy Composer
-  renderer in `skin-compositor`) with optional MineSkin signing.
+  renderer in `skin-compositor`) with optional MineSkin signing; per-player signing budget
+  (`signing-budget`) so one player cannot exhaust the MineSkin quota.
 - **MoonsamaGatekeeper**: optional collection-based join gate (disabled by default).
 - **MoonsamaWhaleBuffs**: "moon power" buffs scaled by held collections.
 - **MoonsamaOffhandDemo** (`examples/offhand-demo`): minimal feature plugin showing the

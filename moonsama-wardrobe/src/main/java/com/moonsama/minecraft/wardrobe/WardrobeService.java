@@ -40,18 +40,24 @@ public final class WardrobeService {
     private final Executor renderExecutor;
     private final List<String> collections;
     private final Set<String> hiddenSlots;
+    private final SigningBudget budget;
+
+    /** Players with this permission are not subject to the signing budget. */
+    public static final String UNLIMITED_PERMISSION = "moonsama.wardrobe.unlimited";
 
     public WardrobeService(Plugin plugin, MoonsamaService moonsama, SkinService skins, SkinCompositor compositor,
                            WardrobeStore store, Supplier<SkinSigner> signer, Executor renderExecutor,
                            List<String> collections, Set<String> hiddenSlots) {
         this(plugin, moonsama, skins, compositor, store, signer, renderExecutor, collections, hiddenSlots,
-                Unlocks.OutsidePortalPolicy.LOCKED);
+                Unlocks.OutsidePortalPolicy.LOCKED, new SigningBudget(java.time.Duration.ZERO, 0));
     }
 
     public WardrobeService(Plugin plugin, MoonsamaService moonsama, SkinService skins, SkinCompositor compositor,
                            WardrobeStore store, Supplier<SkinSigner> signer, Executor renderExecutor,
-                           List<String> collections, Set<String> hiddenSlots, Unlocks.OutsidePortalPolicy outsidePortal) {
+                           List<String> collections, Set<String> hiddenSlots, Unlocks.OutsidePortalPolicy outsidePortal,
+                           SigningBudget budget) {
         this.plugin = plugin;
+        this.budget = budget;
         this.moonsama = moonsama;
         this.skins = skins;
         this.compositor = compositor;
@@ -77,6 +83,10 @@ public final class WardrobeService {
 
     public com.moonsama.minecraft.skins.SkinCatalog skinCatalog() {
         return skins.catalog();
+    }
+
+    public SigningBudget budget() {
+        return budget;
     }
 
     public boolean signingAvailable() {
@@ -185,6 +195,7 @@ public final class WardrobeService {
             return CompletableFuture.completedFuture(new Outcome(Status.SIGNING_UNAVAILABLE, null));
         }
         String composer = compositor.composerCollection(ref.collection()).orElseThrow();
+        boolean unlimited = player.hasPermission(UNLIMITED_PERMISSION); // main thread; the chain below is async
         return moonsama.cachedHoldings(mojangUuid).thenCompose(snapshot -> {
             List<AssetHolding> holdings = snapshot.holdings();
             if (!owns(holdings, ref)) {
@@ -207,11 +218,24 @@ public final class WardrobeService {
                         }
                         return rendered.png();
                     }, renderExecutor)
-                    .thenCompose(png -> skinSigner.sign(png, variant))
+                    .thenCompose(png -> {
+                        // Already signed on this server: free, no quota spent. New looks draw on the
+                        // player's budget so one player cannot burn the operator's MineSkin quota.
+                        if (!unlimited && !skinSigner.isCached(png, variant)) {
+                            Optional<java.time.Duration> wait = budget.tryAcquire(mojangUuid);
+                            if (wait.isPresent()) {
+                                throw new RateLimited(wait.get());
+                            }
+                        }
+                        return skinSigner.sign(png, variant);
+                    })
                     .thenCompose(signed -> skins.wearCustom(player, ref, signed.value(), signed.signature())
                             .thenApply(result -> new Outcome(fromSkins(result), null)))
                     .exceptionally(failure -> {
                         Throwable cause = failure.getCause() != null ? failure.getCause() : failure;
+                        if (cause instanceof RateLimited limited) {
+                            return new Outcome(Status.RATE_LIMITED, Long.toString(Math.max(1, limited.wait.toSeconds())));
+                        }
                         if (cause instanceof SkinSigner.SigningException) {
                             plugin.getLogger().warning("Skin signing failed for " + player.getName() + ": " + cause.getMessage());
                             return new Outcome(Status.SIGNING_FAILED, cause.getMessage());
@@ -277,6 +301,18 @@ public final class WardrobeService {
     public record Outcome(Status status, String detail) {}
 
     public enum Status {
-        APPLIED, NOT_LINKED, NOT_OWNED, NOT_UNLOCKED, UNKNOWN_SKIN, SIGNING_UNAVAILABLE, SIGNING_FAILED, UNAVAILABLE
+        APPLIED, NOT_LINKED, NOT_OWNED, NOT_UNLOCKED, UNKNOWN_SKIN, SIGNING_UNAVAILABLE, SIGNING_FAILED,
+        /** Signing budget exhausted; {@code detail} is the number of seconds to wait. */
+        RATE_LIMITED,
+        UNAVAILABLE
+    }
+
+    private static final class RateLimited extends RuntimeException {
+        private final java.time.Duration wait;
+
+        RateLimited(java.time.Duration wait) {
+            super("signing budget exhausted", null, false, false);
+            this.wait = wait;
+        }
     }
 }

@@ -20,6 +20,15 @@ public interface SkinSigner {
      */
     CompletableFuture<SignedTexture> sign(byte[] png, Variant variant);
 
+    /**
+     * True when {@link #sign} for this exact image would be answered from the local cache,
+     * i.e. without spending a request at the signing backend. Lets callers rate-limit only
+     * the calls that actually cost quota.
+     */
+    default boolean isCached(byte[] png, Variant variant) {
+        return false;
+    }
+
     enum Variant {
         CLASSIC,
         SLIM

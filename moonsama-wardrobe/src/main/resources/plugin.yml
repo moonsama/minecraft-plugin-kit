@@ -18,3 +18,6 @@ permissions:
   moonsama.wardrobe.use:
     description: Allows composing custom skins from owned NFT parts.
     default: true
+  moonsama.wardrobe.unlimited:
+    description: Exempt from the per-player signing budget (signing-budget in config.yml).
+    default: op

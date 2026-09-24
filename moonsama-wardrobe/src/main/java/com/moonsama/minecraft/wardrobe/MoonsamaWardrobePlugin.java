@@ -78,12 +78,19 @@ public final class MoonsamaWardrobePlugin extends JavaPlugin implements Listener
         });
         Unlocks.OutsidePortalPolicy outsidePortal = "free".equalsIgnoreCase(getConfig().getString("parts-outside-portal", "locked"))
                 ? Unlocks.OutsidePortalPolicy.FREE : Unlocks.OutsidePortalPolicy.LOCKED;
+        SigningBudget budget = new SigningBudget(
+                java.time.Duration.ofSeconds(Math.max(0, getConfig().getLong("signing-budget.cooldown-seconds", 20))),
+                getConfig().getInt("signing-budget.max-per-hour", 20));
         service = new WardrobeService(this, moonsama, skins, compositor, store,
-                () -> getServer().getServicesManager().load(SkinSigner.class), renderExecutor, collections, hidden, outsidePortal);
+                () -> getServer().getServicesManager().load(SkinSigner.class), renderExecutor, collections, hidden,
+                outsidePortal, budget);
 
-        getLogger().info(String.format(Locale.ROOT, "Wardrobe ready for %s; %d saved look(s); skin signing %s; costume-only parts %s",
+        getLogger().info(String.format(Locale.ROOT, "Wardrobe ready for %s; %d saved look(s); skin signing %s; costume-only parts %s; signing budget %s",
                 service.collections(), store.size(), service.signingAvailable() ? "available" : "NOT configured (set MINESKIN_API_KEY)",
-                outsidePortal == Unlocks.OutsidePortalPolicy.FREE ? "free for everyone" : "locked"));
+                outsidePortal == Unlocks.OutsidePortalPolicy.FREE ? "free for everyone" : "locked",
+                budget.enabled()
+                        ? budget.cooldown().toSeconds() + "s cooldown, " + (budget.perHour() > 0 ? budget.perHour() + "/hour" : "no hourly cap")
+                        : "off"));
 
         getServer().getPluginManager().registerEvents(this, this);
         getServer().getServicesManager().register(WardrobeService.class, service, this, ServicePriority.Normal);
@@ -272,6 +279,8 @@ public final class MoonsamaWardrobePlugin extends JavaPlugin implements Listener
                 case UNKNOWN_SKIN -> "<red>That NFT cannot be customized.</red>";
                 case SIGNING_UNAVAILABLE -> "<gold>Skin signing is not configured on this server.</gold>";
                 case SIGNING_FAILED -> "<red>Skin signing failed: " + safe(outcome.detail()) + ". Try again in a minute.</red>";
+                case RATE_LIMITED -> "<gold>Slow down - new looks are limited. Try again in " + safe(outcome.detail())
+                        + "s (looks you have worn before are always instant).</gold>";
                 case UNAVAILABLE -> "<red>Could not apply your look right now. Please try again later.</red>";
             });
         }));
