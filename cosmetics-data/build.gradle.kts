@@ -13,7 +13,7 @@ sourceSets {
 
 tasks.processResources {
     from(layout.projectDirectory) {
-        include("collections.json", "item-skins.json", "offhands.json", "hats.json", "game-passes.json", "whale-buffs.json", "README.md")
+        include("collections.json", "item-skins.json", "offhands.json", "offhand-states.json", "hats.json", "game-passes.json", "whale-buffs.json", "README.md")
         include("skins/**", "compositor/**")
         into("moonsama/cosmetics")
     }

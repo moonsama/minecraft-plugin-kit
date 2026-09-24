@@ -4,6 +4,8 @@ import com.moonsama.minecraft.api.HoldingsSnapshot;
 import com.moonsama.minecraft.api.MoonsamaService;
 import com.moonsama.minecraft.api.event.PortalHoldingsLoadedEvent;
 import com.moonsama.minecraft.api.event.PortalPlayerErasedEvent;
+import com.moonsama.minecraft.items.perks.PerkManager;
+import com.moonsama.minecraft.items.perks.PerkSettings;
 import org.bukkit.NamespacedKey;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
@@ -40,6 +42,7 @@ public final class MoonsamaItemsPlugin extends JavaPlugin implements Listener, T
     private MoonsamaService moonsama;
     private ItemsService service;
     private SkinHatBridge hats;
+    private PerkManager perks;
     private NamespacedKey entryKey;
     private Map<String, String> collectionNames;
 
@@ -68,6 +71,15 @@ public final class MoonsamaItemsPlugin extends JavaPlugin implements Listener, T
         if (getConfig().getBoolean("hats.enabled", true)) {
             hookSkins();
         }
+        PerkSettings perkSettings = PerkSettings.from(getConfig().getConfigurationSection("offhands.perks"));
+        if (offhandsEnabled() && perkSettings.enabled()) {
+            perks = new PerkManager(this, catalog, service.items(), perkSettings);
+            getServer().getPluginManager().registerEvents(perks, this);
+            perks.start();
+            getLogger().info("Off-hand perks enabled for " + perks.registry().all().size() + " off-hands");
+        } else {
+            getLogger().info("Off-hand perks are disabled; off-hands are purely cosmetic.");
+        }
         getServer().getServicesManager().register(ItemsService.class, service, this, ServicePriority.Normal);
         var command = getCommand("items");
         if (command != null) {
@@ -91,7 +103,16 @@ public final class MoonsamaItemsPlugin extends JavaPlugin implements Listener, T
 
     @Override
     public void onDisable() {
+        if (perks != null) {
+            perks.stop();
+            perks = null;
+        }
         getServer().getServicesManager().unregisterAll(this);
+    }
+
+    /** Active off-hand perks, or empty when they are disabled by config. */
+    public Optional<PerkManager> perks() {
+        return Optional.ofNullable(perks);
     }
 
     private Map<String, String> readCollectionNames() {

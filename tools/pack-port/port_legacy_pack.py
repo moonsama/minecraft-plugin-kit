@@ -8,8 +8,11 @@ kit exposes:
 * ``cosmetics-data/item-skins.json`` — weapon/tool skins
 * ``cosmetics-data/offhands.json``  — cosmetic off-hand items
 * ``cosmetics-data/hats.json``      — 3D hats
+* ``cosmetics-data/offhand-states.json`` — alternate looks the off-hand perks switch to
+  (cooldown buzzers, charge stages, Detectore glow) and the Moonsama-owned sounds they play
 
-Everything else in the legacy pack (blocks, gameplay items, sounds, menus) is left behind.
+Everything else in the legacy pack (blocks, gameplay items, third-party music, menus) is
+left behind.
 The generated ``assets/minecraft/items/<material>.json`` files are ``range_dispatch`` item
 model definitions on ``custom_model_data`` (floats index 0), which is how the plugins
 select a skin; the legacy custom model data numbers are preserved.
@@ -62,7 +65,16 @@ def wanted_thresholds() -> dict[str, set[float]]:
     hats = json.loads((DATA / "hats.json").read_text())
     for rule in hats["rules"]:
         wanted.setdefault(material_key(hats["material"]), set()).add(float(rule["customModelData"]))
+
+    for state in offhand_states()["states"]:
+        base = int(state["customModelData"])
+        for offset in range(int(state.get("count", 1))):
+            wanted.setdefault(material_key(state["material"]), set()).add(float(base + offset))
     return wanted
+
+
+def offhand_states() -> dict:
+    return json.loads((DATA / "offhand-states.json").read_text())
 
 
 def model_refs(node, out: set[str]) -> None:
@@ -162,7 +174,11 @@ class Porter:
         if legacy_file.is_file():
             legacy = json.loads(legacy_file.read_text())["model"]
             if legacy.get("type", "").endswith("range_dispatch"):
-                by_threshold = {float(e["threshold"]): e for e in legacy.get("entries", [])}
+                by_threshold: dict[float, dict] = {}
+                for entry in legacy.get("entries", []):
+                    # The legacy pack has a few duplicated thresholds (e.g. iron_sword 60);
+                    # the first entry is the one the item state actually used.
+                    by_threshold.setdefault(float(entry["threshold"]), entry)
                 for threshold in sorted(thresholds):
                     entry = by_threshold.get(threshold)
                     if entry is None:
@@ -196,6 +212,33 @@ class Porter:
         self.write(f"assets/minecraft/items/{material}.json",
                    (json.dumps(definition, indent=2) + "\n").encode())
 
+    def port_sounds(self, events: list[str]) -> None:
+        """Copy the listed sound events (and their .ogg files) from the legacy pack, per namespace."""
+        by_namespace: dict[str, list[str]] = {}
+        for event in events:
+            namespace, name = event.split(":", 1) if ":" in event else (event.split(".", 1)[0], event)
+            by_namespace.setdefault(namespace, []).append(name)
+        for namespace, names in sorted(by_namespace.items()):
+            source = LEGACY / "assets" / namespace / "sounds.json"
+            if not source.is_file():
+                self.missing.extend(f"sound {namespace}:{n}" for n in names)
+                continue
+            legacy = json.loads(source.read_text())
+            ported: dict[str, dict] = {}
+            for name in names:
+                definition = legacy.get(name)
+                if definition is None:
+                    self.missing.append(f"sound {namespace}:{name}")
+                    continue
+                ported[name] = definition
+                for sound in definition.get("sounds", []):
+                    ref = sound["name"] if isinstance(sound, dict) else sound
+                    sound_ns, path = split_ref(ref)
+                    if not self.copy_file(f"assets/{sound_ns}/sounds/{path}.ogg"):
+                        self.missing.append(f"sound file {ref}")
+            if ported:
+                self.write(f"assets/{namespace}/sounds.json", (json.dumps(ported, indent=2) + "\n").encode())
+
     def write_atlas(self) -> None:
         if not self.texture_dirs:
             return
@@ -218,6 +261,7 @@ def main() -> int:
     for material in EXTRA_ENTRIES:
         if material not in wanted:
             porter.port_material(material, set())
+    porter.port_sounds([s["event"] for s in offhand_states().get("sounds", [])])
     porter.write_atlas()
     porter.write_manifest()
     print(f"ported {len(set(porter.copied))} files for {len(wanted)} materials")

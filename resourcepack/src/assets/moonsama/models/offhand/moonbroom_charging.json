@@ -1,0 +1,26 @@
+{
+    "parent": "minecraft:item/handheld_rod",
+    "textures": {
+        "layer0": "moonsama:item/moonbroom_charging"
+    },
+    "display": {
+        "thirdperson_righthand": {
+            "rotation": [ 115, -175, 15 ],
+            "scale": [ 2, 2, 2 ],
+			"translation": [ -6, -10, 4 ]
+        },
+        "thirdperson_lefthand": {
+            "rotation": [ 115, -175, -85 ],
+            "scale": [ 2, 2, 2 ],
+			"translation": [ -6, -10, 4 ]
+        },
+        "firstperson_righthand": {
+            "rotation": [ 110, 0, 45 ],
+			"translation": [ -9, 0, 0 ]
+        },
+        "firstperson_lefthand": {
+            "rotation": [ 110, 0, -45 ],
+			"translation": [ -9, 0, 0 ]
+        }
+    }
+}

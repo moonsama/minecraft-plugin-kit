@@ -347,6 +347,69 @@
         }
       },
       {
+        "threshold": 53.0,
+        "model": {
+          "type": "model",
+          "model": "moonsama:offhand/buzzer"
+        }
+      },
+      {
+        "threshold": 54.0,
+        "model": {
+          "type": "model",
+          "model": "moonsama:offhand/kitty_paw_pounce"
+        }
+      },
+      {
+        "threshold": 55.0,
+        "model": {
+          "type": "model",
+          "model": "moonsama:offhand/yarn_ball"
+        }
+      },
+      {
+        "threshold": 56.0,
+        "model": {
+          "type": "model",
+          "model": "moonsama:offhand/rum_empty"
+        }
+      },
+      {
+        "threshold": 57.0,
+        "model": {
+          "type": "model",
+          "model": "publicpressure:item/pods_charging"
+        }
+      },
+      {
+        "threshold": 58.0,
+        "model": {
+          "type": "model",
+          "model": "moonsama:offhand/moonbroom_buzzer"
+        }
+      },
+      {
+        "threshold": 59.0,
+        "model": {
+          "type": "model",
+          "model": "moonsama:offhand/moontree_buzzer"
+        }
+      },
+      {
+        "threshold": 60.0,
+        "model": {
+          "type": "model",
+          "model": "moonsama:offhand/moonflake"
+        }
+      },
+      {
+        "threshold": 61.0,
+        "model": {
+          "type": "model",
+          "model": "bunnysama:offhand/moonbasket_stage_0"
+        }
+      },
+      {
         "threshold": 10001.0,
         "model": {
           "type": "model",

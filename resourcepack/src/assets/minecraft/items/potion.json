@@ -1,0 +1,37 @@
+{
+  "model": {
+    "type": "minecraft:range_dispatch",
+    "property": "minecraft:custom_model_data",
+    "entries": [
+      {
+        "threshold": 1.0,
+        "model": {
+          "type": "model",
+          "model": "moonsama:offhand/rum"
+        }
+      }
+    ],
+    "fallback": {
+      "type": "model",
+      "model": "minecraft:item/potion",
+      "tints": [
+        {
+          "type": "minecraft:constant",
+          "value": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "type": "minecraft:potion",
+          "default": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        }
+      ]
+    }
+  }
+}

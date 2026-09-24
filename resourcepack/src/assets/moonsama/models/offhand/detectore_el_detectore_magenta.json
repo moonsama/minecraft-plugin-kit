@@ -1,0 +1,7 @@
+{
+    "parent": "moonsama:item\/template_detectore",
+    "textures": {
+        "layer0": "moonsama:item\/detectore_el_detectore",
+        "layer1": "moonsama:item\/detectore_glow_magenta_epic"
+    }
+}

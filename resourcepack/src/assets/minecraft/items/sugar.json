@@ -67,6 +67,531 @@
         }
       },
       {
+        "threshold": 22.0,
+        "model": {
+          "type": "model",
+          "model": "moonsama:offhand/detectore_emerald_black"
+        }
+      },
+      {
+        "threshold": 23.0,
+        "model": {
+          "type": "model",
+          "model": "moonsama:offhand/detectore_emerald_blue"
+        }
+      },
+      {
+        "threshold": 24.0,
+        "model": {
+          "type": "model",
+          "model": "moonsama:offhand/detectore_emerald_cyan"
+        }
+      },
+      {
+        "threshold": 25.0,
+        "model": {
+          "type": "model",
+          "model": "moonsama:offhand/detectore_emerald_gray"
+        }
+      },
+      {
+        "threshold": 26.0,
+        "model": {
+          "type": "model",
+          "model": "moonsama:offhand/detectore_emerald_green"
+        }
+      },
+      {
+        "threshold": 27.0,
+        "model": {
+          "type": "model",
+          "model": "moonsama:offhand/detectore_emerald_light_blue"
+        }
+      },
+      {
+        "threshold": 28.0,
+        "model": {
+          "type": "model",
+          "model": "moonsama:offhand/detectore_emerald_lime"
+        }
+      },
+      {
+        "threshold": 29.0,
+        "model": {
+          "type": "model",
+          "model": "moonsama:offhand/detectore_emerald_magenta"
+        }
+      },
+      {
+        "threshold": 30.0,
+        "model": {
+          "type": "model",
+          "model": "moonsama:offhand/detectore_emerald_orange"
+        }
+      },
+      {
+        "threshold": 31.0,
+        "model": {
+          "type": "model",
+          "model": "moonsama:offhand/detectore_emerald_pink"
+        }
+      },
+      {
+        "threshold": 32.0,
+        "model": {
+          "type": "model",
+          "model": "moonsama:offhand/detectore_emerald_purple"
+        }
+      },
+      {
+        "threshold": 33.0,
+        "model": {
+          "type": "model",
+          "model": "moonsama:offhand/detectore_emerald_red"
+        }
+      },
+      {
+        "threshold": 34.0,
+        "model": {
+          "type": "model",
+          "model": "moonsama:offhand/detectore_emerald_silver"
+        }
+      },
+      {
+        "threshold": 35.0,
+        "model": {
+          "type": "model",
+          "model": "moonsama:offhand/detectore_emerald_white"
+        }
+      },
+      {
+        "threshold": 36.0,
+        "model": {
+          "type": "model",
+          "model": "moonsama:offhand/detectore_emerald_yellow"
+        }
+      },
+      {
+        "threshold": 37.0,
+        "model": {
+          "type": "model",
+          "model": "moonsama:offhand/detectore_ruby_black"
+        }
+      },
+      {
+        "threshold": 38.0,
+        "model": {
+          "type": "model",
+          "model": "moonsama:offhand/detectore_ruby_blue"
+        }
+      },
+      {
+        "threshold": 39.0,
+        "model": {
+          "type": "model",
+          "model": "moonsama:offhand/detectore_ruby_cyan"
+        }
+      },
+      {
+        "threshold": 40.0,
+        "model": {
+          "type": "model",
+          "model": "moonsama:offhand/detectore_ruby_gray"
+        }
+      },
+      {
+        "threshold": 41.0,
+        "model": {
+          "type": "model",
+          "model": "moonsama:offhand/detectore_ruby_green"
+        }
+      },
+      {
+        "threshold": 42.0,
+        "model": {
+          "type": "model",
+          "model": "moonsama:offhand/detectore_ruby_light_blue"
+        }
+      },
+      {
+        "threshold": 43.0,
+        "model": {
+          "type": "model",
+          "model": "moonsama:offhand/detectore_ruby_lime"
+        }
+      },
+      {
+        "threshold": 44.0,
+        "model": {
+          "type": "model",
+          "model": "moonsama:offhand/detectore_ruby_magenta"
+        }
+      },
+      {
+        "threshold": 45.0,
+        "model": {
+          "type": "model",
+          "model": "moonsama:offhand/detectore_ruby_orange"
+        }
+      },
+      {
+        "threshold": 46.0,
+        "model": {
+          "type": "model",
+          "model": "moonsama:offhand/detectore_ruby_pink"
+        }
+      },
+      {
+        "threshold": 47.0,
+        "model": {
+          "type": "model",
+          "model": "moonsama:offhand/detectore_ruby_purple"
+        }
+      },
+      {
+        "threshold": 48.0,
+        "model": {
+          "type": "model",
+          "model": "moonsama:offhand/detectore_ruby_red"
+        }
+      },
+      {
+        "threshold": 49.0,
+        "model": {
+          "type": "model",
+          "model": "moonsama:offhand/detectore_ruby_silver"
+        }
+      },
+      {
+        "threshold": 50.0,
+        "model": {
+          "type": "model",
+          "model": "moonsama:offhand/detectore_ruby_white"
+        }
+      },
+      {
+        "threshold": 51.0,
+        "model": {
+          "type": "model",
+          "model": "moonsama:offhand/detectore_ruby_yellow"
+        }
+      },
+      {
+        "threshold": 52.0,
+        "model": {
+          "type": "model",
+          "model": "moonsama:offhand/detectore_sapphire_black"
+        }
+      },
+      {
+        "threshold": 53.0,
+        "model": {
+          "type": "model",
+          "model": "moonsama:offhand/detectore_sapphire_blue"
+        }
+      },
+      {
+        "threshold": 54.0,
+        "model": {
+          "type": "model",
+          "model": "moonsama:offhand/detectore_sapphire_cyan"
+        }
+      },
+      {
+        "threshold": 55.0,
+        "model": {
+          "type": "model",
+          "model": "moonsama:offhand/detectore_sapphire_gray"
+        }
+      },
+      {
+        "threshold": 56.0,
+        "model": {
+          "type": "model",
+          "model": "moonsama:offhand/detectore_sapphire_green"
+        }
+      },
+      {
+        "threshold": 57.0,
+        "model": {
+          "type": "model",
+          "model": "moonsama:offhand/detectore_sapphire_light_blue"
+        }
+      },
+      {
+        "threshold": 58.0,
+        "model": {
+          "type": "model",
+          "model": "moonsama:offhand/detectore_sapphire_lime"
+        }
+      },
+      {
+        "threshold": 59.0,
+        "model": {
+          "type": "model",
+          "model": "moonsama:offhand/detectore_sapphire_magenta"
+        }
+      },
+      {
+        "threshold": 60.0,
+        "model": {
+          "type": "model",
+          "model": "moonsama:offhand/detectore_sapphire_orange"
+        }
+      },
+      {
+        "threshold": 61.0,
+        "model": {
+          "type": "model",
+          "model": "moonsama:offhand/detectore_sapphire_pink"
+        }
+      },
+      {
+        "threshold": 62.0,
+        "model": {
+          "type": "model",
+          "model": "moonsama:offhand/detectore_sapphire_purple"
+        }
+      },
+      {
+        "threshold": 63.0,
+        "model": {
+          "type": "model",
+          "model": "moonsama:offhand/detectore_sapphire_red"
+        }
+      },
+      {
+        "threshold": 64.0,
+        "model": {
+          "type": "model",
+          "model": "moonsama:offhand/detectore_sapphire_silver"
+        }
+      },
+      {
+        "threshold": 65.0,
+        "model": {
+          "type": "model",
+          "model": "moonsama:offhand/detectore_sapphire_white"
+        }
+      },
+      {
+        "threshold": 66.0,
+        "model": {
+          "type": "model",
+          "model": "moonsama:offhand/detectore_sapphire_yellow"
+        }
+      },
+      {
+        "threshold": 67.0,
+        "model": {
+          "type": "model",
+          "model": "moonsama:offhand/detectore_amber_black"
+        }
+      },
+      {
+        "threshold": 68.0,
+        "model": {
+          "type": "model",
+          "model": "moonsama:offhand/detectore_amber_blue"
+        }
+      },
+      {
+        "threshold": 69.0,
+        "model": {
+          "type": "model",
+          "model": "moonsama:offhand/detectore_amber_cyan"
+        }
+      },
+      {
+        "threshold": 70.0,
+        "model": {
+          "type": "model",
+          "model": "moonsama:offhand/detectore_amber_gray"
+        }
+      },
+      {
+        "threshold": 71.0,
+        "model": {
+          "type": "model",
+          "model": "moonsama:offhand/detectore_amber_green"
+        }
+      },
+      {
+        "threshold": 72.0,
+        "model": {
+          "type": "model",
+          "model": "moonsama:offhand/detectore_amber_light_blue"
+        }
+      },
+      {
+        "threshold": 73.0,
+        "model": {
+          "type": "model",
+          "model": "moonsama:offhand/detectore_amber_lime"
+        }
+      },
+      {
+        "threshold": 74.0,
+        "model": {
+          "type": "model",
+          "model": "moonsama:offhand/detectore_amber_magenta"
+        }
+      },
+      {
+        "threshold": 75.0,
+        "model": {
+          "type": "model",
+          "model": "moonsama:offhand/detectore_amber_orange"
+        }
+      },
+      {
+        "threshold": 76.0,
+        "model": {
+          "type": "model",
+          "model": "moonsama:offhand/detectore_amber_pink"
+        }
+      },
+      {
+        "threshold": 77.0,
+        "model": {
+          "type": "model",
+          "model": "moonsama:offhand/detectore_amber_purple"
+        }
+      },
+      {
+        "threshold": 78.0,
+        "model": {
+          "type": "model",
+          "model": "moonsama:offhand/detectore_amber_red"
+        }
+      },
+      {
+        "threshold": 79.0,
+        "model": {
+          "type": "model",
+          "model": "moonsama:offhand/detectore_amber_silver"
+        }
+      },
+      {
+        "threshold": 80.0,
+        "model": {
+          "type": "model",
+          "model": "moonsama:offhand/detectore_amber_white"
+        }
+      },
+      {
+        "threshold": 81.0,
+        "model": {
+          "type": "model",
+          "model": "moonsama:offhand/detectore_amber_yellow"
+        }
+      },
+      {
+        "threshold": 82.0,
+        "model": {
+          "type": "model",
+          "model": "moonsama:offhand/detectore_el_detectore_black"
+        }
+      },
+      {
+        "threshold": 83.0,
+        "model": {
+          "type": "model",
+          "model": "moonsama:offhand/detectore_el_detectore_blue"
+        }
+      },
+      {
+        "threshold": 84.0,
+        "model": {
+          "type": "model",
+          "model": "moonsama:offhand/detectore_el_detectore_cyan"
+        }
+      },
+      {
+        "threshold": 85.0,
+        "model": {
+          "type": "model",
+          "model": "moonsama:offhand/detectore_el_detectore_gray"
+        }
+      },
+      {
+        "threshold": 86.0,
+        "model": {
+          "type": "model",
+          "model": "moonsama:offhand/detectore_el_detectore_green"
+        }
+      },
+      {
+        "threshold": 87.0,
+        "model": {
+          "type": "model",
+          "model": "moonsama:offhand/detectore_el_detectore_light_blue"
+        }
+      },
+      {
+        "threshold": 88.0,
+        "model": {
+          "type": "model",
+          "model": "moonsama:offhand/detectore_el_detectore_lime"
+        }
+      },
+      {
+        "threshold": 89.0,
+        "model": {
+          "type": "model",
+          "model": "moonsama:offhand/detectore_el_detectore_magenta"
+        }
+      },
+      {
+        "threshold": 90.0,
+        "model": {
+          "type": "model",
+          "model": "moonsama:offhand/detectore_el_detectore_orange"
+        }
+      },
+      {
+        "threshold": 91.0,
+        "model": {
+          "type": "model",
+          "model": "moonsama:offhand/detectore_el_detectore_pink"
+        }
+      },
+      {
+        "threshold": 92.0,
+        "model": {
+          "type": "model",
+          "model": "moonsama:offhand/detectore_el_detectore_purple"
+        }
+      },
+      {
+        "threshold": 93.0,
+        "model": {
+          "type": "model",
+          "model": "moonsama:offhand/detectore_el_detectore_red"
+        }
+      },
+      {
+        "threshold": 94.0,
+        "model": {
+          "type": "model",
+          "model": "moonsama:offhand/detectore_el_detectore_silver"
+        }
+      },
+      {
+        "threshold": 95.0,
+        "model": {
+          "type": "model",
+          "model": "moonsama:offhand/detectore_el_detectore_white"
+        }
+      },
+      {
+        "threshold": 96.0,
+        "model": {
+          "type": "model",
+          "model": "moonsama:offhand/detectore_el_detectore_yellow"
+        }
+      },
+      {
         "threshold": 98.0,
         "model": {
           "type": "model",
@@ -81,10 +606,31 @@
         }
       },
       {
+        "threshold": 100.0,
+        "model": {
+          "type": "model",
+          "model": "moonsama:offhand/moonsquid_helmet"
+        }
+      },
+      {
         "threshold": 111.0,
         "model": {
           "type": "model",
           "model": "publicpressure:item/pods"
+        }
+      },
+      {
+        "threshold": 112.0,
+        "model": {
+          "type": "model",
+          "model": "publicpressure:item/music_disc"
+        }
+      },
+      {
+        "threshold": 113.0,
+        "model": {
+          "type": "model",
+          "model": "publicpressure:item/pods_ghost"
         }
       },
       {

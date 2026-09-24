@@ -1,0 +1,13 @@
+{
+    "parent": "minecraft:item/generated",
+    "textures": {
+        "layer0": "publicpressure:item/pods_ghost"
+    },
+	"display": {
+        "ground": {
+            "rotation": [ 0, 0, 0 ],
+            "translation": [ 0, 2, 0],
+            "scale":[ 3, 3, 3 ]
+        }
+	}
+}

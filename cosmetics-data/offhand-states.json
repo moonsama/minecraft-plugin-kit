@@ -1,0 +1,32 @@
+{
+  "_comment": "Extra item looks the off-hand perks switch to (cooldown buzzers, charge stages, ore glow) and the sounds they play. Custom model data numbers are the legacy pack's. `count` expands to consecutive custom model data values (Detectore glow: base + colour index in the order black, blue, cyan, gray, green, light_blue, lime, magenta, orange, pink, purple, red, silver, white, yellow).",
+  "states": [
+    {"id": "buzzer", "material": "minecraft:iron_sword", "customModelData": 53, "offhand": "moonsama:moonburger"},
+    {"id": "moonpaw_pounce", "material": "minecraft:iron_sword", "customModelData": 54, "offhand": "moonsama:moonpaw"},
+    {"id": "moonpaw_buzzer", "material": "minecraft:iron_sword", "customModelData": 55, "offhand": "moonsama:moonpaw"},
+    {"id": "moonrum_empty", "material": "minecraft:iron_sword", "customModelData": 56, "offhand": "moonsama:moonrum"},
+    {"id": "pods_charging", "material": "minecraft:iron_sword", "customModelData": 57, "offhand": "publicpressure:pods"},
+    {"id": "moonbroom_buzzer", "material": "minecraft:iron_sword", "customModelData": 58, "offhand": "moonsama:moonbroom"},
+    {"id": "moontree_buzzer", "material": "minecraft:iron_sword", "customModelData": 59, "offhand": "moonsama:moontree"},
+    {"id": "moonflake_buzzer", "material": "minecraft:iron_sword", "customModelData": 60, "offhand": "moonsama:moonflake"},
+    {"id": "moonbasket_empty", "material": "minecraft:iron_sword", "customModelData": 61, "offhand": "bunnysama:moonbasket"},
+    {"id": "moonbasket_1", "material": "minecraft:egg", "customModelData": 3, "offhand": "bunnysama:moonbasket"},
+    {"id": "moonbasket_2", "material": "minecraft:egg", "customModelData": 4, "offhand": "bunnysama:moonbasket"},
+    {"id": "moonbasket_3", "material": "minecraft:egg", "customModelData": 5, "offhand": "bunnysama:moonbasket"},
+    {"id": "moonrum_drink", "material": "minecraft:potion", "customModelData": 1, "offhand": "moonsama:moonrum"},
+    {"id": "moonburger_food", "material": "minecraft:cooked_beef", "customModelData": 1, "offhand": "moonsama:moonburger"},
+    {"id": "moonbroom_ready", "material": "minecraft:shield", "customModelData": 10, "offhand": "moonsama:moonbroom"},
+    {"id": "moonbroom_projectile", "material": "minecraft:sugar", "customModelData": 114, "offhand": "moonsama:moonbroom"},
+    {"id": "moonsquid_helmet", "material": "minecraft:sugar", "customModelData": 100, "offhand": "moonsama:moonsquid"},
+    {"id": "pods_song", "material": "minecraft:sugar", "customModelData": 112, "offhand": "publicpressure:pods"},
+    {"id": "pods_ghost", "material": "minecraft:sugar", "customModelData": 113, "offhand": "publicpressure:pods"},
+    {"id": "detectore_emerald_glow", "material": "minecraft:sugar", "customModelData": 22, "count": 15, "offhand": "moonsama:detectore_emerald"},
+    {"id": "detectore_ruby_glow", "material": "minecraft:sugar", "customModelData": 37, "count": 15, "offhand": "moonsama:detectore_ruby"},
+    {"id": "detectore_sapphire_glow", "material": "minecraft:sugar", "customModelData": 52, "count": 15, "offhand": "moonsama:detectore_sapphire"},
+    {"id": "detectore_amber_glow", "material": "minecraft:sugar", "customModelData": 67, "count": 15, "offhand": "moonsama:detectore_amber"},
+    {"id": "detectore_el_detectore_glow", "material": "minecraft:sugar", "customModelData": 82, "count": 15, "offhand": "moonsama:detectore_el_detectore"}
+  ],
+  "sounds": [
+    {"event": "moonsama.pirate_laugh", "offhand": "moonsama:moonrum"}
+  ]
+}

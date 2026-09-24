@@ -1,0 +1,15 @@
+{
+    "parent": "minecraft:item/generated",
+    "textures": {
+        "layer0": "moonsama:item/rum",
+        "layer1": "moonsama:item/rum"
+    },
+	"display": {
+		"firstperson_lefthand": {
+			"scale": [0,0,0]
+		},
+		"firstperson_righthand": {
+			"scale": [0,0,0]
+		}
+	}
+}

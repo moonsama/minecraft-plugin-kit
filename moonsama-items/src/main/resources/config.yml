@@ -1,8 +1,8 @@
 # MoonsamaItems configuration.
 #
-# All cosmetics are purely visual: a resource pack (see resourcepack/) renders them via
-# custom model data, MoonsamaCore's Portal holdings decide who may use them. The legacy
-# gameplay perks of off-hands are not implemented.
+# A resource pack (see resourcepack/) renders the cosmetics via custom model data and
+# MoonsamaCore's Portal holdings decide who may use them. Off-hands can additionally carry
+# their legacy gameplay perks (see offhands.perks).
 
 # Weapon/tool skins from cosmetics-data/item-skins.json (unlocked by moonsama-x tokens).
 item-skins:
@@ -13,6 +13,24 @@ offhands:
   enabled: true
   # Give the stored off-hand back when a player joins or respawns.
   reequip-on-join: true
+  # Legacy gameplay perks while the off-hand is in the off-hand slot (Haste from the Egg,
+  # Moonbroom flight, Eggnades, Detectore ore glow, ...). See moonsama-items/README.md.
+  perks:
+    enabled: true
+    # Off-hand ids whose perk stays off (the item is then purely cosmetic), e.g.
+    # - publicpressure:pods
+    disabled: []
+    # Whether Eggnade explosions damage terrain (legacy: no).
+    moonbasket-breaks-blocks: false
+    # Songs the Pods can play. Each needs a resource-pack sound event and its length.
+    # Omit this section to keep the legacy Public Pressure track list (the music itself is
+    # third-party and NOT part of this kit's pack; without it the jam is silent).
+    # pod-songs:
+    #   my_track:
+    #     sound: myserver:music.my_track
+    #     length-ms: 180000
+    #     name: My Track
+    #     artist: Somebody
 
 # 3D hats derived from the composition of the NFT skin a player wears (needs MoonsamaSkins).
 hats:

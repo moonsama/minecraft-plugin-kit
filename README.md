@@ -65,8 +65,10 @@ See [local development](docs/local-development.md) for setup and troubleshooting
   [skin-compositor/README.md](skin-compositor/README.md).
 - `moonsama-items`: `/items` plugin for the legacy item cosmetics — weapon/tool skins
   and off-hand items unlocked by `moonsama-x` (Multiverse Items) tokens, plus the 3D hats
-  that belong to a worn Moonsama/Exosama skin (with `MoonsamaSkins`). Purely visual; the
-  old gameplay perks are not implemented.
+  that belong to a worn Moonsama/Exosama skin (with `MoonsamaSkins`). Off-hands carry
+  their legacy gameplay perks (Moonbroom flight, Eggnades, Detectore ore glow, Pods jams,
+  …), each of which can be switched off in the config. See
+  [moonsama-items/README.md](moonsama-items/README.md).
 - `moonsama-wardrobe`: `/wardrobe` plugin replacing the Customizer. A player picks a
   Moonsama or Exosama they hold, swaps parts (hair, hat, outfit, costume, …) for parts
   unlocked by their other holdings, and wears the composed skin. Composed skins need a
@@ -75,7 +77,8 @@ See [local development](docs/local-development.md) for setup and troubleshooting
   [moonsama-wardrobe/README.md](moonsama-wardrobe/README.md).
 - `examples/offhand-demo`: minimal plugin consuming the builder API.
 - `resourcepack`: Minecraft 26.3 pack (format 97) with the ported legacy models for item
-  skins, off-hands and hats. Regenerate the ported part with
+  skins, off-hands (including their perk states) and hats, plus the Moonsama-owned sounds
+  the perks play. Third-party music of the old pack is not included. Regenerate the ported part with
   `python3 tools/pack-port/port_legacy_pack.py` (maintainers only).
 - `tools/legacy-extract`: read-only scripts that regenerate `cosmetics-data`
   from local copies of the legacy databases (maintainers only).

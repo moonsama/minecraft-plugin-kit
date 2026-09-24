@@ -1,0 +1,11 @@
+{
+  "parent": "publicpressure:item/pods",
+  "display": {
+	"firstperson_righthand": {
+		"scale": [ 0, 0, 0 ]
+	},
+	"firstperson_lefthand": {
+		"scale": [ 0, 0, 0 ]
+	}
+  }
+}

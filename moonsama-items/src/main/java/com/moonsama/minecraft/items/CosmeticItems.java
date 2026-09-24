@@ -3,11 +3,13 @@ package com.moonsama.minecraft.items;
 import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.format.NamedTextColor;
 import net.kyori.adventure.text.format.TextDecoration;
+import org.bukkit.Material;
 import org.bukkit.NamespacedKey;
 import org.bukkit.inventory.ItemFlag;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.inventory.meta.components.CustomModelDataComponent;
+import org.bukkit.inventory.meta.components.UseCooldownComponent;
 import org.bukkit.persistence.PersistentDataType;
 import org.bukkit.plugin.Plugin;
 
@@ -23,11 +25,13 @@ public final class CosmeticItems {
     private final NamespacedKey skinKey;
     private final NamespacedKey offhandKey;
     private final NamespacedKey hatKey;
+    private final NamespacedKey perkKey;
 
     public CosmeticItems(Plugin plugin) {
         this.skinKey = new NamespacedKey(plugin, "item_skin");
         this.offhandKey = new NamespacedKey(plugin, "offhand");
         this.hatKey = new NamespacedKey(plugin, "hat");
+        this.perkKey = new NamespacedKey(plugin, "perk_item");
     }
 
     // ------------------------------------------------------------ item skins
@@ -66,24 +70,71 @@ public final class CosmeticItems {
     // -------------------------------------------------------------- offhands
 
     public ItemStack buildOffhand(Offhand offhand) {
-        ItemStack item = new ItemStack(offhand.material());
+        return buildOffhandForm(offhand, offhand.material(), offhand.customModelData(), List.of());
+    }
+
+    /**
+     * An alternative look of the same off-hand (e.g. the drinkable or "recharging" form a perk
+     * switches to). Carries the same tag, so it is still recognised as that off-hand.
+     */
+    public ItemStack buildOffhandForm(Offhand offhand, Material material, int customModelData, List<String> extraLore) {
+        ItemStack item = new ItemStack(material);
         ItemMeta meta = item.getItemMeta();
-        setModelData(meta, offhand.customModelData());
+        setModelData(meta, customModelData);
         meta.displayName(Component.text(offhand.name(), NamedTextColor.LIGHT_PURPLE)
                 .decoration(TextDecoration.ITALIC, false));
         List<Component> lore = new ArrayList<>();
+        if (offhand.legacyPerk() != null && !offhand.legacyPerk().isBlank()) {
+            lore.add(Component.text(offhand.legacyPerk(), NamedTextColor.BLUE).decoration(TextDecoration.ITALIC, false));
+        }
+        for (String line : extraLore) {
+            lore.add(gray(line));
+        }
         lore.add(gray("Moonsama off-hand cosmetic"));
         lore.add(gray("Cannot be dropped or stored"));
         meta.lore(lore);
         meta.setUnbreakable(true);
         meta.addItemFlags(ItemFlag.HIDE_UNBREAKABLE, ItemFlag.HIDE_ATTRIBUTES, ItemFlag.HIDE_ADDITIONAL_TOOLTIP);
+        // Vanilla item-cooldown overlay, shared by every form of this off-hand.
+        UseCooldownComponent cooldown = meta.getUseCooldown();
+        cooldown.setCooldownGroup(cooldownGroup(offhand.id()));
+        cooldown.setCooldownSeconds(1.0f);
+        meta.setUseCooldown(cooldown);
         meta.getPersistentDataContainer().set(offhandKey, PersistentDataType.STRING, offhand.id());
         item.setItemMeta(meta);
         return item;
     }
 
+    public static NamespacedKey cooldownGroup(String offhandId) {
+        return new NamespacedKey("moonsama", "offhand/" + offhandId.replace(':', '/').toLowerCase(java.util.Locale.ROOT));
+    }
+
     public Optional<String> offhandOf(ItemStack item) {
         return tag(item, offhandKey);
+    }
+
+    // ------------------------------------------------------------ perk items
+
+    /** An item a perk hands out (e.g. the Moonsquid helmet); protected like an off-hand. */
+    public ItemStack buildPerkItem(String perkItemId, Material material, int customModelData, String name, List<String> loreLines) {
+        ItemStack item = new ItemStack(material);
+        ItemMeta meta = item.getItemMeta();
+        setModelData(meta, customModelData);
+        meta.displayName(Component.text(name, NamedTextColor.LIGHT_PURPLE).decoration(TextDecoration.ITALIC, false));
+        List<Component> lore = new ArrayList<>();
+        for (String line : loreLines) {
+            lore.add(gray(line));
+        }
+        meta.lore(lore);
+        meta.setUnbreakable(true);
+        meta.addItemFlags(ItemFlag.HIDE_UNBREAKABLE, ItemFlag.HIDE_ATTRIBUTES, ItemFlag.HIDE_ADDITIONAL_TOOLTIP);
+        meta.getPersistentDataContainer().set(perkKey, PersistentDataType.STRING, perkItemId);
+        item.setItemMeta(meta);
+        return item;
+    }
+
+    public Optional<String> perkItemOf(ItemStack item) {
+        return tag(item, perkKey);
     }
 
     // ------------------------------------------------------------------ hats
@@ -114,14 +165,14 @@ public final class CosmeticItems {
         return Optional.ofNullable(item.getItemMeta().getPersistentDataContainer().get(hatKey, PersistentDataType.INTEGER));
     }
 
-    /** Off-hands and hats: items players may not drop, store or lose. */
+    /** Off-hands, perk items and hats: items players may not drop, store or lose. */
     public boolean isManagedCosmetic(ItemStack item) {
-        return offhandOf(item).isPresent() || isHat(item);
+        return offhandOf(item).isPresent() || perkItemOf(item).isPresent() || isHat(item);
     }
 
     // --------------------------------------------------------------- helpers
 
-    static void setModelData(ItemMeta meta, int customModelData) {
+    public static void setModelData(ItemMeta meta, int customModelData) {
         CustomModelDataComponent component = meta.getCustomModelDataComponent();
         component.setFloats(List.of((float) customModelData));
         meta.setCustomModelDataComponent(component);

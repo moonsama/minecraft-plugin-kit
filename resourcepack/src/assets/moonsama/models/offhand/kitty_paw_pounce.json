@@ -1,0 +1,17 @@
+{
+    "parent": "minecraft:item/generated",
+    "textures": {
+        "layer0": "moonsama:item/kitty_paw_pounce"
+    },
+	"display": {
+		"firstperson_lefthand": {
+			"scale": [0,0,0]
+		},
+		"firstperson_righthand": {
+			"scale": [0,0,0]
+		},
+        "gui": {
+            "scale": [ 1.5, 1.5, 1.5 ]
+        }
+	}
+}

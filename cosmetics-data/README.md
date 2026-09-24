@@ -21,6 +21,9 @@ Do not edit the extracted files by hand; re-run the extractor instead.
 - `offhands.json`, `hats.json` — cosmetic off-hand items and 3D hats of the legacy server
   (material, custom model data, unlocking Portal token). Curated by hand from the retired
   plugin sources rather than extracted, so they survive re-runs of the extractor.
+- `offhand-states.json` — the alternate looks an off-hand takes while its gameplay perk
+  runs (cooldown buzzers, Eggnade charge stages, Detectore ore glow, Pods props) and the
+  Moonsama-owned sounds the perks play. Drives the resource-pack port and the perk tests.
 - `game-passes.json`, `whale-buffs.json` — legacy access gates and buff allowlists mapped
   to Portal collections (entries with `collection: null` cannot be checked through Portal).
 - `compositor/` — data for composing custom skins the way the Customizer did:
