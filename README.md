@@ -147,7 +147,9 @@ All value-moving routes are operator gated. The environment template enables
 only spend for the sandbox `/buyrelic` demo; reward, refund, and holds remain
 disabled until explicitly enabled.
 
-Velocity support and production callback hosting remain follow-up work.
+Production hosting (HTTPS callback behind a reverse proxy, pack hosting, backups) is
+covered in the [operator guide](docs/operator-guide.md). Velocity/proxy support remains
+follow-up work.
 
 Before public redistribution, the project also needs an explicit source and
 asset license. The resource pack contains Moonsama's own legacy item, off-hand and hat

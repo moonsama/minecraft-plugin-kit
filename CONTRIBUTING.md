@@ -2,8 +2,9 @@
 
 This is the guide for people who want to work *on* the kit: fix a plugin, port another
 legacy feature, tune the data, or build a new plugin next to the existing ones. If you
-only want to *run* a server, start with the [README](README.md) and
-[docs/local-development.md](docs/local-development.md). If you want to build your own
+only want to *run* a server, start with the [README](README.md),
+[docs/local-development.md](docs/local-development.md) (dev stack) and
+[docs/operator-guide.md](docs/operator-guide.md) (production). If you want to build your own
 plugin on top of `MoonsamaCore`, read [docs/plugin-authoring.md](docs/plugin-authoring.md)
 after this page.
 
