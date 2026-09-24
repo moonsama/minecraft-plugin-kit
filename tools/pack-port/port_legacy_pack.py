@@ -10,6 +10,7 @@ kit exposes:
 * ``cosmetics-data/hats.json``      — 3D hats
 * ``cosmetics-data/offhand-states.json`` — alternate looks the off-hand perks switch to
   (cooldown buzzers, charge stages, Detectore glow) and the Moonsama-owned sounds they play
+* ``cosmetics-data/whale-buffs.json`` → ``scepter`` — the Whale Scepter look
 
 Everything else in the legacy pack (blocks, gameplay items, third-party music, menus) is
 left behind.
@@ -70,6 +71,10 @@ def wanted_thresholds() -> dict[str, set[float]]:
         base = int(state["customModelData"])
         for offset in range(int(state.get("count", 1))):
             wanted.setdefault(material_key(state["material"]), set()).add(float(base + offset))
+
+    scepter = json.loads((DATA / "whale-buffs.json").read_text()).get("scepter")
+    if scepter:
+        wanted.setdefault(material_key(scepter["material"]), set()).add(float(scepter["customModelData"]))
     return wanted
 
 

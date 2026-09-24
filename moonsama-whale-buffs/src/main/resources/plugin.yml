@@ -1,0 +1,20 @@
+name: MoonsamaWhaleBuffs
+version: '${version}'
+main: com.moonsama.minecraft.whale.MoonsamaWhaleBuffsPlugin
+api-version: '26.3'
+authors: [Moonsama]
+description: Moon Power from your Portal holdings - extra health, damage, name colours and Whale Mode.
+website: https://moonsama.com
+depend: [MoonsamaCore]
+softdepend: [MoonsamaSkins]
+
+commands:
+  whalebuffs:
+    description: Inspect or reload the whale buffs.
+    usage: /whalebuffs [status [player]|reload]
+    permission: moonsama.whalebuffs.admin
+
+permissions:
+  moonsama.whalebuffs.admin:
+    description: Inspect and reload whale buffs.
+    default: op

@@ -49,5 +49,10 @@
   "moonsama": 10,
   "moonsamaNeonBonus": 100,
   "exosama": 1
+ },
+ "scepter": {
+  "material": "minecraft:feather",
+  "customModelData": 2,
+  "note": "Whale Scepter item look in the legacy pack; MoonsamaWhaleBuffs config whale-mode.scepter"
  }
 }

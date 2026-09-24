@@ -75,6 +75,13 @@ See [local development](docs/local-development.md) for setup and troubleshooting
   Mojang signature, which `MoonsamaCore` obtains from MineSkin when `MINESKIN_API_KEY`
   is set; without it the wardrobe is browse/save only. See
   [moonsama-wardrobe/README.md](moonsama-wardrobe/README.md).
+- `moonsama-gatekeeper`: optional access gate — only players whose Portal account holds one
+  of the configured passes (default: Moonsama, Exosama, Gromlin, Embassy, VIP Ticket) may
+  play; others are kicked or parked in a waiting room where they can still link. Off by
+  default. See [moonsama-gatekeeper/README.md](moonsama-gatekeeper/README.md).
+- `moonsama-whale-buffs`: Moon Power from held NFTs → extra health, damage, name colours and
+  the Whale Scepter / Whale Mode, active while wearing an entitled NFT skin. All numbers in
+  config. See [moonsama-whale-buffs/README.md](moonsama-whale-buffs/README.md).
 - `examples/offhand-demo`: minimal plugin consuming the builder API.
 - `resourcepack`: Minecraft 26.3 pack (format 97) with the ported legacy models for item
   skins, off-hands (including their perk states) and hats, plus the Moonsama-owned sounds
@@ -100,7 +107,8 @@ do not depend on them.
   `/wardrobe <collection> <id>`, `/wardrobe reset <collection> <id>`, `/wardrobe status`
 - `/offhanddemo`
 - `/buyrelic`
-- `/moonsama admin status` (server operators)
+- `/moonsama admin status`, `/gatekeeper status [player]|reload`,
+  `/whalebuffs status [player]|reload` (server operators)
 
 ## Security rules
 

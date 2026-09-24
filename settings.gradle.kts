@@ -22,6 +22,8 @@ include(
     "moonsama-skins",
     "moonsama-items",
     "moonsama-wardrobe",
+    "moonsama-gatekeeper",
+    "moonsama-whale-buffs",
     "examples:offhand-demo",
     "resourcepack",
 )

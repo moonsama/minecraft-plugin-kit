@@ -30,6 +30,8 @@ services:
       - ./moonsama-skins/build/libs/moonsama-skins-0.1.0-SNAPSHOT.jar:/data/plugins/MoonsamaSkins.jar:ro
       - ./moonsama-items/build/libs/moonsama-items-0.1.0-SNAPSHOT.jar:/data/plugins/MoonsamaItems.jar:ro
       - ./moonsama-wardrobe/build/libs/moonsama-wardrobe-0.1.0-SNAPSHOT.jar:/data/plugins/MoonsamaWardrobe.jar:ro
+      - ./moonsama-gatekeeper/build/libs/moonsama-gatekeeper-0.1.0-SNAPSHOT.jar:/data/plugins/MoonsamaGatekeeper.jar:ro
+      - ./moonsama-whale-buffs/build/libs/moonsama-whale-buffs-0.1.0-SNAPSHOT.jar:/data/plugins/MoonsamaWhaleBuffs.jar:ro
       - ./examples/offhand-demo/build/libs/offhand-demo-0.1.0-SNAPSHOT.jar:/data/plugins/MoonsamaOffhandDemo.jar:ro
       - ./resourcepack/build/resourcepack.zip:/data/plugins/MoonsamaCore/resourcepack.zip:ro
     stdin_open: true

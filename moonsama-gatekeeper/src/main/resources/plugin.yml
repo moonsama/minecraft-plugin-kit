@@ -1,0 +1,22 @@
+name: MoonsamaGatekeeper
+version: '${version}'
+main: com.moonsama.minecraft.gatekeeper.MoonsamaGatekeeperPlugin
+api-version: '26.3'
+authors: [Moonsama]
+description: Optional server access gate - only players holding a configured Portal asset may play.
+website: https://moonsama.com
+depend: [MoonsamaCore]
+
+commands:
+  gatekeeper:
+    description: Inspect or reload the Moonsama access gate.
+    usage: /gatekeeper [status [player]|reload]
+    permission: moonsama.gatekeeper.admin
+
+permissions:
+  moonsama.gatekeeper.admin:
+    description: Inspect and reload the access gate.
+    default: op
+  moonsama.gatekeeper.bypass:
+    description: Enter the server without holding a pass.
+    default: op

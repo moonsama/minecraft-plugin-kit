@@ -1,0 +1,68 @@
+# MoonsamaGatekeeper configuration.
+#
+# Turns Portal holdings into a server access gate: a player may play only while they hold
+# at least one of the passes below. Everything is optional - with `enabled: false` the
+# plugin does nothing. Messages use MiniMessage formatting.
+
+enabled: false
+
+# Any ONE of these holdings is a pass. `collection` is the Portal collection slug, as
+# shown by /moonsama holdings. Optional:
+#   token-ids:   only these token ids count (strings, e.g. "1")
+#   min-balance: minimum balance for fungible/semi-fungible tokens (default: > 0)
+# The defaults mirror the legacy Moonsama game passes that Portal can verify.
+passes:
+  - collection: moonsama            # Moonsama (MOVR + Exosama network)
+  - collection: exosama             # Exosama
+  - collection: gromlin             # Gromlins
+  - collection: moonsama-embassy    # Embassy
+  - collection: moonsama-x          # VIP Ticket (Multiverse Items token 1)
+    token-ids: ["1"]
+
+# Players who have not linked a Portal account yet.
+#   restrict - they may join but cannot move, build, fight or use most commands until
+#              they run /moonsama link and a pass is found (gives newcomers a way in)
+#   kick     - they are kicked right away (only sensible if linking happens elsewhere)
+#   allow    - unlinked players play normally; the gate only applies once linked
+unlinked:
+  action: restrict
+  # In restrict mode, kick after this many seconds without a pass (0 = never).
+  grace-seconds: 600
+
+# Linked players whose holdings contain no pass.
+#   kick | restrict
+denied:
+  action: kick
+
+# Holdings could not be loaded (Portal unreachable, first load still running).
+#   allow | restrict | kick
+unavailable:
+  action: allow
+  # How long to wait for the first holdings load before applying `unavailable` (seconds).
+  wait-seconds: 15
+
+# When MoonsamaCore refreshes holdings and the pass is gone, apply `denied` again.
+recheck-on-refresh: true
+
+# Players with this permission always get in (default: ops).
+bypass-permission: moonsama.gatekeeper.bypass
+
+# Commands a restricted player may still use (without the slash; aliases must be listed).
+allowed-commands: [moonsama, help, msg, tell, r]
+
+# Seconds between reminders for restricted players (0 = title only).
+reminder-seconds: 30
+
+messages:
+  kick-unlinked: "<red>This server is for Moonsama holders.</red>\n<gray>Link your Portal account and hold a Moonsama, Exosama, Gromlin, Embassy or VIP Ticket.</gray>"
+  kick-denied: "<red>Your Portal account holds no pass for this server.</red>\n<gray>You need a Moonsama, Exosama, Gromlin, Embassy or VIP Ticket.</gray>"
+  kick-unavailable: "<red>Portal is unreachable, please try again in a moment.</red>"
+  kick-grace: "<red>Time is up.</red> <gray>Link a Portal account holding a pass and come back.</gray>"
+  restricted-title: "<light_purple>Moonsama holders only</light_purple>"
+  restricted-subtitle-unlinked: "<yellow>Run <white>/moonsama link</white> to unlock the server</yellow>"
+  restricted-subtitle-denied: "<yellow>Your Portal account holds no pass</yellow>"
+  restricted-subtitle-unavailable: "<yellow>Checking your Portal holdings…</yellow>"
+  restricted-reminder: "<gray>You are in the waiting room. <white>/moonsama link</white> a Portal account that holds a pass to play.</gray>"
+  restricted-blocked: "<red>Not until your pass is verified.</red>"
+  granted: "<green>Pass verified. Welcome!</green>"
+  revoked: "<yellow>Your pass left your Portal account.</yellow>"

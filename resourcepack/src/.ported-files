@@ -290,6 +290,7 @@ assets/moonsama/models/offhand/moontree.json
 assets/moonsama/models/offhand/moontree_buzzer.json
 assets/moonsama/models/offhand/rum.json
 assets/moonsama/models/offhand/rum_empty.json
+assets/moonsama/models/offhand/whale_scepter.json
 assets/moonsama/models/offhand/yarn_ball.json
 assets/moonsama/sounds/pirate_laugh.ogg
 assets/moonsama/sounds.json
@@ -500,6 +501,8 @@ assets/moonsama/textures/item/shadowstrike.png
 assets/moonsama/textures/item/shattered_soulstorm.png
 assets/moonsama/textures/item/tiff_sword.png
 assets/moonsama/textures/item/warbringer.png
+assets/moonsama/textures/item/whale_scepter.png
+assets/moonsama/textures/item/whale_scepter.png.mcmeta
 assets/moonsama/textures/item/witch_hat.png
 assets/moonsama/textures/item/yarn_ball.png
 assets/moonsama/textures/item/yumi_sword.png

@@ -11,6 +11,13 @@
         }
       },
       {
+        "threshold": 2.0,
+        "model": {
+          "type": "model",
+          "model": "moonsama:offhand/whale_scepter"
+        }
+      },
+      {
         "threshold": 9001.0,
         "model": {
           "type": "minecraft:model",
