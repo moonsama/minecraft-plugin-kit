@@ -1,0 +1,62 @@
+{
+  "name": "Moonsama Minecraft Plugin Kit",
+  "image": "mcr.microsoft.com/devcontainers/base:debian-12",
+  "features": {
+    "ghcr.io/devcontainers/features/java:1": {
+      "version": "25",
+      "jdkDistro": "tem",
+      "installGradle": false,
+      "installMaven": false
+    },
+    "ghcr.io/devcontainers/features/docker-in-docker:2": {
+      "dockerDashComposeVersion": "v2"
+    },
+    "ghcr.io/devcontainers/features/python:1": {
+      "version": "os-provided",
+      "installTools": false
+    },
+    "ghcr.io/devcontainers/features/github-cli:1": {}
+  },
+  "hostRequirements": {
+    "cpus": 4,
+    "memory": "8gb",
+    "storage": "32gb"
+  },
+  "containerEnv": {
+    // The Makefile runs Gradle through Docker by default; inside the dev container the JDK is
+    // local, so use the wrapper directly (faster, and IDE + CLI share one Gradle cache).
+    "GRADLE": "./gradlew",
+    "GRADLE_USER_HOME": "/home/vscode/.gradle"
+  },
+  "mounts": [
+    // Keep Gradle's dependency cache and the inner Docker daemon's images across rebuilds.
+    "source=moonsama-kit-gradle,target=/home/vscode/.gradle,type=volume",
+    "source=moonsama-kit-docker,target=/var/lib/docker,type=volume"
+  ],
+  "forwardPorts": [25565, 8080],
+  "portsAttributes": {
+    "25565": { "label": "Minecraft (Paper)", "onAutoForward": "silent" },
+    "8080": { "label": "OAuth callback + resource pack", "onAutoForward": "silent" }
+  },
+  "postCreateCommand": "bash .devcontainer/post-create.sh",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "vscjava.vscode-java-pack",
+        "vscjava.vscode-gradle",
+        "ms-azuretools.vscode-docker",
+        "redhat.vscode-yaml",
+        "EditorConfig.EditorConfig"
+      ],
+      "settings": {
+        "java.configuration.updateBuildConfiguration": "automatic",
+        "java.compile.nullAnalysis.mode": "disabled",
+        "files.exclude": {
+          "**/build": true,
+          "**/.gradle": true
+        }
+      }
+    }
+  },
+  "remoteUser": "vscode"
+}

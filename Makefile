@@ -1,17 +1,23 @@
 GRADLE_IMAGE := gradle:9.1.0-jdk25
 
-.PHONY: wrapper refresh-paper build up up-latest down logs clean
+# How to run Gradle. Default: the wrapper inside a throw-away JDK 25 container, so nothing but
+# Docker is needed on the host. Set GRADLE=./gradlew to use a local JDK 25 instead (the dev
+# container does this for you).
+GRADLE ?= docker run --rm -v "$(CURDIR):/workspace" -v moonsama-gradle-cache:/home/gradle/.gradle -w /workspace $(GRADLE_IMAGE) ./gradlew
+
+.PHONY: wrapper refresh-paper build test up up-latest down logs clean
 
 wrapper:
-	docker run --rm -v "$(CURDIR):/workspace" -v moonsama-gradle-cache:/home/gradle/.gradle -w /workspace $(GRADLE_IMAGE) \
-		gradle wrapper --gradle-version 9.1.0
+	$(GRADLE) wrapper --gradle-version 9.1.0
 
 refresh-paper:
 	python3 scripts/refresh-paper.py
 
 build:
-	docker run --rm -v "$(CURDIR):/workspace" -v moonsama-gradle-cache:/home/gradle/.gradle -w /workspace $(GRADLE_IMAGE) \
-		./gradlew build
+	$(GRADLE) build
+
+test:
+	$(GRADLE) test --rerun
 
 up: build
 	test -f .env || (echo "Copy .env.example to .env and add sandbox credentials first."; exit 1)
@@ -27,5 +33,4 @@ logs:
 	docker compose logs --follow paper
 
 clean:
-	docker run --rm -v "$(CURDIR):/workspace" -v moonsama-gradle-cache:/home/gradle/.gradle -w /workspace $(GRADLE_IMAGE) \
-		./gradlew clean
+	$(GRADLE) clean
