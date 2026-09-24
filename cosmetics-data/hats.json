@@ -1,0 +1,39 @@
+{
+  "_comment": "3D hats shown on a player's head while they wear a Moonsama/Exosama NFT skin. Rules are evaluated in order against the NFT's composition (see compositor/compositions); the first match wins. 'collections' restricts a rule to Portal collections, 'requires' demands further slot values. Curated from the retired moonsama-skins plugin source; models come from the legacy resource pack.",
+  "material": "minecraft:paper",
+  "hiddenByCostumes": [
+    "multiverse_costumes:big_boy_onesie",
+    "multiverse_costumes:cottontail_crown",
+    "multiverse_costumes:donablo",
+    "multiverse_costumes:jack_o_lantern",
+    "multiverse_costumes:kringle_kap",
+    "multiverse_costumes:mechtech_kit",
+    "multiverse_items:pods",
+    "multiverse_costumes:rabbits_delight",
+    "multiverse_costumes:reindeer_gear",
+    "multiverse_costumes:sewershield_kit",
+    "multiverse_costumes:tiara",
+    "multiverse_costumes:unicorn_onesie",
+    "multiverse_costumes:2nd_anniversary_party_hat"
+  ],
+  "rules": [
+    {"name": "Cottontail Crown", "slot": "costume", "asset": "multiverse_costumes:cottontail_crown", "customModelData": 1008, "model": "moonsama:item/cottontail_crown"},
+    {"name": "Donablo Helmet", "slot": "costume", "asset": "multiverse_costumes:donablo", "customModelData": 1009, "model": "moonsama:item/donablo_helmet", "collections": ["moonsama"]},
+    {"name": "Dream Stalker Hat", "slot": "costume", "asset": "multiverse_costumes:dream_stalker", "customModelData": 1010, "model": "moonsama:item/dream_stalker_hat"},
+    {"name": "Plague Doctor Hat", "slot": "costume", "asset": "multiverse_costumes:plague_doctor", "customModelData": 1011, "model": "moonsama:item/plague_doctor_hat"},
+    {"name": "Rabbit's Delight Hat", "slot": "costume", "asset": "multiverse_costumes:rabbits_delight", "customModelData": 1012, "model": "moonsama:item/rabbits_delight_hat", "collections": ["exosama"]},
+    {"name": "Witch Hat", "slot": "costume", "asset": "multiverse_costumes:witch", "customModelData": 1013, "model": "moonsama:item/witch_hat"},
+    {"name": "2nd Anniversary Party Hat", "slot": "costume", "asset": "multiverse_costumes:2nd_anniversary_party_hat", "customModelData": 1014, "model": "moonsama:item/2nd_anniversary_party_hat_exosama", "collections": ["exosama"]},
+    {"name": "2nd Anniversary Party Hat", "slot": "costume", "asset": "multiverse_costumes:2nd_anniversary_party_hat", "customModelData": 1015, "model": "moonsama:item/2nd_anniversary_party_hat_moonsama"},
+    {"name": "Neon Cowboy Hat", "slot": "hat", "asset": "moonsama:black_cowboy", "customModelData": 1003, "model": "moonsama:moonsama/neon_cowboy_hat", "requires": {"dimension": "moonsama:neon"}},
+    {"name": "Neon Cowboy Hat", "slot": "hat", "asset": "moonsama:brown_cowboy", "customModelData": 1003, "model": "moonsama:moonsama/neon_cowboy_hat", "requires": {"dimension": "moonsama:neon"}},
+    {"name": "Neon Bufoon", "slot": "hat", "asset": "moonsama:orange_bufoon", "customModelData": 1007, "model": "moonsama:moonsama/neon_bufoon", "requires": {"dimension": "moonsama:neon"}},
+    {"name": "Neon Bufoon", "slot": "hat", "asset": "moonsama:green_bufoon", "customModelData": 1007, "model": "moonsama:moonsama/neon_bufoon", "requires": {"dimension": "moonsama:neon"}},
+    {"name": "Neon Bufoon", "slot": "hat", "asset": "moonsama:blue_bufoon", "customModelData": 1007, "model": "moonsama:moonsama/neon_bufoon", "requires": {"dimension": "moonsama:neon"}},
+    {"name": "Black Cowboy Hat", "slot": "hat", "asset": "moonsama:black_cowboy", "customModelData": 1001, "model": "moonsama:moonsama/black_cowboy_hat"},
+    {"name": "Brown Cowboy Hat", "slot": "hat", "asset": "moonsama:brown_cowboy", "customModelData": 1002, "model": "moonsama:moonsama/brown_cowboy_hat"},
+    {"name": "Orange Bufoon", "slot": "hat", "asset": "moonsama:orange_bufoon", "customModelData": 1004, "model": "moonsama:moonsama/orange_bufoon"},
+    {"name": "Green Bufoon", "slot": "hat", "asset": "moonsama:green_bufoon", "customModelData": 1005, "model": "moonsama:moonsama/green_bufoon"},
+    {"name": "Blue Bufoon", "slot": "hat", "asset": "moonsama:blue_bufoon", "customModelData": 1006, "model": "moonsama:moonsama/blue_bufoon"}
+  ]
+}

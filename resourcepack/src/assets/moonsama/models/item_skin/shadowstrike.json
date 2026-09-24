@@ -1,0 +1,6 @@
+{
+  "parent": "moonsama:item/sword_large",
+  "textures": {
+      "layer0": "moonsama:item/shadowstrike"
+  }
+}

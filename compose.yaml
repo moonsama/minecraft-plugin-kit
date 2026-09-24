@@ -27,6 +27,7 @@ services:
       - ./dev-data:/data
       - ./moonsama-paper/build/libs/moonsama-paper-0.1.0-SNAPSHOT.jar:/data/plugins/MoonsamaCore.jar:ro
       - ./moonsama-skins/build/libs/moonsama-skins-0.1.0-SNAPSHOT.jar:/data/plugins/MoonsamaSkins.jar:ro
+      - ./moonsama-items/build/libs/moonsama-items-0.1.0-SNAPSHOT.jar:/data/plugins/MoonsamaItems.jar:ro
       - ./examples/offhand-demo/build/libs/offhand-demo-0.1.0-SNAPSHOT.jar:/data/plugins/MoonsamaOffhandDemo.jar:ro
       - ./resourcepack/build/resourcepack.zip:/data/plugins/MoonsamaCore/resourcepack.zip:ro
     stdin_open: true

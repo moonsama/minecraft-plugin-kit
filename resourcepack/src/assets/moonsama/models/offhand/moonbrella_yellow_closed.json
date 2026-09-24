@@ -1,0 +1,6 @@
+{
+    "parent": "moonsama:item/moonbrella_closed",
+    "textures": {
+        "layer0": "moonsama:item/moonbrella_yellow_closed"
+    }
+}

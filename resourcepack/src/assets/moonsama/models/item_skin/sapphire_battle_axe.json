@@ -1,0 +1,6 @@
+{
+  "parent": "moonsama:item/sword_medium_reverse",
+  "textures": {
+      "layer0": "moonsama:item/sapphire_battle_axe"
+  }
+}

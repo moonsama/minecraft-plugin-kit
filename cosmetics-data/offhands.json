@@ -1,0 +1,366 @@
+{
+  "_comment": "Cosmetic off-hand items of the legacy Moonsama server, keyed by the Portal collection/token that unlocks them. Materials and custom model data match the legacy resource pack (see resourcepack/). 'legacyPerk' documents the gameplay effect the old plugin granted; the kit does not implement perks. Curated from the retired moonsama-offhands plugin source.",
+  "offhands": [
+    {
+      "id": "moonsama:moonsama_egg",
+      "name": "Moonsama Egg",
+      "material": "minecraft:feather",
+      "customModelData": 1,
+      "model": "moonsama:offhand/moonsama_egg",
+      "legacyPerk": "Haste II",
+      "requirement": {
+        "anyOf": [
+          {
+            "collection": "moonsama"
+          },
+          {
+            "collection": "exosama"
+          }
+        ]
+      }
+    },
+    {
+      "id": "moonsama:moonbrella_yellow",
+      "name": "Yellow Moonbrella",
+      "material": "minecraft:shield",
+      "customModelData": 3,
+      "model": "moonsama:offhand/moonbrella_yellow",
+      "legacyPerk": "Slow Falling I",
+      "requirement": {
+        "collection": "moonsama-x",
+        "tokenId": 2
+      }
+    },
+    {
+      "id": "moonsama:moonbrella_pink",
+      "name": "Pink Moonbrella",
+      "material": "minecraft:shield",
+      "customModelData": 4,
+      "model": "moonsama:offhand/moonbrella_pink",
+      "legacyPerk": "Slow Falling I",
+      "requirement": {
+        "collection": "moonsama-x",
+        "tokenId": 3
+      }
+    },
+    {
+      "id": "moonsama:moonbrella_blue",
+      "name": "Blue Moonbrella",
+      "material": "minecraft:shield",
+      "customModelData": 1,
+      "model": "moonsama:offhand/moonbrella_blue",
+      "legacyPerk": "Slow Falling I",
+      "requirement": {
+        "collection": "moonsama-x",
+        "tokenId": 4
+      }
+    },
+    {
+      "id": "moonsama:moonbrella_moonglow",
+      "name": "Moonglow Moonbrella",
+      "material": "minecraft:shield",
+      "customModelData": 5,
+      "model": "moonsama:offhand/moonbrella_moonshine",
+      "legacyPerk": "Slow Falling I",
+      "requirement": {
+        "collection": "moonsama-x",
+        "tokenId": 5
+      }
+    },
+    {
+      "id": "moonsama:moonbrella_neon",
+      "name": "Neon Moonbrella",
+      "material": "minecraft:shield",
+      "customModelData": 6,
+      "model": "moonsama:offhand/moonbrella_neon",
+      "legacyPerk": "Slow Falling I",
+      "requirement": {
+        "collection": "moonsama-x",
+        "tokenId": 6
+      }
+    },
+    {
+      "id": "moonsama:moonbrella_green",
+      "name": "Green Moonbrella",
+      "material": "minecraft:shield",
+      "customModelData": 7,
+      "model": "moonsama:offhand/moonbrella_green",
+      "legacyPerk": "Slow Falling I",
+      "requirement": {
+        "collection": "moonsama-x",
+        "tokenId": 7
+      }
+    },
+    {
+      "id": "moonsama:moonbrella_red",
+      "name": "Red Moonbrella",
+      "material": "minecraft:shield",
+      "customModelData": 8,
+      "model": "moonsama:offhand/moonbrella_red",
+      "legacyPerk": "Slow Falling I",
+      "requirement": {
+        "collection": "moonsama-x",
+        "tokenId": 8
+      }
+    },
+    {
+      "id": "moonsama:moonbrella_flare",
+      "name": "Flare Moonbrella",
+      "material": "minecraft:shield",
+      "customModelData": 9,
+      "model": "moonsama:offhand/moonbrella_flare",
+      "legacyPerk": "Slow Falling I",
+      "requirement": {
+        "collection": "moonsama-x",
+        "tokenId": 9
+      }
+    },
+    {
+      "id": "moonsama:moonana",
+      "name": "Moonana",
+      "material": "minecraft:sugar",
+      "customModelData": 9,
+      "model": "moonsama:offhand/banana",
+      "legacyPerk": "Jump Boost I",
+      "requirement": {
+        "collection": "moonsama-x",
+        "tokenId": 59
+      }
+    },
+    {
+      "id": "moonsama:moonburger",
+      "name": "Moonburger",
+      "material": "minecraft:sugar",
+      "customModelData": 10,
+      "model": "moonsama:offhand/burger",
+      "legacyPerk": "Edible: saturation (delivery timer)",
+      "requirement": {
+        "collection": "moonsama-x",
+        "tokenId": 60
+      }
+    },
+    {
+      "id": "moonsama:moonrum",
+      "name": "Moonrum",
+      "material": "minecraft:sugar",
+      "customModelData": 16,
+      "model": "moonsama:offhand/rum",
+      "legacyPerk": "Drinkable: Strength, then Nausea/Slowness",
+      "requirement": {
+        "collection": "moonsama-x",
+        "tokenId": 61
+      }
+    },
+    {
+      "id": "moonsama:moonpaw",
+      "name": "Moonpaw",
+      "material": "minecraft:sugar",
+      "customModelData": 15,
+      "model": "moonsama:offhand/kitty_paw",
+      "legacyPerk": "Speed I; sneak then run to pounce",
+      "requirement": {
+        "collection": "moonsama-x",
+        "tokenId": 62
+      }
+    },
+    {
+      "id": "moonsama:detectore_sapphire",
+      "name": "Sapphire Detectore",
+      "material": "minecraft:sugar",
+      "customModelData": 19,
+      "model": "moonsama:offhand/detectore_sapphire",
+      "legacyPerk": "Ore Detection",
+      "requirement": {
+        "collection": "moonsama-x",
+        "tokenId": 63
+      }
+    },
+    {
+      "id": "moonsama:detectore_amber",
+      "name": "Amber Detectore",
+      "material": "minecraft:sugar",
+      "customModelData": 20,
+      "model": "moonsama:offhand/detectore_amber",
+      "legacyPerk": "Ore Detection",
+      "requirement": {
+        "collection": "moonsama-x",
+        "tokenId": 64
+      }
+    },
+    {
+      "id": "moonsama:detectore_emerald",
+      "name": "Emerald Detectore",
+      "material": "minecraft:sugar",
+      "customModelData": 18,
+      "model": "moonsama:offhand/detectore_emerald",
+      "legacyPerk": "Ore Detection",
+      "requirement": {
+        "collection": "moonsama-x",
+        "tokenId": 65
+      }
+    },
+    {
+      "id": "moonsama:detectore_el_detectore",
+      "name": "El Detectore",
+      "material": "minecraft:sugar",
+      "customModelData": 21,
+      "model": "moonsama:offhand/detectore_el_detectore",
+      "legacyPerk": "Ore Detection",
+      "requirement": {
+        "collection": "moonsama-x",
+        "tokenId": 66
+      }
+    },
+    {
+      "id": "moonsama:detectore_ruby",
+      "name": "Ruby Detectore",
+      "material": "minecraft:sugar",
+      "customModelData": 17,
+      "model": "moonsama:offhand/detectore_ruby",
+      "legacyPerk": "Ore Detection",
+      "requirement": {
+        "collection": "moonsama-x",
+        "tokenId": 67
+      }
+    },
+    {
+      "id": "moonsama:moonsquid",
+      "name": "Moonsquid",
+      "material": "minecraft:sugar",
+      "customModelData": 98,
+      "model": "moonsama:offhand/moonsquid",
+      "legacyPerk": "Aqua Affinity I",
+      "requirement": {
+        "collection": "moonsama-x",
+        "tokenId": 68
+      }
+    },
+    {
+      "id": "moonsama:moonsquid_neon",
+      "name": "Neon Moonsquid",
+      "material": "minecraft:sugar",
+      "customModelData": 99,
+      "model": "moonsama:offhand/moonsquid_neon",
+      "legacyPerk": "Aqua Affinity I",
+      "requirement": {
+        "collection": "moonsama-x",
+        "tokenId": 69
+      }
+    },
+    {
+      "id": "moonsama:moonbroom",
+      "name": "Moonbroom",
+      "material": "minecraft:sugar",
+      "customModelData": 114,
+      "model": "moonsama:offhand/moonbroom",
+      "legacyPerk": "Broom flight (recharging)",
+      "requirement": {
+        "anyOf": [
+          {
+            "collection": "moonsama-x",
+            "tokenId": 71
+          },
+          {
+            "collection": "moonsama-x",
+            "tokenId": 72
+          }
+        ]
+      }
+    },
+    {
+      "id": "moonsama:moontree",
+      "name": "Moontree",
+      "material": "minecraft:sugar",
+      "customModelData": 115,
+      "model": "moonsama:offhand/moontree",
+      "legacyPerk": "Placeable Moontree saplings",
+      "requirement": {
+        "anyOf": [
+          {
+            "collection": "moonsama-x",
+            "tokenId": 77
+          },
+          {
+            "collection": "moonsama-x",
+            "tokenId": 78
+          }
+        ]
+      }
+    },
+    {
+      "id": "moonsama:moonflake",
+      "name": "Moonflake",
+      "material": "minecraft:sugar",
+      "customModelData": 116,
+      "model": "moonsama:offhand/moonflake",
+      "legacyPerk": "Auto-blizzard when attacked (slows nearby players)",
+      "requirement": {
+        "anyOf": [
+          {
+            "collection": "moonsama-x",
+            "tokenId": 79
+          },
+          {
+            "collection": "moonsama-x",
+            "tokenId": 80
+          }
+        ]
+      }
+    },
+    {
+      "id": "bunnysama:moonbasket",
+      "name": "Moonbasket",
+      "material": "minecraft:sugar",
+      "customModelData": 117,
+      "model": "bunnysama:offhand/moonbasket",
+      "legacyPerk": "Throwable Eggnades",
+      "requirement": {
+        "anyOf": [
+          {
+            "collection": "moonsama-x",
+            "tokenId": 83
+          },
+          {
+            "collection": "moonsama-x",
+            "tokenId": 84
+          }
+        ]
+      }
+    },
+    {
+      "id": "moonsama:moonbag",
+      "name": "Moonbag",
+      "material": "minecraft:sugar",
+      "customModelData": 119,
+      "model": "moonsama:offhand/moonbag",
+      "legacyPerk": "Random effect, changes every 5 min",
+      "requirement": {
+        "collection": "moonsama-x",
+        "tokenId": 85
+      }
+    },
+    {
+      "id": "moonsama:moondrink",
+      "name": "Moondrink",
+      "material": "minecraft:sugar",
+      "customModelData": 122,
+      "model": "moonsama:offhand/moondrink",
+      "legacyPerk": "Haste III at night",
+      "requirement": {
+        "collection": "moonsama-x",
+        "tokenId": 95
+      }
+    },
+    {
+      "id": "publicpressure:pods",
+      "name": "Pods",
+      "material": "minecraft:sugar",
+      "customModelData": 111,
+      "model": "publicpressure:item/pods",
+      "legacyPerk": "Music playback",
+      "requirement": {
+        "collection": "pods"
+      }
+    }
+  ]
+}

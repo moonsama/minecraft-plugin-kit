@@ -1,0 +1,6 @@
+{
+  "parent": "moonsama:item/staff_medium_reverse",
+  "textures": {
+      "layer0": "moonsama:item/emerald_halberd"
+  }
+}

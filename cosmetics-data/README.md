@@ -5,7 +5,7 @@ Multiverse Customizer, Composer) by `tools/legacy-extract/extract_cosmetics.py`.
 Everything is keyed by Portal collection slug and token id. There are no player
 identifiers of any kind (no Minecraft UUIDs, no legacy account ids, no Portal ids).
 
-Do not edit by hand; re-run the extractor instead.
+Do not edit the extracted files by hand; re-run the extractor instead.
 
 ## Contents
 
@@ -18,6 +18,9 @@ Do not edit by hand; re-run the extractor instead.
   the `moonsama-x` collection; token ids are identical on the Moonriver contract
   (1285 `0x1974eeaf317ecf792ff307f25a3521c35eecde86`) and its Exosama-network migration
   target (2109 `0x9984440fb82f1af013865141909276d26b86e303`).
+- `offhands.json`, `hats.json` — cosmetic off-hand items and 3D hats of the legacy server
+  (material, custom model data, unlocking Portal token). Curated by hand from the retired
+  plugin sources rather than extracted, so they survive re-runs of the extractor.
 - `game-passes.json`, `whale-buffs.json` — legacy access gates and buff allowlists mapped
   to Portal collections (entries with `collection: null` cannot be checked through Portal).
 - `compositor/` — data for composing custom skins the way the Customizer did:

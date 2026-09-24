@@ -1,0 +1,6 @@
+{
+	"parent": "moonsama:item/template_cowboy_hat",
+	"textures": {
+		"0": "moonsama:item/brown_cowboy_hat"
+	}
+}

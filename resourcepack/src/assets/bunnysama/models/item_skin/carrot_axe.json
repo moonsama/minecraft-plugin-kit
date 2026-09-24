@@ -1,0 +1,6 @@
+{
+    "parent": "minecraft:item/wooden_axe",
+    "textures": {
+        "layer0": "bunnysama:item/carrot_axe"
+    }
+}

@@ -1,0 +1,117 @@
+{
+  "model": {
+    "type": "minecraft:range_dispatch",
+    "property": "minecraft:custom_model_data",
+    "entries": [
+      {
+        "threshold": 1001.0,
+        "model": {
+          "type": "model",
+          "model": "moonsama:moonsama/black_cowboy_hat"
+        }
+      },
+      {
+        "threshold": 1002.0,
+        "model": {
+          "type": "model",
+          "model": "moonsama:moonsama/brown_cowboy_hat"
+        }
+      },
+      {
+        "threshold": 1003.0,
+        "model": {
+          "type": "model",
+          "model": "moonsama:moonsama/neon_cowboy_hat"
+        }
+      },
+      {
+        "threshold": 1004.0,
+        "model": {
+          "type": "model",
+          "model": "moonsama:moonsama/orange_bufoon"
+        }
+      },
+      {
+        "threshold": 1005.0,
+        "model": {
+          "type": "model",
+          "model": "moonsama:moonsama/green_bufoon"
+        }
+      },
+      {
+        "threshold": 1006.0,
+        "model": {
+          "type": "model",
+          "model": "moonsama:moonsama/blue_bufoon"
+        }
+      },
+      {
+        "threshold": 1007.0,
+        "model": {
+          "type": "model",
+          "model": "moonsama:moonsama/neon_bufoon"
+        }
+      },
+      {
+        "threshold": 1008.0,
+        "model": {
+          "type": "model",
+          "model": "moonsama:item/cottontail_crown"
+        }
+      },
+      {
+        "threshold": 1009.0,
+        "model": {
+          "type": "model",
+          "model": "moonsama:item/donablo_helmet"
+        }
+      },
+      {
+        "threshold": 1010.0,
+        "model": {
+          "type": "model",
+          "model": "moonsama:item/dream_stalker_hat"
+        }
+      },
+      {
+        "threshold": 1011.0,
+        "model": {
+          "type": "model",
+          "model": "moonsama:item/plague_doctor_hat"
+        }
+      },
+      {
+        "threshold": 1012.0,
+        "model": {
+          "type": "model",
+          "model": "moonsama:item/rabbits_delight_hat"
+        }
+      },
+      {
+        "threshold": 1013.0,
+        "model": {
+          "type": "model",
+          "model": "moonsama:item/witch_hat"
+        }
+      },
+      {
+        "threshold": 1014.0,
+        "model": {
+          "type": "model",
+          "model": "moonsama:item/2nd_anniversary_party_hat_exosama"
+        }
+      },
+      {
+        "threshold": 1015.0,
+        "model": {
+          "type": "model",
+          "model": "moonsama:item/2nd_anniversary_party_hat_moonsama"
+        }
+      }
+    ],
+    "fallback": {
+      "type": "model",
+      "model": "minecraft:item/paper"
+    }
+  }
+}

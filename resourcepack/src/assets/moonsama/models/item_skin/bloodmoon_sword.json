@@ -1,0 +1,6 @@
+{
+	"parent": "moonsama:item/sword_extra_large",
+	"textures": {
+		"layer0": "moonsama:item/bloodmoon_sword"
+	}
+}

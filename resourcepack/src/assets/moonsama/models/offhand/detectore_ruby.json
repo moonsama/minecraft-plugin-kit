@@ -1,0 +1,6 @@
+{
+    "parent": "moonsama:item/template_detectore",
+    "textures": {
+        "layer0": "moonsama:item/detectore_ruby"
+    }
+}

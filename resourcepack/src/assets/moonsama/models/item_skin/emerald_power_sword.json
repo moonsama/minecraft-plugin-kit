@@ -1,0 +1,6 @@
+{
+  "parent": "moonsama:item/sword_medium_reverse",
+  "textures": {
+      "layer0": "moonsama:item/emerald_power_sword"
+  }
+}

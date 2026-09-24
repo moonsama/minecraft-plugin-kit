@@ -78,6 +78,10 @@ account to configure.
 The sample sandbox owner starts with `sandbox-items` token `1`, so the final
 command should place a renamed custom-model feather in the offhand.
 
+With an account that holds Moonsama NFTs on the production app, `/skins` and
+`/items` list the skins, weapon skins and off-hands it unlocks; `/items` needs the
+resource pack to show the models.
+
 `/buyrelic` spends 10 token units of `sandbox-gold` and delivers another relic.
 The checked-in `.env.example` enables spend for this sandbox test only. Use
 `/moonsama admin status` from the server console or as an operator to inspect

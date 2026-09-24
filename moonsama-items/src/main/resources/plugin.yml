@@ -1,0 +1,21 @@
+name: MoonsamaItems
+version: '${version}'
+main: com.moonsama.minecraft.items.MoonsamaItemsPlugin
+api-version: '26.3'
+authors: [Moonsama]
+description: Weapon skins, off-hand cosmetics and hats unlocked by the Moonsama NFTs you hold in Portal.
+website: https://moonsama.com
+depend: [MoonsamaCore]
+softdepend: [MoonsamaSkins]
+
+commands:
+  items:
+    description: Apply weapon skins and equip off-hand cosmetics you own.
+    usage: /items [skin <id>|skin clear|offhand <id>|offhand none|list|status]
+    aliases: [mitems, moonsamaitems]
+    permission: moonsama.items.use
+
+permissions:
+  moonsama.items.use:
+    description: Allows using owned Moonsama item skins, off-hands and hats.
+    default: true

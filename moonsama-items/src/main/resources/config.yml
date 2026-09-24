@@ -1,0 +1,29 @@
+# MoonsamaItems configuration.
+#
+# All cosmetics are purely visual: a resource pack (see resourcepack/) renders them via
+# custom model data, MoonsamaCore's Portal holdings decide who may use them. The legacy
+# gameplay perks of off-hands are not implemented.
+
+# Weapon/tool skins from cosmetics-data/item-skins.json (unlocked by moonsama-x tokens).
+item-skins:
+  enabled: true
+
+# Cosmetic off-hand items from cosmetics-data/offhands.json.
+offhands:
+  enabled: true
+  # Give the stored off-hand back when a player joins or respawns.
+  reequip-on-join: true
+
+# 3D hats derived from the composition of the NFT skin a player wears (needs MoonsamaSkins).
+hats:
+  enabled: true
+
+# When MoonsamaCore reports fresh holdings, strip skins/off-hands the player no longer owns.
+unequip-when-sold: true
+
+# Display names for collections in messages.
+collection-names:
+  moonsama: Moonsama
+  exosama: Exosama
+  moonsama-x: Multiverse Items
+  pods: Pods

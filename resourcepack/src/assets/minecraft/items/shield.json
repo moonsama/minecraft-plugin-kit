@@ -1,0 +1,146 @@
+{
+  "model": {
+    "type": "minecraft:range_dispatch",
+    "property": "minecraft:custom_model_data",
+    "entries": [
+      {
+        "threshold": 1.0,
+        "model": {
+          "type": "minecraft:condition",
+          "property": "minecraft:using_item",
+          "on_true": {
+            "type": "minecraft:model",
+            "model": "moonsama:offhand/moonbrella_blue"
+          },
+          "on_false": {
+            "type": "minecraft:model",
+            "model": "moonsama:offhand/moonbrella_blue_closed"
+          }
+        }
+      },
+      {
+        "threshold": 3.0,
+        "model": {
+          "type": "minecraft:condition",
+          "property": "minecraft:using_item",
+          "on_true": {
+            "type": "minecraft:model",
+            "model": "moonsama:offhand/moonbrella_yellow"
+          },
+          "on_false": {
+            "type": "minecraft:model",
+            "model": "moonsama:offhand/moonbrella_yellow_closed"
+          }
+        }
+      },
+      {
+        "threshold": 4.0,
+        "model": {
+          "type": "minecraft:condition",
+          "property": "minecraft:using_item",
+          "on_true": {
+            "type": "minecraft:model",
+            "model": "moonsama:offhand/moonbrella_pink"
+          },
+          "on_false": {
+            "type": "minecraft:model",
+            "model": "moonsama:offhand/moonbrella_pink_closed"
+          }
+        }
+      },
+      {
+        "threshold": 5.0,
+        "model": {
+          "type": "minecraft:condition",
+          "property": "minecraft:using_item",
+          "on_true": {
+            "type": "minecraft:model",
+            "model": "moonsama:offhand/moonbrella_moonshine"
+          },
+          "on_false": {
+            "type": "minecraft:model",
+            "model": "moonsama:offhand/moonbrella_moonshine_closed"
+          }
+        }
+      },
+      {
+        "threshold": 6.0,
+        "model": {
+          "type": "minecraft:condition",
+          "property": "minecraft:using_item",
+          "on_true": {
+            "type": "minecraft:model",
+            "model": "moonsama:offhand/moonbrella_neon"
+          },
+          "on_false": {
+            "type": "minecraft:model",
+            "model": "moonsama:offhand/moonbrella_neon_closed"
+          }
+        }
+      },
+      {
+        "threshold": 7.0,
+        "model": {
+          "type": "minecraft:condition",
+          "property": "minecraft:using_item",
+          "on_true": {
+            "type": "minecraft:model",
+            "model": "moonsama:offhand/moonbrella_green"
+          },
+          "on_false": {
+            "type": "minecraft:model",
+            "model": "moonsama:offhand/moonbrella_green_closed"
+          }
+        }
+      },
+      {
+        "threshold": 8.0,
+        "model": {
+          "type": "minecraft:condition",
+          "property": "minecraft:using_item",
+          "on_true": {
+            "type": "minecraft:model",
+            "model": "moonsama:offhand/moonbrella_red"
+          },
+          "on_false": {
+            "type": "minecraft:model",
+            "model": "moonsama:offhand/moonbrella_red_closed"
+          }
+        }
+      },
+      {
+        "threshold": 9.0,
+        "model": {
+          "type": "minecraft:condition",
+          "property": "minecraft:using_item",
+          "on_true": {
+            "type": "minecraft:model",
+            "model": "moonsama:offhand/moonbrella_flare"
+          },
+          "on_false": {
+            "type": "minecraft:model",
+            "model": "moonsama:offhand/moonbrella_flare_closed"
+          }
+        }
+      }
+    ],
+    "fallback": {
+      "type": "minecraft:condition",
+      "property": "minecraft:using_item",
+      "on_false": {
+        "type": "minecraft:special",
+        "base": "minecraft:item/shield",
+        "model": {
+          "type": "minecraft:shield"
+        }
+      },
+      "on_true": {
+        "type": "minecraft:special",
+        "base": "minecraft:item/shield_blocking",
+        "model": {
+          "type": "minecraft:shield"
+        }
+      }
+    }
+  }
+}

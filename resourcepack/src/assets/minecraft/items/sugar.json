@@ -1,0 +1,138 @@
+{
+  "model": {
+    "type": "minecraft:range_dispatch",
+    "property": "minecraft:custom_model_data",
+    "entries": [
+      {
+        "threshold": 9.0,
+        "model": {
+          "type": "model",
+          "model": "moonsama:offhand/banana"
+        }
+      },
+      {
+        "threshold": 10.0,
+        "model": {
+          "type": "model",
+          "model": "moonsama:offhand/burger"
+        }
+      },
+      {
+        "threshold": 15.0,
+        "model": {
+          "type": "model",
+          "model": "moonsama:offhand/kitty_paw"
+        }
+      },
+      {
+        "threshold": 16.0,
+        "model": {
+          "type": "model",
+          "model": "moonsama:offhand/rum"
+        }
+      },
+      {
+        "threshold": 17.0,
+        "model": {
+          "type": "model",
+          "model": "moonsama:offhand/detectore_ruby"
+        }
+      },
+      {
+        "threshold": 18.0,
+        "model": {
+          "type": "model",
+          "model": "moonsama:offhand/detectore_emerald"
+        }
+      },
+      {
+        "threshold": 19.0,
+        "model": {
+          "type": "model",
+          "model": "moonsama:offhand/detectore_sapphire"
+        }
+      },
+      {
+        "threshold": 20.0,
+        "model": {
+          "type": "model",
+          "model": "moonsama:offhand/detectore_amber"
+        }
+      },
+      {
+        "threshold": 21.0,
+        "model": {
+          "type": "model",
+          "model": "moonsama:offhand/detectore_el_detectore"
+        }
+      },
+      {
+        "threshold": 98.0,
+        "model": {
+          "type": "model",
+          "model": "moonsama:offhand/moonsquid"
+        }
+      },
+      {
+        "threshold": 99.0,
+        "model": {
+          "type": "model",
+          "model": "moonsama:offhand/moonsquid_neon"
+        }
+      },
+      {
+        "threshold": 111.0,
+        "model": {
+          "type": "model",
+          "model": "publicpressure:item/pods"
+        }
+      },
+      {
+        "threshold": 114.0,
+        "model": {
+          "type": "model",
+          "model": "moonsama:offhand/moonbroom"
+        }
+      },
+      {
+        "threshold": 115.0,
+        "model": {
+          "type": "model",
+          "model": "moonsama:offhand/moontree"
+        }
+      },
+      {
+        "threshold": 116.0,
+        "model": {
+          "type": "model",
+          "model": "moonsama:offhand/moonflake"
+        }
+      },
+      {
+        "threshold": 117.0,
+        "model": {
+          "type": "model",
+          "model": "bunnysama:offhand/moonbasket"
+        }
+      },
+      {
+        "threshold": 119.0,
+        "model": {
+          "type": "model",
+          "model": "moonsama:offhand/moonbag"
+        }
+      },
+      {
+        "threshold": 122.0,
+        "model": {
+          "type": "model",
+          "model": "moonsama:offhand/moondrink"
+        }
+      }
+    ],
+    "fallback": {
+      "type": "model",
+      "model": "minecraft:item/sugar"
+    }
+  }
+}

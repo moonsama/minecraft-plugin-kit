@@ -1,0 +1,19 @@
+{
+  "model": {
+    "type": "minecraft:range_dispatch",
+    "property": "minecraft:custom_model_data",
+    "entries": [
+      {
+        "threshold": 30001.0,
+        "model": {
+          "type": "model",
+          "model": "bunnysama:item_skin/carrot_axe"
+        }
+      }
+    ],
+    "fallback": {
+      "type": "model",
+      "model": "minecraft:item/diamond_axe"
+    }
+  }
+}

@@ -37,6 +37,14 @@ applying a skin when the cache is cold, revalidates on
 It also registers `SkinService` with the services manager and fires
 `MoonsamaSkinChangedEvent` so other plugins can react to skin changes.
 
+`moonsama-items` shows the soft-dependency pattern: it declares
+`softdepend: [MoonsamaSkins]`, keeps every reference to the skins API in one
+class (`SkinHatBridge`) and only instantiates it when the plugin is present, so
+item skins and off-hands keep working on servers without `MoonsamaSkins`.
+Cosmetic items it hands out are tagged in the persistent data container and
+protected against dropping, storing and death drops by cancelling the relevant
+events; ownership is re-checked from `PortalHoldingsLoadedEvent`.
+
 ## Spend, reward, and refund
 
 Feature plugins choose the collection, token, amount, and a stable business

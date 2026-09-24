@@ -220,7 +220,9 @@ public final class OffhandDemoPlugin extends JavaPlugin implements Listener {
         var meta = item.getItemMeta();
         meta.displayName(Component.text("Moonsama Portal Relic", NamedTextColor.AQUA));
         var modelData = meta.getCustomModelDataComponent();
-        modelData.setFloats(List.of(1.0F));
+        // Matches the 9001 threshold in resourcepack/src/assets/minecraft/items/feather.json;
+        // 1–2 are legacy Moonsama off-hands.
+        modelData.setFloats(List.of(9001.0F));
         meta.setCustomModelDataComponent(modelData);
         if (operationId != null) {
             meta.getPersistentDataContainer().set(

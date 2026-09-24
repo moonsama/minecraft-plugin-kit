@@ -20,6 +20,7 @@ include(
     "cosmetics-data",
     "skin-compositor",
     "moonsama-skins",
+    "moonsama-items",
     "examples:offhand-demo",
     "resourcepack",
 )

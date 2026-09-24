@@ -1,0 +1,418 @@
+{
+  "model": {
+    "type": "minecraft:range_dispatch",
+    "property": "minecraft:custom_model_data",
+    "entries": [
+      {
+        "threshold": 1.0,
+        "model": {
+          "type": "model",
+          "model": "moonsama:item_skin/banana_sword"
+        }
+      },
+      {
+        "threshold": 2.0,
+        "model": {
+          "type": "model",
+          "model": "moonsama:item_skin/cheese_hammer"
+        }
+      },
+      {
+        "threshold": 3.0,
+        "model": {
+          "type": "model",
+          "model": "moonsama:item_skin/crystal_soul_sword"
+        }
+      },
+      {
+        "threshold": 4.0,
+        "model": {
+          "type": "model",
+          "model": "moonsama:item_skin/hell_sword"
+        }
+      },
+      {
+        "threshold": 5.0,
+        "model": {
+          "type": "model",
+          "model": "moonsama:item_skin/knight_sword"
+        }
+      },
+      {
+        "threshold": 6.0,
+        "model": {
+          "type": "model",
+          "model": "moonsama:item_skin/marlua_sword"
+        }
+      },
+      {
+        "threshold": 8.0,
+        "model": {
+          "type": "model",
+          "model": "moonsama:item_skin/bloodmoon_sword"
+        }
+      },
+      {
+        "threshold": 9.0,
+        "model": {
+          "type": "model",
+          "model": "moonsama:item_skin/harbinger_sword"
+        }
+      },
+      {
+        "threshold": 10.0,
+        "model": {
+          "type": "model",
+          "model": "moonsama:item_skin/kabuki_sword"
+        }
+      },
+      {
+        "threshold": 11.0,
+        "model": {
+          "type": "model",
+          "model": "moonsama:item_skin/keymaster_sword"
+        }
+      },
+      {
+        "threshold": 12.0,
+        "model": {
+          "type": "model",
+          "model": "moonsama:item_skin/rainbow_sword"
+        }
+      },
+      {
+        "threshold": 13.0,
+        "model": {
+          "type": "model",
+          "model": "moonsama:item_skin/tiff_sword"
+        }
+      },
+      {
+        "threshold": 14.0,
+        "model": {
+          "type": "model",
+          "model": "moonsama:item_skin/yumi_sword"
+        }
+      },
+      {
+        "threshold": 15.0,
+        "model": {
+          "type": "model",
+          "model": "moonsama:item_skin/amethyst_battle_axe"
+        }
+      },
+      {
+        "threshold": 16.0,
+        "model": {
+          "type": "model",
+          "model": "moonsama:item_skin/amethyst_halberd"
+        }
+      },
+      {
+        "threshold": 17.0,
+        "model": {
+          "type": "model",
+          "model": "moonsama:item_skin/amethyst_katana"
+        }
+      },
+      {
+        "threshold": 18.0,
+        "model": {
+          "type": "model",
+          "model": "moonsama:item_skin/amethyst_machete"
+        }
+      },
+      {
+        "threshold": 19.0,
+        "model": {
+          "type": "model",
+          "model": "moonsama:item_skin/amethyst_power_sword"
+        }
+      },
+      {
+        "threshold": 20.0,
+        "model": {
+          "type": "model",
+          "model": "moonsama:item_skin/amethyst_short_sword"
+        }
+      },
+      {
+        "threshold": 21.0,
+        "model": {
+          "type": "model",
+          "model": "moonsama:item_skin/amethyst_wide_sword"
+        }
+      },
+      {
+        "threshold": 22.0,
+        "model": {
+          "type": "model",
+          "model": "moonsama:item_skin/diamond_battle_axe"
+        }
+      },
+      {
+        "threshold": 23.0,
+        "model": {
+          "type": "model",
+          "model": "moonsama:item_skin/diamond_halberd"
+        }
+      },
+      {
+        "threshold": 24.0,
+        "model": {
+          "type": "model",
+          "model": "moonsama:item_skin/diamond_katana"
+        }
+      },
+      {
+        "threshold": 25.0,
+        "model": {
+          "type": "model",
+          "model": "moonsama:item_skin/diamond_machete"
+        }
+      },
+      {
+        "threshold": 26.0,
+        "model": {
+          "type": "model",
+          "model": "moonsama:item_skin/diamond_power_sword"
+        }
+      },
+      {
+        "threshold": 27.0,
+        "model": {
+          "type": "model",
+          "model": "moonsama:item_skin/diamond_short_sword"
+        }
+      },
+      {
+        "threshold": 28.0,
+        "model": {
+          "type": "model",
+          "model": "moonsama:item_skin/diamond_wide_sword"
+        }
+      },
+      {
+        "threshold": 29.0,
+        "model": {
+          "type": "model",
+          "model": "moonsama:item_skin/emerald_battle_axe"
+        }
+      },
+      {
+        "threshold": 30.0,
+        "model": {
+          "type": "model",
+          "model": "moonsama:item_skin/emerald_halberd"
+        }
+      },
+      {
+        "threshold": 31.0,
+        "model": {
+          "type": "model",
+          "model": "moonsama:item_skin/emerald_katana"
+        }
+      },
+      {
+        "threshold": 32.0,
+        "model": {
+          "type": "model",
+          "model": "moonsama:item_skin/emerald_machete"
+        }
+      },
+      {
+        "threshold": 33.0,
+        "model": {
+          "type": "model",
+          "model": "moonsama:item_skin/emerald_power_sword"
+        }
+      },
+      {
+        "threshold": 34.0,
+        "model": {
+          "type": "model",
+          "model": "moonsama:item_skin/emerald_short_sword"
+        }
+      },
+      {
+        "threshold": 35.0,
+        "model": {
+          "type": "model",
+          "model": "moonsama:item_skin/emerald_wide_sword"
+        }
+      },
+      {
+        "threshold": 36.0,
+        "model": {
+          "type": "model",
+          "model": "moonsama:item_skin/ruby_battle_axe"
+        }
+      },
+      {
+        "threshold": 37.0,
+        "model": {
+          "type": "model",
+          "model": "moonsama:item_skin/ruby_halberd"
+        }
+      },
+      {
+        "threshold": 38.0,
+        "model": {
+          "type": "model",
+          "model": "moonsama:item_skin/ruby_katana"
+        }
+      },
+      {
+        "threshold": 39.0,
+        "model": {
+          "type": "model",
+          "model": "moonsama:item_skin/ruby_machete"
+        }
+      },
+      {
+        "threshold": 40.0,
+        "model": {
+          "type": "model",
+          "model": "moonsama:item_skin/ruby_power_sword"
+        }
+      },
+      {
+        "threshold": 41.0,
+        "model": {
+          "type": "model",
+          "model": "moonsama:item_skin/ruby_short_sword"
+        }
+      },
+      {
+        "threshold": 42.0,
+        "model": {
+          "type": "model",
+          "model": "moonsama:item_skin/ruby_wide_sword"
+        }
+      },
+      {
+        "threshold": 43.0,
+        "model": {
+          "type": "model",
+          "model": "moonsama:item_skin/sapphire_battle_axe"
+        }
+      },
+      {
+        "threshold": 44.0,
+        "model": {
+          "type": "model",
+          "model": "moonsama:item_skin/sapphire_halberd"
+        }
+      },
+      {
+        "threshold": 45.0,
+        "model": {
+          "type": "model",
+          "model": "moonsama:item_skin/sapphire_katana"
+        }
+      },
+      {
+        "threshold": 46.0,
+        "model": {
+          "type": "model",
+          "model": "moonsama:item_skin/sapphire_machete"
+        }
+      },
+      {
+        "threshold": 47.0,
+        "model": {
+          "type": "model",
+          "model": "moonsama:item_skin/sapphire_power_sword"
+        }
+      },
+      {
+        "threshold": 48.0,
+        "model": {
+          "type": "model",
+          "model": "moonsama:item_skin/sapphire_short_sword"
+        }
+      },
+      {
+        "threshold": 49.0,
+        "model": {
+          "type": "model",
+          "model": "moonsama:item_skin/sapphire_wide_sword"
+        }
+      },
+      {
+        "threshold": 52.0,
+        "model": {
+          "type": "model",
+          "model": "moonsama:item_skin/candy_sword"
+        }
+      },
+      {
+        "threshold": 10001.0,
+        "model": {
+          "type": "model",
+          "model": "moonsama:item_skin/cookie_sword"
+        }
+      },
+      {
+        "threshold": 10002.0,
+        "model": {
+          "type": "model",
+          "model": "moonsama:item_skin/amythest_fateweaver"
+        }
+      },
+      {
+        "threshold": 10003.0,
+        "model": {
+          "type": "model",
+          "model": "moonsama:item_skin/warbringer"
+        }
+      },
+      {
+        "threshold": 10004.0,
+        "model": {
+          "type": "model",
+          "model": "moonsama:item_skin/honors_might"
+        }
+      },
+      {
+        "threshold": 10005.0,
+        "model": {
+          "type": "model",
+          "model": "moonsama:item_skin/pyrebrand_reaver"
+        }
+      },
+      {
+        "threshold": 10006.0,
+        "model": {
+          "type": "model",
+          "model": "moonsama:item_skin/sabre_of_the_wilds"
+        }
+      },
+      {
+        "threshold": 10007.0,
+        "model": {
+          "type": "model",
+          "model": "moonsama:item_skin/shattered_soulstorm"
+        }
+      },
+      {
+        "threshold": 10008.0,
+        "model": {
+          "type": "model",
+          "model": "moonsama:item_skin/shadowstrike"
+        }
+      },
+      {
+        "threshold": 30001.0,
+        "model": {
+          "type": "model",
+          "model": "bunnysama:item_skin/carrot_sword"
+        }
+      }
+    ],
+    "fallback": {
+      "type": "model",
+      "model": "minecraft:item/iron_sword"
+    }
+  }
+}

@@ -1,0 +1,6 @@
+{
+    "parent": "minecraft:item/wooden_shovel",
+    "textures": {
+        "layer0": "bunnysama:item/carrot_shovel"
+    }
+}

@@ -6,13 +6,20 @@
       {
         "threshold": 1.0,
         "model": {
+          "type": "model",
+          "model": "moonsama:offhand/moonsama_egg"
+        }
+      },
+      {
+        "threshold": 9001.0,
+        "model": {
           "type": "minecraft:model",
           "model": "moonsama:item/portal_relic"
         }
       }
     ],
     "fallback": {
-      "type": "minecraft:model",
+      "type": "model",
       "model": "minecraft:item/feather"
     }
   }

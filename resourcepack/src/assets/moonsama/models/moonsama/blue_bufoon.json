@@ -1,0 +1,6 @@
+{
+	"parent": "moonsama:item/template_bufoon",
+	"textures": {
+		"0": "moonsama:item/blue_bufoon"
+	}
+}

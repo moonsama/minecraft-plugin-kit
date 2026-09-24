@@ -1,0 +1,6 @@
+{
+  "parent": "moonsama:item/sword_large_reverse",
+  "textures": {
+      "layer0": "moonsama:item/keymaster_sword"
+  }
+}

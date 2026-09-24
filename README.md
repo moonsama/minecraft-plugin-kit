@@ -63,8 +63,14 @@ See [local development](docs/local-development.md) for setup and troubleshooting
   renderer. Turns a Moonsama or Exosama composition (base, outfit, hat, costume, …)
   into a 64×64 skin PNG from the layers in `cosmetics-data`. See
   [skin-compositor/README.md](skin-compositor/README.md).
+- `moonsama-items`: `/items` plugin for the legacy item cosmetics — weapon/tool skins
+  and off-hand items unlocked by `moonsama-x` (Multiverse Items) tokens, plus the 3D hats
+  that belong to a worn Moonsama/Exosama skin (with `MoonsamaSkins`). Purely visual; the
+  old gameplay perks are not implemented.
 - `examples/offhand-demo`: minimal plugin consuming the builder API.
-- `resourcepack`: Minecraft 26.3 sample pack using modern custom model data.
+- `resourcepack`: Minecraft 26.3 pack (format 97) with the ported legacy models for item
+  skins, off-hands and hats. Regenerate the ported part with
+  `python3 tools/pack-port/port_legacy_pack.py` (maintainers only).
 - `tools/legacy-extract`: read-only scripts that regenerate `cosmetics-data`
   from local copies of the legacy databases (maintainers only).
 
@@ -79,6 +85,8 @@ do not depend on them.
 - `/moonsama holdings`
 - `/skins` (menu of owned NFT skins), `/skins wear <collection> <id>`,
   `/skins reset`, `/skins status`
+- `/items` (menu of owned item skins and off-hands), `/items skin <id>|clear`,
+  `/items offhand <id>|none`, `/items list`, `/items status`
 - `/offhanddemo`
 - `/buyrelic`
 - `/moonsama admin status` (server operators)
@@ -102,8 +110,9 @@ All value-moving routes are operator gated. The environment template enables
 only spend for the sandbox `/buyrelic` demo; reward, refund, and holds remain
 disabled until explicitly enabled.
 
-Velocity support, NFT character skins, and production callback hosting remain
-follow-up work.
+Velocity support, a wardrobe for custom skin compositions, and production callback
+hosting remain follow-up work.
 
 Before public redistribution, the project also needs an explicit source and
-asset license. No legacy music or proprietary resource-pack art is included.
+asset license. The resource pack contains Moonsama's own legacy item, off-hand and hat
+art only; no music or third-party assets are included.
