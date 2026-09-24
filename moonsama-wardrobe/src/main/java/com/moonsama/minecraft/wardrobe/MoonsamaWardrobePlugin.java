@@ -80,7 +80,7 @@ public final class MoonsamaWardrobePlugin extends JavaPlugin implements Listener
                 ? Unlocks.OutsidePortalPolicy.FREE : Unlocks.OutsidePortalPolicy.LOCKED;
         SigningBudget budget = new SigningBudget(
                 java.time.Duration.ofSeconds(Math.max(0, getConfig().getLong("signing-budget.cooldown-seconds", 20))),
-                getConfig().getInt("signing-budget.max-per-hour", 20));
+                getConfig().getInt("signing-budget.max-per-hour", 30));
         service = new WardrobeService(this, moonsama, skins, compositor, store,
                 () -> getServer().getServicesManager().load(SkinSigner.class), renderExecutor, collections, hidden,
                 outsidePortal, budget);

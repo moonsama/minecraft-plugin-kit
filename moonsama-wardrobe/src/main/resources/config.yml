@@ -30,7 +30,7 @@ signing-budget:
   # Minimum seconds between two new looks (0 = no cooldown).
   cooldown-seconds: 20
   # New looks per rolling hour (0 = unlimited).
-  max-per-hour: 20
+  max-per-hour: 30
 
 # Display names for collections in messages.
 collection-names:

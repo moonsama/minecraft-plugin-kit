@@ -190,7 +190,7 @@ touch:
   glow, explosives, ...). `unequip-when-sold` strips cosmetics whose token left the
   account.
 - **`MoonsamaWardrobe`** - `signing-budget.cooldown-seconds` / `max-per-hour` cap how many
-  *new* looks a player can have MineSkin-signed (default 20 s / 20 per hour; already-signed
+  *new* looks a player can have MineSkin-signed (default 20 s / 30 per hour; already-signed
   looks are free). Raise it if your MineSkin plan is generous, lower it if you see quota
   errors in the log. `moonsama.wardrobe.unlimited` exempts staff.
 - **`MoonsamaSkins`** - `collections` (which collections show in `/skins`),

@@ -82,6 +82,6 @@ class SigningBudgetTest {
             config = YamlConfiguration.loadConfiguration(reader);
         }
         assertThat(config.getLong("signing-budget.cooldown-seconds")).isEqualTo(20);
-        assertThat(config.getInt("signing-budget.max-per-hour")).isEqualTo(20);
+        assertThat(config.getInt("signing-budget.max-per-hour")).isEqualTo(30);
     }
 }
