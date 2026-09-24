@@ -84,6 +84,32 @@ LEGACY_CONTRACTS = {
     },
 }
 
+# Artist attribution for collections made by independent artists. Multiverse Art (ETH) is
+# nine artists with three pieces each; verified by pixel-matching the artists' original
+# skin files (references/multiverseartoriginalraw) against the bundled textures.
+ARTIST_ATTRIBUTIONS = {
+    "moonsama-multiverse-art-eth": [
+        {"tokenIds": ["1", "2", "3"], "artist": "Yumi", "collection": "Dreamscapes | The Moon",
+         "pieces": ["Nemesis, the Queen of Retribution", "Erebus, the Horror of the Depths", "Ares, the King of Wrath"]},
+        {"tokenIds": ["4", "5", "6"], "artist": "Tiff (tiffdairyqueen)", "collection": "tiffdairyqueen Originals",
+         "pieces": ["Venus Fighters #1", "Venus Fighters #2", "Venus Fighters #3"]},
+        {"tokenIds": ["7", "8", "9"], "artist": "Marlua", "collection": "Marlua's Realm",
+         "pieces": ["Wizardnos", "Archmage", "Pyromancer"]},
+        {"tokenIds": ["10", "11", "12"], "artist": "Blood Moon Clan", "collection": "Blood Moon Clan",
+         "pieces": ["Blood Moon Overlord #1", "Blood Moon Overlord #2", "Blood Moon Overlord #3"]},
+        {"tokenIds": ["13", "14", "15"], "artist": "Majan", "collection": "Komainu Lions",
+         "pieces": ["Lion Kabuki #1", "Lion Kabuki #2", "Lion Kabuki #3"]},
+        {"tokenIds": ["16", "17", "18"], "artist": "Kusama Kingdom", "collection": "Medieval Moonsama",
+         "pieces": ["Moonsama Knights #1", "Moonsama Knights #2", "Moonsama Knights #3"]},
+        {"tokenIds": ["19", "20", "21"], "artist": "Wangdoodle", "collection": "The Cheese Boys",
+         "pieces": ["Cheddar Fred", "Mister Swiss", "Parmesan John"]},
+        {"tokenIds": ["22", "23", "24"], "artist": "Tako", "collection": "Shiba Tales",
+         "pieces": ["Glitch", "Tronica", "El Rmrko"]},
+        {"tokenIds": ["25", "26", "27"], "artist": "Ruben Topia", "collection": "Moonsama Topia",
+         "pieces": ["Strawberry Topia", "Psychedelic Topia", "Shadow Topia"]},
+    ],
+}
+
 # Composer collections whose Minecraft render components are exported. These are the
 # Minecraft variants of the Portal collections plus the shared costume/item layers.
 COMPOSITOR_COLLECTIONS = {
@@ -232,6 +258,30 @@ def export_collections() -> None:
         ],
     }
     write_json(OUT / "collections.json", payload)
+
+
+def export_attributions() -> int:
+    """attributions.json: artist credit per token, `{collection: {tokenId: {artist, collection, piece}}}`."""
+    payload = {}
+    for portal, groups in ARTIST_ATTRIBUTIONS.items():
+        per_token = {}
+        for group in groups:
+            for token_id, piece in zip(group["tokenIds"], group["pieces"]):
+                per_token[token_id] = {"artist": group["artist"], "collection": group["collection"], "piece": piece}
+        payload[portal] = dict(sorted(per_token.items(), key=lambda kv: int(kv[0])))
+    write_json(OUT / "attributions.json", payload)
+    return sum(len(v) for v in payload.values())
+
+
+def attribution_table() -> str:
+    lines = ["| Tokens | Artist | Artist collection | Pieces |", "| --- | --- | --- | --- |"]
+    for groups in ARTIST_ATTRIBUTIONS.values():
+        for group in groups:
+            ids = group["tokenIds"]
+            lines.append(
+                f"| {ids[0]}–{ids[-1]} | {group['artist']} | {group['collection']} | {', '.join(group['pieces'])} |"
+            )
+    return "\n".join(lines)
 
 
 def portal_requirement(chain_id: int | None, address: str, asset_id) -> dict:
@@ -516,12 +566,11 @@ Everything in this directory is licensed under the [Moonsama Asset License](../L
 not the Apache License that covers the code: you may bundle and redistribute it in software
 that delivers each asset's utility to the current holder of the corresponding NFT, and for
 nothing else. The Multiverse Art (Ethereum) avatars (`moonsama-multiverse-art-eth`) are
-the work of independent artists who retain their copyright; the legacy data carries no
-artist names, so attributions are maintained here as they become known:
+the work of nine independent artists who retain their copyright. Credit them where your
+interface credits creators; `attributions.json` has the per-token mapping and the
+`/skins` menu shows it.
 
-| Token | Name | Artist |
-| --- | --- | --- |
-| 1–27 | see `compositor/compositions/moonsama-multiverse-art-eth.jsonl` | _to be filled in by Moonsama_ |
+{attribution_table()}
 
 Note that a Mojang-signed texture (`skins/*.jsonl`, `value`) embeds the profile id and
 name of the Minecraft account it was signed on. These are the legacy service's own account
@@ -530,6 +579,8 @@ and MineSkin's generator accounts, not players.
 ## Contents
 
 - `collections.json` — Portal collection ↔ legacy Composer collection / on-chain contract map.
+- `attributions.json` — artist credit per token for artist-made collections
+  ({summary.get('attributions')} tokens).
 - `skins/<collection>.jsonl` — Mojang-signed skin textures per NFT (`id`, `value`,
   `signature`, `model`). Apply with a `textures` profile property; no signing needed.
   Counts: {skins}.
@@ -576,6 +627,7 @@ def main() -> None:
     summary = {}
     summary["skins"] = export_signed_skins(db)
     export_collections()
+    summary["attributions"] = export_attributions()
     summary["itemSkins"] = export_item_skins()
     summary["gamePasses"] = export_game_passes()
     summary["whaleBuffs"] = export_whale_buffs()

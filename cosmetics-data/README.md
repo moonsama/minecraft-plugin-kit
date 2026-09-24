@@ -13,12 +13,21 @@ Everything in this directory is licensed under the [Moonsama Asset License](../L
 not the Apache License that covers the code: you may bundle and redistribute it in software
 that delivers each asset's utility to the current holder of the corresponding NFT, and for
 nothing else. The Multiverse Art (Ethereum) avatars (`moonsama-multiverse-art-eth`) are
-the work of independent artists who retain their copyright; the legacy data carries no
-artist names, so attributions are maintained here as they become known:
+the work of nine independent artists who retain their copyright. Credit them where your
+interface credits creators; `attributions.json` has the per-token mapping and the
+`/skins` menu shows it.
 
-| Token | Name | Artist |
-| --- | --- | --- |
-| 1–27 | see `compositor/compositions/moonsama-multiverse-art-eth.jsonl` | _to be filled in by Moonsama_ |
+| Tokens | Artist | Artist collection | Pieces |
+| --- | --- | --- | --- |
+| 1–3 | Yumi | Dreamscapes | The Moon | Nemesis, the Queen of Retribution, Erebus, the Horror of the Depths, Ares, the King of Wrath |
+| 4–6 | Tiff (tiffdairyqueen) | tiffdairyqueen Originals | Venus Fighters #1, Venus Fighters #2, Venus Fighters #3 |
+| 7–9 | Marlua | Marlua's Realm | Wizardnos, Archmage, Pyromancer |
+| 10–12 | Blood Moon Clan | Blood Moon Clan | Blood Moon Overlord #1, Blood Moon Overlord #2, Blood Moon Overlord #3 |
+| 13–15 | Majan | Komainu Lions | Lion Kabuki #1, Lion Kabuki #2, Lion Kabuki #3 |
+| 16–18 | Kusama Kingdom | Medieval Moonsama | Moonsama Knights #1, Moonsama Knights #2, Moonsama Knights #3 |
+| 19–21 | Wangdoodle | The Cheese Boys | Cheddar Fred, Mister Swiss, Parmesan John |
+| 22–24 | Tako | Shiba Tales | Glitch, Tronica, El Rmrko |
+| 25–27 | Ruben Topia | Moonsama Topia | Strawberry Topia, Psychedelic Topia, Shadow Topia |
 
 Note that a Mojang-signed texture (`skins/*.jsonl`, `value`) embeds the profile id and
 name of the Minecraft account it was signed on. These are the legacy service's own account
@@ -27,6 +36,8 @@ and MineSkin's generator accounts, not players.
 ## Contents
 
 - `collections.json` — Portal collection ↔ legacy Composer collection / on-chain contract map.
+- `attributions.json` — artist credit per token for artist-made collections
+  (27 tokens).
 - `skins/<collection>.jsonl` — Mojang-signed skin textures per NFT (`id`, `value`,
   `signature`, `model`). Apply with a `textures` profile property; no signing needed.
   Counts: moonsama 1,000, exosama 10,000, gromlin 3,333, moonsama-embassy 15, moonsama-multiverse-art-eth 27.

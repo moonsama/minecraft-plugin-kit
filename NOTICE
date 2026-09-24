@@ -6,11 +6,14 @@ Version 2.0 (see LICENSE).
 
 The artwork, textures, skins, models, sounds and generated cosmetic data in
 this repository (everything under cosmetics-data/ and resourcepack/src/assets/)
-are NOT covered by the Apache License. They are licensed under the Moonsama
+are NOT covered by the Apache License. The Multiverse Art (Ethereum) avatars
+are the work of independent artists (Yumi, Tiff, Marlua, Blood Moon Clan,
+Majan, Kusama Kingdom, Wangdoodle, Tako, Ruben Topia) who retain their
+copyright; see cosmetics-data/attributions.json. They are licensed under the Moonsama
 Asset License (see LICENSE-ASSETS), which permits their use only to deliver
 each asset's utility to the current holder of the corresponding NFT.
 
-"Moonsama" and "Exosama" are trademarks of Moonsama DAO / MoonSoonLabs Pte. Ltd.
+"Moonsama" and "Exosama" are registered trademarks of Moonsama DAO / MoonSoonLabs Pte. Ltd.
 Neither license grants any right to use these trademarks except as required
 to describe this software (see LICENSE-ASSETS, section 5).
 

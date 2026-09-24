@@ -161,7 +161,9 @@ follow-up work.
   You may bundle and redistribute them in software that delivers each asset's utility to
   the **current holder of the corresponding NFT** - which is exactly what this kit does -
   but not as standalone skins, packs, stock art or training data.
-- "Moonsama" and "Exosama" are trademarks of Moonsama DAO / MoonSoonLabs Pte. Ltd.; use
+- The 27 Multiverse Art avatars are by nine independent artists who keep their copyright;
+  credits ship in `cosmetics-data/attributions.json` and show in the `/skins` menu.
+- "Moonsama" and "Exosama" are registered trademarks of Moonsama DAO / MoonSoonLabs Pte. Ltd.; use
   the names to say your server works with Moonsama NFTs, not as your own branding.
 
 See [NOTICE](NOTICE) for bundled third-party software. The resource pack contains

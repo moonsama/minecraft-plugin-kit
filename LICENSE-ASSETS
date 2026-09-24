@@ -66,15 +66,20 @@ licensed separately under the Apache License, Version 2.0 (see LICENSE).
   Assets belonging to collections created by independent artists (in
   particular Multiverse Art (Ethereum), `moonsama-multiverse-art-eth`) are
   distributed by Moonsama under these same terms. The artists retain their
-  copyright; credit them where your interface credits creators. Artist
-  attributions, where known, are kept in `cosmetics-data/README.md`.
-  Artists who wish to change how their work is distributed here should
-  contact Moonsama (see below).
+  copyright; credit them where your interface credits creators. The
+  per-token attribution is in `cosmetics-data/attributions.json` and
+  `cosmetics-data/README.md`. Multiverse Art (Ethereum) artists:
+  Yumi (Dreamscapes | The Moon), Tiff / tiffdairyqueen (tiffdairyqueen
+  Originals), Marlua (Marlua's Realm), Blood Moon Clan, Majan (Komainu
+  Lions), Kusama Kingdom (Medieval Moonsama), Wangdoodle (The Cheese Boys),
+  Tako (Shiba Tales) and Ruben Topia (Moonsama Topia). Artists who wish to
+  change how their work is distributed here should contact Moonsama (see
+  below).
 
 5. Trademarks
 
-  "Moonsama" and "Exosama" are trademarks of Moonsama DAO / MoonSoonLabs
-  Pte. Ltd. This license does not
+  "Moonsama" and "Exosama" are registered trademarks of Moonsama DAO /
+  MoonSoonLabs Pte. Ltd. This license does not
   grant any trademark rights. You may use the names only nominatively - to
   state that your server or software works with Moonsama or Exosama NFTs
   or with this kit - and not in your own product names, logos or domain
