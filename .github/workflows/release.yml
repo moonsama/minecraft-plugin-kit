@@ -58,4 +58,7 @@ jobs:
             $prerelease \
             build/dist/plugins/*.jar \
             build/dist/resourcepack.zip \
-            build/dist/SHA256SUMS
+            build/dist/SHA256SUMS \
+            build/dist/LICENSE \
+            build/dist/LICENSE-ASSETS \
+            build/dist/NOTICE

@@ -235,6 +235,17 @@ from the code — it makes review of the gameplay logic far easier.
 - Update the module README and the root README's tables in the same PR.
 - No credentials, no `dev-data/`, no files from the reference folders, no generated
   `build/` output in the diff. `git status` before you push.
+- Dependabot opens PRs for Gradle, GitHub Actions and dev-container updates
+  (`.github/dependabot.yml`); the Paper API is pinned on purpose - move it with
+  `make refresh-paper`, not by merging the bot's bump.
+
+### License of contributions
+
+By submitting a pull request you agree that your code contribution is licensed under the
+[Apache License 2.0](LICENSE), the same license as the project (inbound = outbound). Do
+not contribute artwork or textures you do not own; assets in `cosmetics-data/` and
+`resourcepack/src/assets/` are distributed under the [Moonsama Asset License](LICENSE-ASSETS)
+and are only added by maintainers from Moonsama-owned sources.
 
 ## Reporting problems
 

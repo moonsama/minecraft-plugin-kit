@@ -315,6 +315,26 @@ def export_whale_buffs() -> int:
 # --------------------------------------------------------------------------- compositor
 
 
+def strip_absolute_urls(config: dict) -> dict:
+    """Drop http(s) URLs from component elements.
+
+    Layer references in the Composer are relative paths (resolved against the bundled
+    `compositor/files/<collection>/`) or `#canvas` references. A few legacy template rows
+    carry an absolute URL into Moonsama's asset CDN on empty texture declarations; the
+    renderer never fetches URLs, so the value is dead weight and should not be published.
+    """
+    for element in config.get("elements", []) or []:
+        for key in ("url", "mask_url"):
+            value = element.get(key)
+            if isinstance(value, str) and value.startswith(("http://", "https://")):
+                del element[key]
+        for layer in element.get("layers", []) or []:
+            value = layer.get("url")
+            if isinstance(value, str) and value.startswith(("http://", "https://")):
+                del layer["url"]
+    return config
+
+
 def export_compositor(db: LegacyDatabases) -> dict[str, int]:
     dump = ARCHIVE / "composer-db"
     if not dump.exists():
@@ -343,7 +363,7 @@ def export_compositor(db: LegacyDatabases) -> dict[str, int]:
             {
                 "referenceId": row["referenceId"],
                 "states": load_json_text(row["states"], {}),
-                "config": load_json_text(row["config"], {}),
+                "config": strip_absolute_urls(load_json_text(row["config"], {})),
             }
         )
     # Ordered list: base components are added in result-type order (render type '*' first).
@@ -489,6 +509,23 @@ Everything is keyed by Portal collection slug and token id. There are no player
 identifiers of any kind (no Minecraft UUIDs, no legacy account ids, no Portal ids).
 
 Do not edit the extracted files by hand; re-run the extractor instead.
+
+## License
+
+Everything in this directory is licensed under the [Moonsama Asset License](../LICENSE-ASSETS),
+not the Apache License that covers the code: you may bundle and redistribute it in software
+that delivers each asset's utility to the current holder of the corresponding NFT, and for
+nothing else. The Multiverse Art (Ethereum) avatars (`moonsama-multiverse-art-eth`) are
+the work of independent artists who retain their copyright; the legacy data carries no
+artist names, so attributions are maintained here as they become known:
+
+| Token | Name | Artist |
+| --- | --- | --- |
+| 1–27 | see `compositor/compositions/moonsama-multiverse-art-eth.jsonl` | _to be filled in by Moonsama_ |
+
+Note that a Mojang-signed texture (`skins/*.jsonl`, `value`) embeds the profile id and
+name of the Minecraft account it was signed on. These are the legacy service's own account
+and MineSkin's generator accounts, not players.
 
 ## Contents
 

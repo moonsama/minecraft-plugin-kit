@@ -7,6 +7,23 @@ identifiers of any kind (no Minecraft UUIDs, no legacy account ids, no Portal id
 
 Do not edit the extracted files by hand; re-run the extractor instead.
 
+## License
+
+Everything in this directory is licensed under the [Moonsama Asset License](../LICENSE-ASSETS),
+not the Apache License that covers the code: you may bundle and redistribute it in software
+that delivers each asset's utility to the current holder of the corresponding NFT, and for
+nothing else. The Multiverse Art (Ethereum) avatars (`moonsama-multiverse-art-eth`) are
+the work of independent artists who retain their copyright; the legacy data carries no
+artist names, so attributions are maintained here as they become known:
+
+| Token | Name | Artist |
+| --- | --- | --- |
+| 1–27 | see `compositor/compositions/moonsama-multiverse-art-eth.jsonl` | _to be filled in by Moonsama_ |
+
+Note that a Mojang-signed texture (`skins/*.jsonl`, `value`) embeds the profile id and
+name of the Minecraft account it was signed on. These are the legacy service's own account
+and MineSkin's generator accounts, not players.
+
 ## Contents
 
 - `collections.json` — Portal collection ↔ legacy Composer collection / on-chain contract map.

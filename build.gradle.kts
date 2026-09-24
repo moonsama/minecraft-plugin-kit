@@ -69,6 +69,7 @@ val dist by tasks.registering(Sync::class) {
         }
     }
     from(project(":resourcepack").tasks.named("resourcePack"))
+    from(layout.projectDirectory.files("LICENSE", "LICENSE-ASSETS", "NOTICE"))
     doLast {
         val root = target.get().asFile
         val digest = java.security.MessageDigest.getInstance("SHA-256")
