@@ -42,6 +42,10 @@ PORTAL_COLLECTIONS = {
     "exosama": "exosama",
     "gromlins": "gromlin",
     "moonsama-embassy": "moonsama-embassy",
+    # "Multiverse Avatars" in the Composer: 27 one-of-one avatars that lived on Moonriver,
+    # were partly migrated to the Exosama network and finally force-migrated to Ethereum as
+    # the Portal collection `moonsama-multiverse-art-eth`. Token ids survived every hop.
+    "multiverse-avatars": "moonsama-multiverse-art-eth",
 }
 
 # Legacy on-chain contracts -> Portal collection. The Moonriver Moonsama X contract and the
@@ -62,8 +66,22 @@ LEGACY_CONTRACTS = {
     (2109, "0xaa821f830beff26626379d840621b92911ea53b7"): {"portal": "pods", "note": "Pods (Exosama network)"},
     (2109, "0xc630f52a35cfde19122ccd822f1ba00be6fd2e71"): {"portal": None, "note": "Multiverse Costumes; not in Portal"},
     (2109, "0x5cb76be66792a48bdc96676224cda8bf1df611d4"): {"portal": None, "note": "Multiverse Backgrounds; not in Portal"},
-    (2109, "0xc2f48a85903d8a6c5276a4f63f75240c355f716c"): {"portal": None, "note": "Multiverse Avatars (Exosama network); not in Portal"},
-    (1285, "0xdea45e7c6944cb86a268661349e9c013836c79a2"): {"portal": None, "note": "Multiverse Avatars (Moonriver); not in Portal"},
+    (1, "0xd1321561c00b6cbb316b157f8e38b9341b3f2979"): {
+        "portal": "moonsama-multiverse-art-eth",
+        "note": "Multiverse Avatars / Multiverse Art (Ethereum); final migration target",
+    },
+    (2109, "0xc2f48a85903d8a6c5276a4f63f75240c355f716c"): {
+        "portal": "moonsama-multiverse-art-eth",
+        "note": "Multiverse Avatars (Exosama network); intermediate migration, same token ids",
+    },
+    (1285, "0xc2f48a85903d8a6c5276a4f63f75240c355f716c"): {
+        "portal": "moonsama-multiverse-art-eth",
+        "note": "Legacy game-pass JSON listed the Exosama-network avatars contract under chain 1285",
+    },
+    (1285, "0xdea45e7c6944cb86a268661349e9c013836c79a2"): {
+        "portal": "moonsama-multiverse-art-eth",
+        "note": "Multiverse Avatars (Moonriver); original ERC-1155, same token ids",
+    },
 }
 
 # Composer collections whose Minecraft render components are exported. These are the
@@ -73,6 +91,7 @@ COMPOSITOR_COLLECTIONS = {
     "exosama-minecraft",
     "gromlins-minecraft",
     "moonsama-embassy-minecraft",
+    "multiverse-avatars-minecraft",
     "default-minecraft",
     "multiverse-costumes-minecraft-moonsama",
     "multiverse-costumes-minecraft-exosama",
@@ -280,7 +299,14 @@ def export_whale_buffs() -> int:
         OUT / "whale-buffs.json",
         {
             "entitledSkinCollections": result,
-            "power": {"moonsama": 10, "moonsamaNeonBonus": 100, "exosama": 1},
+            # Legacy BridgeModule.getMoonsamaPower: 10 per Moonsama-class NFT (Multiverse
+            # Avatars counted the same), 100 for a Neon Moonsama, 1 per Exosama.
+            "power": {"moonsama": 10, "moonsama-multiverse-art-eth": 10, "moonsamaNeonBonus": 100, "exosama": 1},
+            "scepter": {
+                "material": "minecraft:feather",
+                "customModelData": 2,
+                "note": "Whale Scepter item look in the legacy pack; MoonsamaWhaleBuffs config whale-mode.scepter",
+            },
         },
     )
     return len(result)
@@ -478,6 +504,9 @@ Do not edit the extracted files by hand; re-run the extractor instead.
 - `offhands.json`, `hats.json` — cosmetic off-hand items and 3D hats of the legacy server
   (material, custom model data, unlocking Portal token). Curated by hand from the retired
   plugin sources rather than extracted, so they survive re-runs of the extractor.
+- `offhand-states.json` — the alternate looks an off-hand takes while its gameplay perk
+  runs (cooldown buzzers, Eggnade charge stages, Detectore ore glow, Pods props) and the
+  Moonsama-owned sounds the perks play. Drives the resource-pack port and the perk tests.
 - `game-passes.json`, `whale-buffs.json` — legacy access gates and buff allowlists mapped
   to Portal collections (entries with `collection: null` cannot be checked through Portal).
 - `compositor/` — data for composing custom skins the way the Customizer did:
@@ -495,6 +524,11 @@ Do not edit the extracted files by hand; re-run the extractor instead.
 - Gromlins have no slots, assets or default compositions in the Composer; their skins were
   produced elsewhere and only exist as the pre-signed textures in `skins/gromlin.jsonl`.
   `skin-compositor` therefore cannot re-compose them.
+- `moonsama-multiverse-art-eth` is the Composer's "Multiverse Avatars" (27 tokens). The
+  collection was migrated Moonriver → Exosama network → Ethereum with stable token ids, so
+  the legacy signed skins apply to the Portal tokens directly (each signed texture equals
+  the avatar's body layer). The Composer also stored an unreferenced `_hat.png` variant per
+  avatar; no component uses it, so it is not exported.
 """
     (OUT / "README.md").write_text(text)
 

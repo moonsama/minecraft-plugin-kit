@@ -10,12 +10,13 @@ skins:
   # Buffs only apply while the player wears an NFT skin (MoonsamaSkins) from one of these
   # collections - the legacy rule. Set to false to buff every linked holder.
   require-entitled-skin: true
-  collections: [moonsama, exosama]
+  collections: [moonsama, exosama, moonsama-multiverse-art-eth]
 
 power:
   # Power per token held, by Portal collection slug.
   per-token:
     moonsama: 10
+    moonsama-multiverse-art-eth: 10   # Multiverse Avatars (27 one-of-ones) counted like a Moonsama
     exosama: 1
   # Specific tokens worth a different amount (replaces the per-token value).
   # The six Neon-dimension Moonsamas were worth 100 each.

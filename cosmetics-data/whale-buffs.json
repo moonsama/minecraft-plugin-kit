@@ -10,7 +10,7 @@
   },
   {
    "composerCollection": "multiverse-avatars",
-   "collection": null
+   "collection": "moonsama-multiverse-art-eth"
   },
   {
    "composerCollection": "moonsama-artists",
@@ -47,6 +47,7 @@
  ],
  "power": {
   "moonsama": 10,
+  "moonsama-multiverse-art-eth": 10,
   "moonsamaNeonBonus": 100,
   "exosama": 1
  },

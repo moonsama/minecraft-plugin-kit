@@ -28,8 +28,10 @@ class MoonPowerTest {
         WhaleConfig config = bundled();
         assertThat(config.enabled()).isTrue();
         assertThat(config.requireEntitledSkin()).isTrue();
-        assertThat(config.entitledCollections()).containsExactlyInAnyOrder("moonsama", "exosama");
-        assertThat(config.powerPerToken()).containsEntry("moonsama", 10.0).containsEntry("exosama", 1.0);
+        assertThat(config.entitledCollections())
+                .containsExactlyInAnyOrder("moonsama", "exosama", "moonsama-multiverse-art-eth");
+        assertThat(config.powerPerToken()).containsEntry("moonsama", 10.0).containsEntry("exosama", 1.0)
+                .containsEntry("moonsama-multiverse-art-eth", 10.0);
         assertThat(config.overrides()).hasSize(1);
         assertThat(config.overrides().get(0).tokenIds()).containsExactlyInAnyOrder("276", "511", "545", "605", "787", "920");
         assertThat(config.healthPerPower()).isEqualTo(0.1);
@@ -52,9 +54,10 @@ class MoonPowerTest {
                 new AssetHolding("moonsama", "545", "1"),     // Neon → 100
                 new AssetHolding("exosama", "9000", "1"),
                 new AssetHolding("exosama", "9001", "0"),     // sold
+                new AssetHolding("moonsama-multiverse-art-eth", "7", "1"),  // avatar → 10
                 new AssetHolding("moonsama-x", "12", "5"),   // not counted
                 new AssetHolding("gromlin", "3", "1"));      // not counted
-        assertThat(MoonPower.of(config, holdings)).isEqualTo(111);
+        assertThat(MoonPower.of(config, holdings)).isEqualTo(121);
         assertThat(MoonPower.of(config, new AssetHolding("exosama", "1", "2.7"))).isEqualTo(2);
         assertThat(MoonPower.units("abc")).isZero();
     }

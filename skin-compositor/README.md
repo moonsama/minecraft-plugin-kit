@@ -57,6 +57,7 @@ maintainers only; the test is skipped without it). Current results:
 | moonsama | 591 / 1000 | 82 |
 | exosama | 6686 / 10000 | 1562 |
 | moonsama-embassy | 14 / 15 | 0 |
+| moonsama-multiverse-art-eth | 27 / 27 | 0 |
 
 The remainder are differences in the *legacy* data rather than in this port:
 
@@ -75,3 +76,7 @@ The remainder are differences in the *legacy* data rather than in this port:
 Gromlins have no slots or assets in the Composer data (their 3333 skins were produced
 elsewhere), so `supports("gromlin")` is `false`; use the pre-signed skins from
 `cosmetics-data/skins/gromlin.jsonl` instead.
+
+Multiverse Avatars (`moonsama-multiverse-art-eth`) render, but their only slots take generic
+Multiverse Costumes that Portal does not index, so `supports(...)` is `false` for them too;
+players wear the pre-signed skins from `cosmetics-data/skins/moonsama-multiverse-art-eth.jsonl`.

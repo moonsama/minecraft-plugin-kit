@@ -33,7 +33,8 @@ class LegacyRenderParityTest {
     private static final Map<String, String> ARCHIVE_DIRS = Map.of(
             "moonsama", "moonsama",
             "exosama", "exosama",
-            "moonsama-embassy", "moonsama-embassy"
+            "moonsama-embassy", "moonsama-embassy",
+            "moonsama-multiverse-art-eth", "multiverse-avatars"
     );
 
     /**
@@ -68,12 +69,15 @@ class LegacyRenderParityTest {
     void reportsWhichCollectionsAreComposable() {
         assertThat(compositor.supports("moonsama")).isTrue();
         assertThat(compositor.supports("exosama")).isTrue();
+        // Avatars render (see parity below) but own no parts: their only slots take generic
+        // Multiverse Costumes, which Portal does not index. Nothing to customize.
+        assertThat(compositor.supports("moonsama-multiverse-art-eth")).isFalse();
         assertThat(compositor.supports("gromlin")).isFalse();
         assertThat(compositor.supports("unknown")).isFalse();
     }
 
     @ParameterizedTest(name = "{0} >= {1}")
-    @CsvSource({"moonsama, 0.55", "exosama, 0.60", "moonsama-embassy, 0.90"})
+    @CsvSource({"moonsama, 0.55", "exosama, 0.60", "moonsama-embassy, 0.90", "moonsama-multiverse-art-eth, 0.90"})
     void matchesArchivedLegacyRenders(String portalCollection, double minimumIdenticalRatio) throws IOException {
         assumeTrue(archive != null && Files.isDirectory(archive.resolve(ARCHIVE_DIRS.get(portalCollection))),
                 "legacy render archive not available");

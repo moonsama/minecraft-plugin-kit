@@ -11,6 +11,7 @@ collections:
   - exosama
   - gromlin
   - moonsama-embassy
+  - moonsama-multiverse-art-eth
 
 # Re-apply the equipped skin when a player joins.
 reapply-on-join: true
@@ -25,3 +26,4 @@ collection-names:
   exosama: Exosama
   gromlin: Gromlin
   moonsama-embassy: Moonsama Embassy
+  moonsama-multiverse-art-eth: Multiverse Avatars

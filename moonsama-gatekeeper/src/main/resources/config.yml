@@ -16,6 +16,7 @@ passes:
   - collection: exosama             # Exosama
   - collection: gromlin             # Gromlins
   - collection: moonsama-embassy    # Embassy
+  - collection: moonsama-multiverse-art-eth   # Multiverse Avatars / Art (Ethereum)
   - collection: moonsama-x          # VIP Ticket (Multiverse Items token 1)
     token-ids: ["1"]
 

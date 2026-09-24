@@ -11,7 +11,7 @@
   },
   {
    "note": "Artists",
-   "collection": null,
+   "collection": "moonsama-multiverse-art-eth",
    "tokenIdPattern": "*",
    "legacy": {
     "chainId": 1285,
@@ -47,7 +47,7 @@
   },
   {
    "note": "Multiverse Avatars MOVR",
-   "collection": null,
+   "collection": "moonsama-multiverse-art-eth",
    "tokenIdPattern": "*",
    "legacy": {
     "chainId": 1285,
@@ -56,7 +56,7 @@
   },
   {
    "note": "Multiverse Avatars EXN",
-   "collection": null,
+   "collection": "moonsama-multiverse-art-eth",
    "tokenIdPattern": "*",
    "legacy": {
     "chainId": 2109,

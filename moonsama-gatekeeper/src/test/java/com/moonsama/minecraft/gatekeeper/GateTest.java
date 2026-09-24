@@ -27,8 +27,9 @@ class GateTest {
         GateConfig config = bundled();
         assertThat(config.enabled()).isFalse();
         assertThat(config.passes()).extracting(Pass::collection)
-                .containsExactly("moonsama", "exosama", "gromlin", "moonsama-embassy", "moonsama-x");
-        assertThat(config.passes().get(4).tokenIds()).containsExactly("1");
+                .containsExactly("moonsama", "exosama", "gromlin", "moonsama-embassy",
+                        "moonsama-multiverse-art-eth", "moonsama-x");
+        assertThat(config.passes().get(5).tokenIds()).containsExactly("1");
         assertThat(config.unlinked()).isEqualTo(GateConfig.Action.RESTRICT);
         assertThat(config.denied()).isEqualTo(GateConfig.Action.KICK);
         assertThat(config.unavailable()).isEqualTo(GateConfig.Action.ALLOW);

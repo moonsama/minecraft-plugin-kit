@@ -45,7 +45,8 @@ class SkinCatalogTest {
                 "moonsama", 1000,
                 "exosama", 10000,
                 "gromlin", 3333,
-                "moonsama-embassy", 15
+                "moonsama-embassy", 15,
+                "moonsama-multiverse-art-eth", 27
         );
         SkinCatalog catalog = SkinCatalog.load(getClass().getClassLoader(), List.copyOf(expected.keySet()));
 

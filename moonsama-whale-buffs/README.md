@@ -11,13 +11,13 @@ only apply while wearing a Moonsama or Exosama NFT skin).
 
 | | Default |
 | --- | --- |
-| Power per token | Moonsama 10, Exosama 1; Neon Moonsamas (#276, 511, 545, 605, 787, 920) 100 |
+| Power per token | Moonsama 10, Multiverse Avatar (`moonsama-multiverse-art-eth`) 10, Exosama 1; Neon Moonsamas (#276, 511, 545, 605, 787, 920) 100 |
 | Extra max health | 0.1 HP per power |
 | Extra melee damage | +2.5 % per power (100 power → ×3.5) |
 | Name colour | ≥1 gold, ≥50 blue, ≥100 light purple, ≥200 rainbow (chat and player list) |
 | Whale Scepter | given to players with ≥100 power; bound: cannot be dropped, stored or lost on death |
 | Whale Mode | right-click the scepter: max health ×1.5 for 120 s, full heal, lightning, then 300 s cooldown |
-| Entitlement | only while wearing an NFT skin from `skins.collections` (`moonsama`, `exosama`); set `require-entitled-skin: false` to buff every linked holder |
+| Entitlement | only while wearing an NFT skin from `skins.collections` (`moonsama`, `exosama`, `moonsama-multiverse-art-eth`); set `require-entitled-skin: false` to buff every linked holder |
 
 Power is recomputed from MoonsamaCore's holdings on join and on every refresh, and the skin
 check re-runs whenever the worn skin changes, so selling the NFT or taking off the skin

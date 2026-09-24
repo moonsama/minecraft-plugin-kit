@@ -11,6 +11,9 @@
   },
   "moonsama-embassy": {
    "composerCollection": "moonsama-embassy"
+  },
+  "moonsama-multiverse-art-eth": {
+   "composerCollection": "multiverse-avatars"
   }
  },
  "legacyContracts": [
@@ -75,16 +78,28 @@
    "note": "Multiverse Backgrounds; not in Portal"
   },
   {
+   "chainId": 1,
+   "address": "0xd1321561c00b6cbb316b157f8e38b9341b3f2979",
+   "portal": "moonsama-multiverse-art-eth",
+   "note": "Multiverse Avatars / Multiverse Art (Ethereum); final migration target"
+  },
+  {
    "chainId": 2109,
    "address": "0xc2f48a85903d8a6c5276a4f63f75240c355f716c",
-   "portal": null,
-   "note": "Multiverse Avatars (Exosama network); not in Portal"
+   "portal": "moonsama-multiverse-art-eth",
+   "note": "Multiverse Avatars (Exosama network); intermediate migration, same token ids"
+  },
+  {
+   "chainId": 1285,
+   "address": "0xc2f48a85903d8a6c5276a4f63f75240c355f716c",
+   "portal": "moonsama-multiverse-art-eth",
+   "note": "Legacy game-pass JSON listed the Exosama-network avatars contract under chain 1285"
   },
   {
    "chainId": 1285,
    "address": "0xdea45e7c6944cb86a268661349e9c013836c79a2",
-   "portal": null,
-   "note": "Multiverse Avatars (Moonriver); not in Portal"
+   "portal": "moonsama-multiverse-art-eth",
+   "note": "Multiverse Avatars (Moonriver); original ERC-1155, same token ids"
   }
  ]
 }

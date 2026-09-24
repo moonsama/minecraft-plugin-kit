@@ -31,9 +31,9 @@ Depends on `MoonsamaCore` only. Off by default (`enabled: false`).
 | Has `bypass-permission` (`moonsama.gatekeeper.bypass`, ops) | allow | |
 
 The default pass list mirrors the legacy game passes that Portal can verify: any Moonsama,
-Exosama, Gromlin or Embassy NFT, or Multiverse Items token 1 (VIP Ticket). The legacy
-Artists and Multiverse Avatars contracts are not indexed by Portal and are therefore not
-included (see `cosmetics-data/game-passes.json`).
+Exosama, Gromlin, Embassy or Multiverse Avatar (`moonsama-multiverse-art-eth`) NFT, or
+Multiverse Items token 1 (VIP Ticket). See `cosmetics-data/game-passes.json` for the legacy
+contract mapping.
 
 ## Configuration
 

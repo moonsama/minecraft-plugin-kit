@@ -12,7 +12,7 @@ Do not edit the extracted files by hand; re-run the extractor instead.
 - `collections.json` — Portal collection ↔ legacy Composer collection / on-chain contract map.
 - `skins/<collection>.jsonl` — Mojang-signed skin textures per NFT (`id`, `value`,
   `signature`, `model`). Apply with a `textures` profile property; no signing needed.
-  Counts: moonsama 1,000, exosama 10,000, gromlin 3,333, moonsama-embassy 15.
+  Counts: moonsama 1,000, exosama 10,000, gromlin 3,333, moonsama-embassy 15, moonsama-multiverse-art-eth 27.
 - `item-skins.json` — tool skins (custom model data per vanilla material) and the Portal
   token that unlocks each one (68 entries). Unlock tokens live in
   the `moonsama-x` collection; token ids are identical on the Moonriver contract
@@ -30,7 +30,7 @@ Do not edit the extracted files by hand; re-run the extractor instead.
   `collections.json` (slots, assets, proxies, traits, unlock rules, render variants),
   `components/<collection>.json` (conditional texture fragments), `files/` (layer PNGs),
   `compositions/<collection>.jsonl` (each token's default slot values).
-  727 components, 450 layer files.
+  760 components, 477 layer files.
 
 ## Known gaps
 
@@ -41,3 +41,8 @@ Do not edit the extracted files by hand; re-run the extractor instead.
 - Gromlins have no slots, assets or default compositions in the Composer; their skins were
   produced elsewhere and only exist as the pre-signed textures in `skins/gromlin.jsonl`.
   `skin-compositor` therefore cannot re-compose them.
+- `moonsama-multiverse-art-eth` is the Composer's "Multiverse Avatars" (27 tokens). The
+  collection was migrated Moonriver → Exosama network → Ethereum with stable token ids, so
+  the legacy signed skins apply to the Portal tokens directly (each signed texture equals
+  the avatar's body layer). The Composer also stored an unreferenced `_hat.png` variant per
+  avatar; no component uses it, so it is not exported.

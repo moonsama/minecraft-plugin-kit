@@ -53,7 +53,7 @@ See [local development](docs/local-development.md) for setup and troubleshooting
 - `portal-client`: Paper-independent asynchronous Java client for Portal.
 - `moonsama-paper`: OAuth linking, SQLite persistence, commands, and builder API.
 - `cosmetics-data`: offline data recovered from the retired Moonsama services:
-  Mojang-signed skins for every Moonsama, Exosama, Gromlin and Embassy NFT, item
+  Mojang-signed skins for every Moonsama, Exosama, Gromlin, Embassy and Multiverse Avatar NFT, item
   skin/gate mappings, and the avatar compositor rules. Keyed only by Portal
   collection slug and token id. See [cosmetics-data/README.md](cosmetics-data/README.md).
 - `moonsama-skins`: `/skins` plugin that lets a linked player wear the skin of an
@@ -76,7 +76,8 @@ See [local development](docs/local-development.md) for setup and troubleshooting
   is set; without it the wardrobe is browse/save only. See
   [moonsama-wardrobe/README.md](moonsama-wardrobe/README.md).
 - `moonsama-gatekeeper`: optional access gate — only players whose Portal account holds one
-  of the configured passes (default: Moonsama, Exosama, Gromlin, Embassy, VIP Ticket) may
+  of the configured passes (default: Moonsama, Exosama, Gromlin, Embassy, Multiverse Avatar,
+  VIP Ticket) may
   play; others are kicked or parked in a waiting room where they can still link. Off by
   default. See [moonsama-gatekeeper/README.md](moonsama-gatekeeper/README.md).
 - `moonsama-whale-buffs`: Moon Power from held NFTs → extra health, damage, name colours and

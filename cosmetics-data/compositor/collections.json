@@ -12,6 +12,9 @@
   "moonsama-embassy": {
    "minecraft": "moonsama-embassy-minecraft"
   },
+  "multiverse-avatars": {
+   "minecraft": "multiverse-avatars-minecraft"
+  },
   "multiverse-costumes": {
    "minecraft-exosama": "multiverse-costumes-minecraft-exosama",
    "minecraft-generic": "multiverse-costumes-generic-minecraft",
@@ -9636,6 +9639,113 @@
     {
      "renderType": "preview-minecraft",
      "component": "exosama_mc:preview_settings"
+    }
+   ],
+   "slots": [],
+   "slotPermissions": [],
+   "assets": [],
+   "assetProxies": [],
+   "traits": [],
+   "unlockRules": []
+  },
+  "multiverse-avatars": {
+   "type": "main",
+   "parentCollection": null,
+   "resultTypes": [
+    {
+     "renderType": "*",
+     "component": "multiverse_avatars:template_settings"
+    },
+    {
+     "renderType": "minecraft",
+     "component": ""
+    },
+    {
+     "renderType": "nft",
+     "component": "multiverse_avatars:nft_settings"
+    },
+    {
+     "renderType": "preview",
+     "component": "multiverse_avatars:preview_settings"
+    },
+    {
+     "renderType": "preview-minecraft",
+     "component": ""
+    }
+   ],
+   "slots": [
+    {
+     "referenceId": "background",
+     "type": "asset",
+     "customizable": true,
+     "required": false,
+     "parentSlot": null
+    },
+    {
+     "referenceId": "costume",
+     "type": "asset",
+     "customizable": true,
+     "required": false,
+     "parentSlot": null
+    }
+   ],
+   "slotPermissions": [
+    {
+     "slot": "background",
+     "sourceCollection": "multiverse-backgrounds",
+     "renderTypeSuffix": "",
+     "config": {
+      "options": [
+       {
+        "type": "tagged",
+        "tags": [
+         "background"
+        ]
+       }
+      ]
+     }
+    },
+    {
+     "slot": "costume",
+     "sourceCollection": "multiverse-costumes",
+     "renderTypeSuffix": "-generic",
+     "config": {
+      "options": [
+       {
+        "type": "tagged",
+        "tags": [
+         "generic",
+         "headwear"
+        ]
+       }
+      ]
+     }
+    }
+   ],
+   "assets": [],
+   "assetProxies": [],
+   "traits": [],
+   "unlockRules": []
+  },
+  "multiverse-avatars-minecraft": {
+   "type": "proxy",
+   "parentCollection": "multiverse-avatars",
+   "resultTypes": [
+    {
+     "renderType": "*",
+     "component": "mv_avatars_mc:template_settings"
+    },
+    {
+     "renderType": "minecraft",
+     "component": "mv_avatars_mc:render_settings"
+    },
+    {
+     "renderType": "preview",
+     "component": "mv_avatars_mc:preview_settings"
+    },
+    {
+     "renderType": "preview-minecraft",
+     "component": "mv_avatars_mc:preview_settings"
     }
    ],
    "slots": [],
