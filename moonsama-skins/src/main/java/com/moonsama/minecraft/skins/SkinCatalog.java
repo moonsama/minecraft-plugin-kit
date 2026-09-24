@@ -109,6 +109,15 @@ public final class SkinCatalog {
         return skins == null ? Optional.empty() : Optional.ofNullable(skins.get(ref.tokenId()));
     }
 
+    /** The entry with the lowest token id of a collection (used for uniform collections). */
+    public Optional<SignedSkin> first(String collection) {
+        Map<Long, SignedSkin> skins = byCollection.get(collection);
+        if (skins == null || skins.isEmpty()) {
+            return Optional.empty();
+        }
+        return skins.keySet().stream().min(Long::compare).map(skins::get);
+    }
+
     public Optional<SignedSkin> find(String collection, String tokenId) {
         try {
             return find(new SkinRef(collection, Long.parseLong(tokenId.trim())));

@@ -58,7 +58,8 @@ See [local development](docs/local-development.md) for setup and troubleshooting
   collection slug and token id. See [cosmetics-data/README.md](cosmetics-data/README.md).
 - `moonsama-skins`: `/skins` plugin that lets a linked player wear the skin of an
   NFT they hold in Portal. Needs no Customizer, Minecraft API or Mineskin; the
-  signed textures ship inside the JAR.
+  signed textures ship inside the JAR. Collections whose tokens all share one look
+  (Gromlins) are `uniform-collections`: any number of tokens unlocks a single entry.
 - `skin-compositor`: Paper-independent Java port of the legacy Composer/Unity avatar
   renderer. Turns a Moonsama or Exosama composition (base, outfit, hat, costume, …)
   into a 64×64 skin PNG from the layers in `cosmetics-data`. See
@@ -100,8 +101,8 @@ do not depend on them.
 - `/moonsama link`
 - `/moonsama status`
 - `/moonsama holdings`
-- `/skins` (menu of owned NFT skins), `/skins wear <collection> <id>`,
-  `/skins reset`, `/skins status`
+- `/skins` (menu of owned NFT skins), `/skins wear <collection> <id>` (`<id>` optional for
+  uniform collections, e.g. `/skins wear gromlin`), `/skins reset`, `/skins status`
 - `/items` (menu of owned item skins and off-hands), `/items skin <id>|clear`,
   `/items offhand <id>|none`, `/items list`, `/items status`
 - `/wardrobe` (pick NFT → slot → part, then "Wear this look"),

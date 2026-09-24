@@ -23,7 +23,6 @@ import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
-import java.util.Map;
 import java.util.Optional;
 import java.util.UUID;
 
@@ -39,7 +38,7 @@ public final class SkinMenu implements InventoryHolder {
     private static final int ROWS = 6;
 
     private final NamespacedKey skinKey;
-    private final Map<String, String> collectionNames;
+    private final SkinCollections collections;
     private final List<SignedSkin> skins;
     private final HoldingsSnapshot.Status status;
     private final SkinRef equipped;
@@ -48,26 +47,20 @@ public final class SkinMenu implements InventoryHolder {
 
     public SkinMenu(
             NamespacedKey skinKey,
-            Map<String, String> collectionNames,
-            List<String> collectionOrder,
+            SkinCollections collections,
             SkinService.OwnedSkins owned,
             SkinRef equipped
     ) {
         this.skinKey = skinKey;
-        this.collectionNames = collectionNames;
+        this.collections = collections;
         this.status = owned.status();
         this.equipped = equipped;
         this.skins = new ArrayList<>(owned.skins());
         this.skins.sort(Comparator
-                .comparingInt((SignedSkin skin) -> indexOf(collectionOrder, skin.ref().collection()))
+                .comparingInt((SignedSkin skin) -> collections.indexOf(skin.ref().collection()))
                 .thenComparingLong(skin -> skin.ref().tokenId()));
         this.inventory = Bukkit.createInventory(this, ROWS * 9, Component.text("Moonsama Skins"));
         render();
-    }
-
-    private static int indexOf(List<String> order, String collection) {
-        int index = order.indexOf(collection);
-        return index < 0 ? Integer.MAX_VALUE : index;
     }
 
     @Override
@@ -139,7 +132,8 @@ public final class SkinMenu implements InventoryHolder {
                 equipped == null ? "You are wearing your own skin" : "Currently wearing " + displayName(equipped)));
         if (skins.isEmpty()) {
             inventory.setItem(22, button(Material.PAPER, "No skins found", NamedTextColor.GRAY,
-                    "Hold a Moonsama, Exosama, Gromlin or", "Embassy NFT in your Portal account.", statusLine()));
+                    "Hold an NFT from one of these collections", "in your Portal account:",
+                    String.join(", ", collections.order().stream().map(collections::name).toList()), statusLine()));
         }
     }
 
@@ -156,12 +150,12 @@ public final class SkinMenu implements InventoryHolder {
         ItemStack item = new ItemStack(Material.PLAYER_HEAD);
         SkullMeta meta = (SkullMeta) item.getItemMeta();
         meta.setPlayerProfile(profileFor(skin));
-        boolean worn = skin.ref().equals(equipped);
+        boolean worn = isWorn(skin.ref());
         meta.displayName(Component.text(displayName(skin.ref()), worn ? NamedTextColor.GREEN : NamedTextColor.WHITE)
                 .decoration(TextDecoration.ITALIC, false));
         List<Component> lore = new ArrayList<>();
-        lore.add(Component.text(collectionNames.getOrDefault(skin.ref().collection(), skin.ref().collection()),
-                NamedTextColor.GRAY).decoration(TextDecoration.ITALIC, false));
+        lore.add(Component.text(collections.name(skin.ref().collection()), NamedTextColor.GRAY)
+                .decoration(TextDecoration.ITALIC, false));
         lore.add(Component.text(worn ? "Currently worn" : "Click to wear",
                 worn ? NamedTextColor.GREEN : NamedTextColor.YELLOW).decoration(TextDecoration.ITALIC, false));
         meta.lore(lore);
@@ -185,7 +179,18 @@ public final class SkinMenu implements InventoryHolder {
     }
 
     private String displayName(SkinRef ref) {
-        return collectionNames.getOrDefault(ref.collection(), ref.collection()) + " #" + ref.tokenId();
+        return collections.displayName(ref);
+    }
+
+    /** The single entry of a uniform collection counts as worn whichever token was equipped. */
+    private boolean isWorn(SkinRef ref) {
+        if (equipped == null) {
+            return false;
+        }
+        if (collections.isUniform(ref.collection())) {
+            return ref.collection().equals(equipped.collection());
+        }
+        return ref.equals(equipped);
     }
 
     private static ItemStack button(Material material, String name, NamedTextColor color, String... lore) {

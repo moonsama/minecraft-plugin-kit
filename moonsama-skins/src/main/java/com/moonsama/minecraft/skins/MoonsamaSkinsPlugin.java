@@ -8,7 +8,6 @@ import org.bukkit.NamespacedKey;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.command.TabCompleter;
-import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -21,10 +20,8 @@ import org.bukkit.plugin.java.JavaPlugin;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
-import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Locale;
-import java.util.Map;
 import java.util.Optional;
 import java.util.UUID;
 import java.util.concurrent.CompletableFuture;
@@ -34,8 +31,7 @@ public final class MoonsamaSkinsPlugin extends JavaPlugin implements Listener, T
     private MoonsamaService moonsama;
     private SkinService skins;
     private NamespacedKey skinKey;
-    private List<String> collections;
-    private Map<String, String> collectionNames;
+    private SkinCollections collections;
 
     @Override
     public void onEnable() {
@@ -44,21 +40,23 @@ public final class MoonsamaSkinsPlugin extends JavaPlugin implements Listener, T
             throw new IllegalStateException("MoonsamaCore service is unavailable");
         }
         saveDefaultConfig();
-        collections = List.copyOf(getConfig().getStringList("collections"));
-        collectionNames = readCollectionNames();
+        collections = SkinCollections.from(getConfig());
         skinKey = new NamespacedKey(this, "skin");
 
         long started = System.nanoTime();
-        SkinCatalog catalog = SkinCatalog.load(getClassLoader(), collections);
-        for (String missing : catalog.missingCollections(collections)) {
+        SkinCatalog catalog = SkinCatalog.load(getClassLoader(), collections.order());
+        for (String missing : catalog.missingCollections(collections.order())) {
             getLogger().warning("No bundled skins for collection '" + missing + "'; it will be skipped.");
         }
         getLogger().info(String.format(Locale.ROOT, "Loaded %,d signed skins for %s in %d ms",
                 catalog.size(), catalog.collections(), (System.nanoTime() - started) / 1_000_000));
+        if (!collections.uniform().isEmpty()) {
+            getLogger().info("Uniform collections (one skin regardless of token): " + collections.uniform());
+        }
 
         EquippedSkinStore store = new EquippedSkinStore(getDataFolder().toPath().resolve("equipped.json"));
         store.load();
-        skins = new SkinService(this, moonsama, catalog, store);
+        skins = new SkinService(this, moonsama, catalog, collections, store);
 
         getServer().getPluginManager().registerEvents(this, this);
         getServer().getServicesManager().register(SkinService.class, skins, this, ServicePriority.Normal);
@@ -71,17 +69,6 @@ public final class MoonsamaSkinsPlugin extends JavaPlugin implements Listener, T
     @Override
     public void onDisable() {
         getServer().getServicesManager().unregisterAll(this);
-    }
-
-    private Map<String, String> readCollectionNames() {
-        Map<String, String> names = new LinkedHashMap<>();
-        ConfigurationSection section = getConfig().getConfigurationSection("collection-names");
-        if (section != null) {
-            for (String key : section.getKeys(false)) {
-                names.put(key, section.getString(key, key));
-            }
-        }
-        return names;
     }
 
     // ---------------------------------------------------------------- commands
@@ -109,11 +96,17 @@ public final class MoonsamaSkinsPlugin extends JavaPlugin implements Listener, T
             }
             case "status" -> status(player);
             case "wear" -> {
-                if (args.length != 3) {
+                String collection = args.length >= 2 ? args[1].toLowerCase(Locale.ROOT) : "";
+                Optional<SignedSkin> skin;
+                if (args.length == 2 && collections.isUniform(collection)) {
+                    // Every token looks the same; any bundled entry will do.
+                    skin = skins.catalog().first(collection);
+                } else if (args.length == 3) {
+                    skin = skins.catalog().find(collection, args[2]);
+                } else {
                     player.sendRichMessage("<red>Usage: /" + label + " wear <collection> <id></red>");
                     return true;
                 }
-                Optional<SignedSkin> skin = skins.catalog().find(args[1].toLowerCase(Locale.ROOT), args[2]);
                 if (skin.isEmpty()) {
                     player.sendRichMessage("<red>Unknown skin. Collections: " + String.join(", ", skins.catalog().collections()) + "</red>");
                     return true;
@@ -197,8 +190,7 @@ public final class MoonsamaSkinsPlugin extends JavaPlugin implements Listener, T
                 player.sendRichMessage("<red>Link your Portal account first with <white>/moonsama link</white>.</red>");
                 return;
             }
-            SkinMenu menu = new SkinMenu(skinKey, collectionNames, collections, owned,
-                    skins.equipped(mojangUuid).orElse(null));
+            SkinMenu menu = new SkinMenu(skinKey, collections, owned, skins.equipped(mojangUuid).orElse(null));
             menu.open(player);
             if (owned.status() == HoldingsSnapshot.Status.UNKNOWN) {
                 refreshAndReopen(player);
@@ -297,7 +289,7 @@ public final class MoonsamaSkinsPlugin extends JavaPlugin implements Listener, T
     // ---------------------------------------------------------------- helpers
 
     private String displayName(SkinRef ref) {
-        return collectionNames.getOrDefault(ref.collection(), ref.collection()) + " #" + ref.tokenId();
+        return collections.displayName(ref);
     }
 
     private void runMain(Runnable action) {

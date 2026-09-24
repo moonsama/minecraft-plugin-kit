@@ -11,8 +11,11 @@ import org.bukkit.plugin.Plugin;
 
 import java.time.Instant;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
+import java.util.Set;
 import java.util.UUID;
 import java.util.concurrent.CompletableFuture;
 import java.util.function.Supplier;
@@ -30,17 +33,28 @@ public final class SkinService {
     private final Plugin plugin;
     private final MoonsamaService moonsama;
     private final SkinCatalog catalog;
+    private final SkinCollections collections;
     private final EquippedSkinStore store;
 
     public SkinService(Plugin plugin, MoonsamaService moonsama, SkinCatalog catalog, EquippedSkinStore store) {
+        this(plugin, moonsama, catalog, new SkinCollections(List.copyOf(catalog.collections()), Map.of(), Set.of()), store);
+    }
+
+    public SkinService(Plugin plugin, MoonsamaService moonsama, SkinCatalog catalog,
+                       SkinCollections collections, EquippedSkinStore store) {
         this.plugin = plugin;
         this.moonsama = moonsama;
         this.catalog = catalog;
+        this.collections = collections;
         this.store = store;
     }
 
     public SkinCatalog catalog() {
         return catalog;
+    }
+
+    public SkinCollections collections() {
+        return collections;
     }
 
     public Optional<SkinRef> equipped(UUID mojangUuid) {
@@ -54,18 +68,33 @@ public final class SkinService {
 
     /**
      * NFTs the player holds (per MoonsamaCore's cache) for which a signed skin is bundled.
+     * Uniform collections contribute at most one entry (the lowest token id held).
      */
     public CompletableFuture<OwnedSkins> ownedSkins(UUID mojangUuid) {
-        return moonsama.cachedHoldings(mojangUuid).thenApply(snapshot -> {
-            List<SignedSkin> owned = new ArrayList<>();
-            for (AssetHolding holding : snapshot.holdings()) {
-                if (!holding.hasPositiveBalance()) {
-                    continue;
-                }
-                catalog.find(holding.collection(), holding.tokenId()).ifPresent(owned::add);
+        return moonsama.cachedHoldings(mojangUuid)
+                .thenApply(snapshot -> new OwnedSkins(snapshot.status(), ownedSkins(snapshot.holdings())));
+    }
+
+    List<SignedSkin> ownedSkins(List<AssetHolding> holdings) {
+        List<SignedSkin> owned = new ArrayList<>();
+        Map<String, SignedSkin> uniform = new HashMap<>();
+        for (AssetHolding holding : holdings) {
+            if (!holding.hasPositiveBalance()) {
+                continue;
             }
-            return new OwnedSkins(snapshot.status(), List.copyOf(owned));
-        });
+            Optional<SignedSkin> skin = catalog.find(holding.collection(), holding.tokenId());
+            if (skin.isEmpty()) {
+                continue;
+            }
+            if (collections.isUniform(holding.collection())) {
+                uniform.merge(holding.collection(), skin.get(),
+                        (a, b) -> a.ref().tokenId() <= b.ref().tokenId() ? a : b);
+            } else {
+                owned.add(skin.get());
+            }
+        }
+        owned.addAll(uniform.values());
+        return List.copyOf(owned);
     }
 
     /**
@@ -222,11 +251,19 @@ public final class SkinService {
                 .findFirst();
     }
 
-    static boolean owns(List<AssetHolding> holdings, SkinRef ref) {
+    private boolean owns(List<AssetHolding> holdings, SkinRef ref) {
+        return owns(holdings, ref, collections.isUniform(ref.collection()));
+    }
+
+    /**
+     * Whether {@code holdings} include {@code ref}. For a uniform collection any token of the
+     * collection counts, since every token carries the same skin.
+     */
+    static boolean owns(List<AssetHolding> holdings, SkinRef ref, boolean uniform) {
         String tokenId = Long.toString(ref.tokenId());
         return holdings.stream().anyMatch(holding ->
                 ref.collection().equals(holding.collection())
-                        && tokenId.equals(normalize(holding.tokenId()))
+                        && (uniform || tokenId.equals(normalize(holding.tokenId())))
                         && holding.hasPositiveBalance()
         );
     }

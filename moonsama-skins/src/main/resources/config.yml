@@ -13,6 +13,12 @@ collections:
   - moonsama-embassy
   - moonsama-multiverse-art-eth
 
+# Collections whose tokens all share one skin. Holding any number of them unlocks a single
+# entry in /skins (shown without a token number) and the skin stays on as long as the player
+# holds at least one token of the collection. Gromlins never had per-NFT skins.
+uniform-collections:
+  - gromlin
+
 # Re-apply the equipped skin when a player joins.
 reapply-on-join: true
 
