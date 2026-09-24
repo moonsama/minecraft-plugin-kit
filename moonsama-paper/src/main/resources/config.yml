@@ -31,6 +31,15 @@ skins:
   mineskin-api-key: ''
   mineskin-url: 'https://api.mineskin.org'
 
+# Local SQLite database (plugins/MoonsamaCore/data.db).
+#   journal-mode: wal      - default; fastest, fine on any local disk
+#                 truncate - use when the server directory is on a virtual or network
+#                            filesystem (Docker Desktop bind mounts, NFS, some game panels).
+#                            WAL memory-maps a shared file there and can crash the JVM (SIGBUS).
+# Environment override: MOONSAMA_SQLITE_JOURNAL_MODE
+storage:
+  journal-mode: wal
+
 sync:
   holdings-ttl-seconds: 60
   changes-interval-seconds: 5

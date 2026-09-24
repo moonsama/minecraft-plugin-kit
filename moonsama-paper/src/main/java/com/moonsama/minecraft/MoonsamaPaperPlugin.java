@@ -24,6 +24,7 @@ import com.moonsama.minecraft.store.LinkStore;
 import com.moonsama.minecraft.store.LinkedPlayer;
 import com.moonsama.minecraft.store.OAuthAttempt;
 import com.moonsama.minecraft.store.SqliteLinkStore;
+import com.moonsama.minecraft.store.SqliteJournalMode;
 import com.moonsama.minecraft.store.SqlitePortalStore;
 import com.moonsama.portal.PortalClient;
 import com.moonsama.portal.PortalException;
@@ -71,10 +72,13 @@ public final class MoonsamaPaperPlugin extends JavaPlugin implements MoonsamaSer
 
         getDataFolder().mkdirs();
         var databasePath = getDataFolder().toPath().resolve("data.db");
-        links = new SqliteLinkStore(databasePath);
+        links = new SqliteLinkStore(databasePath, config.journalMode());
         links.initialize();
-        portalStore = new SqlitePortalStore(databasePath);
+        portalStore = new SqlitePortalStore(databasePath, config.journalMode());
         portalStore.initialize();
+        if (config.journalMode() != SqliteJournalMode.WAL) {
+            getLogger().info("SQLite journal mode: " + config.journalMode());
+        }
 
         portal = new PortalClient(new PortalClient.Options(
                 config.apiUrl(),

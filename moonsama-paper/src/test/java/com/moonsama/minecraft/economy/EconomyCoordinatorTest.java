@@ -3,6 +3,7 @@ package com.moonsama.minecraft.economy;
 import com.moonsama.minecraft.MoonsamaConfig;
 import com.moonsama.minecraft.api.EconomyOperation;
 import com.moonsama.minecraft.store.JournalRecords.ResolvedLine;
+import com.moonsama.minecraft.store.SqliteJournalMode;
 import com.moonsama.minecraft.store.JournalRecords.Write;
 import com.moonsama.minecraft.store.SqliteLinkStore;
 import com.moonsama.minecraft.store.SqlitePortalStore;
@@ -177,7 +178,8 @@ class EconomyCoordinatorTest {
                 Duration.ofDays(1),
                 Duration.ofSeconds(30),
                 "",
-                URI.create("https://api.mineskin.org")
+                URI.create("https://api.mineskin.org"),
+                SqliteJournalMode.WAL
         );
     }
 

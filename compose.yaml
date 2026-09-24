@@ -24,6 +24,8 @@ services:
       PORTAL_REFUND_ENABLED: ${PORTAL_REFUND_ENABLED:-false}
       PORTAL_HOLDS_ENABLED: ${PORTAL_HOLDS_ENABLED:-false}
       MINESKIN_API_KEY: ${MINESKIN_API_KEY:-}
+      # ./dev-data is a bind mount (virtiofs on Docker Desktop); WAL's shared-memory mmap can SIGBUS there.
+      MOONSAMA_SQLITE_JOURNAL_MODE: ${MOONSAMA_SQLITE_JOURNAL_MODE:-truncate}
     volumes:
       - ./dev-data:/data
       - ./moonsama-paper/build/libs/moonsama-paper-0.1.0-SNAPSHOT.jar:/data/plugins/MoonsamaCore.jar:ro

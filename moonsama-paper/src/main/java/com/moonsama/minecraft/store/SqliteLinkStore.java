@@ -13,15 +13,21 @@ import java.util.UUID;
 
 public final class SqliteLinkStore implements LinkStore {
     private final String jdbcUrl;
+    private final SqliteJournalMode journalMode;
 
     public SqliteLinkStore(Path databasePath) {
+        this(databasePath, SqliteJournalMode.WAL);
+    }
+
+    public SqliteLinkStore(Path databasePath, SqliteJournalMode journalMode) {
         this.jdbcUrl = "jdbc:sqlite:" + databasePath.toAbsolutePath();
+        this.journalMode = journalMode;
     }
 
     @Override
     public void initialize() {
         try (Connection connection = open(); Statement statement = connection.createStatement()) {
-            statement.execute("PRAGMA journal_mode=WAL");
+            journalMode.apply(connection);
             statement.execute("PRAGMA foreign_keys=ON");
             statement.execute("""
                     CREATE TABLE IF NOT EXISTS player_links (
@@ -214,6 +220,10 @@ public final class SqliteLinkStore implements LinkStore {
         try (Statement statement = connection.createStatement()) {
             statement.execute("PRAGMA foreign_keys=ON");
             statement.execute("PRAGMA busy_timeout=5000");
+        }
+        if (!journalMode.persistent()) {
+            // Rollback-journal modes are per connection; WAL is remembered by the database file.
+            journalMode.apply(connection);
         }
         return connection;
     }

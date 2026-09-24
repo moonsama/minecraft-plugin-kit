@@ -31,14 +31,20 @@ import java.util.UUID;
 
 public final class SqlitePortalStore {
     private final String jdbcUrl;
+    private final SqliteJournalMode journalMode;
 
     public SqlitePortalStore(Path databasePath) {
+        this(databasePath, SqliteJournalMode.WAL);
+    }
+
+    public SqlitePortalStore(Path databasePath, SqliteJournalMode journalMode) {
         this.jdbcUrl = "jdbc:sqlite:" + databasePath.toAbsolutePath();
+        this.journalMode = journalMode;
     }
 
     public void initialize() {
         try (Connection connection = open(); Statement sql = connection.createStatement()) {
-            sql.execute("PRAGMA journal_mode=WAL");
+            journalMode.apply(connection);
             sql.execute("""
                     CREATE TABLE IF NOT EXISTS schema_migrations (
                         version INTEGER PRIMARY KEY,
@@ -1303,6 +1309,10 @@ public final class SqlitePortalStore {
         try (Statement statement = connection.createStatement()) {
             statement.execute("PRAGMA foreign_keys=ON");
             statement.execute("PRAGMA busy_timeout=5000");
+        }
+        if (!journalMode.persistent()) {
+            // Rollback-journal modes are per connection; WAL is remembered by the database file.
+            journalMode.apply(connection);
         }
         return connection;
     }

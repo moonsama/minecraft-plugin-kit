@@ -1,5 +1,6 @@
 package com.moonsama.minecraft;
 
+import com.moonsama.minecraft.store.SqliteJournalMode;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -30,7 +31,8 @@ public record MoonsamaConfig(
         Duration erasuresInterval,
         Duration receiptsInterval,
         String mineskinApiKey,
-        URI mineskinUrl
+        URI mineskinUrl,
+        SqliteJournalMode journalMode
 ) {
     static MoonsamaConfig load(JavaPlugin plugin) {
         FileConfiguration config = plugin.getConfig();
@@ -61,7 +63,8 @@ public record MoonsamaConfig(
                 Duration.ofSeconds(config.getLong("sync.erasures-interval-seconds", 86_400)),
                 Duration.ofSeconds(config.getLong("sync.receipts-interval-seconds", 30)),
                 value(config, "skins.mineskin-api-key", "MINESKIN_API_KEY"),
-                uri(config.getString("skins.mineskin-url", "https://api.mineskin.org"))
+                uri(config.getString("skins.mineskin-url", "https://api.mineskin.org")),
+                SqliteJournalMode.parse(value(config, "storage.journal-mode", "MOONSAMA_SQLITE_JOURNAL_MODE"))
         );
     }
 
