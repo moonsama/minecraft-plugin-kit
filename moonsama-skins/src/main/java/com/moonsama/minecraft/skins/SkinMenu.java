@@ -42,6 +42,7 @@ public final class SkinMenu implements InventoryHolder {
     private final List<SignedSkin> skins;
     private final HoldingsSnapshot.Status status;
     private final SkinRef equipped;
+    private final Attributions attributions;
     private final Inventory inventory;
     private int page;
 
@@ -51,8 +52,19 @@ public final class SkinMenu implements InventoryHolder {
             SkinService.OwnedSkins owned,
             SkinRef equipped
     ) {
+        this(skinKey, collections, owned, equipped, Attributions.empty());
+    }
+
+    public SkinMenu(
+            NamespacedKey skinKey,
+            SkinCollections collections,
+            SkinService.OwnedSkins owned,
+            SkinRef equipped,
+            Attributions attributions
+    ) {
         this.skinKey = skinKey;
         this.collections = collections;
+        this.attributions = attributions;
         this.status = owned.status();
         this.equipped = equipped;
         this.skins = new ArrayList<>(owned.skins());
@@ -156,6 +168,13 @@ public final class SkinMenu implements InventoryHolder {
         List<Component> lore = new ArrayList<>();
         lore.add(Component.text(collections.name(skin.ref().collection()), NamedTextColor.GRAY)
                 .decoration(TextDecoration.ITALIC, false));
+        attributions.find(skin.ref()).ifPresent(credit -> {
+            if (credit.piece() != null) {
+                lore.add(Component.text(credit.piece(), NamedTextColor.WHITE).decoration(TextDecoration.ITALIC, false));
+            }
+            String by = credit.collection() == null ? credit.artist() : credit.artist() + " · " + credit.collection();
+            lore.add(Component.text("Art by " + by, NamedTextColor.AQUA).decoration(TextDecoration.ITALIC, true));
+        });
         lore.add(Component.text(worn ? "Currently worn" : "Click to wear",
                 worn ? NamedTextColor.GREEN : NamedTextColor.YELLOW).decoration(TextDecoration.ITALIC, false));
         meta.lore(lore);

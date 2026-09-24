@@ -32,6 +32,7 @@ public final class MoonsamaSkinsPlugin extends JavaPlugin implements Listener, T
     private SkinService skins;
     private NamespacedKey skinKey;
     private SkinCollections collections;
+    private Attributions attributions = Attributions.empty();
 
     @Override
     public void onEnable() {
@@ -45,6 +46,7 @@ public final class MoonsamaSkinsPlugin extends JavaPlugin implements Listener, T
 
         long started = System.nanoTime();
         SkinCatalog catalog = SkinCatalog.load(getClassLoader(), collections.order());
+        attributions = Attributions.load(getClassLoader());
         for (String missing : catalog.missingCollections(collections.order())) {
             getLogger().warning("No bundled skins for collection '" + missing + "'; it will be skipped.");
         }
@@ -190,7 +192,7 @@ public final class MoonsamaSkinsPlugin extends JavaPlugin implements Listener, T
                 player.sendRichMessage("<red>Link your Portal account first with <white>/moonsama link</white>.</red>");
                 return;
             }
-            SkinMenu menu = new SkinMenu(skinKey, collections, owned, skins.equipped(mojangUuid).orElse(null));
+            SkinMenu menu = new SkinMenu(skinKey, collections, owned, skins.equipped(mojangUuid).orElse(null), attributions);
             menu.open(player);
             if (owned.status() == HoldingsSnapshot.Status.UNKNOWN) {
                 refreshAndReopen(player);

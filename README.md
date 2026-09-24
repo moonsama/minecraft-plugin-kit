@@ -152,6 +152,19 @@ Production hosting (HTTPS callback behind a reverse proxy, pack hosting, backups
 covered in the [operator guide](docs/operator-guide.md). Velocity/proxy support remains
 follow-up work.
 
-Before public redistribution, the project also needs an explicit source and
-asset license. The resource pack contains Moonsama's own legacy item, off-hand and hat
-art only; no music or third-party assets are included.
+## License
+
+- **Code** (everything except the assets below): [Apache License 2.0](LICENSE). Use it,
+  fork it, sell servers built on it; keep the notices.
+- **Assets** (`cosmetics-data/**`, `resourcepack/src/assets/**` - skins, signed textures,
+  compositor layers, item/off-hand/hat art, sounds): [Moonsama Asset License](LICENSE-ASSETS).
+  You may bundle and redistribute them in software that delivers each asset's utility to
+  the **current holder of the corresponding NFT** - which is exactly what this kit does -
+  but not as standalone skins, packs, stock art or training data.
+- The 27 Multiverse Art avatars are by nine independent artists who keep their copyright;
+  credits ship in `cosmetics-data/attributions.json` and show in the `/skins` menu.
+- "Moonsama" and "Exosama" are registered trademarks of Moonsama DAO / MoonSoonLabs Pte. Ltd.; use
+  the names to say your server works with Moonsama NFTs, not as your own branding.
+
+See [NOTICE](NOTICE) for bundled third-party software. The resource pack contains
+Moonsama's own art and sounds only; the third-party music of the legacy pack is not included.

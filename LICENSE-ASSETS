@@ -1,0 +1,107 @@
+Moonsama Asset License
+Version 1.0, September 2026
+
+Licensor: Moonsama DAO, represented by MoonSoonLabs Pte. Ltd. ("Moonsama")
+
+This license applies to the Assets in this repository. The source code is
+licensed separately under the Apache License, Version 2.0 (see LICENSE).
+
+1. Definitions
+
+  "Assets" means the artwork, textures, skins, Mojang-signed skin texture
+  data, 3D models, sounds, compositor layers and generated cosmetic data in
+  this repository, in particular everything under `cosmetics-data/` and
+  `resourcepack/src/assets/`, together with any derivative renders produced
+  from them (for example composed skins).
+
+  "Collection" means an NFT collection referenced by the Assets, including
+  Moonsama, Exosama, Gromlin, Moonsama Embassy, Multiverse Art (Ethereum),
+  Multiverse Items (Moonsama X), Pods and any other collection whose slug
+  appears in `cosmetics-data/collections.json`.
+
+  "Holder" means, at any given moment, the person who controls the wallet
+  or Moonsama Portal account that owns a specific token of a Collection, as
+  verifiable through the Moonsama Portal API or the relevant blockchain.
+
+  "Utility" means presenting or applying an Asset in a game, application or
+  service on behalf of, and only for, the Holder of the token the Asset
+  belongs to - for example letting the Holder of Moonsama #123 wear the
+  Moonsama #123 skin, or letting the Holder of a Multiverse Item use the
+  matching item skin, off-hand, hat or gameplay perk.
+
+2. Grant
+
+  Subject to the conditions below, Moonsama grants you a worldwide,
+  royalty-free, non-exclusive, non-transferable license to copy, bundle,
+  modify (only as technically required, e.g. re-encoding, resizing,
+  compositing per the compositor rules) and redistribute the Assets as part
+  of software, servers or services whose purpose is to deliver Utility to
+  Holders. This expressly includes:
+
+  a) shipping the Assets inside plugins, resource packs and datasets built
+     from this repository or from forks of it;
+  b) running public or private, free or commercial game servers that use
+     them for Holders;
+  c) building your own plugins, mods or clients that gate each Asset on
+     current ownership of the corresponding token.
+
+3. Conditions
+
+  a) Ownership gating. Every use of an Asset must be tied to, and only
+     available to, the current Holder of the corresponding token. When a
+     token changes hands, the previous owner's access to that Asset must
+     end within a reasonable time (the reference plugins re-check holdings
+     within minutes).
+  b) No unbundling. You may not offer the Assets, individually or as a
+     collection, outside the context of Utility - for example as free
+     downloadable skins, as skin-pack products, as stock art, as training
+     data for machine-learning models, or as merchandise.
+  c) No misattribution. You may not present the Assets as your own work or
+     imply that Moonsama endorses your server, product or service.
+  d) Notice. Redistributions must include this license file and the NOTICE
+     file, or an equivalent statement pointing to them.
+
+4. Multiverse Art and other artist collections
+
+  Assets belonging to collections created by independent artists (in
+  particular Multiverse Art (Ethereum), `moonsama-multiverse-art-eth`) are
+  distributed by Moonsama under these same terms. The artists retain their
+  copyright; credit them where your interface credits creators. The
+  per-token attribution is in `cosmetics-data/attributions.json` and
+  `cosmetics-data/README.md`. Multiverse Art (Ethereum) artists:
+  Yumi (Dreamscapes | The Moon), Tiff / tiffdairyqueen (tiffdairyqueen
+  Originals), Marlua (Marlua's Realm), Blood Moon Clan, Majan (Komainu
+  Lions), Kusama Kingdom (Medieval Moonsama), Wangdoodle (The Cheese Boys),
+  Tako (Shiba Tales) and Ruben Topia (Moonsama Topia). Artists who wish to
+  change how their work is distributed here should contact Moonsama (see
+  below).
+
+5. Trademarks
+
+  "Moonsama" and "Exosama" are registered trademarks of Moonsama DAO /
+  MoonSoonLabs Pte. Ltd. This license does not
+  grant any trademark rights. You may use the names only nominatively - to
+  state that your server or software works with Moonsama or Exosama NFTs
+  or with this kit - and not in your own product names, logos or domain
+  names without written permission.
+
+6. Termination
+
+  Your rights under this license end automatically if you breach section 3
+  or 5 and do not cure the breach within 30 days of becoming aware of it.
+  Moonsama may also terminate the license for a specific Collection if the
+  underlying rights change; in that case you must stop distributing the
+  affected Assets in new releases within 90 days.
+
+7. Disclaimer and liability
+
+  THE ASSETS ARE PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND. TO THE
+  EXTENT PERMITTED BY LAW, MOONSAMA IS NOT LIABLE FOR ANY DAMAGES ARISING
+  FROM THE USE OF THE ASSETS.
+
+8. Governing law
+
+  This license is governed by the laws of Singapore.
+
+Questions and permission requests: contact Moonsama DAO via
+https://moonsama.com.

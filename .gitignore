@@ -1,18 +1,36 @@
-minecraft-plugins-old/
-minecraft-resourcepacks-old/
-.cursor/
+# Secrets: only .env.example is tracked
+.env
+.env.*
+!.env.example
+
+# Build output
 .gradle/
 build/
-**/build/
-.env
-.env.local
-run/
+.kotlin/
+__pycache__/
+*.pyc
+
+# Local dev server state (docker compose volumes) and manual test servers
 dev-data/
-resourcepack/build/
-.DS_Store
+run/
+
+# Local-only reference material (legacy plugins, packs, artist originals, DB dumps).
+# Never needed to build; the extractor reads from it to regenerate cosmetics-data.
+references/
+minecraft-plugins-old/
+minecraft-resourcepacks-old/
 multiverse-customizer-monorepo/
 minecraft-api/
 mcskins/
 skin_metas/
-references/
-__pycache__/
+
+# IDE / editor
+.cursor/
+.idea/
+*.iml
+.vscode/
+*.swp
+
+# OS
+.DS_Store
+Thumbs.db
