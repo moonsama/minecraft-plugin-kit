@@ -12,11 +12,16 @@ a durable API for holdings, spend, rewards, refunds, and asset holds.
 
 ## Requirements
 
-- Docker Desktop
+- Docker Desktop (or any Docker Engine with Compose v2)
 - Minecraft Java Edition 26.3
 - A Moonsama Portal sandbox API key and OAuth client
 
 Java does not need to be installed on the host. Builds use Java 25 in Docker.
+
+Prefer a ready-made environment? Open the repository in a **dev container**
+(VS Code "Reopen in Container", Cursor, or a GitHub Codespace): it comes with
+JDK 25, Docker and the Java extensions, and `make` uses the local JDK there.
+See [CONTRIBUTING.md](CONTRIBUTING.md).
 
 ## Run locally
 
@@ -46,7 +51,9 @@ Java does not need to be installed on the host. Builds use Java 25 in Docker.
 The server world and embedded SQLite database live under `dev-data/` and are
 ignored by Git.
 
-See [local development](docs/local-development.md) for setup and troubleshooting.
+See [local development](docs/local-development.md) for setup and troubleshooting,
+[CONTRIBUTING.md](CONTRIBUTING.md) for the developer guide and
+[docs/plugin-authoring.md](docs/plugin-authoring.md) to build your own plugin on the API.
 
 ## Modules
 

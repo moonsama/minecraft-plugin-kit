@@ -30,6 +30,10 @@ Do not add `.env` to Git.
 make up
 ```
 
+Works the same on a host with Docker only (Gradle runs in a JDK 25 container) and
+inside the dev container (`.devcontainer/`, where `GRADLE=./gradlew` makes `make` use
+the container's JDK; see [CONTRIBUTING.md](../CONTRIBUTING.md#development-environment)).
+
 `make up` uses the checksum-pinned Paper build. Use `make up-latest` when you
 want to refresh that pin from Paper's official downloads API before building.
 This keeps normal builds reproducible while 26.3 is receiving frequent alpha
@@ -146,3 +150,12 @@ change the server to offline mode.
 
 26.3 is an alpha target. Check the Paper logs first; the pinned build may need
 an explicit upgrade after an upstream breaking change.
+
+### The JVM crashes with `SIGBUS` while MoonsamaCore enables
+
+The stack trace ends in `libsqlitejdbc.so` / `SqlitePortalStore.initialize`. SQLite's
+WAL mode memory-maps a shared file, which virtual and network filesystems (Docker
+Desktop bind mounts, NFS, some game-panel volumes) do not always back. Set
+`storage.journal-mode: truncate` in `plugins/MoonsamaCore/config.yml` or the
+`MOONSAMA_SQLITE_JOURNAL_MODE=truncate` environment variable. `compose.yaml` already
+does this for the `dev-data/` bind mount; nothing in the database is lost either way.
