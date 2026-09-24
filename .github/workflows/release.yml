@@ -1,0 +1,61 @@
+name: Release
+
+# Tag a commit on main as vX.Y.Z (after updating CHANGELOG.md) and push the tag:
+#   git tag -a v0.1.0 -m "0.1.0" && git push origin v0.1.0
+# The plugins are built with that version, and a GitHub release is created with every
+# plugin JAR, the resource pack and a SHA256SUMS file attached.
+
+on:
+  push:
+    tags: ['v*']
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-java@v5
+        with:
+          distribution: temurin
+          java-version: '25'
+      - uses: gradle/actions/setup-gradle@v4
+
+      - name: Build with the tag as version
+        run: ./gradlew build -PkitVersion="${GITHUB_REF_NAME#v}"
+
+      - name: Extract release notes from CHANGELOG.md
+        run: |
+          version="${GITHUB_REF_NAME#v}"
+          # Everything between "## [<version>]" and the next "## [" heading.
+          awk -v v="$version" '
+            $0 ~ "^## \\[" v "\\]" { on = 1; next }
+            on && /^## \[/ { exit }
+            on { print }
+          ' CHANGELOG.md > release-notes.md
+          if [ ! -s release-notes.md ]; then
+            echo "No CHANGELOG.md section for $version; using generated notes." >&2
+            echo "_See CHANGELOG.md._" > release-notes.md
+          fi
+          {
+            echo
+            echo "Install: drop the JARs from \`plugins/\` into your Paper server's \`plugins/\` folder"
+            echo "and follow [docs/operator-guide.md](https://github.com/${GITHUB_REPOSITORY}/blob/${GITHUB_REF_NAME}/docs/operator-guide.md)."
+            echo "Verify downloads with \`sha256sum -c SHA256SUMS\`."
+          } >> release-notes.md
+
+      - name: Create GitHub release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          prerelease=""
+          case "$GITHUB_REF_NAME" in *-*) prerelease="--prerelease" ;; esac
+          gh release create "$GITHUB_REF_NAME" \
+            --title "$GITHUB_REF_NAME" \
+            --notes-file release-notes.md \
+            $prerelease \
+            build/dist/plugins/*.jar \
+            build/dist/resourcepack.zip \
+            build/dist/SHA256SUMS

@@ -86,16 +86,35 @@ Gradle directly (dev container / local JDK):
 ./gradlew :skin-compositor:test -Dmoonsama.compositor.archive=/path/to/references/archive/composer-skins
 ```
 
-Outputs: `<module>/build/libs/<module>-<version>.jar` (the shaded one has no classifier),
-`resourcepack/build/resourcepack.zip` + `.sha1`. `compose.yaml` bind-mounts those files
-into the Paper container as `plugins/Moonsama<Name>.jar`, so after `make build` a
-`docker compose restart paper` picks up new code. Server files persist in `dev-data/`.
+Outputs: `build/dist/` is the distribution - `plugins/Moonsama<Name>.jar` for every plugin
+(shaded where the plugin bundles libraries), `resourcepack.zip` and `SHA256SUMS`. It is
+assembled by the root `dist` task (part of `build`). Per-module intermediates stay in
+`<module>/build/libs/` (`-unshaded`, `-sources`). `compose.yaml` bind-mounts `build/dist`
+into the Paper container, so after `make build` a `docker compose restart paper` picks up
+new code. Server files persist in `dev-data/`.
 
 Talking to the server console (no rcon): `docker attach minecraft-plugin-kit-paper-1`
 (detach with `Ctrl-p Ctrl-q`), or run commands as an operator in-game.
 
 CI (`.github/workflows/build.yml`) runs `./gradlew build` on every PR with the same
-JDK/Gradle versions and uploads the JARs and pack as an artifact.
+JDK/Gradle versions and uploads `build/dist` as an artifact.
+
+### Versions and releases
+
+The in-tree version is always `<next>-SNAPSHOT` (root `build.gradle.kts`); do not bump it
+in feature PRs. A release is a tag:
+
+1. Move the `Unreleased` notes in `CHANGELOG.md` under a `## [X.Y.Z] - YYYY-MM-DD`
+   heading and merge that to `main`.
+2. `git tag -a vX.Y.Z -m "X.Y.Z" && git push origin vX.Y.Z`.
+3. `.github/workflows/release.yml` builds with `-PkitVersion=X.Y.Z` (so `plugin.yml`
+   reports the real version), extracts that CHANGELOG section as release notes, and
+   publishes a GitHub release with every plugin JAR, the pack and `SHA256SUMS`.
+   Tags containing a `-` (for example `v0.2.0-rc.1`) are marked pre-release.
+4. Afterwards bump the SNAPSHOT version in `build.gradle.kts` if the next release changes
+   the major/minor.
+
+Locally, `./gradlew build -PkitVersion=1.2.3` reproduces a release build.
 
 ### Testing without a server
 

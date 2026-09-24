@@ -22,7 +22,10 @@ jobs:
       - uses: actions/upload-artifact@v4
         with:
           name: minecraft-plugin-kit
-          path: |
-            moonsama-paper/build/libs/moonsama-paper-*.jar
-            examples/offhand-demo/build/libs/offhand-demo-*.jar
-            resourcepack/build/resourcepack.zip
+          path: build/dist/
+      - name: Test reports
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: test-reports
+          path: '**/build/reports/tests/test/'

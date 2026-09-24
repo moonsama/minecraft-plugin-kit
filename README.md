@@ -55,6 +55,15 @@ See [local development](docs/local-development.md) for setup and troubleshooting
 [CONTRIBUTING.md](CONTRIBUTING.md) for the developer guide and
 [docs/plugin-authoring.md](docs/plugin-authoring.md) to build your own plugin on the API.
 
+## Run on a real server
+
+Download the plugin JARs and `resourcepack.zip` from the
+[GitHub releases](../../releases) (every tag `vX.Y.Z` publishes them with a
+`SHA256SUMS`), or build them yourself with `make build` - they land in `build/dist/`.
+Then follow the [operator guide](docs/operator-guide.md): Portal production app,
+public HTTPS callback, resource pack hosting, config, backups and upgrades.
+Changes between versions are listed in [CHANGELOG.md](CHANGELOG.md).
+
 ## Modules
 
 - `portal-client`: Paper-independent asynchronous Java client for Portal.

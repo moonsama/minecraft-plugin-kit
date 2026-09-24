@@ -43,7 +43,8 @@ This command:
 
 1. Builds all Gradle modules using Java 25 in Docker.
 2. Runs unit tests.
-3. Creates `resourcepack/build/resourcepack.zip` and its SHA-1.
+3. Assembles `build/dist/` (every plugin JAR under its plugin name, `resourcepack.zip`,
+   `SHA256SUMS`); the compose file mounts those files into the server.
 4. Builds a checksum-verified Paper 26.3 alpha image.
 5. Starts one online-mode Paper server.
 

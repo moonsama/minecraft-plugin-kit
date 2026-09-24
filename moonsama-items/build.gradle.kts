@@ -17,6 +17,7 @@ dependencies {
 val pluginVersion = project.version.toString()
 
 tasks.processResources {
+    inputs.property("version", pluginVersion)
     filesMatching("plugin.yml") {
         expand("version" to pluginVersion)
     }
