@@ -178,8 +178,23 @@ public final class MineskinSigner implements SkinSigner {
         if (data == null || !data.has("value") || !data.has("signature")) {
             return Optional.empty();
         }
-        String url = texture.has("url") ? texture.get("url").getAsString() : null;
-        return Optional.of(new SignedTexture(data.get("value").getAsString(), data.get("signature").getAsString(), url));
+        return Optional.of(new SignedTexture(data.get("value").getAsString(), data.get("signature").getAsString(),
+                textureUrl(texture.get("url"))));
+    }
+
+    /** v2 returns {@code "url": {"skin": "...", "cape": ...}}; older responses used a plain string. */
+    static String textureUrl(JsonElement url) {
+        if (url == null || url.isJsonNull()) {
+            return null;
+        }
+        if (url.isJsonPrimitive()) {
+            return url.getAsString();
+        }
+        if (url.isJsonObject()) {
+            JsonElement skin = url.getAsJsonObject().get("skin");
+            return skin != null && skin.isJsonPrimitive() ? skin.getAsString() : null;
+        }
+        return null;
     }
 
     private static String errors(JsonObject json) {

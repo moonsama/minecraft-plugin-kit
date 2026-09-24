@@ -54,7 +54,7 @@ class MineskinSignerTest {
                     respond(exchange, 200, "{\"success\":true,\"job\":{\"id\":\"job-1\",\"status\":\"processing\"}}");
                 } else {
                     respond(exchange, 200, "{\"success\":true,\"job\":{\"id\":\"job-1\",\"status\":\"completed\"},"
-                            + "\"skin\":{\"uuid\":\"abc\",\"texture\":{\"url\":\"http://textures.minecraft.net/texture/xyz\","
+                            + "\"skin\":{\"uuid\":\"abc\",\"texture\":{\"url\":{\"skin\":\"http://textures.minecraft.net/texture/xyz\",\"cape\":null},"
                             + "\"data\":{\"value\":\"VALUE\",\"signature\":\"SIG\"}}}}");
                 }
             } else {
