@@ -7,8 +7,8 @@ plugins {
 dependencies {
     api(project(":cosmetics-data"))
     // Paper ships Gson; plugins that shade this module must not bundle a second copy.
-    compileOnly("com.google.code.gson:gson:2.13.1")
-    testImplementation("com.google.code.gson:gson:2.13.1")
+    compileOnly("com.google.code.gson:gson:2.14.0")
+    testImplementation("com.google.code.gson:gson:2.14.0")
 }
 
 tasks.test {
