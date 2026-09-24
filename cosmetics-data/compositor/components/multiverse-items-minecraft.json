@@ -1,0 +1,66 @@
+[
+ {
+  "referenceId": "mv_items_mc:pods_head",
+  "states": {
+   "type": "OR",
+   "conditions": [
+    {
+     "type": "asset",
+     "slot": "costume",
+     "assetId": "multiverse_items:pods"
+    },
+    {
+     "type": "asset",
+     "slot": "neckcharm",
+     "assetId": "multiverse_items:pods"
+    }
+   ]
+  },
+  "config": {
+   "elements": [
+    {
+     "id": "layer-head-overlay",
+     "type": "texture_fragment",
+     "target_texture_id": "hat",
+     "url": "texture/pods.png",
+     "width": 64,
+     "height": 64,
+     "x": 0,
+     "y": 0
+    }
+   ]
+  }
+ },
+ {
+  "referenceId": "mv_items_mc:pods_head_overlay",
+  "states": {
+   "type": "OR",
+   "conditions": [
+    {
+     "type": "asset",
+     "slot": "costume",
+     "assetId": "multiverse_items:pods"
+    },
+    {
+     "type": "asset",
+     "slot": "neckcharm",
+     "assetId": "multiverse_items:pods"
+    }
+   ]
+  },
+  "config": {
+   "elements": [
+    {
+     "id": "layer-head-overlay",
+     "type": "texture_fragment",
+     "target_texture_id": "hat",
+     "url": "texture/pods.png",
+     "width": 64,
+     "height": 64,
+     "x": 0,
+     "y": 0
+    }
+   ]
+  }
+ }
+]

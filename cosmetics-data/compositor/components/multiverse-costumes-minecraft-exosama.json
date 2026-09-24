@@ -1,0 +1,3805 @@
+[
+ {
+  "referenceId": "exosama_mc:test",
+  "states": {},
+  "config": {
+   "elements": [
+    {
+     "id": "model",
+     "type": "model",
+     "bone": "global",
+     "url": "model/alex.glb",
+     "textures": [
+      {
+       "material": "skin",
+       "texture": "_MainTex",
+       "url": "#composition"
+      }
+     ]
+    },
+    {
+     "id": "hat",
+     "type": "model",
+     "bone": "hat",
+     "url": "model/dream_stalker_hat.glb",
+     "position": {
+      "x": -0.5,
+      "y": -0.5,
+      "z": 0.5
+     },
+     "scale": {
+      "x": 0.01,
+      "y": 0.01,
+      "z": 0.01
+     }
+    },
+    {
+     "id": "hat-2",
+     "type": "model",
+     "bone": "hat-2",
+     "url": "model/cottontail_crown.glb",
+     "position": {
+      "x": -0.5,
+      "y": -0.5,
+      "z": 0.5
+     }
+    }
+   ],
+   "skeleton": [
+    {
+     "id": "anchor",
+     "parent": "head",
+     "position": {
+      "x": 0,
+      "y": 18.5,
+      "z": 0
+     },
+     "scale": {
+      "x": 16,
+      "y": 16,
+      "z": 16
+     }
+    },
+    {
+     "id": "anchor-2",
+     "parent": "head",
+     "position": {
+      "x": 0,
+      "y": 14.25,
+      "z": 0.5
+     },
+     "scale": {
+      "x": 16,
+      "y": 16,
+      "z": 16
+     }
+    },
+    {
+     "id": "hat",
+     "parent": "anchor",
+     "scale": {
+      "x": 1.92,
+      "y": 1.92,
+      "z": 1.92
+     },
+     "position": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+     }
+    },
+    {
+     "id": "hat-2",
+     "parent": "anchor-2",
+     "scale": {
+      "x": 0.9,
+      "y": 0.9,
+      "z": 0.9
+     },
+     "position": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+     }
+    }
+   ]
+  }
+ },
+ {
+  "referenceId": "mv_costumes_mc:2nd_anniversary_party_hat_hat",
+  "states": {
+   "type": "AND",
+   "conditions": [
+    {
+     "type": "asset",
+     "assetId": "multiverse_costumes:2nd_anniversary_party_hat",
+     "slot": "costume"
+    },
+    {
+     "type": "OR",
+     "conditions": [
+      {
+       "type": "renderType",
+       "renderType": "preview"
+      },
+      {
+       "type": "renderType",
+       "renderType": "preview-minecraft"
+      }
+     ]
+    }
+   ]
+  },
+  "config": {
+   "elements": [
+    {
+     "id": "hat",
+     "type": "model",
+     "url": "model/2nd_anniversary_party_hat.glb",
+     "bone": "hat",
+     "position": {
+      "x": -0.5,
+      "y": -0.5,
+      "z": 0.5
+     }
+    }
+   ],
+   "skeleton": [
+    {
+     "id": "anchor",
+     "parent": "head",
+     "position": {
+      "x": 0,
+      "y": 15.25,
+      "z": 0
+     },
+     "scale": {
+      "x": 16,
+      "y": 16,
+      "z": 16
+     }
+    },
+    {
+     "id": "hat",
+     "parent": "anchor",
+     "scale": {
+      "x": 1.12305,
+      "y": 1.12305,
+      "z": 1.12305
+     }
+    }
+   ]
+  }
+ },
+ {
+  "referenceId": "mv_costumes_mc:alabaster_cyber_enchantress_clothes",
+  "states": {
+   "type": "asset",
+   "assetId": "multiverse_costumes:alabaster_cyber_enchantress",
+   "slot": "costume"
+  },
+  "config": {
+   "elements": [
+    {
+     "id": "layer-clothes",
+     "type": "texture_fragment",
+     "target_texture_id": "clothes",
+     "url": "costume/alabaster_cyber_enchantress.png",
+     "width": 24,
+     "height": 16,
+     "x": 16,
+     "y": 32,
+     "pos_x": 16,
+     "pos_y": 32
+    },
+    {
+     "id": "layer-arm-l",
+     "type": "texture_fragment",
+     "target_texture_id": "clothes",
+     "url": "costume/alabaster_cyber_enchantress.png",
+     "width": 14,
+     "height": 16,
+     "x": 32,
+     "y": 0,
+     "pos_x": 32,
+     "pos_y": 0
+    },
+    {
+     "id": "layer-arm-r",
+     "type": "texture_fragment",
+     "target_texture_id": "clothes",
+     "url": "costume/alabaster_cyber_enchantress.png",
+     "width": 14,
+     "height": 16,
+     "x": 40,
+     "y": 32,
+     "pos_x": 40,
+     "pos_y": 32
+    },
+    {
+     "id": "layer-leg-l",
+     "type": "texture_fragment",
+     "target_texture_id": "clothes",
+     "url": "costume/alabaster_cyber_enchantress.png",
+     "width": 16,
+     "height": 16,
+     "x": 16,
+     "y": 0,
+     "pos_x": 16,
+     "pos_y": 0
+    },
+    {
+     "id": "layer-leg-r",
+     "type": "texture_fragment",
+     "target_texture_id": "clothes",
+     "url": "costume/alabaster_cyber_enchantress.png",
+     "width": 16,
+     "height": 16,
+     "x": 0,
+     "y": 32,
+     "pos_x": 0,
+     "pos_y": 32
+    }
+   ]
+  }
+ },
+ {
+  "referenceId": "mv_costumes_mc:alabaster_cyber_enchantress_clothes_overlay",
+  "states": {
+   "type": "asset",
+   "assetId": "multiverse_costumes:alabaster_cyber_enchantress",
+   "slot": "costume"
+  },
+  "config": {
+   "elements": [
+    {
+     "id": "layer-clothes-overlay",
+     "type": "texture_fragment",
+     "target_texture_id": "clothes",
+     "url": "costume/alabaster_cyber_enchantress.png",
+     "width": 24,
+     "height": 16,
+     "x": 16,
+     "y": 16,
+     "pos_x": 16,
+     "pos_y": 16
+    },
+    {
+     "id": "layer-arm-l-overlay",
+     "type": "texture_fragment",
+     "target_texture_id": "clothes",
+     "url": "costume/alabaster_cyber_enchantress.png",
+     "width": 14,
+     "height": 16,
+     "x": 48,
+     "y": 0,
+     "pos_x": 46,
+     "pos_y": 0
+    },
+    {
+     "id": "layer-arm-r-overlay",
+     "type": "texture_fragment",
+     "target_texture_id": "clothes",
+     "url": "costume/alabaster_cyber_enchantress.png",
+     "width": 14,
+     "height": 16,
+     "x": 40,
+     "y": 16,
+     "pos_x": 40,
+     "pos_y": 16
+    },
+    {
+     "id": "layer-leg-l-overlay",
+     "type": "texture_fragment",
+     "target_texture_id": "clothes",
+     "url": "costume/alabaster_cyber_enchantress.png",
+     "width": 16,
+     "height": 16,
+     "x": 0,
+     "y": 0,
+     "pos_x": 0,
+     "pos_y": 0
+    },
+    {
+     "id": "layer-leg-r-overlay",
+     "type": "texture_fragment",
+     "target_texture_id": "clothes",
+     "url": "costume/alabaster_cyber_enchantress.png",
+     "width": 16,
+     "height": 16,
+     "x": 0,
+     "y": 16,
+     "pos_x": 0,
+     "pos_y": 16
+    }
+   ]
+  }
+ },
+ {
+  "referenceId": "mv_costumes_mc:alabaster_cyber_enchantress_eyewear_overlay",
+  "states": {
+   "type": "asset",
+   "assetId": "multiverse_costumes:alabaster_cyber_enchantress",
+   "slot": "costume"
+  },
+  "config": {
+   "elements": [
+    {
+     "id": "layer-clothes",
+     "type": "texture_fragment",
+     "target_texture_id": "eyewear",
+     "url": "costume/alabaster_cyber_enchantress.png",
+     "width": 32,
+     "height": 16,
+     "x": 32,
+     "y": 48,
+     "pos_x": 32,
+     "pos_y": 48
+    }
+   ]
+  }
+ },
+ {
+  "referenceId": "mv_costumes_mc:ancient_mummy_clothes",
+  "states": {
+   "type": "asset",
+   "assetId": "multiverse_costumes:ancient_mummy",
+   "slot": "costume"
+  },
+  "config": {
+   "elements": [
+    {
+     "id": "layer-clothes",
+     "type": "texture_fragment",
+     "target_texture_id": "clothes",
+     "url": "costume/ancient_mummy.png",
+     "width": 24,
+     "height": 16,
+     "x": 16,
+     "y": 32,
+     "pos_x": 16,
+     "pos_y": 32
+    },
+    {
+     "id": "layer-arm-l",
+     "type": "texture_fragment",
+     "target_texture_id": "clothes",
+     "url": "costume/ancient_mummy.png",
+     "width": 14,
+     "height": 16,
+     "x": 32,
+     "y": 0,
+     "pos_x": 32,
+     "pos_y": 0
+    },
+    {
+     "id": "layer-arm-r",
+     "type": "texture_fragment",
+     "target_texture_id": "clothes",
+     "url": "costume/ancient_mummy.png",
+     "width": 14,
+     "height": 16,
+     "x": 40,
+     "y": 32,
+     "pos_x": 40,
+     "pos_y": 32
+    },
+    {
+     "id": "layer-leg-l",
+     "type": "texture_fragment",
+     "target_texture_id": "clothes",
+     "url": "costume/ancient_mummy.png",
+     "width": 16,
+     "height": 16,
+     "x": 16,
+     "y": 0,
+     "pos_x": 16,
+     "pos_y": 0
+    },
+    {
+     "id": "layer-leg-r",
+     "type": "texture_fragment",
+     "target_texture_id": "clothes",
+     "url": "costume/ancient_mummy.png",
+     "width": 16,
+     "height": 16,
+     "x": 0,
+     "y": 32,
+     "pos_x": 0,
+     "pos_y": 32
+    }
+   ]
+  }
+ },
+ {
+  "referenceId": "mv_costumes_mc:ancient_mummy_clothes_overlay",
+  "states": {
+   "type": "asset",
+   "assetId": "multiverse_costumes:ancient_mummy",
+   "slot": "costume"
+  },
+  "config": {
+   "elements": [
+    {
+     "id": "layer-clothes-overlay",
+     "type": "texture_fragment",
+     "target_texture_id": "clothes",
+     "url": "costume/ancient_mummy.png",
+     "width": 24,
+     "height": 16,
+     "x": 16,
+     "y": 16,
+     "pos_x": 16,
+     "pos_y": 16
+    },
+    {
+     "id": "layer-arm-l-overlay",
+     "type": "texture_fragment",
+     "target_texture_id": "clothes",
+     "url": "costume/ancient_mummy.png",
+     "width": 14,
+     "height": 16,
+     "x": 48,
+     "y": 0,
+     "pos_x": 46,
+     "pos_y": 0
+    },
+    {
+     "id": "layer-arm-r-overlay",
+     "type": "texture_fragment",
+     "target_texture_id": "clothes",
+     "url": "costume/ancient_mummy.png",
+     "width": 14,
+     "height": 16,
+     "x": 40,
+     "y": 16,
+     "pos_x": 40,
+     "pos_y": 16
+    },
+    {
+     "id": "layer-leg-l-overlay",
+     "type": "texture_fragment",
+     "target_texture_id": "clothes",
+     "url": "costume/ancient_mummy.png",
+     "width": 16,
+     "height": 16,
+     "x": 0,
+     "y": 0,
+     "pos_x": 0,
+     "pos_y": 0
+    },
+    {
+     "id": "layer-leg-r-overlay",
+     "type": "texture_fragment",
+     "target_texture_id": "clothes",
+     "url": "costume/ancient_mummy.png",
+     "width": 16,
+     "height": 16,
+     "x": 0,
+     "y": 16,
+     "pos_x": 0,
+     "pos_y": 16
+    }
+   ]
+  }
+ },
+ {
+  "referenceId": "mv_costumes_mc:ancient_mummy_head",
+  "states": {
+   "type": "asset",
+   "assetId": "multiverse_costumes:ancient_mummy",
+   "slot": "costume"
+  },
+  "config": {
+   "elements": [
+    {
+     "id": "layer-head",
+     "type": "texture_fragment",
+     "target_texture_id": "body",
+     "url": "costume/ancient_mummy.png",
+     "z-index": 1,
+     "width": 32,
+     "height": 16,
+     "x": 0,
+     "y": 48,
+     "pos_x": 0,
+     "pos_y": 48
+    }
+   ]
+  }
+ },
+ {
+  "referenceId": "mv_costumes_mc:berlin_clothes",
+  "states": {
+   "type": "asset",
+   "assetId": "multiverse_costumes:berlin",
+   "slot": "clothes"
+  },
+  "config": {
+   "elements": [
+    {
+     "id": "layer-clothes",
+     "type": "texture_fragment",
+     "target_texture_id": "clothes",
+     "url": "costume/berlin.png",
+     "width": 24,
+     "height": 16,
+     "x": 16,
+     "y": 32,
+     "pos_x": 16,
+     "pos_y": 32
+    },
+    {
+     "id": "layer-arm-l",
+     "type": "texture_fragment",
+     "target_texture_id": "clothes",
+     "url": "costume/berlin.png",
+     "width": 14,
+     "height": 16,
+     "x": 32,
+     "y": 0,
+     "pos_x": 32,
+     "pos_y": 0
+    },
+    {
+     "id": "layer-arm-r",
+     "type": "texture_fragment",
+     "target_texture_id": "clothes",
+     "url": "costume/berlin.png",
+     "width": 14,
+     "height": 16,
+     "x": 40,
+     "y": 32,
+     "pos_x": 40,
+     "pos_y": 32
+    },
+    {
+     "id": "layer-leg-l",
+     "type": "texture_fragment",
+     "target_texture_id": "clothes",
+     "url": "costume/berlin.png",
+     "width": 16,
+     "height": 16,
+     "x": 16,
+     "y": 0,
+     "pos_x": 16,
+     "pos_y": 0
+    },
+    {
+     "id": "layer-leg-r",
+     "type": "texture_fragment",
+     "target_texture_id": "clothes",
+     "url": "costume/berlin.png",
+     "width": 16,
+     "height": 16,
+     "x": 0,
+     "y": 32,
+     "pos_x": 0,
+     "pos_y": 32
+    }
+   ]
+  }
+ },
+ {
+  "referenceId": "mv_costumes_mc:berlin_clothes_overlay",
+  "states": {
+   "type": "asset",
+   "assetId": "multiverse_costumes:berlin",
+   "slot": "clothes"
+  },
+  "config": {
+   "elements": [
+    {
+     "id": "layer-clothes-overlay",
+     "type": "texture_fragment",
+     "target_texture_id": "clothes",
+     "url": "costume/berlin.png",
+     "width": 24,
+     "height": 16,
+     "x": 16,
+     "y": 16,
+     "pos_x": 16,
+     "pos_y": 16
+    },
+    {
+     "id": "layer-arm-l-overlay",
+     "type": "texture_fragment",
+     "target_texture_id": "clothes",
+     "url": "costume/berlin.png",
+     "width": 14,
+     "height": 16,
+     "x": 48,
+     "y": 0,
+     "pos_x": 46,
+     "pos_y": 0
+    },
+    {
+     "id": "layer-arm-r-overlay",
+     "type": "texture_fragment",
+     "target_texture_id": "clothes",
+     "url": "costume/berlin.png",
+     "width": 14,
+     "height": 16,
+     "x": 40,
+     "y": 16,
+     "pos_x": 40,
+     "pos_y": 16
+    },
+    {
+     "id": "layer-leg-l-overlay",
+     "type": "texture_fragment",
+     "target_texture_id": "clothes",
+     "url": "costume/berlin.png",
+     "width": 16,
+     "height": 16,
+     "x": 0,
+     "y": 0,
+     "pos_x": 0,
+     "pos_y": 0
+    },
+    {
+     "id": "layer-leg-r-overlay",
+     "type": "texture_fragment",
+     "target_texture_id": "clothes",
+     "url": "costume/berlin.png",
+     "width": 16,
+     "height": 16,
+     "x": 0,
+     "y": 16,
+     "pos_x": 0,
+     "pos_y": 16
+    }
+   ]
+  }
+ },
+ {
+  "referenceId": "mv_costumes_mc:cottontail_crown_hat",
+  "states": {
+   "type": "AND",
+   "conditions": [
+    {
+     "type": "asset",
+     "assetId": "multiverse_costumes:cottontail_crown",
+     "slot": "costume"
+    },
+    {
+     "type": "OR",
+     "conditions": [
+      {
+       "type": "renderType",
+       "renderType": "preview"
+      },
+      {
+       "type": "renderType",
+       "renderType": "preview-minecraft"
+      }
+     ]
+    }
+   ]
+  },
+  "config": {
+   "elements": [
+    {
+     "id": "hat",
+     "type": "model",
+     "url": "model/cottontail_crown.glb",
+     "bone": "hat",
+     "position": {
+      "x": -0.5,
+      "y": -0.5,
+      "z": 0.5
+     }
+    }
+   ],
+   "skeleton": [
+    {
+     "id": "anchor",
+     "parent": "head",
+     "position": {
+      "x": 0,
+      "y": 14.25,
+      "z": 1.5
+     },
+     "scale": {
+      "x": 16,
+      "y": 16,
+      "z": 16
+     }
+    },
+    {
+     "id": "hat",
+     "parent": "anchor",
+     "scale": {
+      "x": 0.9,
+      "y": 0.9,
+      "z": 0.9
+     }
+    }
+   ]
+  }
+ },
+ {
+  "referenceId": "mv_costumes_mc:crimson_digital_bomber_clothes",
+  "states": {
+   "type": "asset",
+   "slot": "clothes",
+   "assetId": "multiverse_costumes:crimson_digital_bomber"
+  },
+  "config": {
+   "elements": [
+    {
+     "id": "layer-clothes",
+     "type": "texture_fragment",
+     "target_texture_id": "clothes",
+     "url": "costume/crimson_digital_bomber.png",
+     "width": 24,
+     "height": 16,
+     "x": 16,
+     "y": 32,
+     "pos_x": 16,
+     "pos_y": 32
+    },
+    {
+     "id": "layer-arm-l",
+     "type": "texture_fragment",
+     "target_texture_id": "clothes",
+     "url": "costume/crimson_digital_bomber.png",
+     "width": 14,
+     "height": 16,
+     "x": 32,
+     "y": 0,
+     "pos_x": 32,
+     "pos_y": 0
+    },
+    {
+     "id": "layer-arm-r",
+     "type": "texture_fragment",
+     "target_texture_id": "clothes",
+     "url": "costume/crimson_digital_bomber.png",
+     "width": 14,
+     "height": 16,
+     "x": 40,
+     "y": 32,
+     "pos_x": 40,
+     "pos_y": 32
+    },
+    {
+     "id": "layer-leg-l",
+     "type": "texture_fragment",
+     "target_texture_id": "clothes",
+     "url": "costume/crimson_digital_bomber.png",
+     "width": 16,
+     "height": 16,
+     "x": 16,
+     "y": 0,
+     "pos_x": 16,
+     "pos_y": 0
+    },
+    {
+     "id": "layer-leg-r",
+     "type": "texture_fragment",
+     "target_texture_id": "clothes",
+     "url": "costume/crimson_digital_bomber.png",
+     "width": 16,
+     "height": 16,
+     "x": 0,
+     "y": 32,
+     "pos_x": 0,
+     "pos_y": 32
+    }
+   ]
+  }
+ },
+ {
+  "referenceId": "mv_costumes_mc:crimson_digital_bomber_clothes_overlay",
+  "states": {
+   "type": "asset",
+   "slot": "clothes",
+   "assetId": "multiverse_costumes:crimson_digital_bomber"
+  },
+  "config": {
+   "elements": [
+    {
+     "id": "layer-clothes-overlay",
+     "type": "texture_fragment",
+     "target_texture_id": "clothes",
+     "url": "costume/crimson_digital_bomber.png",
+     "width": 24,
+     "height": 16,
+     "x": 16,
+     "y": 16,
+     "pos_x": 16,
+     "pos_y": 16
+    },
+    {
+     "id": "layer-arm-l-overlay",
+     "type": "texture_fragment",
+     "target_texture_id": "clothes",
+     "url": "costume/crimson_digital_bomber.png",
+     "width": 14,
+     "height": 16,
+     "x": 48,
+     "y": 0,
+     "pos_x": 46,
+     "pos_y": 0
+    },
+    {
+     "id": "layer-arm-r-overlay",
+     "type": "texture_fragment",
+     "target_texture_id": "clothes",
+     "url": "costume/crimson_digital_bomber.png",
+     "width": 14,
+     "height": 16,
+     "x": 40,
+     "y": 16,
+     "pos_x": 40,
+     "pos_y": 16
+    },
+    {
+     "id": "layer-leg-l-overlay",
+     "type": "texture_fragment",
+     "target_texture_id": "clothes",
+     "url": "costume/crimson_digital_bomber.png",
+     "width": 16,
+     "height": 16,
+     "x": 0,
+     "y": 0,
+     "pos_x": 0,
+     "pos_y": 0
+    },
+    {
+     "id": "layer-leg-r-overlay",
+     "type": "texture_fragment",
+     "target_texture_id": "clothes",
+     "url": "costume/crimson_digital_bomber.png",
+     "width": 16,
+     "height": 16,
+     "x": 0,
+     "y": 16,
+     "pos_x": 0,
+     "pos_y": 16
+    }
+   ]
+  }
+ },
+ {
+  "referenceId": "mv_costumes_mc:donablo_clothes",
+  "states": {
+   "type": "asset",
+   "assetId": "multiverse_costumes:donablo",
+   "slot": "costume"
+  },
+  "config": {
+   "elements": [
+    {
+     "id": "layer-clothes",
+     "type": "texture_fragment",
+     "target_texture_id": "clothes",
+     "url": "costume/donablo.png",
+     "width": 24,
+     "height": 16,
+     "x": 16,
+     "y": 32,
+     "pos_x": 16,
+     "pos_y": 32
+    },
+    {
+     "id": "layer-arm-l",
+     "type": "texture_fragment",
+     "target_texture_id": "clothes",
+     "url": "costume/donablo.png",
+     "width": 14,
+     "height": 16,
+     "x": 32,
+     "y": 0,
+     "pos_x": 32,
+     "pos_y": 0
+    },
+    {
+     "id": "layer-arm-r",
+     "type": "texture_fragment",
+     "target_texture_id": "clothes",
+     "url": "costume/donablo.png",
+     "width": 14,
+     "height": 16,
+     "x": 40,
+     "y": 32,
+     "pos_x": 40,
+     "pos_y": 32
+    },
+    {
+     "id": "layer-leg-l",
+     "type": "texture_fragment",
+     "target_texture_id": "clothes",
+     "url": "costume/donablo.png",
+     "width": 16,
+     "height": 16,
+     "x": 16,
+     "y": 0,
+     "pos_x": 16,
+     "pos_y": 0
+    },
+    {
+     "id": "layer-leg-r",
+     "type": "texture_fragment",
+     "target_texture_id": "clothes",
+     "url": "costume/donablo.png",
+     "width": 16,
+     "height": 16,
+     "x": 0,
+     "y": 32,
+     "pos_x": 0,
+     "pos_y": 32
+    }
+   ]
+  }
+ },
+ {
+  "referenceId": "mv_costumes_mc:donablo_clothes_overlay",
+  "states": {
+   "type": "asset",
+   "assetId": "multiverse_costumes:donablo",
+   "slot": "costume"
+  },
+  "config": {
+   "elements": [
+    {
+     "id": "layer-clothes-overlay",
+     "type": "texture_fragment",
+     "target_texture_id": "clothes",
+     "url": "costume/donablo.png",
+     "width": 24,
+     "height": 16,
+     "x": 16,
+     "y": 16,
+     "pos_x": 16,
+     "pos_y": 16
+    },
+    {
+     "id": "layer-arm-l-overlay",
+     "type": "texture_fragment",
+     "target_texture_id": "clothes",
+     "url": "costume/donablo.png",
+     "width": 14,
+     "height": 16,
+     "x": 48,
+     "y": 0,
+     "pos_x": 46,
+     "pos_y": 0
+    },
+    {
+     "id": "layer-arm-r-overlay",
+     "type": "texture_fragment",
+     "target_texture_id": "clothes",
+     "url": "costume/donablo.png",
+     "width": 14,
+     "height": 16,
+     "x": 40,
+     "y": 16,
+     "pos_x": 40,
+     "pos_y": 16
+    },
+    {
+     "id": "layer-leg-l-overlay",
+     "type": "texture_fragment",
+     "target_texture_id": "clothes",
+     "url": "costume/donablo.png",
+     "width": 16,
+     "height": 16,
+     "x": 0,
+     "y": 0,
+     "pos_x": 0,
+     "pos_y": 0
+    },
+    {
+     "id": "layer-leg-r-overlay",
+     "type": "texture_fragment",
+     "target_texture_id": "clothes",
+     "url": "costume/donablo.png",
+     "width": 16,
+     "height": 16,
+     "x": 0,
+     "y": 16,
+     "pos_x": 0,
+     "pos_y": 16
+    }
+   ]
+  }
+ },
+ {
+  "referenceId": "mv_costumes_mc:donablo_headwear",
+  "states": {
+   "type": "asset",
+   "assetId": "multiverse_costumes:donablo",
+   "slot": "costume"
+  },
+  "config": {
+   "elements": [
+    {
+     "id": "layer-clothes",
+     "type": "texture_fragment",
+     "target_texture_id": "helmet",
+     "url": "costume/donablo.png",
+     "width": 32,
+     "height": 16,
+     "x": 0,
+     "y": 48,
+     "pos_x": 0,
+     "pos_y": 48
+    }
+   ]
+  }
+ },
+ {
+  "referenceId": "mv_costumes_mc:donablo_headwear_overlay",
+  "states": {
+   "type": "asset",
+   "assetId": "multiverse_costumes:donablo",
+   "slot": "costume"
+  },
+  "config": {
+   "elements": [
+    {
+     "id": "layer-clothes",
+     "type": "texture_fragment",
+     "target_texture_id": "helmet",
+     "url": "costume/donablo.png",
+     "width": 32,
+     "height": 16,
+     "x": 32,
+     "y": 48,
+     "pos_x": 32,
+     "pos_y": 48
+    }
+   ]
+  }
+ },
+ {
+  "referenceId": "mv_costumes_mc:dream_stalker_clothes",
+  "states": {
+   "type": "asset",
+   "assetId": "multiverse_costumes:dream_stalker",
+   "slot": "costume"
+  },
+  "config": {
+   "elements": [
+    {
+     "id": "layer-clothes",
+     "type": "texture_fragment",
+     "target_texture_id": "clothes",
+     "url": "costume/dream_stalker.png",
+     "width": 24,
+     "height": 16,
+     "x": 16,
+     "y": 32,
+     "pos_x": 16,
+     "pos_y": 32
+    },
+    {
+     "id": "layer-arm-l",
+     "type": "texture_fragment",
+     "target_texture_id": "clothes",
+     "url": "costume/dream_stalker.png",
+     "width": 14,
+     "height": 16,
+     "x": 32,
+     "y": 0,
+     "pos_x": 32,
+     "pos_y": 0
+    },
+    {
+     "id": "layer-arm-r",
+     "type": "texture_fragment",
+     "target_texture_id": "clothes",
+     "url": "costume/dream_stalker.png",
+     "width": 14,
+     "height": 16,
+     "x": 40,
+     "y": 32,
+     "pos_x": 40,
+     "pos_y": 32
+    },
+    {
+     "id": "layer-leg-l",
+     "type": "texture_fragment",
+     "target_texture_id": "clothes",
+     "url": "costume/dream_stalker.png",
+     "width": 16,
+     "height": 16,
+     "x": 16,
+     "y": 0,
+     "pos_x": 16,
+     "pos_y": 0
+    },
+    {
+     "id": "layer-leg-r",
+     "type": "texture_fragment",
+     "target_texture_id": "clothes",
+     "url": "costume/dream_stalker.png",
+     "width": 16,
+     "height": 16,
+     "x": 0,
+     "y": 32,
+     "pos_x": 0,
+     "pos_y": 32
+    }
+   ]
+  }
+ },
+ {
+  "referenceId": "mv_costumes_mc:dream_stalker_clothes_overlay",
+  "states": {
+   "type": "asset",
+   "assetId": "multiverse_costumes:dream_stalker",
+   "slot": "costume"
+  },
+  "config": {
+   "elements": [
+    {
+     "id": "layer-clothes-overlay",
+     "type": "texture_fragment",
+     "target_texture_id": "clothes",
+     "url": "costume/dream_stalker.png",
+     "width": 24,
+     "height": 16,
+     "x": 16,
+     "y": 16,
+     "pos_x": 16,
+     "pos_y": 16
+    },
+    {
+     "id": "layer-arm-l-overlay",
+     "type": "texture_fragment",
+     "target_texture_id": "clothes",
+     "url": "costume/dream_stalker.png",
+     "width": 14,
+     "height": 16,
+     "x": 48,
+     "y": 0,
+     "pos_x": 46,
+     "pos_y": 0
+    },
+    {
+     "id": "layer-arm-r-overlay",
+     "type": "texture_fragment",
+     "target_texture_id": "clothes",
+     "url": "costume/dream_stalker.png",
+     "width": 14,
+     "height": 16,
+     "x": 40,
+     "y": 16,
+     "pos_x": 40,
+     "pos_y": 16
+    },
+    {
+     "id": "layer-leg-l-overlay",
+     "type": "texture_fragment",
+     "target_texture_id": "clothes",
+     "url": "costume/dream_stalker.png",
+     "width": 16,
+     "height": 16,
+     "x": 0,
+     "y": 0,
+     "pos_x": 0,
+     "pos_y": 0
+    },
+    {
+     "id": "layer-leg-r-overlay",
+     "type": "texture_fragment",
+     "target_texture_id": "clothes",
+     "url": "costume/dream_stalker.png",
+     "width": 16,
+     "height": 16,
+     "x": 0,
+     "y": 16,
+     "pos_x": 0,
+     "pos_y": 16
+    }
+   ]
+  }
+ },
+ {
+  "referenceId": "mv_costumes_mc:dream_stalker_hat",
+  "states": {
+   "type": "AND",
+   "conditions": [
+    {
+     "type": "asset",
+     "assetId": "multiverse_costumes:dream_stalker",
+     "slot": "costume"
+    },
+    {
+     "type": "OR",
+     "conditions": [
+      {
+       "type": "renderType",
+       "renderType": "preview"
+      },
+      {
+       "type": "renderType",
+       "renderType": "preview-minecraft"
+      }
+     ]
+    }
+   ]
+  },
+  "config": {
+   "elements": [
+    {
+     "id": "hat",
+     "type": "model",
+     "url": "model/dream_stalker_hat.glb",
+     "bone": "hat",
+     "position": {
+      "x": -0.5,
+      "y": -0.5,
+      "z": 0.5
+     }
+    }
+   ],
+   "skeleton": [
+    {
+     "id": "anchor",
+     "parent": "head",
+     "position": {
+      "x": 0,
+      "y": 17,
+      "z": 0
+     },
+     "scale": {
+      "x": 16,
+      "y": 16,
+      "z": 16
+     }
+    },
+    {
+     "id": "hat",
+     "parent": "anchor",
+     "scale": {
+      "x": 1.82,
+      "y": 1.82,
+      "z": 1.82
+     }
+    }
+   ]
+  }
+ },
+ {
+  "referenceId": "mv_costumes_mc:gorgon_clothes",
+  "states": {
+   "type": "asset",
+   "assetId": "multiverse_costumes:gorgon",
+   "slot": "costume"
+  },
+  "config": {
+   "elements": [
+    {
+     "id": "layer-clothes",
+     "type": "texture_fragment",
+     "target_texture_id": "clothes",
+     "url": "costume/gorgon.png",
+     "width": 24,
+     "height": 16,
+     "x": 16,
+     "y": 32,
+     "pos_x": 16,
+     "pos_y": 32
+    },
+    {
+     "id": "layer-arm-l",
+     "type": "texture_fragment",
+     "target_texture_id": "clothes",
+     "url": "costume/gorgon.png",
+     "width": 14,
+     "height": 16,
+     "x": 32,
+     "y": 0,
+     "pos_x": 32,
+     "pos_y": 0
+    },
+    {
+     "id": "layer-arm-r",
+     "type": "texture_fragment",
+     "target_texture_id": "clothes",
+     "url": "costume/gorgon.png",
+     "width": 14,
+     "height": 16,
+     "x": 40,
+     "y": 32,
+     "pos_x": 40,
+     "pos_y": 32
+    },
+    {
+     "id": "layer-leg-l",
+     "type": "texture_fragment",
+     "target_texture_id": "clothes",
+     "url": "costume/gorgon.png",
+     "width": 16,
+     "height": 16,
+     "x": 16,
+     "y": 0,
+     "pos_x": 16,
+     "pos_y": 0
+    },
+    {
+     "id": "layer-leg-r",
+     "type": "texture_fragment",
+     "target_texture_id": "clothes",
+     "url": "costume/gorgon.png",
+     "width": 16,
+     "height": 16,
+     "x": 0,
+     "y": 32,
+     "pos_x": 0,
+     "pos_y": 32
+    }
+   ]
+  }
+ },
+ {
+  "referenceId": "mv_costumes_mc:gorgon_clothes_overlay",
+  "states": {
+   "type": "asset",
+   "assetId": "multiverse_costumes:gorgon",
+   "slot": "costume"
+  },
+  "config": {
+   "elements": [
+    {
+     "id": "layer-clothes-overlay",
+     "type": "texture_fragment",
+     "target_texture_id": "clothes",
+     "url": "costume/gorgon.png",
+     "width": 24,
+     "height": 16,
+     "x": 16,
+     "y": 16,
+     "pos_x": 16,
+     "pos_y": 16
+    },
+    {
+     "id": "layer-arm-l-overlay",
+     "type": "texture_fragment",
+     "target_texture_id": "clothes",
+     "url": "costume/gorgon.png",
+     "width": 14,
+     "height": 16,
+     "x": 48,
+     "y": 0,
+     "pos_x": 46,
+     "pos_y": 0
+    },
+    {
+     "id": "layer-arm-r-overlay",
+     "type": "texture_fragment",
+     "target_texture_id": "clothes",
+     "url": "costume/gorgon.png",
+     "width": 14,
+     "height": 16,
+     "x": 40,
+     "y": 16,
+     "pos_x": 40,
+     "pos_y": 16
+    },
+    {
+     "id": "layer-leg-l-overlay",
+     "type": "texture_fragment",
+     "target_texture_id": "clothes",
+     "url": "costume/gorgon.png",
+     "width": 16,
+     "height": 16,
+     "x": 0,
+     "y": 0,
+     "pos_x": 0,
+     "pos_y": 0
+    },
+    {
+     "id": "layer-leg-r-overlay",
+     "type": "texture_fragment",
+     "target_texture_id": "clothes",
+     "url": "costume/gorgon.png",
+     "width": 16,
+     "height": 16,
+     "x": 0,
+     "y": 16,
+     "pos_x": 0,
+     "pos_y": 16
+    }
+   ]
+  }
+ },
+ {
+  "referenceId": "mv_costumes_mc:gorgon_head",
+  "states": {
+   "type": "asset",
+   "assetId": "multiverse_costumes:gorgon",
+   "slot": "costume"
+  },
+  "config": {
+   "elements": [
+    {
+     "id": "layer-head",
+     "type": "texture_fragment",
+     "target_texture_id": "body",
+     "url": "costume/gorgon.png",
+     "z-index": 1,
+     "width": 32,
+     "height": 16,
+     "x": 0,
+     "y": 48,
+     "pos_x": 0,
+     "pos_y": 48
+    }
+   ]
+  }
+ },
+ {
+  "referenceId": "mv_costumes_mc:gorgon_headwear",
+  "states": {
+   "type": "asset",
+   "assetId": "multiverse_costumes:gorgon",
+   "slot": "costume"
+  },
+  "config": {
+   "elements": [
+    {
+     "id": "layer-clothes",
+     "type": "texture_fragment",
+     "target_texture_id": "helmet",
+     "url": "costume/gorgon.png",
+     "width": 32,
+     "height": 16,
+     "x": 0,
+     "y": 48,
+     "pos_x": 0,
+     "pos_y": 48
+    }
+   ]
+  }
+ },
+ {
+  "referenceId": "mv_costumes_mc:gorgon_headwear_overlay",
+  "states": {
+   "type": "asset",
+   "assetId": "multiverse_costumes:gorgon",
+   "slot": "costume"
+  },
+  "config": {
+   "elements": [
+    {
+     "id": "layer-clothes",
+     "type": "texture_fragment",
+     "target_texture_id": "helmet",
+     "url": "costume/gorgon.png",
+     "width": 32,
+     "height": 16,
+     "x": 32,
+     "y": 48,
+     "pos_x": 32,
+     "pos_y": 48
+    }
+   ]
+  }
+ },
+ {
+  "referenceId": "mv_costumes_mc:kilt_clothes",
+  "states": {
+   "type": "asset",
+   "assetId": "multiverse_costumes:kilt",
+   "slot": "costume"
+  },
+  "config": {
+   "elements": [
+    {
+     "id": "layer-clothes",
+     "type": "texture_fragment",
+     "target_texture_id": "clothes",
+     "url": "costume/kilt.png",
+     "width": 24,
+     "height": 16,
+     "x": 16,
+     "y": 32,
+     "pos_x": 16,
+     "pos_y": 32
+    },
+    {
+     "id": "layer-arm-l",
+     "type": "texture_fragment",
+     "target_texture_id": "clothes",
+     "url": "costume/kilt.png",
+     "width": 14,
+     "height": 16,
+     "x": 32,
+     "y": 0,
+     "pos_x": 32,
+     "pos_y": 0
+    },
+    {
+     "id": "layer-arm-r",
+     "type": "texture_fragment",
+     "target_texture_id": "clothes",
+     "url": "costume/kilt.png",
+     "width": 14,
+     "height": 16,
+     "x": 40,
+     "y": 32,
+     "pos_x": 40,
+     "pos_y": 32
+    },
+    {
+     "id": "layer-leg-l",
+     "type": "texture_fragment",
+     "target_texture_id": "clothes",
+     "url": "costume/kilt.png",
+     "width": 16,
+     "height": 16,
+     "x": 16,
+     "y": 0,
+     "pos_x": 16,
+     "pos_y": 0
+    },
+    {
+     "id": "layer-leg-r",
+     "type": "texture_fragment",
+     "target_texture_id": "clothes",
+     "url": "costume/kilt.png",
+     "width": 16,
+     "height": 16,
+     "x": 0,
+     "y": 32,
+     "pos_x": 0,
+     "pos_y": 32
+    }
+   ]
+  }
+ },
+ {
+  "referenceId": "mv_costumes_mc:kilt_clothes_overlay",
+  "states": {
+   "type": "asset",
+   "assetId": "multiverse_costumes:kilt",
+   "slot": "costume"
+  },
+  "config": {
+   "elements": [
+    {
+     "id": "layer-clothes-overlay",
+     "type": "texture_fragment",
+     "target_texture_id": "clothes",
+     "url": "costume/kilt.png",
+     "width": 24,
+     "height": 16,
+     "x": 16,
+     "y": 16,
+     "pos_x": 16,
+     "pos_y": 16
+    },
+    {
+     "id": "layer-arm-l-overlay",
+     "type": "texture_fragment",
+     "target_texture_id": "clothes",
+     "url": "costume/kilt.png",
+     "width": 14,
+     "height": 16,
+     "x": 48,
+     "y": 0,
+     "pos_x": 46,
+     "pos_y": 0
+    },
+    {
+     "id": "layer-arm-r-overlay",
+     "type": "texture_fragment",
+     "target_texture_id": "clothes",
+     "url": "costume/kilt.png",
+     "width": 14,
+     "height": 16,
+     "x": 40,
+     "y": 16,
+     "pos_x": 40,
+     "pos_y": 16
+    },
+    {
+     "id": "layer-leg-l-overlay",
+     "type": "texture_fragment",
+     "target_texture_id": "clothes",
+     "url": "costume/kilt.png",
+     "width": 16,
+     "height": 16,
+     "x": 0,
+     "y": 0,
+     "pos_x": 0,
+     "pos_y": 0
+    },
+    {
+     "id": "layer-leg-r-overlay",
+     "type": "texture_fragment",
+     "target_texture_id": "clothes",
+     "url": "costume/kilt.png",
+     "width": 16,
+     "height": 16,
+     "x": 0,
+     "y": 16,
+     "pos_x": 0,
+     "pos_y": 16
+    }
+   ]
+  }
+ },
+ {
+  "referenceId": "mv_costumes_mc:kilt_head",
+  "states": {
+   "type": "asset",
+   "assetId": "multiverse_costumes:kilt",
+   "slot": "costume"
+  },
+  "config": {
+   "elements": [
+    {
+     "id": "layer-head",
+     "type": "texture_fragment",
+     "target_texture_id": "body",
+     "url": "costume/kilt.png",
+     "z-index": 1,
+     "width": 32,
+     "height": 16,
+     "x": 0,
+     "y": 48,
+     "pos_x": 0,
+     "pos_y": 48
+    }
+   ]
+  }
+ },
+ {
+  "referenceId": "mv_costumes_mc:kiwi_cyber_enchantress_clothes",
+  "states": {
+   "type": "asset",
+   "assetId": "multiverse_costumes:kiwi_cyber_enchantress",
+   "slot": "costume"
+  },
+  "config": {
+   "elements": [
+    {
+     "id": "layer-clothes",
+     "type": "texture_fragment",
+     "target_texture_id": "clothes",
+     "url": "costume/kiwi_cyber_enchantress.png",
+     "width": 24,
+     "height": 16,
+     "x": 16,
+     "y": 32,
+     "pos_x": 16,
+     "pos_y": 32
+    },
+    {
+     "id": "layer-arm-l",
+     "type": "texture_fragment",
+     "target_texture_id": "clothes",
+     "url": "costume/kiwi_cyber_enchantress.png",
+     "width": 14,
+     "height": 16,
+     "x": 32,
+     "y": 0,
+     "pos_x": 32,
+     "pos_y": 0
+    },
+    {
+     "id": "layer-arm-r",
+     "type": "texture_fragment",
+     "target_texture_id": "clothes",
+     "url": "costume/kiwi_cyber_enchantress.png",
+     "width": 14,
+     "height": 16,
+     "x": 40,
+     "y": 32,
+     "pos_x": 40,
+     "pos_y": 32
+    },
+    {
+     "id": "layer-leg-l",
+     "type": "texture_fragment",
+     "target_texture_id": "clothes",
+     "url": "costume/kiwi_cyber_enchantress.png",
+     "width": 16,
+     "height": 16,
+     "x": 16,
+     "y": 0,
+     "pos_x": 16,
+     "pos_y": 0
+    },
+    {
+     "id": "layer-leg-r",
+     "type": "texture_fragment",
+     "target_texture_id": "clothes",
+     "url": "costume/kiwi_cyber_enchantress.png",
+     "width": 16,
+     "height": 16,
+     "x": 0,
+     "y": 32,
+     "pos_x": 0,
+     "pos_y": 32
+    }
+   ]
+  }
+ },
+ {
+  "referenceId": "mv_costumes_mc:kiwi_cyber_enchantress_clothes_overlay",
+  "states": {
+   "type": "asset",
+   "assetId": "multiverse_costumes:kiwi_cyber_enchantress",
+   "slot": "costume"
+  },
+  "config": {
+   "elements": [
+    {
+     "id": "layer-clothes-overlay",
+     "type": "texture_fragment",
+     "target_texture_id": "clothes",
+     "url": "costume/kiwi_cyber_enchantress.png",
+     "width": 24,
+     "height": 16,
+     "x": 16,
+     "y": 16,
+     "pos_x": 16,
+     "pos_y": 16
+    },
+    {
+     "id": "layer-arm-l-overlay",
+     "type": "texture_fragment",
+     "target_texture_id": "clothes",
+     "url": "costume/kiwi_cyber_enchantress.png",
+     "width": 14,
+     "height": 16,
+     "x": 48,
+     "y": 0,
+     "pos_x": 46,
+     "pos_y": 0
+    },
+    {
+     "id": "layer-arm-r-overlay",
+     "type": "texture_fragment",
+     "target_texture_id": "clothes",
+     "url": "costume/kiwi_cyber_enchantress.png",
+     "width": 14,
+     "height": 16,
+     "x": 40,
+     "y": 16,
+     "pos_x": 40,
+     "pos_y": 16
+    },
+    {
+     "id": "layer-leg-l-overlay",
+     "type": "texture_fragment",
+     "target_texture_id": "clothes",
+     "url": "costume/kiwi_cyber_enchantress.png",
+     "width": 16,
+     "height": 16,
+     "x": 0,
+     "y": 0,
+     "pos_x": 0,
+     "pos_y": 0
+    },
+    {
+     "id": "layer-leg-r-overlay",
+     "type": "texture_fragment",
+     "target_texture_id": "clothes",
+     "url": "costume/kiwi_cyber_enchantress.png",
+     "width": 16,
+     "height": 16,
+     "x": 0,
+     "y": 16,
+     "pos_x": 0,
+     "pos_y": 16
+    }
+   ]
+  }
+ },
+ {
+  "referenceId": "mv_costumes_mc:kiwi_cyber_enchantress_eyewear_overlay",
+  "states": {
+   "type": "asset",
+   "assetId": "multiverse_costumes:kiwi_cyber_enchantress",
+   "slot": "costume"
+  },
+  "config": {
+   "elements": [
+    {
+     "id": "layer-clothes",
+     "type": "texture_fragment",
+     "target_texture_id": "eyewear",
+     "url": "costume/kiwi_cyber_enchantress.png",
+     "width": 32,
+     "height": 16,
+     "x": 32,
+     "y": 48,
+     "pos_x": 32,
+     "pos_y": 48
+    }
+   ]
+  }
+ },
+ {
+  "referenceId": "mv_costumes_mc:kringle_kap_headwear",
+  "states": {
+   "type": "asset",
+   "assetId": "multiverse_costumes:kringle_kap",
+   "slot": "costume"
+  },
+  "config": {
+   "elements": [
+    {
+     "id": "layer-clothes",
+     "type": "texture_fragment",
+     "target_texture_id": "helmet",
+     "url": "costume/kringle_kap.png",
+     "width": 32,
+     "height": 16,
+     "x": 0,
+     "y": 48,
+     "pos_x": 0,
+     "pos_y": 48
+    }
+   ]
+  }
+ },
+ {
+  "referenceId": "mv_costumes_mc:kringle_kap_headwear_overlay",
+  "states": {
+   "type": "asset",
+   "assetId": "multiverse_costumes:kringle_kap",
+   "slot": "costume"
+  },
+  "config": {
+   "elements": [
+    {
+     "id": "layer-clothes",
+     "type": "texture_fragment",
+     "target_texture_id": "helmet",
+     "url": "costume/kringle_kap.png",
+     "width": 32,
+     "height": 16,
+     "x": 32,
+     "y": 48,
+     "pos_x": 32,
+     "pos_y": 48
+    }
+   ]
+  }
+ },
+ {
+  "referenceId": "mv_costumes_mc:minecraft_settings",
+  "states": {},
+  "config": {
+   "output": {
+    "width": 64,
+    "height": 64,
+    "result": "render",
+    "camera_x": 32,
+    "camera_y": 32,
+    "camera_size": 32,
+    "transparency": true,
+    "camera_z": -100
+   },
+   "elements": [
+    {
+     "type": "sprite",
+     "bone": "global",
+     "url": "#composition",
+     "pass": "default",
+     "z-index": 0,
+     "blend": "default",
+     "opacity": 1,
+     "width": 64,
+     "height": 64,
+     "x": 0,
+     "y": 0,
+     "pivot_x": 0,
+     "pivot_y": 0,
+     "scale": 1
+    }
+   ]
+  }
+ },
+ {
+  "referenceId": "mv_costumes_mc:plague_doctor_clothes",
+  "states": {
+   "type": "asset",
+   "assetId": "multiverse_costumes:plague_doctor",
+   "slot": "costume"
+  },
+  "config": {
+   "elements": [
+    {
+     "id": "layer-clothes",
+     "type": "texture_fragment",
+     "target_texture_id": "clothes",
+     "url": "costume/plague_doctor.png",
+     "width": 24,
+     "height": 16,
+     "x": 16,
+     "y": 32,
+     "pos_x": 16,
+     "pos_y": 32
+    },
+    {
+     "id": "layer-arm-l",
+     "type": "texture_fragment",
+     "target_texture_id": "clothes",
+     "url": "costume/plague_doctor.png",
+     "width": 14,
+     "height": 16,
+     "x": 32,
+     "y": 0,
+     "pos_x": 32,
+     "pos_y": 0
+    },
+    {
+     "id": "layer-arm-r",
+     "type": "texture_fragment",
+     "target_texture_id": "clothes",
+     "url": "costume/plague_doctor.png",
+     "width": 14,
+     "height": 16,
+     "x": 40,
+     "y": 32,
+     "pos_x": 40,
+     "pos_y": 32
+    },
+    {
+     "id": "layer-leg-l",
+     "type": "texture_fragment",
+     "target_texture_id": "clothes",
+     "url": "costume/plague_doctor.png",
+     "width": 16,
+     "height": 16,
+     "x": 16,
+     "y": 0,
+     "pos_x": 16,
+     "pos_y": 0
+    },
+    {
+     "id": "layer-leg-r",
+     "type": "texture_fragment",
+     "target_texture_id": "clothes",
+     "url": "costume/plague_doctor.png",
+     "width": 16,
+     "height": 16,
+     "x": 0,
+     "y": 32,
+     "pos_x": 0,
+     "pos_y": 32
+    }
+   ]
+  }
+ },
+ {
+  "referenceId": "mv_costumes_mc:plague_doctor_clothes_overlay",
+  "states": {
+   "type": "asset",
+   "assetId": "multiverse_costumes:plague_doctor",
+   "slot": "costume"
+  },
+  "config": {
+   "elements": [
+    {
+     "id": "layer-clothes-overlay",
+     "type": "texture_fragment",
+     "target_texture_id": "clothes",
+     "url": "costume/plague_doctor.png",
+     "width": 24,
+     "height": 16,
+     "x": 16,
+     "y": 16,
+     "pos_x": 16,
+     "pos_y": 16
+    },
+    {
+     "id": "layer-arm-l-overlay",
+     "type": "texture_fragment",
+     "target_texture_id": "clothes",
+     "url": "costume/plague_doctor.png",
+     "width": 14,
+     "height": 16,
+     "x": 48,
+     "y": 0,
+     "pos_x": 46,
+     "pos_y": 0
+    },
+    {
+     "id": "layer-arm-r-overlay",
+     "type": "texture_fragment",
+     "target_texture_id": "clothes",
+     "url": "costume/plague_doctor.png",
+     "width": 14,
+     "height": 16,
+     "x": 40,
+     "y": 16,
+     "pos_x": 40,
+     "pos_y": 16
+    },
+    {
+     "id": "layer-leg-l-overlay",
+     "type": "texture_fragment",
+     "target_texture_id": "clothes",
+     "url": "costume/plague_doctor.png",
+     "width": 16,
+     "height": 16,
+     "x": 0,
+     "y": 0,
+     "pos_x": 0,
+     "pos_y": 0
+    },
+    {
+     "id": "layer-leg-r-overlay",
+     "type": "texture_fragment",
+     "target_texture_id": "clothes",
+     "url": "costume/plague_doctor.png",
+     "width": 16,
+     "height": 16,
+     "x": 0,
+     "y": 16,
+     "pos_x": 0,
+     "pos_y": 16
+    }
+   ]
+  }
+ },
+ {
+  "referenceId": "mv_costumes_mc:plague_doctor_hat",
+  "states": {
+   "type": "AND",
+   "conditions": [
+    {
+     "type": "asset",
+     "assetId": "multiverse_costumes:plague_doctor",
+     "slot": "costume"
+    },
+    {
+     "type": "OR",
+     "conditions": [
+      {
+       "type": "renderType",
+       "renderType": "preview"
+      },
+      {
+       "type": "renderType",
+       "renderType": "preview-minecraft"
+      }
+     ]
+    }
+   ]
+  },
+  "config": {
+   "elements": [
+    {
+     "id": "hat",
+     "type": "model",
+     "url": "model/plague_doctor_hat.glb",
+     "bone": "hat",
+     "position": {
+      "x": -0.5,
+      "y": -0.5,
+      "z": 0.5
+     }
+    }
+   ],
+   "skeleton": [
+    {
+     "id": "anchor",
+     "parent": "head",
+     "position": {
+      "x": 0,
+      "y": 17,
+      "z": 0
+     },
+     "scale": {
+      "x": 16,
+      "y": 16,
+      "z": 16
+     }
+    },
+    {
+     "id": "hat",
+     "parent": "anchor",
+     "scale": {
+      "x": 1.82,
+      "y": 1.82,
+      "z": 1.82
+     }
+    }
+   ]
+  }
+ },
+ {
+  "referenceId": "mv_costumes_mc:plague_doctor_headwear",
+  "states": {
+   "type": "asset",
+   "assetId": "multiverse_costumes:plague_doctor",
+   "slot": "costume"
+  },
+  "config": {
+   "elements": [
+    {
+     "id": "layer-clothes",
+     "type": "texture_fragment",
+     "target_texture_id": "helmet",
+     "url": "costume/plague_doctor.png",
+     "width": 32,
+     "height": 16,
+     "x": 0,
+     "y": 48,
+     "pos_x": 0,
+     "pos_y": 48
+    }
+   ]
+  }
+ },
+ {
+  "referenceId": "mv_costumes_mc:plague_doctor_headwear_overlay",
+  "states": {
+   "type": "asset",
+   "assetId": "multiverse_costumes:plague_doctor",
+   "slot": "costume"
+  },
+  "config": {
+   "elements": [
+    {
+     "id": "layer-clothes",
+     "type": "texture_fragment",
+     "target_texture_id": "helmet",
+     "url": "costume/plague_doctor.png",
+     "width": 32,
+     "height": 16,
+     "x": 32,
+     "y": 48,
+     "pos_x": 32,
+     "pos_y": 48
+    }
+   ]
+  }
+ },
+ {
+  "referenceId": "mv_costumes_mc:pods_headwear",
+  "states": {
+   "type": "asset",
+   "assetId": "multiverse_costumes:pods",
+   "slot": "costume"
+  },
+  "config": {
+   "elements": [
+    {
+     "id": "layer-clothes",
+     "type": "texture_fragment",
+     "target_texture_id": "helmet",
+     "url": "costume/pods.png",
+     "width": 32,
+     "height": 16,
+     "x": 0,
+     "y": 48,
+     "pos_x": 0,
+     "pos_y": 48
+    }
+   ]
+  }
+ },
+ {
+  "referenceId": "mv_costumes_mc:pods_headwear_overlay",
+  "states": {
+   "type": "asset",
+   "assetId": "multiverse_costumes:pods",
+   "slot": "costume"
+  },
+  "config": {
+   "elements": [
+    {
+     "id": "layer-clothes",
+     "type": "texture_fragment",
+     "target_texture_id": "helmet",
+     "url": "costume/pods.png",
+     "width": 32,
+     "height": 16,
+     "x": 32,
+     "y": 48,
+     "pos_x": 32,
+     "pos_y": 48
+    }
+   ]
+  }
+ },
+ {
+  "referenceId": "mv_costumes_mc:preview_settings",
+  "states": {},
+  "config": {
+   "elements": [
+    {
+     "id": "model",
+     "type": "model",
+     "bone": "global",
+     "url": "model/alex.glb",
+     "textures": [
+      {
+       "material": "skin",
+       "texture": "_MainTex",
+       "url": "#composition"
+      }
+     ]
+    }
+   ],
+   "output": {
+    "width": 300,
+    "height": 300,
+    "result": "render",
+    "camera_projection": "perspective",
+    "camera_x": -1.9,
+    "camera_y": 1.9,
+    "camera_z": 3.3,
+    "camera_rotation_x": 13,
+    "camera_rotation_y": 150,
+    "transparency": true
+   },
+   "skeleton": [
+    {
+     "id": "head",
+     "scale": {
+      "x": 0.04,
+      "y": 0.04,
+      "z": 0.04
+     },
+     "position": {
+      "x": 0,
+      "y": 1.75,
+      "z": 0
+     },
+     "parent": "global"
+    }
+   ]
+  }
+ },
+ {
+  "referenceId": "mv_costumes_mc:rabbits_delight_clothes",
+  "states": {
+   "type": "asset",
+   "assetId": "multiverse_costumes:rabbits_delight",
+   "slot": "costume"
+  },
+  "config": {
+   "elements": [
+    {
+     "id": "layer-clothes",
+     "type": "texture_fragment",
+     "target_texture_id": "clothes",
+     "url": "costume/rabbits_delight.png",
+     "width": 24,
+     "height": 16,
+     "x": 16,
+     "y": 32,
+     "pos_x": 16,
+     "pos_y": 32
+    },
+    {
+     "id": "layer-arm-l",
+     "type": "texture_fragment",
+     "target_texture_id": "clothes",
+     "url": "costume/rabbits_delight.png",
+     "width": 14,
+     "height": 16,
+     "x": 32,
+     "y": 0,
+     "pos_x": 32,
+     "pos_y": 0
+    },
+    {
+     "id": "layer-arm-r",
+     "type": "texture_fragment",
+     "target_texture_id": "clothes",
+     "url": "costume/rabbits_delight.png",
+     "width": 14,
+     "height": 16,
+     "x": 40,
+     "y": 32,
+     "pos_x": 40,
+     "pos_y": 32
+    },
+    {
+     "id": "layer-leg-l",
+     "type": "texture_fragment",
+     "target_texture_id": "clothes",
+     "url": "costume/rabbits_delight.png",
+     "width": 16,
+     "height": 16,
+     "x": 16,
+     "y": 0,
+     "pos_x": 16,
+     "pos_y": 0
+    },
+    {
+     "id": "layer-leg-r",
+     "type": "texture_fragment",
+     "target_texture_id": "clothes",
+     "url": "costume/rabbits_delight.png",
+     "width": 16,
+     "height": 16,
+     "x": 0,
+     "y": 32,
+     "pos_x": 0,
+     "pos_y": 32
+    }
+   ]
+  }
+ },
+ {
+  "referenceId": "mv_costumes_mc:rabbits_delight_clothes_overlay",
+  "states": {
+   "type": "asset",
+   "assetId": "multiverse_costumes:rabbits_delight",
+   "slot": "costume"
+  },
+  "config": {
+   "elements": [
+    {
+     "id": "layer-clothes-overlay",
+     "type": "texture_fragment",
+     "target_texture_id": "clothes",
+     "url": "costume/rabbits_delight.png",
+     "width": 24,
+     "height": 16,
+     "x": 16,
+     "y": 16,
+     "pos_x": 16,
+     "pos_y": 16
+    },
+    {
+     "id": "layer-arm-l-overlay",
+     "type": "texture_fragment",
+     "target_texture_id": "clothes",
+     "url": "costume/rabbits_delight.png",
+     "width": 14,
+     "height": 16,
+     "x": 48,
+     "y": 0,
+     "pos_x": 46,
+     "pos_y": 0
+    },
+    {
+     "id": "layer-arm-r-overlay",
+     "type": "texture_fragment",
+     "target_texture_id": "clothes",
+     "url": "costume/rabbits_delight.png",
+     "width": 14,
+     "height": 16,
+     "x": 40,
+     "y": 16,
+     "pos_x": 40,
+     "pos_y": 16
+    },
+    {
+     "id": "layer-leg-l-overlay",
+     "type": "texture_fragment",
+     "target_texture_id": "clothes",
+     "url": "costume/rabbits_delight.png",
+     "width": 16,
+     "height": 16,
+     "x": 0,
+     "y": 0,
+     "pos_x": 0,
+     "pos_y": 0
+    },
+    {
+     "id": "layer-leg-r-overlay",
+     "type": "texture_fragment",
+     "target_texture_id": "clothes",
+     "url": "costume/rabbits_delight.png",
+     "width": 16,
+     "height": 16,
+     "x": 0,
+     "y": 16,
+     "pos_x": 0,
+     "pos_y": 16
+    }
+   ]
+  }
+ },
+ {
+  "referenceId": "mv_costumes_mc:rabbits_delight_hat",
+  "states": {
+   "type": "AND",
+   "conditions": [
+    {
+     "type": "asset",
+     "assetId": "multiverse_costumes:rabbits_delight",
+     "slot": "costume"
+    },
+    {
+     "type": "OR",
+     "conditions": [
+      {
+       "type": "renderType",
+       "renderType": "preview"
+      },
+      {
+       "type": "renderType",
+       "renderType": "preview-minecraft"
+      }
+     ]
+    }
+   ]
+  },
+  "config": {
+   "elements": [
+    {
+     "id": "hat",
+     "type": "model",
+     "url": "model/rabbits_delight_hat.glb",
+     "bone": "hat",
+     "position": {
+      "x": -0.5,
+      "y": -0.5,
+      "z": 0.5
+     }
+    }
+   ],
+   "skeleton": [
+    {
+     "id": "anchor",
+     "parent": "head",
+     "position": {
+      "x": 0,
+      "y": 14.25,
+      "z": 1.5
+     },
+     "scale": {
+      "x": 16,
+      "y": 16,
+      "z": 16
+     }
+    },
+    {
+     "id": "hat",
+     "parent": "anchor",
+     "scale": {
+      "x": 0.9,
+      "y": 0.9,
+      "z": 0.9
+     }
+    }
+   ]
+  }
+ },
+ {
+  "referenceId": "mv_costumes_mc:raven_cyber_enchantress_clothes",
+  "states": {
+   "type": "asset",
+   "assetId": "multiverse_costumes:raven_cyber_enchantress",
+   "slot": "costume"
+  },
+  "config": {
+   "elements": [
+    {
+     "id": "layer-clothes",
+     "type": "texture_fragment",
+     "target_texture_id": "clothes",
+     "url": "costume/raven_cyber_enchantress.png",
+     "width": 24,
+     "height": 16,
+     "x": 16,
+     "y": 32,
+     "pos_x": 16,
+     "pos_y": 32
+    },
+    {
+     "id": "layer-arm-l",
+     "type": "texture_fragment",
+     "target_texture_id": "clothes",
+     "url": "costume/raven_cyber_enchantress.png",
+     "width": 14,
+     "height": 16,
+     "x": 32,
+     "y": 0,
+     "pos_x": 32,
+     "pos_y": 0
+    },
+    {
+     "id": "layer-arm-r",
+     "type": "texture_fragment",
+     "target_texture_id": "clothes",
+     "url": "costume/raven_cyber_enchantress.png",
+     "width": 14,
+     "height": 16,
+     "x": 40,
+     "y": 32,
+     "pos_x": 40,
+     "pos_y": 32
+    },
+    {
+     "id": "layer-leg-l",
+     "type": "texture_fragment",
+     "target_texture_id": "clothes",
+     "url": "costume/raven_cyber_enchantress.png",
+     "width": 16,
+     "height": 16,
+     "x": 16,
+     "y": 0,
+     "pos_x": 16,
+     "pos_y": 0
+    },
+    {
+     "id": "layer-leg-r",
+     "type": "texture_fragment",
+     "target_texture_id": "clothes",
+     "url": "costume/raven_cyber_enchantress.png",
+     "width": 16,
+     "height": 16,
+     "x": 0,
+     "y": 32,
+     "pos_x": 0,
+     "pos_y": 32
+    }
+   ]
+  }
+ },
+ {
+  "referenceId": "mv_costumes_mc:raven_cyber_enchantress_clothes_overlay",
+  "states": {
+   "type": "asset",
+   "assetId": "multiverse_costumes:raven_cyber_enchantress",
+   "slot": "costume"
+  },
+  "config": {
+   "elements": [
+    {
+     "id": "layer-clothes-overlay",
+     "type": "texture_fragment",
+     "target_texture_id": "clothes",
+     "url": "costume/raven_cyber_enchantress.png",
+     "width": 24,
+     "height": 16,
+     "x": 16,
+     "y": 16,
+     "pos_x": 16,
+     "pos_y": 16
+    },
+    {
+     "id": "layer-arm-l-overlay",
+     "type": "texture_fragment",
+     "target_texture_id": "clothes",
+     "url": "costume/raven_cyber_enchantress.png",
+     "width": 14,
+     "height": 16,
+     "x": 48,
+     "y": 0,
+     "pos_x": 46,
+     "pos_y": 0
+    },
+    {
+     "id": "layer-arm-r-overlay",
+     "type": "texture_fragment",
+     "target_texture_id": "clothes",
+     "url": "costume/raven_cyber_enchantress.png",
+     "width": 14,
+     "height": 16,
+     "x": 40,
+     "y": 16,
+     "pos_x": 40,
+     "pos_y": 16
+    },
+    {
+     "id": "layer-leg-l-overlay",
+     "type": "texture_fragment",
+     "target_texture_id": "clothes",
+     "url": "costume/raven_cyber_enchantress.png",
+     "width": 16,
+     "height": 16,
+     "x": 0,
+     "y": 0,
+     "pos_x": 0,
+     "pos_y": 0
+    },
+    {
+     "id": "layer-leg-r-overlay",
+     "type": "texture_fragment",
+     "target_texture_id": "clothes",
+     "url": "costume/raven_cyber_enchantress.png",
+     "width": 16,
+     "height": 16,
+     "x": 0,
+     "y": 16,
+     "pos_x": 0,
+     "pos_y": 16
+    }
+   ]
+  }
+ },
+ {
+  "referenceId": "mv_costumes_mc:raven_cyber_enchantress_eyewear_overlay",
+  "states": {
+   "type": "asset",
+   "assetId": "multiverse_costumes:raven_cyber_enchantress",
+   "slot": "costume"
+  },
+  "config": {
+   "elements": [
+    {
+     "id": "layer-clothes",
+     "type": "texture_fragment",
+     "target_texture_id": "eyewear",
+     "url": "costume/raven_cyber_enchantress.png",
+     "width": 32,
+     "height": 16,
+     "x": 32,
+     "y": 48,
+     "pos_x": 32,
+     "pos_y": 48
+    }
+   ]
+  }
+ },
+ {
+  "referenceId": "mv_costumes_mc:reindeer_gear_clothes",
+  "states": {
+   "type": "asset",
+   "assetId": "multiverse_costumes:reindeer_gear",
+   "slot": "costume"
+  },
+  "config": {
+   "elements": [
+    {
+     "id": "layer-clothes",
+     "type": "texture_fragment",
+     "target_texture_id": "clothes",
+     "url": "costume/reindeer_gear.png",
+     "width": 24,
+     "height": 16,
+     "x": 16,
+     "y": 32,
+     "pos_x": 16,
+     "pos_y": 32
+    },
+    {
+     "id": "layer-arm-l",
+     "type": "texture_fragment",
+     "target_texture_id": "clothes",
+     "url": "costume/reindeer_gear.png",
+     "width": 14,
+     "height": 16,
+     "x": 32,
+     "y": 0,
+     "pos_x": 32,
+     "pos_y": 0
+    },
+    {
+     "id": "layer-arm-r",
+     "type": "texture_fragment",
+     "target_texture_id": "clothes",
+     "url": "costume/reindeer_gear.png",
+     "width": 14,
+     "height": 16,
+     "x": 40,
+     "y": 32,
+     "pos_x": 40,
+     "pos_y": 32
+    },
+    {
+     "id": "layer-leg-l",
+     "type": "texture_fragment",
+     "target_texture_id": "clothes",
+     "url": "costume/reindeer_gear.png",
+     "width": 16,
+     "height": 16,
+     "x": 16,
+     "y": 0,
+     "pos_x": 16,
+     "pos_y": 0
+    },
+    {
+     "id": "layer-leg-r",
+     "type": "texture_fragment",
+     "target_texture_id": "clothes",
+     "url": "costume/reindeer_gear.png",
+     "width": 16,
+     "height": 16,
+     "x": 0,
+     "y": 32,
+     "pos_x": 0,
+     "pos_y": 32
+    }
+   ]
+  }
+ },
+ {
+  "referenceId": "mv_costumes_mc:reindeer_gear_clothes_overlay",
+  "states": {
+   "type": "asset",
+   "assetId": "multiverse_costumes:reindeer_gear",
+   "slot": "costume"
+  },
+  "config": {
+   "elements": [
+    {
+     "id": "layer-clothes-overlay",
+     "type": "texture_fragment",
+     "target_texture_id": "clothes",
+     "url": "costume/reindeer_gear.png",
+     "width": 24,
+     "height": 16,
+     "x": 16,
+     "y": 16,
+     "pos_x": 16,
+     "pos_y": 16
+    },
+    {
+     "id": "layer-arm-l-overlay",
+     "type": "texture_fragment",
+     "target_texture_id": "clothes",
+     "url": "costume/reindeer_gear.png",
+     "width": 14,
+     "height": 16,
+     "x": 48,
+     "y": 0,
+     "pos_x": 46,
+     "pos_y": 0
+    },
+    {
+     "id": "layer-arm-r-overlay",
+     "type": "texture_fragment",
+     "target_texture_id": "clothes",
+     "url": "costume/reindeer_gear.png",
+     "width": 14,
+     "height": 16,
+     "x": 40,
+     "y": 16,
+     "pos_x": 40,
+     "pos_y": 16
+    },
+    {
+     "id": "layer-leg-l-overlay",
+     "type": "texture_fragment",
+     "target_texture_id": "clothes",
+     "url": "costume/reindeer_gear.png",
+     "width": 16,
+     "height": 16,
+     "x": 0,
+     "y": 0,
+     "pos_x": 0,
+     "pos_y": 0
+    },
+    {
+     "id": "layer-leg-r-overlay",
+     "type": "texture_fragment",
+     "target_texture_id": "clothes",
+     "url": "costume/reindeer_gear.png",
+     "width": 16,
+     "height": 16,
+     "x": 0,
+     "y": 16,
+     "pos_x": 0,
+     "pos_y": 16
+    }
+   ]
+  }
+ },
+ {
+  "referenceId": "mv_costumes_mc:reindeer_gear_headwear",
+  "states": {
+   "type": "asset",
+   "assetId": "multiverse_costumes:reindeer_gear",
+   "slot": "costume"
+  },
+  "config": {
+   "elements": [
+    {
+     "id": "layer-clothes",
+     "type": "texture_fragment",
+     "target_texture_id": "helmet",
+     "url": "costume/reindeer_gear.png",
+     "width": 32,
+     "height": 16,
+     "x": 0,
+     "y": 48,
+     "pos_x": 0,
+     "pos_y": 48
+    }
+   ]
+  }
+ },
+ {
+  "referenceId": "mv_costumes_mc:reindeer_gear_headwear_overlay",
+  "states": {
+   "type": "asset",
+   "assetId": "multiverse_costumes:reindeer_gear",
+   "slot": "costume"
+  },
+  "config": {
+   "elements": [
+    {
+     "id": "layer-clothes",
+     "type": "texture_fragment",
+     "target_texture_id": "helmet",
+     "url": "costume/reindeer_gear.png",
+     "width": 32,
+     "height": 16,
+     "x": 32,
+     "y": 48,
+     "pos_x": 32,
+     "pos_y": 48
+    }
+   ]
+  }
+ },
+ {
+  "referenceId": "mv_costumes_mc:scarlet_cyber_enchantress_clothes",
+  "states": {
+   "type": "asset",
+   "assetId": "multiverse_costumes:scarlet_cyber_enchantress",
+   "slot": "costume"
+  },
+  "config": {
+   "elements": [
+    {
+     "id": "layer-clothes",
+     "type": "texture_fragment",
+     "target_texture_id": "clothes",
+     "url": "costume/scarlet_cyber_enchantress.png",
+     "width": 24,
+     "height": 16,
+     "x": 16,
+     "y": 32,
+     "pos_x": 16,
+     "pos_y": 32
+    },
+    {
+     "id": "layer-arm-l",
+     "type": "texture_fragment",
+     "target_texture_id": "clothes",
+     "url": "costume/scarlet_cyber_enchantress.png",
+     "width": 14,
+     "height": 16,
+     "x": 32,
+     "y": 0,
+     "pos_x": 32,
+     "pos_y": 0
+    },
+    {
+     "id": "layer-arm-r",
+     "type": "texture_fragment",
+     "target_texture_id": "clothes",
+     "url": "costume/scarlet_cyber_enchantress.png",
+     "width": 14,
+     "height": 16,
+     "x": 40,
+     "y": 32,
+     "pos_x": 40,
+     "pos_y": 32
+    },
+    {
+     "id": "layer-leg-l",
+     "type": "texture_fragment",
+     "target_texture_id": "clothes",
+     "url": "costume/scarlet_cyber_enchantress.png",
+     "width": 16,
+     "height": 16,
+     "x": 16,
+     "y": 0,
+     "pos_x": 16,
+     "pos_y": 0
+    },
+    {
+     "id": "layer-leg-r",
+     "type": "texture_fragment",
+     "target_texture_id": "clothes",
+     "url": "costume/scarlet_cyber_enchantress.png",
+     "width": 16,
+     "height": 16,
+     "x": 0,
+     "y": 32,
+     "pos_x": 0,
+     "pos_y": 32
+    }
+   ]
+  }
+ },
+ {
+  "referenceId": "mv_costumes_mc:scarlet_cyber_enchantress_clothes_overlay",
+  "states": {
+   "type": "asset",
+   "assetId": "multiverse_costumes:scarlet_cyber_enchantress",
+   "slot": "costume"
+  },
+  "config": {
+   "elements": [
+    {
+     "id": "layer-clothes-overlay",
+     "type": "texture_fragment",
+     "target_texture_id": "clothes",
+     "url": "costume/scarlet_cyber_enchantress.png",
+     "width": 24,
+     "height": 16,
+     "x": 16,
+     "y": 16,
+     "pos_x": 16,
+     "pos_y": 16
+    },
+    {
+     "id": "layer-arm-l-overlay",
+     "type": "texture_fragment",
+     "target_texture_id": "clothes",
+     "url": "costume/scarlet_cyber_enchantress.png",
+     "width": 14,
+     "height": 16,
+     "x": 48,
+     "y": 0,
+     "pos_x": 46,
+     "pos_y": 0
+    },
+    {
+     "id": "layer-arm-r-overlay",
+     "type": "texture_fragment",
+     "target_texture_id": "clothes",
+     "url": "costume/scarlet_cyber_enchantress.png",
+     "width": 14,
+     "height": 16,
+     "x": 40,
+     "y": 16,
+     "pos_x": 40,
+     "pos_y": 16
+    },
+    {
+     "id": "layer-leg-l-overlay",
+     "type": "texture_fragment",
+     "target_texture_id": "clothes",
+     "url": "costume/scarlet_cyber_enchantress.png",
+     "width": 16,
+     "height": 16,
+     "x": 0,
+     "y": 0,
+     "pos_x": 0,
+     "pos_y": 0
+    },
+    {
+     "id": "layer-leg-r-overlay",
+     "type": "texture_fragment",
+     "target_texture_id": "clothes",
+     "url": "costume/scarlet_cyber_enchantress.png",
+     "width": 16,
+     "height": 16,
+     "x": 0,
+     "y": 16,
+     "pos_x": 0,
+     "pos_y": 16
+    }
+   ]
+  }
+ },
+ {
+  "referenceId": "mv_costumes_mc:scarlet_cyber_enchantress_eyewear_overlay",
+  "states": {
+   "type": "asset",
+   "assetId": "multiverse_costumes:scarlet_cyber_enchantress",
+   "slot": "costume"
+  },
+  "config": {
+   "elements": [
+    {
+     "id": "layer-clothes",
+     "type": "texture_fragment",
+     "target_texture_id": "eyewear",
+     "url": "costume/scarlet_cyber_enchantress.png",
+     "width": 32,
+     "height": 16,
+     "x": 32,
+     "y": 48,
+     "pos_x": 32,
+     "pos_y": 48
+    }
+   ]
+  }
+ },
+ {
+  "referenceId": "mv_costumes_mc:shock_cyber_enchantress_clothes",
+  "states": {
+   "type": "asset",
+   "assetId": "multiverse_costumes:shock_cyber_enchantress",
+   "slot": "costume"
+  },
+  "config": {
+   "elements": [
+    {
+     "id": "layer-clothes",
+     "type": "texture_fragment",
+     "target_texture_id": "clothes",
+     "url": "costume/shock_cyber_enchantress.png",
+     "width": 24,
+     "height": 16,
+     "x": 16,
+     "y": 32,
+     "pos_x": 16,
+     "pos_y": 32
+    },
+    {
+     "id": "layer-arm-l",
+     "type": "texture_fragment",
+     "target_texture_id": "clothes",
+     "url": "costume/shock_cyber_enchantress.png",
+     "width": 14,
+     "height": 16,
+     "x": 32,
+     "y": 0,
+     "pos_x": 32,
+     "pos_y": 0
+    },
+    {
+     "id": "layer-arm-r",
+     "type": "texture_fragment",
+     "target_texture_id": "clothes",
+     "url": "costume/shock_cyber_enchantress.png",
+     "width": 14,
+     "height": 16,
+     "x": 40,
+     "y": 32,
+     "pos_x": 40,
+     "pos_y": 32
+    },
+    {
+     "id": "layer-leg-l",
+     "type": "texture_fragment",
+     "target_texture_id": "clothes",
+     "url": "costume/shock_cyber_enchantress.png",
+     "width": 16,
+     "height": 16,
+     "x": 16,
+     "y": 0,
+     "pos_x": 16,
+     "pos_y": 0
+    },
+    {
+     "id": "layer-leg-r",
+     "type": "texture_fragment",
+     "target_texture_id": "clothes",
+     "url": "costume/shock_cyber_enchantress.png",
+     "width": 16,
+     "height": 16,
+     "x": 0,
+     "y": 32,
+     "pos_x": 0,
+     "pos_y": 32
+    }
+   ]
+  }
+ },
+ {
+  "referenceId": "mv_costumes_mc:shock_cyber_enchantress_clothes_overlay",
+  "states": {
+   "type": "asset",
+   "assetId": "multiverse_costumes:shock_cyber_enchantress",
+   "slot": "costume"
+  },
+  "config": {
+   "elements": [
+    {
+     "id": "layer-clothes-overlay",
+     "type": "texture_fragment",
+     "target_texture_id": "clothes",
+     "url": "costume/shock_cyber_enchantress.png",
+     "width": 24,
+     "height": 16,
+     "x": 16,
+     "y": 16,
+     "pos_x": 16,
+     "pos_y": 16
+    },
+    {
+     "id": "layer-arm-l-overlay",
+     "type": "texture_fragment",
+     "target_texture_id": "clothes",
+     "url": "costume/shock_cyber_enchantress.png",
+     "width": 14,
+     "height": 16,
+     "x": 48,
+     "y": 0,
+     "pos_x": 46,
+     "pos_y": 0
+    },
+    {
+     "id": "layer-arm-r-overlay",
+     "type": "texture_fragment",
+     "target_texture_id": "clothes",
+     "url": "costume/shock_cyber_enchantress.png",
+     "width": 14,
+     "height": 16,
+     "x": 40,
+     "y": 16,
+     "pos_x": 40,
+     "pos_y": 16
+    },
+    {
+     "id": "layer-leg-l-overlay",
+     "type": "texture_fragment",
+     "target_texture_id": "clothes",
+     "url": "costume/shock_cyber_enchantress.png",
+     "width": 16,
+     "height": 16,
+     "x": 0,
+     "y": 0,
+     "pos_x": 0,
+     "pos_y": 0
+    },
+    {
+     "id": "layer-leg-r-overlay",
+     "type": "texture_fragment",
+     "target_texture_id": "clothes",
+     "url": "costume/shock_cyber_enchantress.png",
+     "width": 16,
+     "height": 16,
+     "x": 0,
+     "y": 16,
+     "pos_x": 0,
+     "pos_y": 16
+    }
+   ]
+  }
+ },
+ {
+  "referenceId": "mv_costumes_mc:shock_cyber_enchantress_eyewear_overlay",
+  "states": {
+   "type": "asset",
+   "assetId": "multiverse_costumes:shock_cyber_enchantress",
+   "slot": "costume"
+  },
+  "config": {
+   "elements": [
+    {
+     "id": "layer-clothes",
+     "type": "texture_fragment",
+     "target_texture_id": "eyewear",
+     "url": "costume/shock_cyber_enchantress.png",
+     "width": 32,
+     "height": 16,
+     "x": 32,
+     "y": 48,
+     "pos_x": 32,
+     "pos_y": 48
+    }
+   ]
+  }
+ },
+ {
+  "referenceId": "mv_costumes_mc:solar_cyber_enchantress_clothes",
+  "states": {
+   "type": "asset",
+   "assetId": "multiverse_costumes:solar_cyber_enchantress",
+   "slot": "costume"
+  },
+  "config": {
+   "elements": [
+    {
+     "id": "layer-clothes",
+     "type": "texture_fragment",
+     "target_texture_id": "clothes",
+     "url": "costume/solar_cyber_enchantress.png",
+     "width": 24,
+     "height": 16,
+     "x": 16,
+     "y": 32,
+     "pos_x": 16,
+     "pos_y": 32
+    },
+    {
+     "id": "layer-arm-l",
+     "type": "texture_fragment",
+     "target_texture_id": "clothes",
+     "url": "costume/solar_cyber_enchantress.png",
+     "width": 14,
+     "height": 16,
+     "x": 32,
+     "y": 0,
+     "pos_x": 32,
+     "pos_y": 0
+    },
+    {
+     "id": "layer-arm-r",
+     "type": "texture_fragment",
+     "target_texture_id": "clothes",
+     "url": "costume/solar_cyber_enchantress.png",
+     "width": 14,
+     "height": 16,
+     "x": 40,
+     "y": 32,
+     "pos_x": 40,
+     "pos_y": 32
+    },
+    {
+     "id": "layer-leg-l",
+     "type": "texture_fragment",
+     "target_texture_id": "clothes",
+     "url": "costume/solar_cyber_enchantress.png",
+     "width": 16,
+     "height": 16,
+     "x": 16,
+     "y": 0,
+     "pos_x": 16,
+     "pos_y": 0
+    },
+    {
+     "id": "layer-leg-r",
+     "type": "texture_fragment",
+     "target_texture_id": "clothes",
+     "url": "costume/solar_cyber_enchantress.png",
+     "width": 16,
+     "height": 16,
+     "x": 0,
+     "y": 32,
+     "pos_x": 0,
+     "pos_y": 32
+    }
+   ]
+  }
+ },
+ {
+  "referenceId": "mv_costumes_mc:solar_cyber_enchantress_clothes_overlay",
+  "states": {
+   "type": "asset",
+   "assetId": "multiverse_costumes:solar_cyber_enchantress",
+   "slot": "costume"
+  },
+  "config": {
+   "elements": [
+    {
+     "id": "layer-clothes-overlay",
+     "type": "texture_fragment",
+     "target_texture_id": "clothes",
+     "url": "costume/solar_cyber_enchantress.png",
+     "width": 24,
+     "height": 16,
+     "x": 16,
+     "y": 16,
+     "pos_x": 16,
+     "pos_y": 16
+    },
+    {
+     "id": "layer-arm-l-overlay",
+     "type": "texture_fragment",
+     "target_texture_id": "clothes",
+     "url": "costume/solar_cyber_enchantress.png",
+     "width": 14,
+     "height": 16,
+     "x": 48,
+     "y": 0,
+     "pos_x": 46,
+     "pos_y": 0
+    },
+    {
+     "id": "layer-arm-r-overlay",
+     "type": "texture_fragment",
+     "target_texture_id": "clothes",
+     "url": "costume/solar_cyber_enchantress.png",
+     "width": 14,
+     "height": 16,
+     "x": 40,
+     "y": 16,
+     "pos_x": 40,
+     "pos_y": 16
+    },
+    {
+     "id": "layer-leg-l-overlay",
+     "type": "texture_fragment",
+     "target_texture_id": "clothes",
+     "url": "costume/solar_cyber_enchantress.png",
+     "width": 16,
+     "height": 16,
+     "x": 0,
+     "y": 0,
+     "pos_x": 0,
+     "pos_y": 0
+    },
+    {
+     "id": "layer-leg-r-overlay",
+     "type": "texture_fragment",
+     "target_texture_id": "clothes",
+     "url": "costume/solar_cyber_enchantress.png",
+     "width": 16,
+     "height": 16,
+     "x": 0,
+     "y": 16,
+     "pos_x": 0,
+     "pos_y": 16
+    }
+   ]
+  }
+ },
+ {
+  "referenceId": "mv_costumes_mc:solar_cyber_enchantress_eyewear_overlay",
+  "states": {
+   "type": "asset",
+   "assetId": "multiverse_costumes:solar_cyber_enchantress",
+   "slot": "costume"
+  },
+  "config": {
+   "elements": [
+    {
+     "id": "layer-clothes",
+     "type": "texture_fragment",
+     "target_texture_id": "eyewear",
+     "url": "costume/solar_cyber_enchantress.png",
+     "width": 32,
+     "height": 16,
+     "x": 32,
+     "y": 48,
+     "pos_x": 32,
+     "pos_y": 48
+    }
+   ]
+  }
+ },
+ {
+  "referenceId": "mv_costumes_mc:violet_digital_bomber_clothes",
+  "states": {
+   "type": "asset",
+   "slot": "clothes",
+   "assetId": "multiverse_costumes:violet_digital_bomber"
+  },
+  "config": {
+   "elements": [
+    {
+     "id": "layer-clothes",
+     "type": "texture_fragment",
+     "target_texture_id": "clothes",
+     "url": "costume/violet_digital_bomber.png",
+     "width": 24,
+     "height": 16,
+     "x": 16,
+     "y": 32,
+     "pos_x": 16,
+     "pos_y": 32
+    },
+    {
+     "id": "layer-arm-l",
+     "type": "texture_fragment",
+     "target_texture_id": "clothes",
+     "url": "costume/violet_digital_bomber.png",
+     "width": 14,
+     "height": 16,
+     "x": 32,
+     "y": 0,
+     "pos_x": 32,
+     "pos_y": 0
+    },
+    {
+     "id": "layer-arm-r",
+     "type": "texture_fragment",
+     "target_texture_id": "clothes",
+     "url": "costume/violet_digital_bomber.png",
+     "width": 14,
+     "height": 16,
+     "x": 40,
+     "y": 32,
+     "pos_x": 40,
+     "pos_y": 32
+    },
+    {
+     "id": "layer-leg-l",
+     "type": "texture_fragment",
+     "target_texture_id": "clothes",
+     "url": "costume/violet_digital_bomber.png",
+     "width": 16,
+     "height": 16,
+     "x": 16,
+     "y": 0,
+     "pos_x": 16,
+     "pos_y": 0
+    },
+    {
+     "id": "layer-leg-r",
+     "type": "texture_fragment",
+     "target_texture_id": "clothes",
+     "url": "costume/violet_digital_bomber.png",
+     "width": 16,
+     "height": 16,
+     "x": 0,
+     "y": 32,
+     "pos_x": 0,
+     "pos_y": 32
+    }
+   ]
+  }
+ },
+ {
+  "referenceId": "mv_costumes_mc:violet_digital_bomber_clothes_overlay",
+  "states": {
+   "type": "asset",
+   "slot": "clothes",
+   "assetId": "multiverse_costumes:violet_digital_bomber"
+  },
+  "config": {
+   "elements": [
+    {
+     "id": "layer-clothes-overlay",
+     "type": "texture_fragment",
+     "target_texture_id": "clothes",
+     "url": "costume/violet_digital_bomber.png",
+     "width": 24,
+     "height": 16,
+     "x": 16,
+     "y": 16,
+     "pos_x": 16,
+     "pos_y": 16
+    },
+    {
+     "id": "layer-arm-l-overlay",
+     "type": "texture_fragment",
+     "target_texture_id": "clothes",
+     "url": "costume/violet_digital_bomber.png",
+     "width": 14,
+     "height": 16,
+     "x": 48,
+     "y": 0,
+     "pos_x": 46,
+     "pos_y": 0
+    },
+    {
+     "id": "layer-arm-r-overlay",
+     "type": "texture_fragment",
+     "target_texture_id": "clothes",
+     "url": "costume/violet_digital_bomber.png",
+     "width": 14,
+     "height": 16,
+     "x": 40,
+     "y": 16,
+     "pos_x": 40,
+     "pos_y": 16
+    },
+    {
+     "id": "layer-leg-l-overlay",
+     "type": "texture_fragment",
+     "target_texture_id": "clothes",
+     "url": "costume/violet_digital_bomber.png",
+     "width": 16,
+     "height": 16,
+     "x": 0,
+     "y": 0,
+     "pos_x": 0,
+     "pos_y": 0
+    },
+    {
+     "id": "layer-leg-r-overlay",
+     "type": "texture_fragment",
+     "target_texture_id": "clothes",
+     "url": "costume/violet_digital_bomber.png",
+     "width": 16,
+     "height": 16,
+     "x": 0,
+     "y": 16,
+     "pos_x": 0,
+     "pos_y": 16
+    }
+   ]
+  }
+ },
+ {
+  "referenceId": "mv_costumes_mc:witch_clothes",
+  "states": {
+   "type": "asset",
+   "assetId": "multiverse_costumes:witch",
+   "slot": "costume"
+  },
+  "config": {
+   "elements": [
+    {
+     "id": "layer-clothes",
+     "type": "texture_fragment",
+     "target_texture_id": "clothes",
+     "url": "costume/witch.png",
+     "width": 24,
+     "height": 16,
+     "x": 16,
+     "y": 32,
+     "pos_x": 16,
+     "pos_y": 32
+    },
+    {
+     "id": "layer-arm-l",
+     "type": "texture_fragment",
+     "target_texture_id": "clothes",
+     "url": "costume/witch.png",
+     "width": 14,
+     "height": 16,
+     "x": 32,
+     "y": 0,
+     "pos_x": 32,
+     "pos_y": 0
+    },
+    {
+     "id": "layer-arm-r",
+     "type": "texture_fragment",
+     "target_texture_id": "clothes",
+     "url": "costume/witch.png",
+     "width": 14,
+     "height": 16,
+     "x": 40,
+     "y": 32,
+     "pos_x": 40,
+     "pos_y": 32
+    },
+    {
+     "id": "layer-leg-l",
+     "type": "texture_fragment",
+     "target_texture_id": "clothes",
+     "url": "costume/witch.png",
+     "width": 16,
+     "height": 16,
+     "x": 16,
+     "y": 0,
+     "pos_x": 16,
+     "pos_y": 0
+    },
+    {
+     "id": "layer-leg-r",
+     "type": "texture_fragment",
+     "target_texture_id": "clothes",
+     "url": "costume/witch.png",
+     "width": 16,
+     "height": 16,
+     "x": 0,
+     "y": 32,
+     "pos_x": 0,
+     "pos_y": 32
+    }
+   ]
+  }
+ },
+ {
+  "referenceId": "mv_costumes_mc:witch_clothes_overlay",
+  "states": {
+   "type": "asset",
+   "assetId": "multiverse_costumes:witch",
+   "slot": "costume"
+  },
+  "config": {
+   "elements": [
+    {
+     "id": "layer-clothes-overlay",
+     "type": "texture_fragment",
+     "target_texture_id": "clothes",
+     "url": "costume/witch.png",
+     "width": 24,
+     "height": 16,
+     "x": 16,
+     "y": 16,
+     "pos_x": 16,
+     "pos_y": 16
+    },
+    {
+     "id": "layer-arm-l-overlay",
+     "type": "texture_fragment",
+     "target_texture_id": "clothes",
+     "url": "costume/witch.png",
+     "width": 14,
+     "height": 16,
+     "x": 48,
+     "y": 0,
+     "pos_x": 46,
+     "pos_y": 0
+    },
+    {
+     "id": "layer-arm-r-overlay",
+     "type": "texture_fragment",
+     "target_texture_id": "clothes",
+     "url": "costume/witch.png",
+     "width": 14,
+     "height": 16,
+     "x": 40,
+     "y": 16,
+     "pos_x": 40,
+     "pos_y": 16
+    },
+    {
+     "id": "layer-leg-l-overlay",
+     "type": "texture_fragment",
+     "target_texture_id": "clothes",
+     "url": "costume/witch.png",
+     "width": 16,
+     "height": 16,
+     "x": 0,
+     "y": 0,
+     "pos_x": 0,
+     "pos_y": 0
+    },
+    {
+     "id": "layer-leg-r-overlay",
+     "type": "texture_fragment",
+     "target_texture_id": "clothes",
+     "url": "costume/witch.png",
+     "width": 16,
+     "height": 16,
+     "x": 0,
+     "y": 16,
+     "pos_x": 0,
+     "pos_y": 16
+    }
+   ]
+  }
+ },
+ {
+  "referenceId": "mv_costumes_mc:witch_hat",
+  "states": {
+   "type": "AND",
+   "conditions": [
+    {
+     "type": "asset",
+     "assetId": "multiverse_costumes:witch",
+     "slot": "costume"
+    },
+    {
+     "type": "OR",
+     "conditions": [
+      {
+       "type": "renderType",
+       "renderType": "preview"
+      },
+      {
+       "type": "renderType",
+       "renderType": "preview-minecraft"
+      }
+     ]
+    }
+   ]
+  },
+  "config": {
+   "elements": [
+    {
+     "id": "hat",
+     "type": "model",
+     "url": "model/witch_hat.glb",
+     "bone": "hat",
+     "position": {
+      "x": -0.5,
+      "y": -0.5,
+      "z": 0.5
+     }
+    }
+   ],
+   "skeleton": [
+    {
+     "id": "anchor",
+     "parent": "head",
+     "position": {
+      "x": 0,
+      "y": 17,
+      "z": 0
+     },
+     "scale": {
+      "x": 16,
+      "y": 16,
+      "z": 16
+     }
+    },
+    {
+     "id": "hat",
+     "parent": "anchor",
+     "scale": {
+      "x": 1.82,
+      "y": 1.82,
+      "z": 1.82
+     }
+    }
+   ]
+  }
+ },
+ {
+  "referenceId": "mv_costumes:model_settings",
+  "states": {},
+  "config": {
+   "elements": [
+    {
+     "id": "model",
+     "type": "model",
+     "bone": "global",
+     "url": "model/alex.glb",
+     "textures": [
+      {
+       "url": "#composition",
+       "texture": "_MainTex",
+       "material": "skin"
+      }
+     ]
+    }
+   ],
+   "output": {
+    "width": 300,
+    "height": 300,
+    "result": "model"
+   }
+  }
+ },
+ {
+  "referenceId": "mv_costumes:template_settings",
+  "states": {},
+  "config": {
+   "skeleton": [
+    {
+     "id": "global"
+    }
+   ],
+   "elements": [
+    {
+     "id": "body",
+     "type": "texture",
+     "texture_type": "empty",
+     "width": 64,
+     "height": 64
+    },
+    {
+     "id": "clothes",
+     "type": "texture",
+     "texture_type": "empty",
+     "width": 64,
+     "height": 64
+    },
+    {
+     "id": "eyewear",
+     "type": "texture",
+     "texture_type": "empty",
+     "width": 64,
+     "height": 64
+    },
+    {
+     "id": "mask",
+     "type": "texture",
+     "texture_type": "empty",
+     "width": 64,
+     "height": 64
+    },
+    {
+     "id": "helmet",
+     "type": "texture",
+     "texture_type": "empty",
+     "width": 64,
+     "height": 64
+    },
+    {
+     "id": "hair",
+     "type": "texture",
+     "texture_type": "empty",
+     "width": 64,
+     "height": 64
+    },
+    {
+     "id": "composition",
+     "type": "texture_atlas",
+     "width": 64,
+     "height": 64,
+     "layers": [
+      {
+       "url": "#body",
+       "x": 0,
+       "y": 0
+      },
+      {
+       "url": "#clothes",
+       "x": 0,
+       "y": 0
+      },
+      {
+       "url": "#eyewear",
+       "x": 0,
+       "y": 0
+      },
+      {
+       "url": "#mask",
+       "x": 0,
+       "y": 0
+      },
+      {
+       "url": "#hair",
+       "x": 0,
+       "y": 0
+      },
+      {
+       "url": "#helmet",
+       "x": 0,
+       "y": 0
+      }
+     ]
+    }
+   ]
+  }
+ }
+]

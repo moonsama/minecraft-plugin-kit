@@ -1,0 +1,20 @@
+name: MoonsamaSkins
+version: '${version}'
+main: com.moonsama.minecraft.skins.MoonsamaSkinsPlugin
+api-version: '26.3'
+authors: [Moonsama]
+description: Wear the Minecraft skin of a Moonsama NFT you hold in Portal.
+website: https://moonsama.com
+depend: [MoonsamaCore]
+
+commands:
+  skins:
+    description: Choose the skin of one of your Moonsama NFTs.
+    usage: /skins [wear <collection> <id>|reset|status]
+    aliases: [mskins, moonsamaskins]
+    permission: moonsama.skins.use
+
+permissions:
+  moonsama.skins.use:
+    description: Allows opening the skin selector and wearing owned NFT skins.
+    default: true

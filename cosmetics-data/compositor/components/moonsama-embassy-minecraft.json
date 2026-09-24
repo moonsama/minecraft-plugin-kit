@@ -1,0 +1,2022 @@
+[
+ {
+  "referenceId": "msama_artists_mc:alex",
+  "states": {
+   "type": "AND",
+   "conditions": [
+    {
+     "type": "OR",
+     "conditions": [
+      {
+       "type": "renderType",
+       "renderType": "preview"
+      },
+      {
+       "type": "renderType",
+       "renderType": "preview-minecraft"
+      },
+      {
+       "type": "renderType",
+       "renderType": "model"
+      }
+     ]
+    },
+    {
+     "type": "OR",
+     "conditions": [
+      {
+       "type": "token",
+       "assetId": 1
+      },
+      {
+       "type": "token",
+       "assetId": 2
+      },
+      {
+       "type": "token",
+       "assetId": 4
+      },
+      {
+       "type": "token",
+       "assetId": 6
+      },
+      {
+       "type": "token",
+       "assetId": 7
+      },
+      {
+       "type": "token",
+       "assetId": 9
+      },
+      {
+       "type": "token",
+       "assetId": 11
+      },
+      {
+       "type": "token",
+       "assetId": 14
+      }
+     ]
+    }
+   ]
+  },
+  "config": {
+   "elements": [
+    {
+     "id": "model-alex",
+     "type": "model",
+     "bone": "global",
+     "url": "model/alex.glb",
+     "rotation": {
+      "y": 30
+     },
+     "textures": [
+      {
+       "material": "skin",
+       "texture": "_MainTex",
+       "url": "#composition"
+      }
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "referenceId": "msama_artists_mc:steve",
+  "states": {
+   "type": "AND",
+   "conditions": [
+    {
+     "type": "OR",
+     "conditions": [
+      {
+       "type": "renderType",
+       "renderType": "preview"
+      },
+      {
+       "type": "renderType",
+       "renderType": "preview-minecraft"
+      },
+      {
+       "type": "renderType",
+       "renderType": "model"
+      }
+     ]
+    },
+    {
+     "type": "OR",
+     "conditions": [
+      {
+       "type": "token",
+       "assetId": 3
+      },
+      {
+       "type": "token",
+       "assetId": 5
+      },
+      {
+       "type": "token",
+       "assetId": 8
+      },
+      {
+       "type": "token",
+       "assetId": 10
+      },
+      {
+       "type": "token",
+       "assetId": 12
+      },
+      {
+       "type": "token",
+       "assetId": 13
+      },
+      {
+       "type": "token",
+       "assetId": 15
+      }
+     ]
+    }
+   ]
+  },
+  "config": {
+   "elements": [
+    {
+     "id": "model-steve",
+     "type": "model",
+     "bone": "global",
+     "url": "model/steve.glb",
+     "rotation": {
+      "y": 30
+     },
+     "textures": [
+      {
+       "material": "skin",
+       "texture": "_MainTex",
+       "url": "#composition"
+      }
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "referenceId": "msama_embassy_mc:1",
+  "states": {
+   "type": "token",
+   "assetId": 1
+  },
+  "config": {
+   "elements": [
+    {
+     "id": "skin",
+     "type": "texture_fragment",
+     "target_texture_id": "body",
+     "url": "texture/embassy_1.png",
+     "pass": "default",
+     "z-index": 0,
+     "blend": "default",
+     "opacity": 1,
+     "coordinates": "pixels",
+     "width": 64,
+     "height": 48,
+     "x": 0,
+     "y": 0,
+     "pos_x": 0,
+     "pos_y": 0,
+     "scale": 1
+    }
+   ]
+  }
+ },
+ {
+  "referenceId": "msama_embassy_mc:10",
+  "states": {
+   "type": "token",
+   "assetId": 10
+  },
+  "config": {
+   "elements": [
+    {
+     "id": "skin",
+     "type": "texture_fragment",
+     "target_texture_id": "body",
+     "url": "texture/embassy_10.png",
+     "pass": "default",
+     "z-index": 0,
+     "blend": "default",
+     "opacity": 1,
+     "coordinates": "pixels",
+     "width": 64,
+     "height": 48,
+     "x": 0,
+     "y": 0,
+     "pos_x": 0,
+     "pos_y": 0,
+     "scale": 1
+    }
+   ]
+  }
+ },
+ {
+  "referenceId": "msama_embassy_mc:10_head",
+  "states": {
+   "type": "AND",
+   "conditions": [
+    {
+     "type": "token",
+     "assetId": 10
+    },
+    {
+     "type": "asset",
+     "invert": true,
+     "slot": "costume",
+     "assetId": "*",
+     "tags": [
+      "hat"
+     ]
+    }
+   ]
+  },
+  "config": {
+   "elements": [
+    {
+     "id": "skin",
+     "type": "texture_fragment",
+     "target_texture_id": "body",
+     "url": "texture/embassy_10.png",
+     "pass": "default",
+     "z-index": 0,
+     "blend": "default",
+     "opacity": 1,
+     "coordinates": "pixels",
+     "width": 64,
+     "height": 16,
+     "x": 0,
+     "y": 48,
+     "pos_x": 0,
+     "pos_y": 48,
+     "scale": 1
+    }
+   ]
+  }
+ },
+ {
+  "referenceId": "msama_embassy_mc:10_head_hat",
+  "states": {
+   "type": "AND",
+   "conditions": [
+    {
+     "type": "token",
+     "assetId": 10
+    },
+    {
+     "type": "asset",
+     "slot": "costume",
+     "assetId": "*",
+     "tags": [
+      "hat"
+     ]
+    }
+   ]
+  },
+  "config": {
+   "elements": [
+    {
+     "id": "skin",
+     "type": "texture_fragment",
+     "target_texture_id": "body",
+     "url": "texture/embassy_10_hat.png",
+     "pass": "default",
+     "z-index": 0,
+     "blend": "default",
+     "opacity": 1,
+     "coordinates": "pixels",
+     "width": 64,
+     "height": 16,
+     "x": 0,
+     "y": 48,
+     "pos_x": 0,
+     "pos_y": 48,
+     "scale": 1
+    }
+   ]
+  }
+ },
+ {
+  "referenceId": "msama_embassy_mc:11",
+  "states": {
+   "type": "token",
+   "assetId": 11
+  },
+  "config": {
+   "elements": [
+    {
+     "id": "skin",
+     "type": "texture_fragment",
+     "target_texture_id": "body",
+     "url": "texture/embassy_11.png",
+     "pass": "default",
+     "z-index": 0,
+     "blend": "default",
+     "opacity": 1,
+     "coordinates": "pixels",
+     "width": 64,
+     "height": 48,
+     "x": 0,
+     "y": 0,
+     "pos_x": 0,
+     "pos_y": 0,
+     "scale": 1
+    }
+   ]
+  }
+ },
+ {
+  "referenceId": "msama_embassy_mc:11_head",
+  "states": {
+   "type": "AND",
+   "conditions": [
+    {
+     "type": "token",
+     "assetId": 11
+    },
+    {
+     "type": "asset",
+     "invert": true,
+     "slot": "costume",
+     "assetId": "*",
+     "tags": [
+      "hat"
+     ]
+    }
+   ]
+  },
+  "config": {
+   "elements": [
+    {
+     "id": "skin",
+     "type": "texture_fragment",
+     "target_texture_id": "body",
+     "url": "texture/embassy_11.png",
+     "pass": "default",
+     "z-index": 0,
+     "blend": "default",
+     "opacity": 1,
+     "coordinates": "pixels",
+     "width": 64,
+     "height": 16,
+     "x": 0,
+     "y": 48,
+     "pos_x": 0,
+     "pos_y": 48,
+     "scale": 1
+    }
+   ]
+  }
+ },
+ {
+  "referenceId": "msama_embassy_mc:11_head_hat",
+  "states": {
+   "type": "AND",
+   "conditions": [
+    {
+     "type": "token",
+     "assetId": 11
+    },
+    {
+     "type": "asset",
+     "slot": "costume",
+     "assetId": "*",
+     "tags": [
+      "hat"
+     ]
+    }
+   ]
+  },
+  "config": {
+   "elements": [
+    {
+     "id": "skin",
+     "type": "texture_fragment",
+     "target_texture_id": "body",
+     "url": "texture/embassy_11_hat.png",
+     "pass": "default",
+     "z-index": 0,
+     "blend": "default",
+     "opacity": 1,
+     "coordinates": "pixels",
+     "width": 64,
+     "height": 16,
+     "x": 0,
+     "y": 48,
+     "pos_x": 0,
+     "pos_y": 48,
+     "scale": 1
+    }
+   ]
+  }
+ },
+ {
+  "referenceId": "msama_embassy_mc:12",
+  "states": {
+   "type": "token",
+   "assetId": 12
+  },
+  "config": {
+   "elements": [
+    {
+     "id": "skin",
+     "type": "texture_fragment",
+     "target_texture_id": "body",
+     "url": "texture/embassy_12.png",
+     "pass": "default",
+     "z-index": 0,
+     "blend": "default",
+     "opacity": 1,
+     "coordinates": "pixels",
+     "width": 64,
+     "height": 48,
+     "x": 0,
+     "y": 0,
+     "pos_x": 0,
+     "pos_y": 0,
+     "scale": 1
+    }
+   ]
+  }
+ },
+ {
+  "referenceId": "msama_embassy_mc:12_head",
+  "states": {
+   "type": "AND",
+   "conditions": [
+    {
+     "type": "token",
+     "assetId": 12
+    },
+    {
+     "type": "asset",
+     "invert": true,
+     "slot": "costume",
+     "assetId": "*",
+     "tags": [
+      "hat"
+     ]
+    }
+   ]
+  },
+  "config": {
+   "elements": [
+    {
+     "id": "skin",
+     "type": "texture_fragment",
+     "target_texture_id": "body",
+     "url": "texture/embassy_12.png",
+     "pass": "default",
+     "z-index": 0,
+     "blend": "default",
+     "opacity": 1,
+     "coordinates": "pixels",
+     "width": 64,
+     "height": 16,
+     "x": 0,
+     "y": 48,
+     "pos_x": 0,
+     "pos_y": 48,
+     "scale": 1
+    }
+   ]
+  }
+ },
+ {
+  "referenceId": "msama_embassy_mc:12_head_hat",
+  "states": {
+   "type": "AND",
+   "conditions": [
+    {
+     "type": "token",
+     "assetId": 12
+    },
+    {
+     "type": "asset",
+     "slot": "costume",
+     "assetId": "*",
+     "tags": [
+      "hat"
+     ]
+    }
+   ]
+  },
+  "config": {
+   "elements": [
+    {
+     "id": "skin",
+     "type": "texture_fragment",
+     "target_texture_id": "body",
+     "url": "texture/embassy_12_hat.png",
+     "pass": "default",
+     "z-index": 0,
+     "blend": "default",
+     "opacity": 1,
+     "coordinates": "pixels",
+     "width": 64,
+     "height": 16,
+     "x": 0,
+     "y": 48,
+     "pos_x": 0,
+     "pos_y": 48,
+     "scale": 1
+    }
+   ]
+  }
+ },
+ {
+  "referenceId": "msama_embassy_mc:13",
+  "states": {
+   "type": "token",
+   "assetId": 13
+  },
+  "config": {
+   "elements": [
+    {
+     "id": "skin",
+     "type": "texture_fragment",
+     "target_texture_id": "body",
+     "url": "texture/embassy_13.png",
+     "pass": "default",
+     "z-index": 0,
+     "blend": "default",
+     "opacity": 1,
+     "coordinates": "pixels",
+     "width": 64,
+     "height": 48,
+     "x": 0,
+     "y": 0,
+     "pos_x": 0,
+     "pos_y": 0,
+     "scale": 1
+    }
+   ]
+  }
+ },
+ {
+  "referenceId": "msama_embassy_mc:13_head",
+  "states": {
+   "type": "AND",
+   "conditions": [
+    {
+     "type": "token",
+     "assetId": 13
+    },
+    {
+     "type": "asset",
+     "invert": true,
+     "slot": "costume",
+     "assetId": "*",
+     "tags": [
+      "hat"
+     ]
+    }
+   ]
+  },
+  "config": {
+   "elements": [
+    {
+     "id": "skin",
+     "type": "texture_fragment",
+     "target_texture_id": "body",
+     "url": "texture/embassy_13.png",
+     "pass": "default",
+     "z-index": 0,
+     "blend": "default",
+     "opacity": 1,
+     "coordinates": "pixels",
+     "width": 64,
+     "height": 16,
+     "x": 0,
+     "y": 48,
+     "pos_x": 0,
+     "pos_y": 48,
+     "scale": 1
+    }
+   ]
+  }
+ },
+ {
+  "referenceId": "msama_embassy_mc:13_head_hat",
+  "states": {
+   "type": "AND",
+   "conditions": [
+    {
+     "type": "token",
+     "assetId": 13
+    },
+    {
+     "type": "asset",
+     "slot": "costume",
+     "assetId": "*",
+     "tags": [
+      "hat"
+     ]
+    }
+   ]
+  },
+  "config": {
+   "elements": [
+    {
+     "id": "skin",
+     "type": "texture_fragment",
+     "target_texture_id": "body",
+     "url": "texture/embassy_13_hat.png",
+     "pass": "default",
+     "z-index": 0,
+     "blend": "default",
+     "opacity": 1,
+     "coordinates": "pixels",
+     "width": 64,
+     "height": 16,
+     "x": 0,
+     "y": 48,
+     "pos_x": 0,
+     "pos_y": 48,
+     "scale": 1
+    }
+   ]
+  }
+ },
+ {
+  "referenceId": "msama_embassy_mc:14",
+  "states": {
+   "type": "token",
+   "assetId": 14
+  },
+  "config": {
+   "elements": [
+    {
+     "id": "skin",
+     "type": "texture_fragment",
+     "target_texture_id": "body",
+     "url": "texture/embassy_14.png",
+     "pass": "default",
+     "z-index": 0,
+     "blend": "default",
+     "opacity": 1,
+     "coordinates": "pixels",
+     "width": 64,
+     "height": 48,
+     "x": 0,
+     "y": 0,
+     "pos_x": 0,
+     "pos_y": 0,
+     "scale": 1
+    }
+   ]
+  }
+ },
+ {
+  "referenceId": "msama_embassy_mc:14_head",
+  "states": {
+   "type": "AND",
+   "conditions": [
+    {
+     "type": "token",
+     "assetId": 14
+    },
+    {
+     "type": "asset",
+     "invert": true,
+     "slot": "costume",
+     "assetId": "*",
+     "tags": [
+      "hat"
+     ]
+    }
+   ]
+  },
+  "config": {
+   "elements": [
+    {
+     "id": "skin",
+     "type": "texture_fragment",
+     "target_texture_id": "body",
+     "url": "texture/embassy_14.png",
+     "pass": "default",
+     "z-index": 0,
+     "blend": "default",
+     "opacity": 1,
+     "coordinates": "pixels",
+     "width": 64,
+     "height": 16,
+     "x": 0,
+     "y": 48,
+     "pos_x": 0,
+     "pos_y": 48,
+     "scale": 1
+    }
+   ]
+  }
+ },
+ {
+  "referenceId": "msama_embassy_mc:14_head_hat",
+  "states": {
+   "type": "AND",
+   "conditions": [
+    {
+     "type": "token",
+     "assetId": 14
+    },
+    {
+     "type": "asset",
+     "slot": "costume",
+     "assetId": "*",
+     "tags": [
+      "hat"
+     ]
+    }
+   ]
+  },
+  "config": {
+   "elements": [
+    {
+     "id": "skin",
+     "type": "texture_fragment",
+     "target_texture_id": "body",
+     "url": "texture/embassy_14_hat.png",
+     "pass": "default",
+     "z-index": 0,
+     "blend": "default",
+     "opacity": 1,
+     "coordinates": "pixels",
+     "width": 64,
+     "height": 16,
+     "x": 0,
+     "y": 48,
+     "pos_x": 0,
+     "pos_y": 48,
+     "scale": 1
+    }
+   ]
+  }
+ },
+ {
+  "referenceId": "msama_embassy_mc:15",
+  "states": {
+   "type": "token",
+   "assetId": 15
+  },
+  "config": {
+   "elements": [
+    {
+     "id": "skin",
+     "type": "texture_fragment",
+     "target_texture_id": "body",
+     "url": "texture/embassy_15.png",
+     "pass": "default",
+     "z-index": 0,
+     "blend": "default",
+     "opacity": 1,
+     "coordinates": "pixels",
+     "width": 64,
+     "height": 48,
+     "x": 0,
+     "y": 0,
+     "pos_x": 0,
+     "pos_y": 0,
+     "scale": 1
+    }
+   ]
+  }
+ },
+ {
+  "referenceId": "msama_embassy_mc:15_head",
+  "states": {
+   "type": "AND",
+   "conditions": [
+    {
+     "type": "token",
+     "assetId": 15
+    },
+    {
+     "type": "asset",
+     "invert": true,
+     "slot": "costume",
+     "assetId": "*",
+     "tags": [
+      "hat"
+     ]
+    }
+   ]
+  },
+  "config": {
+   "elements": [
+    {
+     "id": "skin",
+     "type": "texture_fragment",
+     "target_texture_id": "body",
+     "url": "texture/embassy_15.png",
+     "pass": "default",
+     "z-index": 0,
+     "blend": "default",
+     "opacity": 1,
+     "coordinates": "pixels",
+     "width": 64,
+     "height": 16,
+     "x": 0,
+     "y": 48,
+     "pos_x": 0,
+     "pos_y": 48,
+     "scale": 1
+    }
+   ]
+  }
+ },
+ {
+  "referenceId": "msama_embassy_mc:15_head_hat",
+  "states": {
+   "type": "AND",
+   "conditions": [
+    {
+     "type": "token",
+     "assetId": 15
+    },
+    {
+     "type": "asset",
+     "slot": "costume",
+     "assetId": "*",
+     "tags": [
+      "hat"
+     ]
+    }
+   ]
+  },
+  "config": {
+   "elements": [
+    {
+     "id": "skin",
+     "type": "texture_fragment",
+     "target_texture_id": "body",
+     "url": "texture/embassy_15_hat.png",
+     "pass": "default",
+     "z-index": 0,
+     "blend": "default",
+     "opacity": 1,
+     "coordinates": "pixels",
+     "width": 64,
+     "height": 16,
+     "x": 0,
+     "y": 48,
+     "pos_x": 0,
+     "pos_y": 48,
+     "scale": 1
+    }
+   ]
+  }
+ },
+ {
+  "referenceId": "msama_embassy_mc:1_head",
+  "states": {
+   "type": "AND",
+   "conditions": [
+    {
+     "type": "token",
+     "assetId": 1
+    },
+    {
+     "type": "asset",
+     "invert": true,
+     "slot": "costume",
+     "assetId": "*",
+     "tags": [
+      "hat"
+     ]
+    }
+   ]
+  },
+  "config": {
+   "elements": [
+    {
+     "id": "skin",
+     "type": "texture_fragment",
+     "target_texture_id": "body",
+     "url": "texture/embassy_1.png",
+     "pass": "default",
+     "z-index": 0,
+     "blend": "default",
+     "opacity": 1,
+     "coordinates": "pixels",
+     "width": 64,
+     "height": 16,
+     "x": 0,
+     "y": 48,
+     "pos_x": 0,
+     "pos_y": 48,
+     "scale": 1
+    }
+   ]
+  }
+ },
+ {
+  "referenceId": "msama_embassy_mc:1_head_hat",
+  "states": {
+   "type": "AND",
+   "conditions": [
+    {
+     "type": "token",
+     "assetId": 1
+    },
+    {
+     "type": "asset",
+     "slot": "costume",
+     "assetId": "*",
+     "tags": [
+      "hat"
+     ]
+    }
+   ]
+  },
+  "config": {
+   "elements": [
+    {
+     "id": "skin",
+     "type": "texture_fragment",
+     "target_texture_id": "body",
+     "url": "texture/embassy_1_hat.png",
+     "pass": "default",
+     "z-index": 0,
+     "blend": "default",
+     "opacity": 1,
+     "coordinates": "pixels",
+     "width": 64,
+     "height": 16,
+     "x": 0,
+     "y": 48,
+     "pos_x": 0,
+     "pos_y": 48,
+     "scale": 1
+    }
+   ]
+  }
+ },
+ {
+  "referenceId": "msama_embassy_mc:2",
+  "states": {
+   "type": "token",
+   "assetId": 2
+  },
+  "config": {
+   "elements": [
+    {
+     "id": "skin",
+     "type": "texture_fragment",
+     "target_texture_id": "body",
+     "url": "texture/embassy_2.png",
+     "pass": "default",
+     "z-index": 0,
+     "blend": "default",
+     "opacity": 1,
+     "coordinates": "pixels",
+     "width": 64,
+     "height": 48,
+     "x": 0,
+     "y": 0,
+     "pos_x": 0,
+     "pos_y": 0,
+     "scale": 1
+    }
+   ]
+  }
+ },
+ {
+  "referenceId": "msama_embassy_mc:2_head",
+  "states": {
+   "type": "AND",
+   "conditions": [
+    {
+     "type": "token",
+     "assetId": 2
+    },
+    {
+     "type": "asset",
+     "invert": true,
+     "slot": "costume",
+     "assetId": "*",
+     "tags": [
+      "hat"
+     ]
+    }
+   ]
+  },
+  "config": {
+   "elements": [
+    {
+     "id": "skin",
+     "type": "texture_fragment",
+     "target_texture_id": "body",
+     "url": "texture/embassy_2.png",
+     "pass": "default",
+     "z-index": 0,
+     "blend": "default",
+     "opacity": 1,
+     "coordinates": "pixels",
+     "width": 64,
+     "height": 16,
+     "x": 0,
+     "y": 48,
+     "pos_x": 0,
+     "pos_y": 48,
+     "scale": 1
+    }
+   ]
+  }
+ },
+ {
+  "referenceId": "msama_embassy_mc:2_head_hat",
+  "states": {
+   "type": "AND",
+   "conditions": [
+    {
+     "type": "token",
+     "assetId": 2
+    },
+    {
+     "type": "asset",
+     "slot": "costume",
+     "assetId": "*",
+     "tags": [
+      "hat"
+     ]
+    }
+   ]
+  },
+  "config": {
+   "elements": [
+    {
+     "id": "skin",
+     "type": "texture_fragment",
+     "target_texture_id": "body",
+     "url": "texture/embassy_2_hat.png",
+     "pass": "default",
+     "z-index": 0,
+     "blend": "default",
+     "opacity": 1,
+     "coordinates": "pixels",
+     "width": 64,
+     "height": 16,
+     "x": 0,
+     "y": 48,
+     "pos_x": 0,
+     "pos_y": 48,
+     "scale": 1
+    }
+   ]
+  }
+ },
+ {
+  "referenceId": "msama_embassy_mc:3",
+  "states": {
+   "type": "token",
+   "assetId": 3
+  },
+  "config": {
+   "elements": [
+    {
+     "id": "skin",
+     "type": "texture_fragment",
+     "target_texture_id": "body",
+     "url": "texture/embassy_3.png",
+     "pass": "default",
+     "z-index": 0,
+     "blend": "default",
+     "opacity": 1,
+     "coordinates": "pixels",
+     "width": 64,
+     "height": 48,
+     "x": 0,
+     "y": 0,
+     "pos_x": 0,
+     "pos_y": 0,
+     "scale": 1
+    }
+   ]
+  }
+ },
+ {
+  "referenceId": "msama_embassy_mc:3_head",
+  "states": {
+   "type": "AND",
+   "conditions": [
+    {
+     "type": "token",
+     "assetId": 3
+    },
+    {
+     "type": "asset",
+     "invert": true,
+     "slot": "costume",
+     "assetId": "*",
+     "tags": [
+      "hat"
+     ]
+    }
+   ]
+  },
+  "config": {
+   "elements": [
+    {
+     "id": "skin",
+     "type": "texture_fragment",
+     "target_texture_id": "body",
+     "url": "texture/embassy_3.png",
+     "pass": "default",
+     "z-index": 0,
+     "blend": "default",
+     "opacity": 1,
+     "coordinates": "pixels",
+     "width": 64,
+     "height": 16,
+     "x": 0,
+     "y": 48,
+     "pos_x": 0,
+     "pos_y": 48,
+     "scale": 1
+    }
+   ]
+  }
+ },
+ {
+  "referenceId": "msama_embassy_mc:3_head_hat",
+  "states": {
+   "type": "AND",
+   "conditions": [
+    {
+     "type": "token",
+     "assetId": 3
+    },
+    {
+     "type": "asset",
+     "slot": "costume",
+     "assetId": "*",
+     "tags": [
+      "hat"
+     ]
+    }
+   ]
+  },
+  "config": {
+   "elements": [
+    {
+     "id": "skin",
+     "type": "texture_fragment",
+     "target_texture_id": "body",
+     "url": "texture/embassy_3_hat.png",
+     "pass": "default",
+     "z-index": 0,
+     "blend": "default",
+     "opacity": 1,
+     "coordinates": "pixels",
+     "width": 64,
+     "height": 16,
+     "x": 0,
+     "y": 48,
+     "pos_x": 0,
+     "pos_y": 48,
+     "scale": 1
+    }
+   ]
+  }
+ },
+ {
+  "referenceId": "msama_embassy_mc:4",
+  "states": {
+   "type": "token",
+   "assetId": 4
+  },
+  "config": {
+   "elements": [
+    {
+     "id": "skin",
+     "type": "texture_fragment",
+     "target_texture_id": "body",
+     "url": "texture/embassy_4.png",
+     "pass": "default",
+     "z-index": 0,
+     "blend": "default",
+     "opacity": 1,
+     "coordinates": "pixels",
+     "width": 64,
+     "height": 48,
+     "x": 0,
+     "y": 0,
+     "pos_x": 0,
+     "pos_y": 0,
+     "scale": 1
+    }
+   ]
+  }
+ },
+ {
+  "referenceId": "msama_embassy_mc:4_head",
+  "states": {
+   "type": "AND",
+   "conditions": [
+    {
+     "type": "token",
+     "assetId": 4
+    },
+    {
+     "type": "asset",
+     "invert": true,
+     "slot": "costume",
+     "assetId": "*",
+     "tags": [
+      "hat"
+     ]
+    }
+   ]
+  },
+  "config": {
+   "elements": [
+    {
+     "id": "skin",
+     "type": "texture_fragment",
+     "target_texture_id": "body",
+     "url": "texture/embassy_4.png",
+     "pass": "default",
+     "z-index": 0,
+     "blend": "default",
+     "opacity": 1,
+     "coordinates": "pixels",
+     "width": 64,
+     "height": 16,
+     "x": 0,
+     "y": 48,
+     "pos_x": 0,
+     "pos_y": 48,
+     "scale": 1
+    }
+   ]
+  }
+ },
+ {
+  "referenceId": "msama_embassy_mc:4_head_hat",
+  "states": {
+   "type": "AND",
+   "conditions": [
+    {
+     "type": "token",
+     "assetId": 4
+    },
+    {
+     "type": "asset",
+     "slot": "costume",
+     "assetId": "*",
+     "tags": [
+      "hat"
+     ]
+    }
+   ]
+  },
+  "config": {
+   "elements": [
+    {
+     "id": "skin",
+     "type": "texture_fragment",
+     "target_texture_id": "body",
+     "url": "texture/embassy_4_hat.png",
+     "pass": "default",
+     "z-index": 0,
+     "blend": "default",
+     "opacity": 1,
+     "coordinates": "pixels",
+     "width": 64,
+     "height": 16,
+     "x": 0,
+     "y": 48,
+     "pos_x": 0,
+     "pos_y": 48,
+     "scale": 1
+    }
+   ]
+  }
+ },
+ {
+  "referenceId": "msama_embassy_mc:5",
+  "states": {
+   "type": "token",
+   "assetId": 5
+  },
+  "config": {
+   "elements": [
+    {
+     "id": "skin",
+     "type": "texture_fragment",
+     "target_texture_id": "body",
+     "url": "texture/embassy_5.png",
+     "pass": "default",
+     "z-index": 0,
+     "blend": "default",
+     "opacity": 1,
+     "coordinates": "pixels",
+     "width": 64,
+     "height": 48,
+     "x": 0,
+     "y": 0,
+     "pos_x": 0,
+     "pos_y": 0,
+     "scale": 1
+    }
+   ]
+  }
+ },
+ {
+  "referenceId": "msama_embassy_mc:5_head",
+  "states": {
+   "type": "AND",
+   "conditions": [
+    {
+     "type": "token",
+     "assetId": 5
+    },
+    {
+     "type": "asset",
+     "invert": true,
+     "slot": "costume",
+     "assetId": "*",
+     "tags": [
+      "hat"
+     ]
+    }
+   ]
+  },
+  "config": {
+   "elements": [
+    {
+     "id": "skin",
+     "type": "texture_fragment",
+     "target_texture_id": "body",
+     "url": "texture/embassy_5.png",
+     "pass": "default",
+     "z-index": 0,
+     "blend": "default",
+     "opacity": 1,
+     "coordinates": "pixels",
+     "width": 64,
+     "height": 16,
+     "x": 0,
+     "y": 48,
+     "pos_x": 0,
+     "pos_y": 48,
+     "scale": 1
+    }
+   ]
+  }
+ },
+ {
+  "referenceId": "msama_embassy_mc:5_head_hat",
+  "states": {
+   "type": "AND",
+   "conditions": [
+    {
+     "type": "token",
+     "assetId": 5
+    },
+    {
+     "type": "asset",
+     "slot": "costume",
+     "assetId": "*",
+     "tags": [
+      "hat"
+     ]
+    }
+   ]
+  },
+  "config": {
+   "elements": [
+    {
+     "id": "skin",
+     "type": "texture_fragment",
+     "target_texture_id": "body",
+     "url": "texture/embassy_5_hat.png",
+     "pass": "default",
+     "z-index": 0,
+     "blend": "default",
+     "opacity": 1,
+     "coordinates": "pixels",
+     "width": 64,
+     "height": 16,
+     "x": 0,
+     "y": 48,
+     "pos_x": 0,
+     "pos_y": 48,
+     "scale": 1
+    }
+   ]
+  }
+ },
+ {
+  "referenceId": "msama_embassy_mc:6",
+  "states": {
+   "type": "token",
+   "assetId": 6
+  },
+  "config": {
+   "elements": [
+    {
+     "id": "skin",
+     "type": "texture_fragment",
+     "target_texture_id": "body",
+     "url": "texture/embassy_6.png",
+     "pass": "default",
+     "z-index": 0,
+     "blend": "default",
+     "opacity": 1,
+     "coordinates": "pixels",
+     "width": 64,
+     "height": 48,
+     "x": 0,
+     "y": 0,
+     "pos_x": 0,
+     "pos_y": 0,
+     "scale": 1
+    }
+   ]
+  }
+ },
+ {
+  "referenceId": "msama_embassy_mc:6_head",
+  "states": {
+   "type": "AND",
+   "conditions": [
+    {
+     "type": "token",
+     "assetId": 6
+    },
+    {
+     "type": "asset",
+     "invert": true,
+     "slot": "costume",
+     "assetId": "*",
+     "tags": [
+      "hat"
+     ]
+    }
+   ]
+  },
+  "config": {
+   "elements": [
+    {
+     "id": "skin",
+     "type": "texture_fragment",
+     "target_texture_id": "body",
+     "url": "texture/embassy_6.png",
+     "pass": "default",
+     "z-index": 0,
+     "blend": "default",
+     "opacity": 1,
+     "coordinates": "pixels",
+     "width": 64,
+     "height": 16,
+     "x": 0,
+     "y": 48,
+     "pos_x": 0,
+     "pos_y": 48,
+     "scale": 1
+    }
+   ]
+  }
+ },
+ {
+  "referenceId": "msama_embassy_mc:6_head_hat",
+  "states": {
+   "type": "AND",
+   "conditions": [
+    {
+     "type": "token",
+     "assetId": 6
+    },
+    {
+     "type": "asset",
+     "slot": "costume",
+     "assetId": "*",
+     "tags": [
+      "hat"
+     ]
+    }
+   ]
+  },
+  "config": {
+   "elements": [
+    {
+     "id": "skin",
+     "type": "texture_fragment",
+     "target_texture_id": "body",
+     "url": "texture/embassy_6_hat.png",
+     "pass": "default",
+     "z-index": 0,
+     "blend": "default",
+     "opacity": 1,
+     "coordinates": "pixels",
+     "width": 64,
+     "height": 16,
+     "x": 0,
+     "y": 48,
+     "pos_x": 0,
+     "pos_y": 48,
+     "scale": 1
+    }
+   ]
+  }
+ },
+ {
+  "referenceId": "msama_embassy_mc:7",
+  "states": {
+   "type": "token",
+   "assetId": 7
+  },
+  "config": {
+   "elements": [
+    {
+     "id": "skin",
+     "type": "texture_fragment",
+     "target_texture_id": "body",
+     "url": "texture/embassy_7.png",
+     "pass": "default",
+     "z-index": 0,
+     "blend": "default",
+     "opacity": 1,
+     "coordinates": "pixels",
+     "width": 64,
+     "height": 48,
+     "x": 0,
+     "y": 0,
+     "pos_x": 0,
+     "pos_y": 0,
+     "scale": 1
+    }
+   ]
+  }
+ },
+ {
+  "referenceId": "msama_embassy_mc:7_head",
+  "states": {
+   "type": "AND",
+   "conditions": [
+    {
+     "type": "token",
+     "assetId": 7
+    },
+    {
+     "type": "asset",
+     "invert": true,
+     "slot": "costume",
+     "assetId": "*",
+     "tags": [
+      "hat"
+     ]
+    }
+   ]
+  },
+  "config": {
+   "elements": [
+    {
+     "id": "skin",
+     "type": "texture_fragment",
+     "target_texture_id": "body",
+     "url": "texture/embassy_7.png",
+     "pass": "default",
+     "z-index": 0,
+     "blend": "default",
+     "opacity": 1,
+     "coordinates": "pixels",
+     "width": 64,
+     "height": 16,
+     "x": 0,
+     "y": 48,
+     "pos_x": 0,
+     "pos_y": 48,
+     "scale": 1
+    }
+   ]
+  }
+ },
+ {
+  "referenceId": "msama_embassy_mc:7_head_hat",
+  "states": {
+   "type": "AND",
+   "conditions": [
+    {
+     "type": "token",
+     "assetId": 7
+    },
+    {
+     "type": "asset",
+     "slot": "costume",
+     "assetId": "*",
+     "tags": [
+      "hat"
+     ]
+    }
+   ]
+  },
+  "config": {
+   "elements": [
+    {
+     "id": "skin",
+     "type": "texture_fragment",
+     "target_texture_id": "body",
+     "url": "texture/embassy_7_hat.png",
+     "pass": "default",
+     "z-index": 0,
+     "blend": "default",
+     "opacity": 1,
+     "coordinates": "pixels",
+     "width": 64,
+     "height": 16,
+     "x": 0,
+     "y": 48,
+     "pos_x": 0,
+     "pos_y": 48,
+     "scale": 1
+    }
+   ]
+  }
+ },
+ {
+  "referenceId": "msama_embassy_mc:8",
+  "states": {
+   "type": "token",
+   "assetId": 8
+  },
+  "config": {
+   "elements": [
+    {
+     "id": "skin",
+     "type": "texture_fragment",
+     "target_texture_id": "body",
+     "url": "texture/embassy_8.png",
+     "pass": "default",
+     "z-index": 0,
+     "blend": "default",
+     "opacity": 1,
+     "coordinates": "pixels",
+     "width": 64,
+     "height": 48,
+     "x": 0,
+     "y": 0,
+     "pos_x": 0,
+     "pos_y": 0,
+     "scale": 1
+    }
+   ]
+  }
+ },
+ {
+  "referenceId": "msama_embassy_mc:8_head",
+  "states": {
+   "type": "AND",
+   "conditions": [
+    {
+     "type": "token",
+     "assetId": 8
+    },
+    {
+     "type": "asset",
+     "invert": true,
+     "slot": "costume",
+     "assetId": "*",
+     "tags": [
+      "hat"
+     ]
+    }
+   ]
+  },
+  "config": {
+   "elements": [
+    {
+     "id": "skin",
+     "type": "texture_fragment",
+     "target_texture_id": "body",
+     "url": "texture/embassy_8.png",
+     "pass": "default",
+     "z-index": 0,
+     "blend": "default",
+     "opacity": 1,
+     "coordinates": "pixels",
+     "width": 64,
+     "height": 16,
+     "x": 0,
+     "y": 48,
+     "pos_x": 0,
+     "pos_y": 48,
+     "scale": 1
+    }
+   ]
+  }
+ },
+ {
+  "referenceId": "msama_embassy_mc:8_head_hat",
+  "states": {
+   "type": "AND",
+   "conditions": [
+    {
+     "type": "token",
+     "assetId": 8
+    },
+    {
+     "type": "asset",
+     "slot": "costume",
+     "assetId": "*",
+     "tags": [
+      "hat"
+     ]
+    }
+   ]
+  },
+  "config": {
+   "elements": [
+    {
+     "id": "skin",
+     "type": "texture_fragment",
+     "target_texture_id": "body",
+     "url": "texture/embassy_8_hat.png",
+     "pass": "default",
+     "z-index": 0,
+     "blend": "default",
+     "opacity": 1,
+     "coordinates": "pixels",
+     "width": 64,
+     "height": 16,
+     "x": 0,
+     "y": 48,
+     "pos_x": 0,
+     "pos_y": 48,
+     "scale": 1
+    }
+   ]
+  }
+ },
+ {
+  "referenceId": "msama_embassy_mc:9",
+  "states": {
+   "type": "token",
+   "assetId": 9
+  },
+  "config": {
+   "elements": [
+    {
+     "id": "skin",
+     "type": "texture_fragment",
+     "target_texture_id": "body",
+     "url": "texture/embassy_9.png",
+     "pass": "default",
+     "z-index": 0,
+     "blend": "default",
+     "opacity": 1,
+     "coordinates": "pixels",
+     "width": 64,
+     "height": 48,
+     "x": 0,
+     "y": 0,
+     "pos_x": 0,
+     "pos_y": 0,
+     "scale": 1
+    }
+   ]
+  }
+ },
+ {
+  "referenceId": "msama_embassy_mc:9_head",
+  "states": {
+   "type": "AND",
+   "conditions": [
+    {
+     "type": "token",
+     "assetId": 9
+    },
+    {
+     "type": "asset",
+     "invert": true,
+     "slot": "costume",
+     "assetId": "*",
+     "tags": [
+      "hat"
+     ]
+    }
+   ]
+  },
+  "config": {
+   "elements": [
+    {
+     "id": "skin",
+     "type": "texture_fragment",
+     "target_texture_id": "body",
+     "url": "texture/embassy_9.png",
+     "pass": "default",
+     "z-index": 0,
+     "blend": "default",
+     "opacity": 1,
+     "coordinates": "pixels",
+     "width": 64,
+     "height": 16,
+     "x": 0,
+     "y": 48,
+     "pos_x": 0,
+     "pos_y": 48,
+     "scale": 1
+    }
+   ]
+  }
+ },
+ {
+  "referenceId": "msama_embassy_mc:9_head_hat",
+  "states": {
+   "type": "AND",
+   "conditions": [
+    {
+     "type": "token",
+     "assetId": 9
+    },
+    {
+     "type": "asset",
+     "slot": "costume",
+     "assetId": "*",
+     "tags": [
+      "hat"
+     ]
+    }
+   ]
+  },
+  "config": {
+   "elements": [
+    {
+     "id": "skin",
+     "type": "texture_fragment",
+     "target_texture_id": "body",
+     "url": "texture/embassy_9_hat.png",
+     "pass": "default",
+     "z-index": 0,
+     "blend": "default",
+     "opacity": 1,
+     "coordinates": "pixels",
+     "width": 64,
+     "height": 16,
+     "x": 0,
+     "y": 48,
+     "pos_x": 0,
+     "pos_y": 48,
+     "scale": 1
+    }
+   ]
+  }
+ },
+ {
+  "referenceId": "msama_embassy_mc:model_settings",
+  "states": {},
+  "config": {
+   "elements": [],
+   "output": {
+    "width": 300,
+    "height": 300,
+    "result": "model"
+   }
+  }
+ },
+ {
+  "referenceId": "msama_embassy_mc:preview_settings",
+  "states": {},
+  "config": {
+   "elements": [],
+   "output": {
+    "width": 300,
+    "height": 300,
+    "result": "render",
+    "camera_projection": "perspective",
+    "camera_x": 0,
+    "camera_y": 1.5,
+    "camera_z": 4,
+    "camera_rotation_x": 6.3,
+    "camera_rotation_y": 180,
+    "transparency": true
+   },
+   "skeleton": [
+    {
+     "id": "background",
+     "parent": "global",
+     "rotation": {
+      "x": 6.3,
+      "y": 180,
+      "z": 0
+     },
+     "position": {
+      "x": 0,
+      "y": 0.66,
+      "z": -3.5
+     },
+     "scale": {
+      "x": 0.015,
+      "y": 0.015,
+      "z": 0.015
+     }
+    },
+    {
+     "id": "head",
+     "scale": {
+      "x": 0.04,
+      "y": 0.04,
+      "z": 0.04
+     },
+     "position": {
+      "x": 0,
+      "y": 1.75,
+      "z": 0
+     },
+     "parent": "global",
+     "rotation": {
+      "x": 0,
+      "y": 30,
+      "z": 0
+     }
+    }
+   ]
+  }
+ },
+ {
+  "referenceId": "msama_embassy_mc:render_settings",
+  "states": {},
+  "config": {
+   "output": {
+    "width": 64,
+    "height": 64,
+    "result": "render",
+    "camera_x": 32,
+    "camera_y": 32,
+    "camera_size": 32,
+    "transparency": true,
+    "camera_z": -100
+   },
+   "elements": [
+    {
+     "type": "sprite",
+     "bone": "global",
+     "url": "#composition",
+     "pass": "default",
+     "z-index": 0,
+     "blend": "default",
+     "opacity": 1,
+     "width": 64,
+     "height": 64,
+     "x": 0,
+     "y": 0,
+     "pivot_x": 0,
+     "pivot_y": 0,
+     "scale": 1
+    }
+   ]
+  }
+ },
+ {
+  "referenceId": "msama_embassy_mc:template_settings",
+  "states": {},
+  "config": {
+   "skeleton": [
+    {
+     "id": "global"
+    }
+   ],
+   "elements": [
+    {
+     "id": "body",
+     "type": "texture",
+     "texture_type": "empty",
+     "width": 64,
+     "height": 64
+    },
+    {
+     "id": "composition",
+     "type": "texture_atlas",
+     "width": 64,
+     "height": 64,
+     "layers": [
+      {
+       "url": "#body",
+       "x": 0,
+       "y": 0
+      },
+      {
+       "url": "#hat",
+       "x": 0,
+       "y": 0
+      }
+     ]
+    },
+    {
+     "id": "hat",
+     "type": "texture",
+     "texture_type": "empty",
+     "width": 64,
+     "height": 64
+    }
+   ]
+  }
+ }
+]

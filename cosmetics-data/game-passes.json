@@ -1,0 +1,85 @@
+{
+ "anyOf": [
+  {
+   "note": "VIP Tickets",
+   "collection": "moonsama-x",
+   "tokenIdPattern": "^1$",
+   "legacy": {
+    "chainId": 1285,
+    "address": "0x1974eeaf317ecf792ff307f25a3521c35eecde86"
+   }
+  },
+  {
+   "note": "Artists",
+   "collection": null,
+   "tokenIdPattern": "*",
+   "legacy": {
+    "chainId": 1285,
+    "address": "0xc2f48a85903d8a6c5276a4f63f75240c355f716c"
+   }
+  },
+  {
+   "note": "Embassy MOVR",
+   "collection": "moonsama-embassy",
+   "tokenIdPattern": "*",
+   "legacy": {
+    "chainId": 1285,
+    "address": "0x0a54845ac3743c96e582e03f26c3636ea9c00c8a"
+   }
+  },
+  {
+   "note": "Moonsama MOVR",
+   "collection": "moonsama",
+   "tokenIdPattern": "*",
+   "legacy": {
+    "chainId": 1285,
+    "address": "0xb654611f84a8dc429ba3cb4fda9fad236c505a1a"
+   }
+  },
+  {
+   "note": "Moonsama EXN",
+   "collection": "moonsama",
+   "tokenIdPattern": "*",
+   "legacy": {
+    "chainId": 2109,
+    "address": "0xf5211d1e02939856da995965ef7b24dc60cc472e"
+   }
+  },
+  {
+   "note": "Multiverse Avatars MOVR",
+   "collection": null,
+   "tokenIdPattern": "*",
+   "legacy": {
+    "chainId": 1285,
+    "address": "0xdea45e7c6944cb86a268661349e9c013836c79a2"
+   }
+  },
+  {
+   "note": "Multiverse Avatars EXN",
+   "collection": null,
+   "tokenIdPattern": "*",
+   "legacy": {
+    "chainId": 2109,
+    "address": "0xc2f48a85903d8a6c5276a4f63f75240c355f716c"
+   }
+  },
+  {
+   "note": "Exosama",
+   "collection": "exosama",
+   "tokenIdPattern": "*",
+   "legacy": {
+    "chainId": 1,
+    "address": "0xac5c7493036de60e63eb81c5e9a440b42f47ebf5"
+   }
+  },
+  {
+   "note": "Gromlins",
+   "collection": "gromlin",
+   "tokenIdPattern": "*",
+   "legacy": {
+    "chainId": 1284,
+    "address": "0xf27a6c72398eb7e25543d19fda370b7083474735"
+   }
+  }
+ ]
+}

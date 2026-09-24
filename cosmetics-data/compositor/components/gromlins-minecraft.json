@@ -1,0 +1,540 @@
+[
+ {
+  "referenceId": "gromlins_mc:barman",
+  "states": {
+   "type": "asset",
+   "assetId": "gromlins:barman",
+   "slot": "top"
+  },
+  "config": {
+   "elements": [
+    {
+     "id": "top_fragment",
+     "type": "texture_fragment",
+     "target_texture_id": "top",
+     "url": "top/barman.png",
+     "width": 64,
+     "height": 64
+    }
+   ]
+  }
+ },
+ {
+  "referenceId": "gromlins_mc:blistersnitch",
+  "states": {
+   "type": "asset",
+   "assetId": "gromlins:blistersnitch",
+   "slot": "color"
+  },
+  "config": {
+   "elements": [
+    {
+     "id": "color_fragment",
+     "type": "texture_fragment",
+     "target_texture_id": "color",
+     "url": "color/blistersnitch.png",
+     "width": 64,
+     "height": 64
+    }
+   ]
+  }
+ },
+ {
+  "referenceId": "gromlins_mc:button-down",
+  "states": {
+   "type": "asset",
+   "assetId": "gromlins:button-down",
+   "slot": "top"
+  },
+  "config": {
+   "elements": [
+    {
+     "id": "top_fragment",
+     "type": "texture_fragment",
+     "target_texture_id": "top",
+     "url": "top/button-down.png",
+     "width": 64,
+     "height": 64
+    }
+   ]
+  }
+ },
+ {
+  "referenceId": "gromlins_mc:cut-off",
+  "states": {
+   "type": "asset",
+   "assetId": "gromlins:cut-off",
+   "slot": "top"
+  },
+  "config": {
+   "elements": [
+    {
+     "id": "top_fragment",
+     "type": "texture_fragment",
+     "target_texture_id": "top",
+     "url": "top/cut-off.png",
+     "width": 64,
+     "height": 64
+    }
+   ]
+  }
+ },
+ {
+  "referenceId": "gromlins_mc:gingergrizz",
+  "states": {
+   "type": "asset",
+   "assetId": "gromlins:gingergrizz",
+   "slot": "color"
+  },
+  "config": {
+   "elements": [
+    {
+     "id": "color_fragment",
+     "type": "texture_fragment",
+     "target_texture_id": "color",
+     "url": "color/gingergrizz.png",
+     "width": 64,
+     "height": 64
+    }
+   ]
+  }
+ },
+ {
+  "referenceId": "gromlins_mc:hoodie",
+  "states": {
+   "type": "asset",
+   "assetId": "gromlins:hoodie",
+   "slot": "top"
+  },
+  "config": {
+   "elements": [
+    {
+     "id": "top_fragment",
+     "type": "texture_fragment",
+     "target_texture_id": "top",
+     "url": "top/hoodie.png",
+     "width": 64,
+     "height": 64
+    }
+   ]
+  }
+ },
+ {
+  "referenceId": "gromlins_mc:landscape",
+  "states": {
+   "type": "OR",
+   "conditions": [
+    {
+     "type": "asset",
+     "slot": "background",
+     "assetId": "gromlins:landscape"
+    },
+    {
+     "type": "AND",
+     "conditions": [
+      {
+       "type": "asset",
+       "slot": "background",
+       "assetId": null
+      },
+      {
+       "type": "token",
+       "invert": true,
+       "assetId": null
+      },
+      {
+       "type": "token",
+       "invert": true,
+       "assetId": 0
+      }
+     ]
+    }
+   ]
+  },
+  "config": {
+   "elements": [
+    {
+     "id": "background",
+     "type": "sprite",
+     "bone": "background",
+     "url": "background/landscape.jpg",
+     "pass": "default",
+     "z-index": 0,
+     "blend": "default",
+     "opacity": 1,
+     "coordinates": "pixels",
+     "width": 1280,
+     "height": 1280,
+     "x": 0,
+     "y": 0,
+     "pivot_x": 640,
+     "pivot_y": 640,
+     "scale": 0.25
+    }
+   ]
+  }
+ },
+ {
+  "referenceId": "gromlins_mc:minecraft_settings",
+  "states": {},
+  "config": {
+   "output": {
+    "width": 64,
+    "height": 64,
+    "result": "render",
+    "camera_x": 32,
+    "camera_y": 32,
+    "camera_size": 32,
+    "transparency": true,
+    "camera_z": -100
+   },
+   "elements": [
+    {
+     "type": "sprite",
+     "bone": "global",
+     "url": "#composition",
+     "pass": "default",
+     "z-index": 0,
+     "blend": "default",
+     "opacity": 1,
+     "width": 64,
+     "height": 64,
+     "x": 0,
+     "y": 0,
+     "pivot_x": 0,
+     "pivot_y": 0,
+     "scale": 1
+    }
+   ]
+  }
+ },
+ {
+  "referenceId": "gromlins_mc:model_settings",
+  "states": {},
+  "config": {
+   "elements": [
+    {
+     "id": "model",
+     "type": "model",
+     "bone": "global",
+     "url": "model/steve.glb",
+     "textures": [
+      {
+       "url": "#composition",
+       "texture": "_MainTex",
+       "material": "skin"
+      }
+     ]
+    }
+   ],
+   "output": {
+    "width": 300,
+    "height": 300,
+    "result": "model"
+   }
+  }
+ },
+ {
+  "referenceId": "gromlins_mc:oxford",
+  "states": {
+   "type": "asset",
+   "assetId": "gromlins:oxford",
+   "slot": "top"
+  },
+  "config": {
+   "elements": [
+    {
+     "id": "top_fragment",
+     "type": "texture_fragment",
+     "target_texture_id": "top",
+     "url": "top/oxford.png",
+     "width": 64,
+     "height": 64
+    }
+   ]
+  }
+ },
+ {
+  "referenceId": "gromlins_mc:pikklestink",
+  "states": {
+   "type": "asset",
+   "assetId": "gromlins:pikklestink",
+   "slot": "color"
+  },
+  "config": {
+   "elements": [
+    {
+     "id": "color_fragment",
+     "type": "texture_fragment",
+     "target_texture_id": "color",
+     "url": "color/pikklestink.png",
+     "width": 64,
+     "height": 64
+    }
+   ]
+  }
+ },
+ {
+  "referenceId": "gromlins_mc:plumspittle",
+  "states": {
+   "type": "asset",
+   "assetId": "gromlins:plumspittle",
+   "slot": "color"
+  },
+  "config": {
+   "elements": [
+    {
+     "id": "color_fragment",
+     "type": "texture_fragment",
+     "target_texture_id": "color",
+     "url": "color/plumspittle.png",
+     "width": 64,
+     "height": 64
+    }
+   ]
+  }
+ },
+ {
+  "referenceId": "gromlins_mc:preview_settings",
+  "states": {},
+  "config": {
+   "elements": [
+    {
+     "id": "model",
+     "type": "model",
+     "bone": "global",
+     "url": "model/steve.glb",
+     "rotation": {
+      "x": 0,
+      "y": 30,
+      "z": 0
+     },
+     "textures": [
+      {
+       "material": "skin",
+       "texture": "_MainTex",
+       "url": "#composition"
+      }
+     ]
+    }
+   ],
+   "output": {
+    "width": 300,
+    "height": 300,
+    "result": "render",
+    "camera_projection": "perspective",
+    "camera_x": 0,
+    "camera_y": 1.5,
+    "camera_z": 4,
+    "camera_rotation_x": 6.3,
+    "camera_rotation_y": 180,
+    "transparency": true
+   },
+   "skeleton": [
+    {
+     "id": "background",
+     "parent": "global",
+     "rotation": {
+      "x": 6.3,
+      "y": 180,
+      "z": 0
+     },
+     "position": {
+      "x": 0,
+      "y": 0.66,
+      "z": -3.5
+     },
+     "scale": {
+      "x": 0.015,
+      "y": 0.015,
+      "z": 0.015
+     }
+    },
+    {
+     "id": "head",
+     "scale": {
+      "x": 0.04,
+      "y": 0.04,
+      "z": 0.04
+     },
+     "position": {
+      "x": 0,
+      "y": 1.75,
+      "z": 0
+     },
+     "parent": "global",
+     "rotation": {
+      "x": 0,
+      "y": 30,
+      "z": 0
+     }
+    }
+   ]
+  }
+ },
+ {
+  "referenceId": "gromlins_mc:puddleclump",
+  "states": {
+   "type": "asset",
+   "assetId": "gromlins:puddleclump",
+   "slot": "color"
+  },
+  "config": {
+   "elements": [
+    {
+     "id": "color_fragment",
+     "type": "texture_fragment",
+     "target_texture_id": "color",
+     "url": "color/puddleclump.png",
+     "width": 64,
+     "height": 64
+    }
+   ]
+  }
+ },
+ {
+  "referenceId": "gromlins_mc:punk",
+  "states": {
+   "type": "asset",
+   "assetId": "gromlins:punk",
+   "slot": "top"
+  },
+  "config": {
+   "elements": [
+    {
+     "id": "top_fragment",
+     "type": "texture_fragment",
+     "target_texture_id": "top",
+     "url": "top/punk.png",
+     "width": 64,
+     "height": 64
+    }
+   ]
+  }
+ },
+ {
+  "referenceId": "gromlins_mc:waffleblotch",
+  "states": {
+   "type": "asset",
+   "assetId": "gromlins:waffleblotch",
+   "slot": "color"
+  },
+  "config": {
+   "elements": [
+    {
+     "id": "color_fragment",
+     "type": "texture_fragment",
+     "target_texture_id": "color",
+     "url": "color/waffleblotch.png",
+     "width": 64,
+     "height": 64
+    }
+   ]
+  }
+ },
+ {
+  "referenceId": "gromlins:template_settings",
+  "states": {},
+  "config": {
+   "skeleton": [
+    {
+     "id": "global"
+    }
+   ],
+   "elements": [
+    {
+     "id": "color",
+     "type": "texture",
+     "texture_type": "empty",
+     "width": 64,
+     "height": 64
+    },
+    {
+     "id": "top",
+     "type": "texture",
+     "texture_type": "empty",
+     "width": 64,
+     "height": 64
+    },
+    {
+     "id": "eyewear",
+     "type": "texture",
+     "texture_type": "empty",
+     "width": 64,
+     "height": 64
+    },
+    {
+     "id": "mask",
+     "type": "texture",
+     "texture_type": "empty",
+     "width": 64,
+     "height": 64
+    },
+    {
+     "id": "hat",
+     "type": "texture",
+     "texture_type": "empty",
+     "width": 64,
+     "height": 64
+    },
+    {
+     "id": "helmet",
+     "type": "texture",
+     "texture_type": "empty",
+     "width": 64,
+     "height": 64
+    },
+    {
+     "id": "hair",
+     "type": "texture",
+     "texture_type": "empty",
+     "width": 64,
+     "height": 64
+    },
+    {
+     "id": "composition",
+     "type": "texture_atlas",
+     "width": 64,
+     "height": 64,
+     "layers": [
+      {
+       "url": "#color",
+       "x": 0,
+       "y": 0
+      },
+      {
+       "url": "#top",
+       "x": 0,
+       "y": 0
+      },
+      {
+       "url": "#eyewear",
+       "x": 0,
+       "y": 0
+      },
+      {
+       "url": "#mask",
+       "x": 0,
+       "y": 0
+      },
+      {
+       "url": "#hair",
+       "x": 0,
+       "y": 0
+      },
+      {
+       "url": "#hat",
+       "x": 0,
+       "y": 0
+      },
+      {
+       "url": "#helmet",
+       "x": 0,
+       "y": 0
+      }
+     ]
+    }
+   ]
+  }
+ }
+]

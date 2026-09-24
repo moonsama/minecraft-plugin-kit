@@ -1,0 +1,84 @@
+{
+ "portalCollections": {
+  "moonsama": {
+   "composerCollection": "moonsama"
+  },
+  "exosama": {
+   "composerCollection": "exosama"
+  },
+  "gromlin": {
+   "composerCollection": "gromlins"
+  },
+  "moonsama-embassy": {
+   "composerCollection": "moonsama-embassy"
+  }
+ },
+ "legacyContracts": [
+  {
+   "chainId": 1285,
+   "address": "0x1974eeaf317ecf792ff307f25a3521c35eecde86",
+   "portal": "moonsama-x",
+   "note": "Moonsama X (Moonriver)"
+  },
+  {
+   "chainId": 2109,
+   "address": "0x9984440fb82f1af013865141909276d26b86e303",
+   "portal": "moonsama-x",
+   "note": "Multiverse Items (Exosama network); token ids mirror the Moonriver twin"
+  },
+  {
+   "chainId": 1285,
+   "address": "0xb654611f84a8dc429ba3cb4fda9fad236c505a1a",
+   "portal": "moonsama",
+   "note": "Moonsama (Moonriver)"
+  },
+  {
+   "chainId": 2109,
+   "address": "0xf5211d1e02939856da995965ef7b24dc60cc472e",
+   "portal": "moonsama",
+   "note": "Moonsama (Exosama network)"
+  },
+  {
+   "chainId": 1,
+   "address": "0xac5c7493036de60e63eb81c5e9a440b42f47ebf5",
+   "portal": "exosama",
+   "note": "Exosama (Ethereum)"
+  },
+  {
+   "chainId": 1284,
+   "address": "0xf27a6c72398eb7e25543d19fda370b7083474735",
+   "portal": "gromlin",
+   "note": "Gromlins (Moonbeam)"
+  },
+  {
+   "chainId": 1285,
+   "address": "0x0a54845ac3743c96e582e03f26c3636ea9c00c8a",
+   "portal": "moonsama-embassy",
+   "note": "Moonsama Embassy (Moonriver)"
+  },
+  {
+   "chainId": 2109,
+   "address": "0xc630f52a35cfde19122ccd822f1ba00be6fd2e71",
+   "portal": null,
+   "note": "Multiverse Costumes; not in Portal"
+  },
+  {
+   "chainId": 2109,
+   "address": "0x5cb76be66792a48bdc96676224cda8bf1df611d4",
+   "portal": null,
+   "note": "Multiverse Backgrounds; not in Portal"
+  },
+  {
+   "chainId": 2109,
+   "address": "0xc2f48a85903d8a6c5276a4f63f75240c355f716c",
+   "portal": null,
+   "note": "Multiverse Avatars (Exosama network); not in Portal"
+  },
+  {
+   "chainId": 1285,
+   "address": "0xdea45e7c6944cb86a268661349e9c013836c79a2",
+   "portal": null,
+   "note": "Multiverse Avatars (Moonriver); not in Portal"
+  }
+ ]
+}

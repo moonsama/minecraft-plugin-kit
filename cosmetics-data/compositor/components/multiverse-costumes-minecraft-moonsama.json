@@ -1,0 +1,3865 @@
+[
+ {
+  "referenceId": "mv_costumes_mc:2nd_anniversary_party_hat_hat",
+  "states": {
+   "type": "AND",
+   "conditions": [
+    {
+     "type": "asset",
+     "assetId": "multiverse_costumes:2nd_anniversary_party_hat",
+     "slot": "costume"
+    },
+    {
+     "type": "OR",
+     "conditions": [
+      {
+       "type": "renderType",
+       "renderType": "preview"
+      },
+      {
+       "type": "renderType",
+       "renderType": "preview-minecraft"
+      }
+     ]
+    }
+   ]
+  },
+  "config": {
+   "elements": [
+    {
+     "id": "hat",
+     "type": "model",
+     "url": "model/2nd_anniversary_party_hat.glb",
+     "bone": "hat",
+     "position": {
+      "x": -0.5,
+      "y": -0.5,
+      "z": 0.5
+     }
+    }
+   ],
+   "skeleton": [
+    {
+     "id": "anchor",
+     "parent": "head",
+     "position": {
+      "x": 0,
+      "y": 15.25,
+      "z": 0
+     },
+     "scale": {
+      "x": 16,
+      "y": 16,
+      "z": 16
+     }
+    },
+    {
+     "id": "hat",
+     "parent": "anchor",
+     "scale": {
+      "x": 1.12305,
+      "y": 1.12305,
+      "z": 1.12305
+     }
+    }
+   ]
+  }
+ },
+ {
+  "referenceId": "mv_costumes_mc:auromine_official_kit_clothes",
+  "states": {
+   "type": "asset",
+   "assetId": "multiverse_costumes:auromine_official_kit",
+   "slot": "costume"
+  },
+  "config": {
+   "elements": [
+    {
+     "id": "layer-clothes",
+     "type": "texture_fragment",
+     "target_texture_id": "outfit",
+     "url": "costume/auromine_official_kit.png",
+     "width": 24,
+     "height": 16,
+     "x": 16,
+     "y": 32,
+     "pos_x": 16,
+     "pos_y": 32
+    },
+    {
+     "id": "layer-arm-l",
+     "type": "texture_fragment",
+     "target_texture_id": "outfit",
+     "url": "costume/auromine_official_kit.png",
+     "width": 14,
+     "height": 16,
+     "x": 32,
+     "y": 0,
+     "pos_x": 32,
+     "pos_y": 0
+    },
+    {
+     "id": "layer-arm-r",
+     "type": "texture_fragment",
+     "target_texture_id": "outfit",
+     "url": "costume/auromine_official_kit.png",
+     "width": 14,
+     "height": 16,
+     "x": 40,
+     "y": 32,
+     "pos_x": 40,
+     "pos_y": 32
+    },
+    {
+     "id": "layer-leg-l",
+     "type": "texture_fragment",
+     "target_texture_id": "outfit",
+     "url": "costume/auromine_official_kit.png",
+     "width": 16,
+     "height": 16,
+     "x": 16,
+     "y": 0,
+     "pos_x": 16,
+     "pos_y": 0
+    },
+    {
+     "id": "layer-leg-r",
+     "type": "texture_fragment",
+     "target_texture_id": "outfit",
+     "url": "costume/auromine_official_kit.png",
+     "width": 16,
+     "height": 16,
+     "x": 0,
+     "y": 32,
+     "pos_x": 0,
+     "pos_y": 32
+    }
+   ]
+  }
+ },
+ {
+  "referenceId": "mv_costumes_mc:auromine_official_kit_clothes_overlay",
+  "states": {
+   "type": "asset",
+   "assetId": "multiverse_costumes:auromine_official_kit",
+   "slot": "costume"
+  },
+  "config": {
+   "elements": [
+    {
+     "id": "layer-clothes-overlay",
+     "type": "texture_fragment",
+     "target_texture_id": "outfit",
+     "url": "costume/auromine_official_kit.png",
+     "width": 24,
+     "height": 16,
+     "x": 16,
+     "y": 16,
+     "pos_x": 16,
+     "pos_y": 16
+    },
+    {
+     "id": "layer-arm-l-overlay",
+     "type": "texture_fragment",
+     "target_texture_id": "outfit",
+     "url": "costume/auromine_official_kit.png",
+     "width": 14,
+     "height": 16,
+     "x": 48,
+     "y": 0,
+     "pos_x": 48,
+     "pos_y": 0
+    },
+    {
+     "id": "layer-arm-r-overlay",
+     "type": "texture_fragment",
+     "target_texture_id": "outfit",
+     "url": "costume/auromine_official_kit.png",
+     "width": 14,
+     "height": 16,
+     "x": 40,
+     "y": 16,
+     "pos_x": 40,
+     "pos_y": 16
+    },
+    {
+     "id": "layer-leg-l-overlay",
+     "type": "texture_fragment",
+     "target_texture_id": "outfit",
+     "url": "costume/auromine_official_kit.png",
+     "width": 16,
+     "height": 16,
+     "x": 0,
+     "y": 0,
+     "pos_x": 0,
+     "pos_y": 0
+    },
+    {
+     "id": "layer-leg-r-overlay",
+     "type": "texture_fragment",
+     "target_texture_id": "outfit",
+     "url": "costume/auromine_official_kit.png",
+     "width": 16,
+     "height": 16,
+     "x": 0,
+     "y": 16,
+     "pos_x": 0,
+     "pos_y": 16
+    }
+   ]
+  }
+ },
+ {
+  "referenceId": "mv_costumes_mc:big_boy_onesie_clothes",
+  "states": {
+   "type": "asset",
+   "assetId": "multiverse_costumes:big_boy_onesie",
+   "slot": "costume"
+  },
+  "config": {
+   "elements": [
+    {
+     "id": "layer-clothes",
+     "type": "texture_fragment",
+     "target_texture_id": "outfit",
+     "url": "costume/big_boy_onesie.png",
+     "width": 24,
+     "height": 16,
+     "x": 16,
+     "y": 32,
+     "pos_x": 16,
+     "pos_y": 32
+    },
+    {
+     "id": "layer-arm-l",
+     "type": "texture_fragment",
+     "target_texture_id": "outfit",
+     "url": "costume/big_boy_onesie.png",
+     "width": 14,
+     "height": 16,
+     "x": 32,
+     "y": 0,
+     "pos_x": 32,
+     "pos_y": 0
+    },
+    {
+     "id": "layer-arm-r",
+     "type": "texture_fragment",
+     "target_texture_id": "outfit",
+     "url": "costume/big_boy_onesie.png",
+     "width": 14,
+     "height": 16,
+     "x": 40,
+     "y": 32,
+     "pos_x": 40,
+     "pos_y": 32
+    },
+    {
+     "id": "layer-leg-l",
+     "type": "texture_fragment",
+     "target_texture_id": "outfit",
+     "url": "costume/big_boy_onesie.png",
+     "width": 16,
+     "height": 16,
+     "x": 16,
+     "y": 0,
+     "pos_x": 16,
+     "pos_y": 0
+    },
+    {
+     "id": "layer-leg-r",
+     "type": "texture_fragment",
+     "target_texture_id": "outfit",
+     "url": "costume/big_boy_onesie.png",
+     "width": 16,
+     "height": 16,
+     "x": 0,
+     "y": 32,
+     "pos_x": 0,
+     "pos_y": 32
+    }
+   ]
+  }
+ },
+ {
+  "referenceId": "mv_costumes_mc:big_boy_onesie_clothes_overlay",
+  "states": {
+   "type": "asset",
+   "assetId": "multiverse_costumes:big_boy_onesie",
+   "slot": "costume"
+  },
+  "config": {
+   "elements": [
+    {
+     "id": "layer-clothes-overlay",
+     "type": "texture_fragment",
+     "target_texture_id": "outfit",
+     "url": "costume/big_boy_onesie.png",
+     "width": 24,
+     "height": 16,
+     "x": 16,
+     "y": 16,
+     "pos_x": 16,
+     "pos_y": 16
+    },
+    {
+     "id": "layer-arm-l-overlay",
+     "type": "texture_fragment",
+     "target_texture_id": "outfit",
+     "url": "costume/big_boy_onesie.png",
+     "width": 14,
+     "height": 16,
+     "x": 48,
+     "y": 0,
+     "pos_x": 48,
+     "pos_y": 0
+    },
+    {
+     "id": "layer-arm-r-overlay",
+     "type": "texture_fragment",
+     "target_texture_id": "outfit",
+     "url": "costume/big_boy_onesie.png",
+     "width": 14,
+     "height": 16,
+     "x": 40,
+     "y": 16,
+     "pos_x": 40,
+     "pos_y": 16
+    },
+    {
+     "id": "layer-leg-l-overlay",
+     "type": "texture_fragment",
+     "target_texture_id": "outfit",
+     "url": "costume/big_boy_onesie.png",
+     "width": 16,
+     "height": 16,
+     "x": 0,
+     "y": 0,
+     "pos_x": 0,
+     "pos_y": 0
+    },
+    {
+     "id": "layer-leg-r-overlay",
+     "type": "texture_fragment",
+     "target_texture_id": "outfit",
+     "url": "costume/big_boy_onesie.png",
+     "width": 16,
+     "height": 16,
+     "x": 0,
+     "y": 16,
+     "pos_x": 0,
+     "pos_y": 16
+    }
+   ]
+  }
+ },
+ {
+  "referenceId": "mv_costumes_mc:big_boy_onesie_headwear",
+  "states": {
+   "type": "asset",
+   "assetId": "multiverse_costumes:big_boy_onesie",
+   "slot": "costume"
+  },
+  "config": {
+   "elements": [
+    {
+     "id": "layer-hat",
+     "type": "texture_fragment",
+     "target_texture_id": "hat",
+     "url": "costume/big_boy_onesie.png",
+     "width": 32,
+     "height": 16,
+     "x": 0,
+     "y": 48,
+     "pos_x": 0,
+     "pos_y": 48
+    }
+   ]
+  }
+ },
+ {
+  "referenceId": "mv_costumes_mc:big_boy_onesie_headwear_overlay",
+  "states": {
+   "type": "asset",
+   "assetId": "multiverse_costumes:big_boy_onesie",
+   "slot": "costume"
+  },
+  "config": {
+   "elements": [
+    {
+     "id": "layer-hat",
+     "type": "texture_fragment",
+     "target_texture_id": "hat",
+     "url": "costume/big_boy_onesie.png",
+     "width": 32,
+     "height": 16,
+     "x": 32,
+     "y": 48,
+     "pos_x": 32,
+     "pos_y": 48
+    }
+   ]
+  }
+ },
+ {
+  "referenceId": "mv_costumes_mc:cottontail_crown_hat",
+  "states": {
+   "type": "AND",
+   "conditions": [
+    {
+     "type": "asset",
+     "assetId": "multiverse_costumes:cottontail_crown",
+     "slot": "costume"
+    },
+    {
+     "type": "OR",
+     "conditions": [
+      {
+       "type": "renderType",
+       "renderType": "preview"
+      },
+      {
+       "type": "renderType",
+       "renderType": "preview-minecraft"
+      }
+     ]
+    }
+   ]
+  },
+  "config": {
+   "elements": [
+    {
+     "id": "hat",
+     "type": "model",
+     "url": "model/cottontail_crown.glb",
+     "bone": "hat",
+     "position": {
+      "x": -0.5,
+      "y": -0.5,
+      "z": 0.5
+     }
+    }
+   ],
+   "skeleton": [
+    {
+     "id": "anchor",
+     "parent": "head",
+     "position": {
+      "x": 0,
+      "y": 14.25,
+      "z": 1.5
+     },
+     "scale": {
+      "x": 16,
+      "y": 16,
+      "z": 16
+     }
+    },
+    {
+     "id": "hat",
+     "parent": "anchor",
+     "scale": {
+      "x": 0.9,
+      "y": 0.9,
+      "z": 0.9
+     }
+    }
+   ]
+  }
+ },
+ {
+  "referenceId": "mv_costumes_mc:donablo_clothes",
+  "states": {
+   "type": "asset",
+   "assetId": "multiverse_costumes:donablo",
+   "slot": "costume"
+  },
+  "config": {
+   "elements": [
+    {
+     "id": "layer-clothes",
+     "type": "texture_fragment",
+     "target_texture_id": "outfit",
+     "url": "costume/donablo.png",
+     "width": 24,
+     "height": 16,
+     "x": 16,
+     "y": 32,
+     "pos_x": 16,
+     "pos_y": 32
+    },
+    {
+     "id": "layer-arm-l",
+     "type": "texture_fragment",
+     "target_texture_id": "outfit",
+     "url": "costume/donablo.png",
+     "width": 14,
+     "height": 16,
+     "x": 32,
+     "y": 0,
+     "pos_x": 32,
+     "pos_y": 0
+    },
+    {
+     "id": "layer-arm-r",
+     "type": "texture_fragment",
+     "target_texture_id": "outfit",
+     "url": "costume/donablo.png",
+     "width": 14,
+     "height": 16,
+     "x": 40,
+     "y": 32,
+     "pos_x": 40,
+     "pos_y": 32
+    },
+    {
+     "id": "layer-leg-l",
+     "type": "texture_fragment",
+     "target_texture_id": "outfit",
+     "url": "costume/donablo.png",
+     "width": 16,
+     "height": 16,
+     "x": 16,
+     "y": 0,
+     "pos_x": 16,
+     "pos_y": 0
+    },
+    {
+     "id": "layer-leg-r",
+     "type": "texture_fragment",
+     "target_texture_id": "outfit",
+     "url": "costume/donablo.png",
+     "width": 16,
+     "height": 16,
+     "x": 0,
+     "y": 32,
+     "pos_x": 0,
+     "pos_y": 32
+    }
+   ]
+  }
+ },
+ {
+  "referenceId": "mv_costumes_mc:donablo_clothes_overlay",
+  "states": {
+   "type": "asset",
+   "assetId": "multiverse_costumes:donablo",
+   "slot": "costume"
+  },
+  "config": {
+   "elements": [
+    {
+     "id": "layer-clothes-overlay",
+     "type": "texture_fragment",
+     "target_texture_id": "outfit",
+     "url": "costume/donablo.png",
+     "width": 24,
+     "height": 16,
+     "x": 16,
+     "y": 16,
+     "pos_x": 16,
+     "pos_y": 16
+    },
+    {
+     "id": "layer-arm-l-overlay",
+     "type": "texture_fragment",
+     "target_texture_id": "outfit",
+     "url": "costume/donablo.png",
+     "width": 14,
+     "height": 16,
+     "x": 48,
+     "y": 0,
+     "pos_x": 48,
+     "pos_y": 0
+    },
+    {
+     "id": "layer-arm-r-overlay",
+     "type": "texture_fragment",
+     "target_texture_id": "outfit",
+     "url": "costume/donablo.png",
+     "width": 14,
+     "height": 16,
+     "x": 40,
+     "y": 16,
+     "pos_x": 40,
+     "pos_y": 16
+    },
+    {
+     "id": "layer-leg-l-overlay",
+     "type": "texture_fragment",
+     "target_texture_id": "outfit",
+     "url": "costume/donablo.png",
+     "width": 16,
+     "height": 16,
+     "x": 0,
+     "y": 0,
+     "pos_x": 0,
+     "pos_y": 0
+    },
+    {
+     "id": "layer-leg-r-overlay",
+     "type": "texture_fragment",
+     "target_texture_id": "outfit",
+     "url": "costume/donablo.png",
+     "width": 16,
+     "height": 16,
+     "x": 0,
+     "y": 16,
+     "pos_x": 0,
+     "pos_y": 16
+    }
+   ]
+  }
+ },
+ {
+  "referenceId": "mv_costumes_mc:donablo_hat",
+  "states": {
+   "type": "AND",
+   "conditions": [
+    {
+     "type": "asset",
+     "assetId": "multiverse_costumes:donablo",
+     "slot": "costume"
+    },
+    {
+     "type": "OR",
+     "conditions": [
+      {
+       "type": "renderType",
+       "renderType": "preview"
+      },
+      {
+       "type": "renderType",
+       "renderType": "preview-minecraft"
+      }
+     ]
+    }
+   ]
+  },
+  "config": {
+   "elements": [
+    {
+     "id": "hat",
+     "type": "model",
+     "url": "model/donablo_helmet.glb",
+     "bone": "hat",
+     "position": {
+      "x": -0.5,
+      "y": -0.5,
+      "z": 0.5
+     }
+    }
+   ],
+   "skeleton": [
+    {
+     "id": "anchor",
+     "parent": "head",
+     "position": {
+      "x": 0,
+      "y": 7.5,
+      "z": 0
+     },
+     "scale": {
+      "x": 16,
+      "y": 16,
+      "z": 16
+     }
+    },
+    {
+     "id": "hat",
+     "parent": "anchor",
+     "scale": {
+      "x": 1.87695,
+      "y": 1.87695,
+      "z": 1.87695
+     }
+    }
+   ]
+  }
+ },
+ {
+  "referenceId": "mv_costumes_mc:golden_big_boy_onesie_clothes",
+  "states": {
+   "type": "asset",
+   "assetId": "multiverse_costumes:golden_big_boy_onesie",
+   "slot": "costume"
+  },
+  "config": {
+   "elements": [
+    {
+     "id": "layer-clothes",
+     "type": "texture_fragment",
+     "target_texture_id": "outfit",
+     "url": "costume/golden_big_boy_onesie.png",
+     "width": 24,
+     "height": 16,
+     "x": 16,
+     "y": 32,
+     "pos_x": 16,
+     "pos_y": 32
+    },
+    {
+     "id": "layer-arm-l",
+     "type": "texture_fragment",
+     "target_texture_id": "outfit",
+     "url": "costume/golden_big_boy_onesie.png",
+     "width": 14,
+     "height": 16,
+     "x": 32,
+     "y": 0,
+     "pos_x": 32,
+     "pos_y": 0
+    },
+    {
+     "id": "layer-arm-r",
+     "type": "texture_fragment",
+     "target_texture_id": "outfit",
+     "url": "costume/golden_big_boy_onesie.png",
+     "width": 14,
+     "height": 16,
+     "x": 40,
+     "y": 32,
+     "pos_x": 40,
+     "pos_y": 32
+    },
+    {
+     "id": "layer-leg-l",
+     "type": "texture_fragment",
+     "target_texture_id": "outfit",
+     "url": "costume/golden_big_boy_onesie.png",
+     "width": 16,
+     "height": 16,
+     "x": 16,
+     "y": 0,
+     "pos_x": 16,
+     "pos_y": 0
+    },
+    {
+     "id": "layer-leg-r",
+     "type": "texture_fragment",
+     "target_texture_id": "outfit",
+     "url": "costume/golden_big_boy_onesie.png",
+     "width": 16,
+     "height": 16,
+     "x": 0,
+     "y": 32,
+     "pos_x": 0,
+     "pos_y": 32
+    }
+   ]
+  }
+ },
+ {
+  "referenceId": "mv_costumes_mc:golden_big_boy_onesie_clothes_overlay",
+  "states": {
+   "type": "asset",
+   "assetId": "multiverse_costumes:golden_big_boy_onesie",
+   "slot": "costume"
+  },
+  "config": {
+   "elements": [
+    {
+     "id": "layer-clothes-overlay",
+     "type": "texture_fragment",
+     "target_texture_id": "outfit",
+     "url": "costume/golden_big_boy_onesie.png",
+     "width": 24,
+     "height": 16,
+     "x": 16,
+     "y": 16,
+     "pos_x": 16,
+     "pos_y": 16
+    },
+    {
+     "id": "layer-arm-l-overlay",
+     "type": "texture_fragment",
+     "target_texture_id": "outfit",
+     "url": "costume/golden_big_boy_onesie.png",
+     "width": 14,
+     "height": 16,
+     "x": 48,
+     "y": 0,
+     "pos_x": 48,
+     "pos_y": 0
+    },
+    {
+     "id": "layer-arm-r-overlay",
+     "type": "texture_fragment",
+     "target_texture_id": "outfit",
+     "url": "costume/golden_big_boy_onesie.png",
+     "width": 14,
+     "height": 16,
+     "x": 40,
+     "y": 16,
+     "pos_x": 40,
+     "pos_y": 16
+    },
+    {
+     "id": "layer-leg-l-overlay",
+     "type": "texture_fragment",
+     "target_texture_id": "outfit",
+     "url": "costume/golden_big_boy_onesie.png",
+     "width": 16,
+     "height": 16,
+     "x": 0,
+     "y": 0,
+     "pos_x": 0,
+     "pos_y": 0
+    },
+    {
+     "id": "layer-leg-r-overlay",
+     "type": "texture_fragment",
+     "target_texture_id": "outfit",
+     "url": "costume/golden_big_boy_onesie.png",
+     "width": 16,
+     "height": 16,
+     "x": 0,
+     "y": 16,
+     "pos_x": 0,
+     "pos_y": 16
+    }
+   ]
+  }
+ },
+ {
+  "referenceId": "mv_costumes_mc:high_district_ensemble_clothes",
+  "states": {
+   "type": "asset",
+   "assetId": "multiverse_costumes:high_district_ensemble",
+   "slot": "costume"
+  },
+  "config": {
+   "elements": [
+    {
+     "id": "layer-clothes",
+     "type": "texture_fragment",
+     "target_texture_id": "outfit",
+     "url": "costume/high_district_ensemble.png",
+     "width": 24,
+     "height": 16,
+     "x": 16,
+     "y": 32,
+     "pos_x": 16,
+     "pos_y": 32
+    },
+    {
+     "id": "layer-arm-l",
+     "type": "texture_fragment",
+     "target_texture_id": "outfit",
+     "url": "costume/high_district_ensemble.png",
+     "width": 14,
+     "height": 16,
+     "x": 32,
+     "y": 0,
+     "pos_x": 32,
+     "pos_y": 0
+    },
+    {
+     "id": "layer-arm-r",
+     "type": "texture_fragment",
+     "target_texture_id": "outfit",
+     "url": "costume/high_district_ensemble.png",
+     "width": 14,
+     "height": 16,
+     "x": 40,
+     "y": 32,
+     "pos_x": 40,
+     "pos_y": 32
+    },
+    {
+     "id": "layer-leg-l",
+     "type": "texture_fragment",
+     "target_texture_id": "outfit",
+     "url": "costume/high_district_ensemble.png",
+     "width": 16,
+     "height": 16,
+     "x": 16,
+     "y": 0,
+     "pos_x": 16,
+     "pos_y": 0
+    },
+    {
+     "id": "layer-leg-r",
+     "type": "texture_fragment",
+     "target_texture_id": "outfit",
+     "url": "costume/high_district_ensemble.png",
+     "width": 16,
+     "height": 16,
+     "x": 0,
+     "y": 32,
+     "pos_x": 0,
+     "pos_y": 32
+    }
+   ]
+  }
+ },
+ {
+  "referenceId": "mv_costumes_mc:high_district_ensemble_clothes_overlay",
+  "states": {
+   "type": "asset",
+   "assetId": "multiverse_costumes:high_district_ensemble",
+   "slot": "costume"
+  },
+  "config": {
+   "elements": [
+    {
+     "id": "layer-clothes-overlay",
+     "type": "texture_fragment",
+     "target_texture_id": "outfit",
+     "url": "costume/high_district_ensemble.png",
+     "width": 24,
+     "height": 16,
+     "x": 16,
+     "y": 16,
+     "pos_x": 16,
+     "pos_y": 16
+    },
+    {
+     "id": "layer-arm-l-overlay",
+     "type": "texture_fragment",
+     "target_texture_id": "outfit",
+     "url": "costume/high_district_ensemble.png",
+     "width": 14,
+     "height": 16,
+     "x": 48,
+     "y": 0,
+     "pos_x": 48,
+     "pos_y": 0
+    },
+    {
+     "id": "layer-arm-r-overlay",
+     "type": "texture_fragment",
+     "target_texture_id": "outfit",
+     "url": "costume/high_district_ensemble.png",
+     "width": 14,
+     "height": 16,
+     "x": 40,
+     "y": 16,
+     "pos_x": 40,
+     "pos_y": 16
+    },
+    {
+     "id": "layer-leg-l-overlay",
+     "type": "texture_fragment",
+     "target_texture_id": "outfit",
+     "url": "costume/high_district_ensemble.png",
+     "width": 16,
+     "height": 16,
+     "x": 0,
+     "y": 0,
+     "pos_x": 0,
+     "pos_y": 0
+    },
+    {
+     "id": "layer-leg-r-overlay",
+     "type": "texture_fragment",
+     "target_texture_id": "outfit",
+     "url": "costume/high_district_ensemble.png",
+     "width": 16,
+     "height": 16,
+     "x": 0,
+     "y": 16,
+     "pos_x": 0,
+     "pos_y": 16
+    }
+   ]
+  }
+ },
+ {
+  "referenceId": "mv_costumes_mc:high_district_finery_clothes",
+  "states": {
+   "type": "asset",
+   "assetId": "multiverse_costumes:high_district_finery",
+   "slot": "costume"
+  },
+  "config": {
+   "elements": [
+    {
+     "id": "layer-clothes",
+     "type": "texture_fragment",
+     "target_texture_id": "outfit",
+     "url": "costume/high_district_finery.png",
+     "width": 24,
+     "height": 16,
+     "x": 16,
+     "y": 32,
+     "pos_x": 16,
+     "pos_y": 32
+    },
+    {
+     "id": "layer-arm-l",
+     "type": "texture_fragment",
+     "target_texture_id": "outfit",
+     "url": "costume/high_district_finery.png",
+     "width": 14,
+     "height": 16,
+     "x": 32,
+     "y": 0,
+     "pos_x": 32,
+     "pos_y": 0
+    },
+    {
+     "id": "layer-arm-r",
+     "type": "texture_fragment",
+     "target_texture_id": "outfit",
+     "url": "costume/high_district_finery.png",
+     "width": 14,
+     "height": 16,
+     "x": 40,
+     "y": 32,
+     "pos_x": 40,
+     "pos_y": 32
+    },
+    {
+     "id": "layer-leg-l",
+     "type": "texture_fragment",
+     "target_texture_id": "outfit",
+     "url": "costume/high_district_finery.png",
+     "width": 16,
+     "height": 16,
+     "x": 16,
+     "y": 0,
+     "pos_x": 16,
+     "pos_y": 0
+    },
+    {
+     "id": "layer-leg-r",
+     "type": "texture_fragment",
+     "target_texture_id": "outfit",
+     "url": "costume/high_district_finery.png",
+     "width": 16,
+     "height": 16,
+     "x": 0,
+     "y": 32,
+     "pos_x": 0,
+     "pos_y": 32
+    }
+   ]
+  }
+ },
+ {
+  "referenceId": "mv_costumes_mc:high_district_finery_clothes_overlay",
+  "states": {
+   "type": "asset",
+   "assetId": "multiverse_costumes:high_district_finery",
+   "slot": "costume"
+  },
+  "config": {
+   "elements": [
+    {
+     "id": "layer-clothes-overlay",
+     "type": "texture_fragment",
+     "target_texture_id": "outfit",
+     "url": "costume/high_district_finery.png",
+     "width": 24,
+     "height": 16,
+     "x": 16,
+     "y": 16,
+     "pos_x": 16,
+     "pos_y": 16
+    },
+    {
+     "id": "layer-arm-l-overlay",
+     "type": "texture_fragment",
+     "target_texture_id": "outfit",
+     "url": "costume/high_district_finery.png",
+     "width": 14,
+     "height": 16,
+     "x": 48,
+     "y": 0,
+     "pos_x": 48,
+     "pos_y": 0
+    },
+    {
+     "id": "layer-arm-r-overlay",
+     "type": "texture_fragment",
+     "target_texture_id": "outfit",
+     "url": "costume/high_district_finery.png",
+     "width": 14,
+     "height": 16,
+     "x": 40,
+     "y": 16,
+     "pos_x": 40,
+     "pos_y": 16
+    },
+    {
+     "id": "layer-leg-l-overlay",
+     "type": "texture_fragment",
+     "target_texture_id": "outfit",
+     "url": "costume/high_district_finery.png",
+     "width": 16,
+     "height": 16,
+     "x": 0,
+     "y": 0,
+     "pos_x": 0,
+     "pos_y": 0
+    },
+    {
+     "id": "layer-leg-r-overlay",
+     "type": "texture_fragment",
+     "target_texture_id": "outfit",
+     "url": "costume/high_district_finery.png",
+     "width": 16,
+     "height": 16,
+     "x": 0,
+     "y": 16,
+     "pos_x": 0,
+     "pos_y": 16
+    }
+   ]
+  }
+ },
+ {
+  "referenceId": "mv_costumes_mc:jack_o_lantern_clothes",
+  "states": {
+   "type": "asset",
+   "assetId": "multiverse_costumes:jack_o_lantern",
+   "slot": "costume"
+  },
+  "config": {
+   "elements": [
+    {
+     "id": "layer-clothes",
+     "type": "texture_fragment",
+     "target_texture_id": "outfit",
+     "url": "costume/jack_o_lantern.png",
+     "width": 24,
+     "height": 16,
+     "x": 16,
+     "y": 32,
+     "pos_x": 16,
+     "pos_y": 32
+    },
+    {
+     "id": "layer-arm-l",
+     "type": "texture_fragment",
+     "target_texture_id": "outfit",
+     "url": "costume/jack_o_lantern.png",
+     "width": 14,
+     "height": 16,
+     "x": 32,
+     "y": 0,
+     "pos_x": 32,
+     "pos_y": 0
+    },
+    {
+     "id": "layer-arm-r",
+     "type": "texture_fragment",
+     "target_texture_id": "outfit",
+     "url": "costume/jack_o_lantern.png",
+     "width": 14,
+     "height": 16,
+     "x": 40,
+     "y": 32,
+     "pos_x": 40,
+     "pos_y": 32
+    },
+    {
+     "id": "layer-leg-l",
+     "type": "texture_fragment",
+     "target_texture_id": "outfit",
+     "url": "costume/jack_o_lantern.png",
+     "width": 16,
+     "height": 16,
+     "x": 16,
+     "y": 0,
+     "pos_x": 16,
+     "pos_y": 0
+    },
+    {
+     "id": "layer-leg-r",
+     "type": "texture_fragment",
+     "target_texture_id": "outfit",
+     "url": "costume/jack_o_lantern.png",
+     "width": 16,
+     "height": 16,
+     "x": 0,
+     "y": 32,
+     "pos_x": 0,
+     "pos_y": 32
+    }
+   ]
+  }
+ },
+ {
+  "referenceId": "mv_costumes_mc:jack_o_lantern_clothes_overlay",
+  "states": {
+   "type": "asset",
+   "assetId": "multiverse_costumes:jack_o_lantern",
+   "slot": "costume"
+  },
+  "config": {
+   "elements": [
+    {
+     "id": "layer-clothes-overlay",
+     "type": "texture_fragment",
+     "target_texture_id": "outfit",
+     "url": "costume/jack_o_lantern.png",
+     "width": 24,
+     "height": 16,
+     "x": 16,
+     "y": 16,
+     "pos_x": 16,
+     "pos_y": 16
+    },
+    {
+     "id": "layer-arm-l-overlay",
+     "type": "texture_fragment",
+     "target_texture_id": "outfit",
+     "url": "costume/jack_o_lantern.png",
+     "width": 14,
+     "height": 16,
+     "x": 48,
+     "y": 0,
+     "pos_x": 48,
+     "pos_y": 0
+    },
+    {
+     "id": "layer-arm-r-overlay",
+     "type": "texture_fragment",
+     "target_texture_id": "outfit",
+     "url": "costume/jack_o_lantern.png",
+     "width": 14,
+     "height": 16,
+     "x": 40,
+     "y": 16,
+     "pos_x": 40,
+     "pos_y": 16
+    },
+    {
+     "id": "layer-leg-l-overlay",
+     "type": "texture_fragment",
+     "target_texture_id": "outfit",
+     "url": "costume/jack_o_lantern.png",
+     "width": 16,
+     "height": 16,
+     "x": 0,
+     "y": 0,
+     "pos_x": 0,
+     "pos_y": 0
+    },
+    {
+     "id": "layer-leg-r-overlay",
+     "type": "texture_fragment",
+     "target_texture_id": "outfit",
+     "url": "costume/jack_o_lantern.png",
+     "width": 16,
+     "height": 16,
+     "x": 0,
+     "y": 16,
+     "pos_x": 0,
+     "pos_y": 16
+    }
+   ]
+  }
+ },
+ {
+  "referenceId": "mv_costumes_mc:jack_o_lantern_headwear",
+  "states": {
+   "type": "asset",
+   "assetId": "multiverse_costumes:jack_o_lantern",
+   "slot": "costume"
+  },
+  "config": {
+   "elements": [
+    {
+     "id": "layer-hat",
+     "type": "texture_fragment",
+     "target_texture_id": "hat",
+     "url": "costume/jack_o_lantern.png",
+     "width": 32,
+     "height": 16,
+     "x": 0,
+     "y": 48,
+     "pos_x": 0,
+     "pos_y": 48
+    }
+   ]
+  }
+ },
+ {
+  "referenceId": "mv_costumes_mc:jack_o_lantern_headwear_overlay",
+  "states": {
+   "type": "asset",
+   "assetId": "multiverse_costumes:jack_o_lantern",
+   "slot": "costume"
+  },
+  "config": {
+   "elements": [
+    {
+     "id": "layer-hat",
+     "type": "texture_fragment",
+     "target_texture_id": "hat",
+     "url": "costume/jack_o_lantern.png",
+     "width": 32,
+     "height": 16,
+     "x": 32,
+     "y": 48,
+     "pos_x": 32,
+     "pos_y": 48
+    }
+   ]
+  }
+ },
+ {
+  "referenceId": "mv_costumes_mc:kilt_blue_1_face_paint",
+  "states": {
+   "type": "AND",
+   "conditions": [
+    {
+     "note": "Require the corret face paint to be equipped",
+     "type": "asset",
+     "assetId": "multiverse_costumes:kilt_facepaint_1",
+     "slot": "facepaint"
+    },
+    {
+     "type": "asset",
+     "invert": true,
+     "slot": "dimension",
+     "assetId": "moonsama:neon"
+    }
+   ]
+  },
+  "config": {
+   "elements": [
+    {
+     "id": "facepaint_fragment",
+     "type": "texture_fragment",
+     "target_texture_id": "base",
+     "url": "costume_head/kilt_blue_1.png",
+     "pass": "skin",
+     "z-index": 2,
+     "width": 64,
+     "height": 64
+    }
+   ]
+  }
+ },
+ {
+  "referenceId": "mv_costumes_mc:kilt_blue_2_face_paint",
+  "states": {
+   "type": "AND",
+   "conditions": [
+    {
+     "note": "Require the corret face paint to be equipped",
+     "type": "asset",
+     "assetId": "multiverse_costumes:kilt_facepaint_2",
+     "slot": "facepaint"
+    },
+    {
+     "type": "asset",
+     "invert": true,
+     "slot": "dimension",
+     "assetId": "moonsama:neon"
+    }
+   ]
+  },
+  "config": {
+   "elements": [
+    {
+     "id": "facepaint_fragment",
+     "type": "texture_fragment",
+     "target_texture_id": "base",
+     "url": "costume_head/kilt_blue_2.png",
+     "pass": "skin",
+     "z-index": 2,
+     "width": 64,
+     "height": 64
+    }
+   ]
+  }
+ },
+ {
+  "referenceId": "mv_costumes_mc:kilt_blue_3_face_paint",
+  "states": {
+   "type": "AND",
+   "conditions": [
+    {
+     "note": "Require the corret face paint to be equipped",
+     "type": "asset",
+     "assetId": "multiverse_costumes:kilt_facepaint_3",
+     "slot": "facepaint"
+    },
+    {
+     "type": "asset",
+     "invert": true,
+     "slot": "dimension",
+     "assetId": "moonsama:neon"
+    }
+   ]
+  },
+  "config": {
+   "elements": [
+    {
+     "id": "facepaint_fragment",
+     "type": "texture_fragment",
+     "target_texture_id": "base",
+     "url": "costume_head/kilt_blue_3.png",
+     "pass": "skin",
+     "z-index": 2,
+     "width": 64,
+     "height": 64
+    }
+   ]
+  }
+ },
+ {
+  "referenceId": "mv_costumes_mc:kilt_blue_4_face_paint",
+  "states": {
+   "type": "AND",
+   "conditions": [
+    {
+     "note": "Require the corret face paint to be equipped",
+     "type": "asset",
+     "assetId": "multiverse_costumes:kilt_facepaint_4",
+     "slot": "facepaint"
+    },
+    {
+     "type": "asset",
+     "invert": true,
+     "slot": "dimension",
+     "assetId": "moonsama:neon"
+    }
+   ]
+  },
+  "config": {
+   "elements": [
+    {
+     "id": "facepaint_fragment",
+     "type": "texture_fragment",
+     "target_texture_id": "base",
+     "url": "costume_head/kilt_blue_4.png",
+     "pass": "skin",
+     "z-index": 2,
+     "width": 64,
+     "height": 64
+    }
+   ]
+  }
+ },
+ {
+  "referenceId": "mv_costumes_mc:kilt_blue_5_face_paint",
+  "states": {
+   "type": "AND",
+   "conditions": [
+    {
+     "note": "Require the corret face paint to be equipped",
+     "type": "asset",
+     "assetId": "multiverse_costumes:kilt_facepaint_5",
+     "slot": "facepaint"
+    },
+    {
+     "type": "asset",
+     "invert": true,
+     "slot": "dimension",
+     "assetId": "moonsama:neon"
+    }
+   ]
+  },
+  "config": {
+   "elements": [
+    {
+     "id": "facepaint_fragment",
+     "type": "texture_fragment",
+     "target_texture_id": "base",
+     "url": "costume_head/kilt_blue_5.png",
+     "pass": "skin",
+     "z-index": 2,
+     "width": 64,
+     "height": 64
+    }
+   ]
+  }
+ },
+ {
+  "referenceId": "mv_costumes_mc:kilt_blue_6_face_paint",
+  "states": {
+   "type": "AND",
+   "conditions": [
+    {
+     "note": "Require the corret face paint to be equipped",
+     "type": "asset",
+     "assetId": "multiverse_costumes:kilt_facepaint_6",
+     "slot": "facepaint"
+    },
+    {
+     "type": "asset",
+     "invert": true,
+     "slot": "dimension",
+     "assetId": "moonsama:neon"
+    }
+   ]
+  },
+  "config": {
+   "elements": [
+    {
+     "id": "facepaint_fragment",
+     "type": "texture_fragment",
+     "target_texture_id": "base",
+     "url": "costume_head/kilt_blue_6.png",
+     "pass": "skin",
+     "z-index": 2,
+     "width": 64,
+     "height": 64
+    }
+   ]
+  }
+ },
+ {
+  "referenceId": "mv_costumes_mc:kilt_clothes",
+  "states": {
+   "type": "asset",
+   "assetId": "multiverse_costumes:kilt",
+   "slot": "costume"
+  },
+  "config": {
+   "elements": [
+    {
+     "id": "layer-clothes",
+     "type": "texture_fragment",
+     "target_texture_id": "outfit",
+     "url": "costume/kilt.png",
+     "width": 24,
+     "height": 16,
+     "x": 16,
+     "y": 32,
+     "pos_x": 16,
+     "pos_y": 32
+    },
+    {
+     "id": "layer-arm-l",
+     "type": "texture_fragment",
+     "target_texture_id": "outfit",
+     "url": "costume/kilt.png",
+     "width": 14,
+     "height": 16,
+     "x": 32,
+     "y": 0,
+     "pos_x": 32,
+     "pos_y": 0
+    },
+    {
+     "id": "layer-arm-r",
+     "type": "texture_fragment",
+     "target_texture_id": "outfit",
+     "url": "costume/kilt.png",
+     "width": 14,
+     "height": 16,
+     "x": 40,
+     "y": 32,
+     "pos_x": 40,
+     "pos_y": 32
+    },
+    {
+     "id": "layer-leg-l",
+     "type": "texture_fragment",
+     "target_texture_id": "outfit",
+     "url": "costume/kilt.png",
+     "width": 16,
+     "height": 16,
+     "x": 16,
+     "y": 0,
+     "pos_x": 16,
+     "pos_y": 0
+    },
+    {
+     "id": "layer-leg-r",
+     "type": "texture_fragment",
+     "target_texture_id": "outfit",
+     "url": "costume/kilt.png",
+     "width": 16,
+     "height": 16,
+     "x": 0,
+     "y": 32,
+     "pos_x": 0,
+     "pos_y": 32
+    }
+   ]
+  }
+ },
+ {
+  "referenceId": "mv_costumes_mc:kilt_clothes_overlay",
+  "states": {
+   "type": "asset",
+   "assetId": "multiverse_costumes:kilt",
+   "slot": "costume"
+  },
+  "config": {
+   "elements": [
+    {
+     "id": "layer-clothes-overlay",
+     "type": "texture_fragment",
+     "target_texture_id": "outfit",
+     "url": "costume/kilt.png",
+     "width": 24,
+     "height": 16,
+     "x": 16,
+     "y": 16,
+     "pos_x": 16,
+     "pos_y": 16
+    },
+    {
+     "id": "layer-arm-l-overlay",
+     "type": "texture_fragment",
+     "target_texture_id": "outfit",
+     "url": "costume/kilt.png",
+     "width": 14,
+     "height": 16,
+     "x": 48,
+     "y": 0,
+     "pos_x": 48,
+     "pos_y": 0
+    },
+    {
+     "id": "layer-arm-r-overlay",
+     "type": "texture_fragment",
+     "target_texture_id": "outfit",
+     "url": "costume/kilt.png",
+     "width": 14,
+     "height": 16,
+     "x": 40,
+     "y": 16,
+     "pos_x": 40,
+     "pos_y": 16
+    },
+    {
+     "id": "layer-leg-l-overlay",
+     "type": "texture_fragment",
+     "target_texture_id": "outfit",
+     "url": "costume/kilt.png",
+     "width": 16,
+     "height": 16,
+     "x": 0,
+     "y": 0,
+     "pos_x": 0,
+     "pos_y": 0
+    },
+    {
+     "id": "layer-leg-r-overlay",
+     "type": "texture_fragment",
+     "target_texture_id": "outfit",
+     "url": "costume/kilt.png",
+     "width": 16,
+     "height": 16,
+     "x": 0,
+     "y": 16,
+     "pos_x": 0,
+     "pos_y": 16
+    }
+   ]
+  }
+ },
+ {
+  "referenceId": "mv_costumes_mc:kilt_neon_1_face_paint",
+  "states": {
+   "type": "AND",
+   "conditions": [
+    {
+     "note": "Require the corret face paint to be equipped",
+     "type": "asset",
+     "assetId": "multiverse_costumes:kilt_facepaint_1",
+     "slot": "facepaint"
+    },
+    {
+     "type": "asset",
+     "slot": "dimension",
+     "assetId": "moonsama:neon"
+    }
+   ]
+  },
+  "config": {
+   "elements": [
+    {
+     "id": "facepaint_fragment",
+     "type": "texture_fragment",
+     "target_texture_id": "base",
+     "url": "costume_head/kilt_neon_1.png",
+     "pass": "skin",
+     "z-index": 2,
+     "width": 64,
+     "height": 64
+    }
+   ]
+  }
+ },
+ {
+  "referenceId": "mv_costumes_mc:kilt_neon_1_face_paint_fallback",
+  "states": {
+   "type": "AND",
+   "conditions": [
+    {
+     "note": "Require the correct costume to be equipped",
+     "type": "asset",
+     "assetId": "multiverse_costumes:kilt",
+     "slot": "costume"
+    },
+    {
+     "note": "Require no face paint to be equipped",
+     "type": "asset",
+     "invert": true,
+     "assetId": "*",
+     "slot": "facepaint"
+    },
+    {
+     "type": "asset",
+     "slot": "dimension",
+     "assetId": "moonsama:neon"
+    }
+   ]
+  },
+  "config": {
+   "elements": [
+    {
+     "id": "facepaint_fragment",
+     "type": "texture_fragment",
+     "target_texture_id": "base",
+     "url": "costume_head/kilt_neon_1.png",
+     "pass": "skin",
+     "z-index": 2,
+     "width": 64,
+     "height": 64
+    }
+   ]
+  }
+ },
+ {
+  "referenceId": "mv_costumes_mc:kilt_neon_2_face_paint",
+  "states": {
+   "type": "AND",
+   "conditions": [
+    {
+     "note": "Require the corret face paint to be equipped",
+     "type": "asset",
+     "assetId": "multiverse_costumes:kilt_facepaint_2",
+     "slot": "facepaint"
+    },
+    {
+     "type": "asset",
+     "slot": "dimension",
+     "assetId": "moonsama:neon"
+    }
+   ]
+  },
+  "config": {
+   "elements": [
+    {
+     "id": "facepaint_fragment",
+     "type": "texture_fragment",
+     "target_texture_id": "base",
+     "url": "costume_head/kilt_neon_2.png",
+     "pass": "skin",
+     "z-index": 2,
+     "width": 64,
+     "height": 64
+    }
+   ]
+  }
+ },
+ {
+  "referenceId": "mv_costumes_mc:kilt_neon_3_face_paint",
+  "states": {
+   "type": "AND",
+   "conditions": [
+    {
+     "note": "Require the corret face paint to be equipped",
+     "type": "asset",
+     "assetId": "multiverse_costumes:kilt_facepaint_3",
+     "slot": "facepaint"
+    },
+    {
+     "type": "asset",
+     "slot": "dimension",
+     "assetId": "moonsama:neon"
+    }
+   ]
+  },
+  "config": {
+   "elements": [
+    {
+     "id": "facepaint_fragment",
+     "type": "texture_fragment",
+     "target_texture_id": "base",
+     "url": "costume_head/kilt_neon_3.png",
+     "pass": "skin",
+     "z-index": 2,
+     "width": 64,
+     "height": 64
+    }
+   ]
+  }
+ },
+ {
+  "referenceId": "mv_costumes_mc:kilt_neon_4_face_paint",
+  "states": {
+   "type": "AND",
+   "conditions": [
+    {
+     "note": "Require the corret face paint to be equipped",
+     "type": "asset",
+     "assetId": "multiverse_costumes:kilt_facepaint_4",
+     "slot": "facepaint"
+    },
+    {
+     "type": "asset",
+     "slot": "dimension",
+     "assetId": "moonsama:neon"
+    }
+   ]
+  },
+  "config": {
+   "elements": [
+    {
+     "id": "facepaint_fragment",
+     "type": "texture_fragment",
+     "target_texture_id": "base",
+     "url": "costume_head/kilt_neon_4.png",
+     "pass": "skin",
+     "z-index": 2,
+     "width": 64,
+     "height": 64
+    }
+   ]
+  }
+ },
+ {
+  "referenceId": "mv_costumes_mc:kilt_neon_5_face_paint",
+  "states": {
+   "type": "AND",
+   "conditions": [
+    {
+     "note": "Require the corret face paint to be equipped",
+     "type": "asset",
+     "assetId": "multiverse_costumes:kilt_facepaint_5",
+     "slot": "facepaint"
+    },
+    {
+     "type": "asset",
+     "slot": "dimension",
+     "assetId": "moonsama:neon"
+    }
+   ]
+  },
+  "config": {
+   "elements": [
+    {
+     "id": "facepaint_fragment",
+     "type": "texture_fragment",
+     "target_texture_id": "base",
+     "url": "costume_head/kilt_neon_5.png",
+     "pass": "skin",
+     "z-index": 2,
+     "width": 64,
+     "height": 64
+    }
+   ]
+  }
+ },
+ {
+  "referenceId": "mv_costumes_mc:kilt_neon_6_face_paint",
+  "states": {
+   "type": "AND",
+   "conditions": [
+    {
+     "note": "Require the corret face paint to be equipped",
+     "type": "asset",
+     "assetId": "multiverse_costumes:kilt_facepaint_6",
+     "slot": "facepaint"
+    },
+    {
+     "type": "asset",
+     "slot": "dimension",
+     "assetId": "moonsama:neon"
+    }
+   ]
+  },
+  "config": {
+   "elements": [
+    {
+     "id": "facepaint_fragment",
+     "type": "texture_fragment",
+     "target_texture_id": "base",
+     "url": "costume_head/kilt_neon_6.png",
+     "pass": "skin",
+     "z-index": 2,
+     "width": 64,
+     "height": 64
+    }
+   ]
+  }
+ },
+ {
+  "referenceId": "mv_costumes_mc:kringle_kap_headwear",
+  "states": {
+   "type": "asset",
+   "assetId": "multiverse_costumes:kringle_kap",
+   "slot": "costume"
+  },
+  "config": {
+   "elements": [
+    {
+     "id": "layer-hat",
+     "type": "texture_fragment",
+     "target_texture_id": "hat",
+     "url": "costume/kringle_kap.png",
+     "width": 32,
+     "height": 16,
+     "x": 0,
+     "y": 48,
+     "pos_x": 0,
+     "pos_y": 48
+    }
+   ]
+  }
+ },
+ {
+  "referenceId": "mv_costumes_mc:kringle_kap_headwear_overlay",
+  "states": {
+   "type": "asset",
+   "assetId": "multiverse_costumes:kringle_kap",
+   "slot": "costume"
+  },
+  "config": {
+   "elements": [
+    {
+     "id": "layer-hat",
+     "type": "texture_fragment",
+     "target_texture_id": "hat",
+     "url": "costume/kringle_kap.png",
+     "width": 32,
+     "height": 16,
+     "x": 32,
+     "y": 48,
+     "pos_x": 32,
+     "pos_y": 48
+    }
+   ]
+  }
+ },
+ {
+  "referenceId": "mv_costumes_mc:labguard_kit_clothes",
+  "states": {
+   "type": "asset",
+   "assetId": "multiverse_costumes:labguard_kit",
+   "slot": "costume"
+  },
+  "config": {
+   "elements": [
+    {
+     "id": "layer-clothes",
+     "type": "texture_fragment",
+     "target_texture_id": "outfit",
+     "url": "costume/labguard_kit.png",
+     "width": 24,
+     "height": 16,
+     "x": 16,
+     "y": 32,
+     "pos_x": 16,
+     "pos_y": 32
+    },
+    {
+     "id": "layer-arm-l",
+     "type": "texture_fragment",
+     "target_texture_id": "outfit",
+     "url": "costume/labguard_kit.png",
+     "width": 14,
+     "height": 16,
+     "x": 32,
+     "y": 0,
+     "pos_x": 32,
+     "pos_y": 0
+    },
+    {
+     "id": "layer-arm-r",
+     "type": "texture_fragment",
+     "target_texture_id": "outfit",
+     "url": "costume/labguard_kit.png",
+     "width": 14,
+     "height": 16,
+     "x": 40,
+     "y": 32,
+     "pos_x": 40,
+     "pos_y": 32
+    },
+    {
+     "id": "layer-leg-l",
+     "type": "texture_fragment",
+     "target_texture_id": "outfit",
+     "url": "costume/labguard_kit.png",
+     "width": 16,
+     "height": 16,
+     "x": 16,
+     "y": 0,
+     "pos_x": 16,
+     "pos_y": 0
+    },
+    {
+     "id": "layer-leg-r",
+     "type": "texture_fragment",
+     "target_texture_id": "outfit",
+     "url": "costume/labguard_kit.png",
+     "width": 16,
+     "height": 16,
+     "x": 0,
+     "y": 32,
+     "pos_x": 0,
+     "pos_y": 32
+    }
+   ]
+  }
+ },
+ {
+  "referenceId": "mv_costumes_mc:labguard_kit_clothes_overlay",
+  "states": {
+   "type": "asset",
+   "assetId": "multiverse_costumes:labguard_kit",
+   "slot": "costume"
+  },
+  "config": {
+   "elements": [
+    {
+     "id": "layer-clothes-overlay",
+     "type": "texture_fragment",
+     "target_texture_id": "outfit",
+     "url": "costume/labguard_kit.png",
+     "width": 24,
+     "height": 16,
+     "x": 16,
+     "y": 16,
+     "pos_x": 16,
+     "pos_y": 16
+    },
+    {
+     "id": "layer-arm-l-overlay",
+     "type": "texture_fragment",
+     "target_texture_id": "outfit",
+     "url": "costume/labguard_kit.png",
+     "width": 14,
+     "height": 16,
+     "x": 48,
+     "y": 0,
+     "pos_x": 48,
+     "pos_y": 0
+    },
+    {
+     "id": "layer-arm-r-overlay",
+     "type": "texture_fragment",
+     "target_texture_id": "outfit",
+     "url": "costume/labguard_kit.png",
+     "width": 14,
+     "height": 16,
+     "x": 40,
+     "y": 16,
+     "pos_x": 40,
+     "pos_y": 16
+    },
+    {
+     "id": "layer-leg-l-overlay",
+     "type": "texture_fragment",
+     "target_texture_id": "outfit",
+     "url": "costume/labguard_kit.png",
+     "width": 16,
+     "height": 16,
+     "x": 0,
+     "y": 0,
+     "pos_x": 0,
+     "pos_y": 0
+    },
+    {
+     "id": "layer-leg-r-overlay",
+     "type": "texture_fragment",
+     "target_texture_id": "outfit",
+     "url": "costume/labguard_kit.png",
+     "width": 16,
+     "height": 16,
+     "x": 0,
+     "y": 16,
+     "pos_x": 0,
+     "pos_y": 16
+    }
+   ]
+  }
+ },
+ {
+  "referenceId": "mv_costumes_mc:labguard_kit_eyewear",
+  "states": {
+   "type": "asset",
+   "assetId": "multiverse_costumes:labguard_kit",
+   "slot": "costume"
+  },
+  "config": {
+   "elements": [
+    {
+     "id": "layer-eyewear",
+     "type": "texture_fragment",
+     "target_texture_id": "eyes",
+     "url": "costume/labguard_kit.png",
+     "width": 32,
+     "height": 16,
+     "x": 0,
+     "y": 48,
+     "pos_x": 0,
+     "pos_y": 48
+    }
+   ]
+  }
+ },
+ {
+  "referenceId": "mv_costumes_mc:labguard_kit_eyewear_overlay",
+  "states": {
+   "type": "asset",
+   "assetId": "multiverse_costumes:labguard_kit",
+   "slot": "costume"
+  },
+  "config": {
+   "elements": [
+    {
+     "id": "layer-eyewear",
+     "type": "texture_fragment",
+     "target_texture_id": "eyes",
+     "url": "costume/labguard_kit.png",
+     "width": 32,
+     "height": 16,
+     "x": 32,
+     "y": 48,
+     "pos_x": 32,
+     "pos_y": 48
+    }
+   ]
+  }
+ },
+ {
+  "referenceId": "mv_costumes_mc:mechtech_kit_clothes",
+  "states": {
+   "type": "asset",
+   "assetId": "multiverse_costumes:mechtech_kit",
+   "slot": "costume"
+  },
+  "config": {
+   "elements": [
+    {
+     "id": "layer-clothes",
+     "type": "texture_fragment",
+     "target_texture_id": "outfit",
+     "url": "costume/mechtech_kit.png",
+     "width": 24,
+     "height": 16,
+     "x": 16,
+     "y": 32,
+     "pos_x": 16,
+     "pos_y": 32
+    },
+    {
+     "id": "layer-arm-l",
+     "type": "texture_fragment",
+     "target_texture_id": "outfit",
+     "url": "costume/mechtech_kit.png",
+     "width": 14,
+     "height": 16,
+     "x": 32,
+     "y": 0,
+     "pos_x": 32,
+     "pos_y": 0
+    },
+    {
+     "id": "layer-arm-r",
+     "type": "texture_fragment",
+     "target_texture_id": "outfit",
+     "url": "costume/mechtech_kit.png",
+     "width": 14,
+     "height": 16,
+     "x": 40,
+     "y": 32,
+     "pos_x": 40,
+     "pos_y": 32
+    },
+    {
+     "id": "layer-leg-l",
+     "type": "texture_fragment",
+     "target_texture_id": "outfit",
+     "url": "costume/mechtech_kit.png",
+     "width": 16,
+     "height": 16,
+     "x": 16,
+     "y": 0,
+     "pos_x": 16,
+     "pos_y": 0
+    },
+    {
+     "id": "layer-leg-r",
+     "type": "texture_fragment",
+     "target_texture_id": "outfit",
+     "url": "costume/mechtech_kit.png",
+     "width": 16,
+     "height": 16,
+     "x": 0,
+     "y": 32,
+     "pos_x": 0,
+     "pos_y": 32
+    }
+   ]
+  }
+ },
+ {
+  "referenceId": "mv_costumes_mc:mechtech_kit_clothes_overlay",
+  "states": {
+   "type": "asset",
+   "assetId": "multiverse_costumes:mechtech_kit",
+   "slot": "costume"
+  },
+  "config": {
+   "elements": [
+    {
+     "id": "layer-clothes-overlay",
+     "type": "texture_fragment",
+     "target_texture_id": "outfit",
+     "url": "costume/mechtech_kit.png",
+     "width": 24,
+     "height": 16,
+     "x": 16,
+     "y": 16,
+     "pos_x": 16,
+     "pos_y": 16
+    },
+    {
+     "id": "layer-arm-l-overlay",
+     "type": "texture_fragment",
+     "target_texture_id": "outfit",
+     "url": "costume/mechtech_kit.png",
+     "width": 14,
+     "height": 16,
+     "x": 48,
+     "y": 0,
+     "pos_x": 48,
+     "pos_y": 0
+    },
+    {
+     "id": "layer-arm-r-overlay",
+     "type": "texture_fragment",
+     "target_texture_id": "outfit",
+     "url": "costume/mechtech_kit.png",
+     "width": 14,
+     "height": 16,
+     "x": 40,
+     "y": 16,
+     "pos_x": 40,
+     "pos_y": 16
+    },
+    {
+     "id": "layer-leg-l-overlay",
+     "type": "texture_fragment",
+     "target_texture_id": "outfit",
+     "url": "costume/mechtech_kit.png",
+     "width": 16,
+     "height": 16,
+     "x": 0,
+     "y": 0,
+     "pos_x": 0,
+     "pos_y": 0
+    },
+    {
+     "id": "layer-leg-r-overlay",
+     "type": "texture_fragment",
+     "target_texture_id": "outfit",
+     "url": "costume/mechtech_kit.png",
+     "width": 16,
+     "height": 16,
+     "x": 0,
+     "y": 16,
+     "pos_x": 0,
+     "pos_y": 16
+    }
+   ]
+  }
+ },
+ {
+  "referenceId": "mv_costumes_mc:mechtech_kit_headwear",
+  "states": {
+   "type": "asset",
+   "assetId": "multiverse_costumes:mechtech_kit",
+   "slot": "costume"
+  },
+  "config": {
+   "elements": [
+    {
+     "id": "layer-hat",
+     "type": "texture_fragment",
+     "target_texture_id": "hat",
+     "url": "costume/mechtech_kit.png",
+     "width": 32,
+     "height": 16,
+     "x": 0,
+     "y": 48,
+     "pos_x": 0,
+     "pos_y": 48
+    }
+   ]
+  }
+ },
+ {
+  "referenceId": "mv_costumes_mc:mechtech_kit_headwear_overlay",
+  "states": {
+   "type": "asset",
+   "assetId": "multiverse_costumes:mechtech_kit",
+   "slot": "costume"
+  },
+  "config": {
+   "elements": [
+    {
+     "id": "layer-hat",
+     "type": "texture_fragment",
+     "target_texture_id": "hat",
+     "url": "costume/mechtech_kit.png",
+     "width": 32,
+     "height": 16,
+     "x": 32,
+     "y": 48,
+     "pos_x": 32,
+     "pos_y": 48
+    }
+   ]
+  }
+ },
+ {
+  "referenceId": "mv_costumes_mc:minecraft_settings",
+  "states": {},
+  "config": {
+   "output": {
+    "width": 64,
+    "height": 64,
+    "result": "render",
+    "camera_x": 32,
+    "camera_y": 32,
+    "camera_size": 32,
+    "transparency": true,
+    "camera_z": -100
+   },
+   "elements": [
+    {
+     "type": "sprite",
+     "bone": "global",
+     "url": "#composition",
+     "pass": "default",
+     "z-index": 0,
+     "blend": "default",
+     "opacity": 1,
+     "width": 64,
+     "height": 64,
+     "x": 0,
+     "y": 0,
+     "pivot_x": 0,
+     "pivot_y": 0,
+     "scale": 1
+    }
+   ]
+  }
+ },
+ {
+  "referenceId": "mv_costumes_mc:pods_headwear",
+  "states": {
+   "type": "asset",
+   "assetId": "multiverse_costumes:pods",
+   "slot": "costume"
+  },
+  "config": {
+   "elements": [
+    {
+     "id": "layer-hat",
+     "type": "texture_fragment",
+     "target_texture_id": "hat",
+     "url": "costume/pods.png",
+     "width": 32,
+     "height": 16,
+     "x": 0,
+     "y": 48,
+     "pos_x": 0,
+     "pos_y": 48
+    }
+   ]
+  }
+ },
+ {
+  "referenceId": "mv_costumes_mc:pods_headwear_overlay",
+  "states": {
+   "type": "asset",
+   "assetId": "multiverse_costumes:pods",
+   "slot": "costume"
+  },
+  "config": {
+   "elements": [
+    {
+     "id": "layer-hat",
+     "type": "texture_fragment",
+     "target_texture_id": "hat",
+     "url": "costume/pods.png",
+     "width": 32,
+     "height": 16,
+     "x": 32,
+     "y": 48,
+     "pos_x": 32,
+     "pos_y": 48
+    }
+   ]
+  }
+ },
+ {
+  "referenceId": "mv_costumes_mc:preview_settings",
+  "states": {},
+  "config": {
+   "elements": [
+    {
+     "id": "model",
+     "type": "model",
+     "bone": "global",
+     "url": "model/alex.glb",
+     "rotation": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+     },
+     "textures": [
+      {
+       "material": "skin",
+       "texture": "_MainTex",
+       "url": "#composition"
+      }
+     ]
+    },
+    {
+     "id": "background",
+     "type": "sprite",
+     "bone": "background",
+     "url": "background/landscape.jpg",
+     "pass": "default",
+     "z-index": 0,
+     "blend": "default",
+     "opacity": 1,
+     "coordinates": "uv",
+     "width": 1,
+     "height": 1,
+     "x": 0,
+     "y": 0,
+     "pivot_x": 0,
+     "pivot_y": 0,
+     "scale": 320
+    }
+   ],
+   "output": {
+    "width": 300,
+    "height": 300,
+    "result": "render",
+    "camera_projection": "perspective",
+    "camera_x": -1.9,
+    "camera_y": 1.9,
+    "camera_z": 3.3,
+    "camera_rotation_x": 13,
+    "camera_rotation_y": 150,
+    "transparency": true
+   },
+   "skeleton": [
+    {
+     "id": "background",
+     "parent": "global",
+     "rotation": {
+      "x": 13,
+      "y": 150,
+      "z": 0
+     },
+     "position": {
+      "x": 3.62,
+      "y": -2.152,
+      "z": -1.46
+     },
+     "scale": {
+      "x": 0.015,
+      "y": 0.015,
+      "z": 0.015
+     }
+    },
+    {
+     "id": "head",
+     "scale": {
+      "x": 0.04,
+      "y": 0.04,
+      "z": 0.04
+     },
+     "position": {
+      "x": 0,
+      "y": 1.75,
+      "z": 0
+     },
+     "parent": "global"
+    }
+   ]
+  }
+ },
+ {
+  "referenceId": "mv_costumes_mc:rabbits_delight_clothes",
+  "states": {
+   "type": "asset",
+   "assetId": "multiverse_costumes:rabbits_delight",
+   "slot": "costume"
+  },
+  "config": {
+   "elements": [
+    {
+     "id": "layer-clothes",
+     "type": "texture_fragment",
+     "target_texture_id": "outfit",
+     "url": "costume/rabbits_delight.png",
+     "width": 24,
+     "height": 16,
+     "x": 16,
+     "y": 32,
+     "pos_x": 16,
+     "pos_y": 32
+    },
+    {
+     "id": "layer-arm-l",
+     "type": "texture_fragment",
+     "target_texture_id": "outfit",
+     "url": "costume/rabbits_delight.png",
+     "width": 14,
+     "height": 16,
+     "x": 32,
+     "y": 0,
+     "pos_x": 32,
+     "pos_y": 0
+    },
+    {
+     "id": "layer-arm-r",
+     "type": "texture_fragment",
+     "target_texture_id": "outfit",
+     "url": "costume/rabbits_delight.png",
+     "width": 14,
+     "height": 16,
+     "x": 40,
+     "y": 32,
+     "pos_x": 40,
+     "pos_y": 32
+    },
+    {
+     "id": "layer-leg-l",
+     "type": "texture_fragment",
+     "target_texture_id": "outfit",
+     "url": "costume/rabbits_delight.png",
+     "width": 16,
+     "height": 16,
+     "x": 16,
+     "y": 0,
+     "pos_x": 16,
+     "pos_y": 0
+    },
+    {
+     "id": "layer-leg-r",
+     "type": "texture_fragment",
+     "target_texture_id": "outfit",
+     "url": "costume/rabbits_delight.png",
+     "width": 16,
+     "height": 16,
+     "x": 0,
+     "y": 32,
+     "pos_x": 0,
+     "pos_y": 32
+    }
+   ]
+  }
+ },
+ {
+  "referenceId": "mv_costumes_mc:rabbits_delight_clothes_overlay",
+  "states": {
+   "type": "asset",
+   "assetId": "multiverse_costumes:rabbits_delight",
+   "slot": "costume"
+  },
+  "config": {
+   "elements": [
+    {
+     "id": "layer-clothes-overlay",
+     "type": "texture_fragment",
+     "target_texture_id": "outfit",
+     "url": "costume/rabbits_delight.png",
+     "width": 24,
+     "height": 16,
+     "x": 16,
+     "y": 16,
+     "pos_x": 16,
+     "pos_y": 16
+    },
+    {
+     "id": "layer-arm-l-overlay",
+     "type": "texture_fragment",
+     "target_texture_id": "outfit",
+     "url": "costume/rabbits_delight.png",
+     "width": 14,
+     "height": 16,
+     "x": 48,
+     "y": 0,
+     "pos_x": 48,
+     "pos_y": 0
+    },
+    {
+     "id": "layer-arm-r-overlay",
+     "type": "texture_fragment",
+     "target_texture_id": "outfit",
+     "url": "costume/rabbits_delight.png",
+     "width": 14,
+     "height": 16,
+     "x": 40,
+     "y": 16,
+     "pos_x": 40,
+     "pos_y": 16
+    },
+    {
+     "id": "layer-leg-l-overlay",
+     "type": "texture_fragment",
+     "target_texture_id": "outfit",
+     "url": "costume/rabbits_delight.png",
+     "width": 16,
+     "height": 16,
+     "x": 0,
+     "y": 0,
+     "pos_x": 0,
+     "pos_y": 0
+    },
+    {
+     "id": "layer-leg-r-overlay",
+     "type": "texture_fragment",
+     "target_texture_id": "outfit",
+     "url": "costume/rabbits_delight.png",
+     "width": 16,
+     "height": 16,
+     "x": 0,
+     "y": 16,
+     "pos_x": 0,
+     "pos_y": 16
+    }
+   ]
+  }
+ },
+ {
+  "referenceId": "mv_costumes_mc:rabbits_delight_headwear",
+  "states": {
+   "type": "asset",
+   "assetId": "multiverse_costumes:rabbits_delight",
+   "slot": "costume"
+  },
+  "config": {
+   "elements": [
+    {
+     "id": "layer-hat",
+     "type": "texture_fragment",
+     "target_texture_id": "hat",
+     "url": "costume/rabbits_delight.png",
+     "width": 32,
+     "height": 16,
+     "x": 0,
+     "y": 48,
+     "pos_x": 0,
+     "pos_y": 48
+    }
+   ]
+  }
+ },
+ {
+  "referenceId": "mv_costumes_mc:rabbits_delight_headwear_overlay",
+  "states": {
+   "type": "asset",
+   "assetId": "multiverse_costumes:rabbits_delight",
+   "slot": "costume"
+  },
+  "config": {
+   "elements": [
+    {
+     "id": "layer-hat",
+     "type": "texture_fragment",
+     "target_texture_id": "hat",
+     "url": "costume/rabbits_delight.png",
+     "width": 32,
+     "height": 16,
+     "x": 32,
+     "y": 48,
+     "pos_x": 32,
+     "pos_y": 48
+    }
+   ]
+  }
+ },
+ {
+  "referenceId": "mv_costumes_mc:reindeer_gear_clothes",
+  "states": {
+   "type": "asset",
+   "assetId": "multiverse_costumes:reindeer_gear",
+   "slot": "costume"
+  },
+  "config": {
+   "elements": [
+    {
+     "id": "layer-clothes",
+     "type": "texture_fragment",
+     "target_texture_id": "outfit",
+     "url": "costume/reindeer_gear.png",
+     "width": 24,
+     "height": 16,
+     "x": 16,
+     "y": 32,
+     "pos_x": 16,
+     "pos_y": 32
+    },
+    {
+     "id": "layer-arm-l",
+     "type": "texture_fragment",
+     "target_texture_id": "outfit",
+     "url": "costume/reindeer_gear.png",
+     "width": 14,
+     "height": 16,
+     "x": 32,
+     "y": 0,
+     "pos_x": 32,
+     "pos_y": 0
+    },
+    {
+     "id": "layer-arm-r",
+     "type": "texture_fragment",
+     "target_texture_id": "outfit",
+     "url": "costume/reindeer_gear.png",
+     "width": 14,
+     "height": 16,
+     "x": 40,
+     "y": 32,
+     "pos_x": 40,
+     "pos_y": 32
+    },
+    {
+     "id": "layer-leg-l",
+     "type": "texture_fragment",
+     "target_texture_id": "outfit",
+     "url": "costume/reindeer_gear.png",
+     "width": 16,
+     "height": 16,
+     "x": 16,
+     "y": 0,
+     "pos_x": 16,
+     "pos_y": 0
+    },
+    {
+     "id": "layer-leg-r",
+     "type": "texture_fragment",
+     "target_texture_id": "outfit",
+     "url": "costume/reindeer_gear.png",
+     "width": 16,
+     "height": 16,
+     "x": 0,
+     "y": 32,
+     "pos_x": 0,
+     "pos_y": 32
+    }
+   ]
+  }
+ },
+ {
+  "referenceId": "mv_costumes_mc:reindeer_gear_clothes_overlay",
+  "states": {
+   "type": "asset",
+   "assetId": "multiverse_costumes:reindeer_gear",
+   "slot": "costume"
+  },
+  "config": {
+   "elements": [
+    {
+     "id": "layer-clothes-overlay",
+     "type": "texture_fragment",
+     "target_texture_id": "outfit",
+     "url": "costume/reindeer_gear.png",
+     "width": 24,
+     "height": 16,
+     "x": 16,
+     "y": 16,
+     "pos_x": 16,
+     "pos_y": 16
+    },
+    {
+     "id": "layer-arm-l-overlay",
+     "type": "texture_fragment",
+     "target_texture_id": "outfit",
+     "url": "costume/reindeer_gear.png",
+     "width": 14,
+     "height": 16,
+     "x": 48,
+     "y": 0,
+     "pos_x": 48,
+     "pos_y": 0
+    },
+    {
+     "id": "layer-arm-r-overlay",
+     "type": "texture_fragment",
+     "target_texture_id": "outfit",
+     "url": "costume/reindeer_gear.png",
+     "width": 14,
+     "height": 16,
+     "x": 40,
+     "y": 16,
+     "pos_x": 40,
+     "pos_y": 16
+    },
+    {
+     "id": "layer-leg-l-overlay",
+     "type": "texture_fragment",
+     "target_texture_id": "outfit",
+     "url": "costume/reindeer_gear.png",
+     "width": 16,
+     "height": 16,
+     "x": 0,
+     "y": 0,
+     "pos_x": 0,
+     "pos_y": 0
+    },
+    {
+     "id": "layer-leg-r-overlay",
+     "type": "texture_fragment",
+     "target_texture_id": "outfit",
+     "url": "costume/reindeer_gear.png",
+     "width": 16,
+     "height": 16,
+     "x": 0,
+     "y": 16,
+     "pos_x": 0,
+     "pos_y": 16
+    }
+   ]
+  }
+ },
+ {
+  "referenceId": "mv_costumes_mc:reindeer_gear_headwear",
+  "states": {
+   "type": "asset",
+   "assetId": "multiverse_costumes:reindeer_gear",
+   "slot": "costume"
+  },
+  "config": {
+   "elements": [
+    {
+     "id": "layer-hat",
+     "type": "texture_fragment",
+     "target_texture_id": "hat",
+     "url": "costume/reindeer_gear.png",
+     "width": 32,
+     "height": 16,
+     "x": 0,
+     "y": 48,
+     "pos_x": 0,
+     "pos_y": 48
+    }
+   ]
+  }
+ },
+ {
+  "referenceId": "mv_costumes_mc:reindeer_gear_headwear_overlay",
+  "states": {
+   "type": "asset",
+   "assetId": "multiverse_costumes:reindeer_gear",
+   "slot": "costume"
+  },
+  "config": {
+   "elements": [
+    {
+     "id": "layer-hat",
+     "type": "texture_fragment",
+     "target_texture_id": "hat",
+     "url": "costume/reindeer_gear.png",
+     "width": 32,
+     "height": 16,
+     "x": 32,
+     "y": 48,
+     "pos_x": 32,
+     "pos_y": 48
+    }
+   ]
+  }
+ },
+ {
+  "referenceId": "mv_costumes_mc:sewershield_kit_clothes",
+  "states": {
+   "type": "asset",
+   "assetId": "multiverse_costumes:sewershield_kit",
+   "slot": "costume"
+  },
+  "config": {
+   "elements": [
+    {
+     "id": "layer-clothes",
+     "type": "texture_fragment",
+     "target_texture_id": "outfit",
+     "url": "costume/sewershield_kit.png",
+     "width": 24,
+     "height": 16,
+     "x": 16,
+     "y": 32,
+     "pos_x": 16,
+     "pos_y": 32
+    },
+    {
+     "id": "layer-arm-l",
+     "type": "texture_fragment",
+     "target_texture_id": "outfit",
+     "url": "costume/sewershield_kit.png",
+     "width": 14,
+     "height": 16,
+     "x": 32,
+     "y": 0,
+     "pos_x": 32,
+     "pos_y": 0
+    },
+    {
+     "id": "layer-arm-r",
+     "type": "texture_fragment",
+     "target_texture_id": "outfit",
+     "url": "costume/sewershield_kit.png",
+     "width": 14,
+     "height": 16,
+     "x": 40,
+     "y": 32,
+     "pos_x": 40,
+     "pos_y": 32
+    },
+    {
+     "id": "layer-leg-l",
+     "type": "texture_fragment",
+     "target_texture_id": "outfit",
+     "url": "costume/sewershield_kit.png",
+     "width": 16,
+     "height": 16,
+     "x": 16,
+     "y": 0,
+     "pos_x": 16,
+     "pos_y": 0
+    },
+    {
+     "id": "layer-leg-r",
+     "type": "texture_fragment",
+     "target_texture_id": "outfit",
+     "url": "costume/sewershield_kit.png",
+     "width": 16,
+     "height": 16,
+     "x": 0,
+     "y": 32,
+     "pos_x": 0,
+     "pos_y": 32
+    }
+   ]
+  }
+ },
+ {
+  "referenceId": "mv_costumes_mc:sewershield_kit_clothes_overlay",
+  "states": {
+   "type": "asset",
+   "assetId": "multiverse_costumes:sewershield_kit",
+   "slot": "costume"
+  },
+  "config": {
+   "elements": [
+    {
+     "id": "layer-clothes-overlay",
+     "type": "texture_fragment",
+     "target_texture_id": "outfit",
+     "url": "costume/sewershield_kit.png",
+     "width": 24,
+     "height": 16,
+     "x": 16,
+     "y": 16,
+     "pos_x": 16,
+     "pos_y": 16
+    },
+    {
+     "id": "layer-arm-l-overlay",
+     "type": "texture_fragment",
+     "target_texture_id": "outfit",
+     "url": "costume/sewershield_kit.png",
+     "width": 14,
+     "height": 16,
+     "x": 48,
+     "y": 0,
+     "pos_x": 48,
+     "pos_y": 0
+    },
+    {
+     "id": "layer-arm-r-overlay",
+     "type": "texture_fragment",
+     "target_texture_id": "outfit",
+     "url": "costume/sewershield_kit.png",
+     "width": 14,
+     "height": 16,
+     "x": 40,
+     "y": 16,
+     "pos_x": 40,
+     "pos_y": 16
+    },
+    {
+     "id": "layer-leg-l-overlay",
+     "type": "texture_fragment",
+     "target_texture_id": "outfit",
+     "url": "costume/sewershield_kit.png",
+     "width": 16,
+     "height": 16,
+     "x": 0,
+     "y": 0,
+     "pos_x": 0,
+     "pos_y": 0
+    },
+    {
+     "id": "layer-leg-r-overlay",
+     "type": "texture_fragment",
+     "target_texture_id": "outfit",
+     "url": "costume/sewershield_kit.png",
+     "width": 16,
+     "height": 16,
+     "x": 0,
+     "y": 16,
+     "pos_x": 0,
+     "pos_y": 16
+    }
+   ]
+  }
+ },
+ {
+  "referenceId": "mv_costumes_mc:sewershield_kit_headwear",
+  "states": {
+   "type": "asset",
+   "assetId": "multiverse_costumes:sewershield_kit",
+   "slot": "costume"
+  },
+  "config": {
+   "elements": [
+    {
+     "id": "layer-hat",
+     "type": "texture_fragment",
+     "target_texture_id": "hat",
+     "url": "costume/sewershield_kit.png",
+     "width": 32,
+     "height": 16,
+     "x": 0,
+     "y": 48,
+     "pos_x": 0,
+     "pos_y": 48
+    }
+   ]
+  }
+ },
+ {
+  "referenceId": "mv_costumes_mc:sewershield_kit_headwear_overlay",
+  "states": {
+   "type": "asset",
+   "assetId": "multiverse_costumes:sewershield_kit",
+   "slot": "costume"
+  },
+  "config": {
+   "elements": [
+    {
+     "id": "layer-hat",
+     "type": "texture_fragment",
+     "target_texture_id": "hat",
+     "url": "costume/sewershield_kit.png",
+     "width": 32,
+     "height": 16,
+     "x": 32,
+     "y": 48,
+     "pos_x": 32,
+     "pos_y": 48
+    }
+   ]
+  }
+ },
+ {
+  "referenceId": "mv_costumes_mc:slum_chic_kit_clothes",
+  "states": {
+   "type": "asset",
+   "assetId": "multiverse_costumes:slum_chic_kit",
+   "slot": "costume"
+  },
+  "config": {
+   "elements": [
+    {
+     "id": "layer-clothes",
+     "type": "texture_fragment",
+     "target_texture_id": "outfit",
+     "url": "costume/slum_chic_kit.png",
+     "width": 24,
+     "height": 16,
+     "x": 16,
+     "y": 32,
+     "pos_x": 16,
+     "pos_y": 32
+    },
+    {
+     "id": "layer-arm-l",
+     "type": "texture_fragment",
+     "target_texture_id": "outfit",
+     "url": "costume/slum_chic_kit.png",
+     "width": 14,
+     "height": 16,
+     "x": 32,
+     "y": 0,
+     "pos_x": 32,
+     "pos_y": 0
+    },
+    {
+     "id": "layer-arm-r",
+     "type": "texture_fragment",
+     "target_texture_id": "outfit",
+     "url": "costume/slum_chic_kit.png",
+     "width": 14,
+     "height": 16,
+     "x": 40,
+     "y": 32,
+     "pos_x": 40,
+     "pos_y": 32
+    },
+    {
+     "id": "layer-leg-l",
+     "type": "texture_fragment",
+     "target_texture_id": "outfit",
+     "url": "costume/slum_chic_kit.png",
+     "width": 16,
+     "height": 16,
+     "x": 16,
+     "y": 0,
+     "pos_x": 16,
+     "pos_y": 0
+    },
+    {
+     "id": "layer-leg-r",
+     "type": "texture_fragment",
+     "target_texture_id": "outfit",
+     "url": "costume/slum_chic_kit.png",
+     "width": 16,
+     "height": 16,
+     "x": 0,
+     "y": 32,
+     "pos_x": 0,
+     "pos_y": 32
+    }
+   ]
+  }
+ },
+ {
+  "referenceId": "mv_costumes_mc:slum_chic_kit_clothes_overlay",
+  "states": {
+   "type": "asset",
+   "assetId": "multiverse_costumes:slum_chic_kit",
+   "slot": "costume"
+  },
+  "config": {
+   "elements": [
+    {
+     "id": "layer-clothes-overlay",
+     "type": "texture_fragment",
+     "target_texture_id": "outfit",
+     "url": "costume/slum_chic_kit.png",
+     "width": 24,
+     "height": 16,
+     "x": 16,
+     "y": 16,
+     "pos_x": 16,
+     "pos_y": 16
+    },
+    {
+     "id": "layer-arm-l-overlay",
+     "type": "texture_fragment",
+     "target_texture_id": "outfit",
+     "url": "costume/slum_chic_kit.png",
+     "width": 14,
+     "height": 16,
+     "x": 48,
+     "y": 0,
+     "pos_x": 48,
+     "pos_y": 0
+    },
+    {
+     "id": "layer-arm-r-overlay",
+     "type": "texture_fragment",
+     "target_texture_id": "outfit",
+     "url": "costume/slum_chic_kit.png",
+     "width": 14,
+     "height": 16,
+     "x": 40,
+     "y": 16,
+     "pos_x": 40,
+     "pos_y": 16
+    },
+    {
+     "id": "layer-leg-l-overlay",
+     "type": "texture_fragment",
+     "target_texture_id": "outfit",
+     "url": "costume/slum_chic_kit.png",
+     "width": 16,
+     "height": 16,
+     "x": 0,
+     "y": 0,
+     "pos_x": 0,
+     "pos_y": 0
+    },
+    {
+     "id": "layer-leg-r-overlay",
+     "type": "texture_fragment",
+     "target_texture_id": "outfit",
+     "url": "costume/slum_chic_kit.png",
+     "width": 16,
+     "height": 16,
+     "x": 0,
+     "y": 16,
+     "pos_x": 0,
+     "pos_y": 16
+    }
+   ]
+  }
+ },
+ {
+  "referenceId": "mv_costumes_mc:slum_chic_kit_headwear",
+  "states": {
+   "type": "asset",
+   "assetId": "multiverse_costumes:slum_chic_kit",
+   "slot": "costume"
+  },
+  "config": {
+   "elements": [
+    {
+     "id": "layer-hat",
+     "type": "texture_fragment",
+     "target_texture_id": "hat",
+     "url": "costume/slum_chic_kit.png",
+     "width": 32,
+     "height": 16,
+     "x": 0,
+     "y": 48,
+     "pos_x": 0,
+     "pos_y": 48
+    }
+   ]
+  }
+ },
+ {
+  "referenceId": "mv_costumes_mc:slum_chic_kit_headwear_overlay",
+  "states": {
+   "type": "asset",
+   "assetId": "multiverse_costumes:slum_chic_kit",
+   "slot": "costume"
+  },
+  "config": {
+   "elements": [
+    {
+     "id": "layer-hat",
+     "type": "texture_fragment",
+     "target_texture_id": "hat",
+     "url": "costume/slum_chic_kit.png",
+     "width": 32,
+     "height": 16,
+     "x": 32,
+     "y": 48,
+     "pos_x": 32,
+     "pos_y": 48
+    }
+   ]
+  }
+ },
+ {
+  "referenceId": "mv_costumes_mc:tiara_headwear",
+  "states": {
+   "type": "asset",
+   "assetId": "multiverse_costumes:tiara",
+   "slot": "costume"
+  },
+  "config": {
+   "elements": [
+    {
+     "id": "layer-hat",
+     "type": "texture_fragment",
+     "target_texture_id": "hat",
+     "url": "costume/tiara.png",
+     "width": 32,
+     "height": 16,
+     "x": 0,
+     "y": 48,
+     "pos_x": 0,
+     "pos_y": 48
+    }
+   ]
+  }
+ },
+ {
+  "referenceId": "mv_costumes_mc:tiara_headwear_overlay",
+  "states": {
+   "type": "asset",
+   "assetId": "multiverse_costumes:tiara",
+   "slot": "costume"
+  },
+  "config": {
+   "elements": [
+    {
+     "id": "layer-hat",
+     "type": "texture_fragment",
+     "target_texture_id": "hat",
+     "url": "costume/tiara.png",
+     "width": 32,
+     "height": 16,
+     "x": 32,
+     "y": 48,
+     "pos_x": 32,
+     "pos_y": 48
+    }
+   ]
+  }
+ },
+ {
+  "referenceId": "mv_costumes_mc:unicorn_onesie_clothes",
+  "states": {
+   "type": "asset",
+   "assetId": "multiverse_costumes:unicorn_onesie",
+   "slot": "costume"
+  },
+  "config": {
+   "elements": [
+    {
+     "id": "layer-clothes",
+     "type": "texture_fragment",
+     "target_texture_id": "outfit",
+     "url": "costume/unicorn_onesie.png",
+     "width": 24,
+     "height": 16,
+     "x": 16,
+     "y": 32,
+     "pos_x": 16,
+     "pos_y": 32
+    },
+    {
+     "id": "layer-arm-l",
+     "type": "texture_fragment",
+     "target_texture_id": "outfit",
+     "url": "costume/unicorn_onesie.png",
+     "width": 14,
+     "height": 16,
+     "x": 32,
+     "y": 0,
+     "pos_x": 32,
+     "pos_y": 0
+    },
+    {
+     "id": "layer-arm-r",
+     "type": "texture_fragment",
+     "target_texture_id": "outfit",
+     "url": "costume/unicorn_onesie.png",
+     "width": 14,
+     "height": 16,
+     "x": 40,
+     "y": 32,
+     "pos_x": 40,
+     "pos_y": 32
+    },
+    {
+     "id": "layer-leg-l",
+     "type": "texture_fragment",
+     "target_texture_id": "outfit",
+     "url": "costume/unicorn_onesie.png",
+     "width": 16,
+     "height": 16,
+     "x": 16,
+     "y": 0,
+     "pos_x": 16,
+     "pos_y": 0
+    },
+    {
+     "id": "layer-leg-r",
+     "type": "texture_fragment",
+     "target_texture_id": "outfit",
+     "url": "costume/unicorn_onesie.png",
+     "width": 16,
+     "height": 16,
+     "x": 0,
+     "y": 32,
+     "pos_x": 0,
+     "pos_y": 32
+    }
+   ]
+  }
+ },
+ {
+  "referenceId": "mv_costumes_mc:unicorn_onesie_clothes_overlay",
+  "states": {
+   "type": "asset",
+   "assetId": "multiverse_costumes:unicorn_onesie",
+   "slot": "costume"
+  },
+  "config": {
+   "elements": [
+    {
+     "id": "layer-clothes-overlay",
+     "type": "texture_fragment",
+     "target_texture_id": "outfit",
+     "url": "costume/unicorn_onesie.png",
+     "width": 24,
+     "height": 16,
+     "x": 16,
+     "y": 16,
+     "pos_x": 16,
+     "pos_y": 16
+    },
+    {
+     "id": "layer-arm-l-overlay",
+     "type": "texture_fragment",
+     "target_texture_id": "outfit",
+     "url": "costume/unicorn_onesie.png",
+     "width": 14,
+     "height": 16,
+     "x": 48,
+     "y": 0,
+     "pos_x": 48,
+     "pos_y": 0
+    },
+    {
+     "id": "layer-arm-r-overlay",
+     "type": "texture_fragment",
+     "target_texture_id": "outfit",
+     "url": "costume/unicorn_onesie.png",
+     "width": 14,
+     "height": 16,
+     "x": 40,
+     "y": 16,
+     "pos_x": 40,
+     "pos_y": 16
+    },
+    {
+     "id": "layer-leg-l-overlay",
+     "type": "texture_fragment",
+     "target_texture_id": "outfit",
+     "url": "costume/unicorn_onesie.png",
+     "width": 16,
+     "height": 16,
+     "x": 0,
+     "y": 0,
+     "pos_x": 0,
+     "pos_y": 0
+    },
+    {
+     "id": "layer-leg-r-overlay",
+     "type": "texture_fragment",
+     "target_texture_id": "outfit",
+     "url": "costume/unicorn_onesie.png",
+     "width": 16,
+     "height": 16,
+     "x": 0,
+     "y": 16,
+     "pos_x": 0,
+     "pos_y": 16
+    }
+   ]
+  }
+ },
+ {
+  "referenceId": "mv_costumes_mc:unicorn_onesie_headwear",
+  "states": {
+   "type": "asset",
+   "assetId": "multiverse_costumes:unicorn_onesie",
+   "slot": "costume"
+  },
+  "config": {
+   "elements": [
+    {
+     "id": "layer-hat",
+     "type": "texture_fragment",
+     "target_texture_id": "hat",
+     "url": "costume/unicorn_onesie.png",
+     "width": 32,
+     "height": 16,
+     "x": 0,
+     "y": 48,
+     "pos_x": 0,
+     "pos_y": 48
+    }
+   ]
+  }
+ },
+ {
+  "referenceId": "mv_costumes_mc:unicorn_onesie_headwear_overlay",
+  "states": {
+   "type": "asset",
+   "assetId": "multiverse_costumes:unicorn_onesie",
+   "slot": "costume"
+  },
+  "config": {
+   "elements": [
+    {
+     "id": "layer-hat",
+     "type": "texture_fragment",
+     "target_texture_id": "hat",
+     "url": "costume/unicorn_onesie.png",
+     "width": 32,
+     "height": 16,
+     "x": 32,
+     "y": 48,
+     "pos_x": 32,
+     "pos_y": 48
+    }
+   ]
+  }
+ },
+ {
+  "referenceId": "mv_costumes_mc:zombie_clothes",
+  "states": {
+   "type": "asset",
+   "assetId": "multiverse_costumes:zombie",
+   "slot": "costume"
+  },
+  "config": {
+   "elements": [
+    {
+     "id": "layer-clothes",
+     "type": "texture_fragment",
+     "target_texture_id": "outfit",
+     "url": "costume/zombie.png",
+     "width": 24,
+     "height": 16,
+     "x": 16,
+     "y": 32,
+     "pos_x": 16,
+     "pos_y": 32
+    },
+    {
+     "id": "layer-arm-l",
+     "type": "texture_fragment",
+     "target_texture_id": "outfit",
+     "url": "costume/zombie.png",
+     "width": 14,
+     "height": 16,
+     "x": 32,
+     "y": 0,
+     "pos_x": 32,
+     "pos_y": 0
+    },
+    {
+     "id": "layer-arm-r",
+     "type": "texture_fragment",
+     "target_texture_id": "outfit",
+     "url": "costume/zombie.png",
+     "width": 14,
+     "height": 16,
+     "x": 40,
+     "y": 32,
+     "pos_x": 40,
+     "pos_y": 32
+    },
+    {
+     "id": "layer-leg-l",
+     "type": "texture_fragment",
+     "target_texture_id": "outfit",
+     "url": "costume/zombie.png",
+     "width": 16,
+     "height": 16,
+     "x": 16,
+     "y": 0,
+     "pos_x": 16,
+     "pos_y": 0
+    },
+    {
+     "id": "layer-leg-r",
+     "type": "texture_fragment",
+     "target_texture_id": "outfit",
+     "url": "costume/zombie.png",
+     "width": 16,
+     "height": 16,
+     "x": 0,
+     "y": 32,
+     "pos_x": 0,
+     "pos_y": 32
+    }
+   ]
+  }
+ },
+ {
+  "referenceId": "mv_costumes_mc:zombie_clothes_overlay",
+  "states": {
+   "type": "asset",
+   "assetId": "multiverse_costumes:zombie",
+   "slot": "costume"
+  },
+  "config": {
+   "elements": [
+    {
+     "id": "layer-clothes-overlay",
+     "type": "texture_fragment",
+     "target_texture_id": "outfit",
+     "url": "costume/zombie.png",
+     "width": 24,
+     "height": 16,
+     "x": 16,
+     "y": 16,
+     "pos_x": 16,
+     "pos_y": 16
+    },
+    {
+     "id": "layer-arm-l-overlay",
+     "type": "texture_fragment",
+     "target_texture_id": "outfit",
+     "url": "costume/zombie.png",
+     "width": 14,
+     "height": 16,
+     "x": 48,
+     "y": 0,
+     "pos_x": 48,
+     "pos_y": 0
+    },
+    {
+     "id": "layer-arm-r-overlay",
+     "type": "texture_fragment",
+     "target_texture_id": "outfit",
+     "url": "costume/zombie.png",
+     "width": 14,
+     "height": 16,
+     "x": 40,
+     "y": 16,
+     "pos_x": 40,
+     "pos_y": 16
+    },
+    {
+     "id": "layer-leg-l-overlay",
+     "type": "texture_fragment",
+     "target_texture_id": "outfit",
+     "url": "costume/zombie.png",
+     "width": 16,
+     "height": 16,
+     "x": 0,
+     "y": 0,
+     "pos_x": 0,
+     "pos_y": 0
+    },
+    {
+     "id": "layer-leg-r-overlay",
+     "type": "texture_fragment",
+     "target_texture_id": "outfit",
+     "url": "costume/zombie.png",
+     "width": 16,
+     "height": 16,
+     "x": 0,
+     "y": 16,
+     "pos_x": 0,
+     "pos_y": 16
+    }
+   ]
+  }
+ },
+ {
+  "referenceId": "mv_costumes_mc:zombie_head",
+  "states": {
+   "type": "asset",
+   "assetId": "multiverse_costumes:zombie",
+   "slot": "costume"
+  },
+  "config": {
+   "elements": [
+    {
+     "id": "layer-head",
+     "type": "texture_fragment",
+     "target_texture_id": "base",
+     "url": "costume/zombie.png",
+     "z-index": 2,
+     "pass": "skin",
+     "width": 32,
+     "height": 16,
+     "x": 0,
+     "y": 48,
+     "pos_x": 0,
+     "pos_y": 48
+    }
+   ]
+  }
+ },
+ {
+  "referenceId": "mv_costumes_mc:zombie_head_overlay",
+  "states": {
+   "type": "asset",
+   "assetId": "multiverse_costumes:zombie",
+   "slot": "costume"
+  },
+  "config": {
+   "elements": [
+    {
+     "id": "layer-head",
+     "type": "texture_fragment",
+     "target_texture_id": "base",
+     "url": "costume/zombie.png",
+     "z-index": 2,
+     "pass": "skin",
+     "width": 32,
+     "height": 16,
+     "x": 32,
+     "y": 48,
+     "pos_x": 32,
+     "pos_y": 48
+    }
+   ]
+  }
+ },
+ {
+  "referenceId": "mv_costumes:model_settings",
+  "states": {},
+  "config": {
+   "elements": [
+    {
+     "id": "model",
+     "type": "model",
+     "bone": "global",
+     "url": "model/alex.glb",
+     "textures": [
+      {
+       "url": "#composition",
+       "texture": "_MainTex",
+       "material": "skin"
+      }
+     ]
+    }
+   ],
+   "output": {
+    "width": 300,
+    "height": 300,
+    "result": "model"
+   }
+  }
+ },
+ {
+  "referenceId": "mv_costumes:template_settings",
+  "states": {},
+  "config": {
+   "skeleton": [
+    {
+     "id": "global"
+    }
+   ],
+   "elements": [
+    {
+     "id": "base",
+     "type": "texture",
+     "url": "https://assets-api.staging.static.moonsama.com/b07dd7ec-721a-4474-9624-45be5b6bb84e/token/df4eff5c-d961-4423-b5f2-eeb4d2859657/representation/minecraft/d3a8b2ac72c49c81f9a7f44578936f91",
+     "texture_type": "empty",
+     "width": 64,
+     "height": 64
+    },
+    {
+     "id": "outfit",
+     "type": "texture",
+     "texture_type": "empty",
+     "width": 64,
+     "height": 64
+    },
+    {
+     "id": "eyes",
+     "type": "texture",
+     "texture_type": "empty",
+     "width": 64,
+     "height": 64
+    },
+    {
+     "id": "mouth",
+     "type": "texture",
+     "texture_type": "empty",
+     "width": 64,
+     "height": 64
+    },
+    {
+     "id": "hat",
+     "type": "texture",
+     "texture_type": "empty",
+     "width": 64,
+     "height": 64
+    },
+    {
+     "id": "hair",
+     "type": "texture",
+     "texture_type": "empty",
+     "width": 64,
+     "height": 64
+    },
+    {
+     "id": "composition",
+     "type": "texture_atlas",
+     "width": 64,
+     "height": 64,
+     "layers": [
+      {
+       "url": "#base",
+       "x": 0,
+       "y": 0
+      },
+      {
+       "url": "#outfit",
+       "x": 0,
+       "y": 0
+      },
+      {
+       "url": "#eyes",
+       "x": 0,
+       "y": 0
+      },
+      {
+       "url": "#mouth",
+       "x": 0,
+       "y": 0
+      },
+      {
+       "url": "#hair",
+       "x": 0,
+       "y": 0
+      },
+      {
+       "url": "#hat",
+       "x": 0,
+       "y": 0
+      },
+      {
+       "url": "#cape",
+       "x": 0,
+       "y": 0
+      },
+      {
+       "url": "#hands",
+       "x": 0,
+       "y": 0
+      }
+     ]
+    },
+    {
+     "id": "hands",
+     "type": "texture",
+     "texture_type": "empty",
+     "width": 64,
+     "height": 64
+    },
+    {
+     "id": "cape",
+     "type": "texture",
+     "texture_type": "empty",
+     "width": 64,
+     "height": 64
+    }
+   ],
+   "animations": [
+    {
+     "hold": false,
+     "id": "idle",
+     "loop": true,
+     "channels": [
+      {
+       "target": "global",
+       "keyframes": [
+        {
+         "time": 0,
+         "rotation.y": 0
+        },
+        {
+         "time": 5,
+         "rotation.y": 360
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ }
+]

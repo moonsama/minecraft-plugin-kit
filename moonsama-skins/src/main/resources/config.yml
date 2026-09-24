@@ -1,0 +1,27 @@
+# MoonsamaSkins configuration.
+#
+# Skins are Mojang-signed textures bundled with the plugin (cosmetics-data). Nothing is
+# downloaded or signed at runtime. Ownership always comes from MoonsamaCore's Portal
+# holdings cache.
+
+# Collections offered in /skins, in display order. Each must exist both in the Portal
+# catalog of your app and in the bundled data (see moonsama/cosmetics/collections.json).
+collections:
+  - moonsama
+  - exosama
+  - gromlin
+  - moonsama-embassy
+
+# Re-apply the equipped skin when a player joins.
+reapply-on-join: true
+
+# When MoonsamaCore reports fresh holdings that no longer contain the equipped NFT, take
+# the skin off again and tell the player. Set to false to keep skins after a sale.
+unequip-when-sold: true
+
+# Display names for collections in the selector.
+collection-names:
+  moonsama: Moonsama
+  exosama: Exosama
+  gromlin: Gromlin
+  moonsama-embassy: Moonsama Embassy

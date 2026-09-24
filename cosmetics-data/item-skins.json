@@ -1,0 +1,1620 @@
+[
+ {
+  "identifier": "moonsama:banana_sword",
+  "name": "The Primate Peeler",
+  "description": "Sticks and stones may break some bones, but a banana taped to a stick will smash a ton of skulls in.",
+  "rarity": 4,
+  "group": "swords",
+  "customModelData": 1,
+  "materials": [
+   "minecraft:wooden_sword",
+   "minecraft:stone_sword",
+   "minecraft:iron_sword",
+   "minecraft:golden_sword",
+   "minecraft:diamond_sword",
+   "minecraft:netherite_sword"
+  ],
+  "requirement": {
+   "collection": "moonsama-x",
+   "tokenId": 12,
+   "legacy": {
+    "chainId": 2109,
+    "address": "0x9984440fb82f1af013865141909276d26b86e303",
+    "tokenId": 12
+   }
+  }
+ },
+ {
+  "identifier": "moonsama:cheese_hammer",
+  "name": "The Whey",
+  "description": "The fermented stench of crushed warriors enveloped the caravan. Never will they forget the brutality delivered by this Bludgeon of Curd.",
+  "rarity": 4,
+  "group": "swords",
+  "customModelData": 2,
+  "materials": [
+   "minecraft:wooden_sword",
+   "minecraft:stone_sword",
+   "minecraft:iron_sword",
+   "minecraft:golden_sword",
+   "minecraft:diamond_sword",
+   "minecraft:netherite_sword"
+  ],
+  "requirement": {
+   "collection": "moonsama-x",
+   "tokenId": 15,
+   "legacy": {
+    "chainId": 2109,
+    "address": "0x9984440fb82f1af013865141909276d26b86e303",
+    "tokenId": 15
+   }
+  }
+ },
+ {
+  "identifier": "moonsama:crystal_soul_sword",
+  "name": "Crystal Soul Sword",
+  "description": "A glimpse into the souls of their foes, a portal to their dreams, he who masters this sword needs not shed blood.",
+  "rarity": 4,
+  "group": "swords",
+  "customModelData": 3,
+  "materials": [
+   "minecraft:wooden_sword",
+   "minecraft:stone_sword",
+   "minecraft:iron_sword",
+   "minecraft:golden_sword",
+   "minecraft:diamond_sword",
+   "minecraft:netherite_sword"
+  ],
+  "requirement": {
+   "collection": "moonsama-x",
+   "tokenId": 16,
+   "legacy": {
+    "chainId": 2109,
+    "address": "0x9984440fb82f1af013865141909276d26b86e303",
+    "tokenId": 16
+   }
+  }
+ },
+ {
+  "identifier": "moonsama:hell_sword",
+  "name": "Hellfire",
+  "description": "The fumes that crawl from this demonic relic as it passes by the helms and chest plates of it's challengers induce unfathomable dread and retreat.",
+  "rarity": 4,
+  "group": "swords",
+  "customModelData": 4,
+  "materials": [
+   "minecraft:wooden_sword",
+   "minecraft:stone_sword",
+   "minecraft:iron_sword",
+   "minecraft:golden_sword",
+   "minecraft:diamond_sword",
+   "minecraft:netherite_sword"
+  ],
+  "requirement": {
+   "collection": "moonsama-x",
+   "tokenId": 23,
+   "legacy": {
+    "chainId": 2109,
+    "address": "0x9984440fb82f1af013865141909276d26b86e303",
+    "tokenId": 23
+   }
+  }
+ },
+ {
+  "identifier": "moonsama:knight_sword",
+  "name": "Dreadnought",
+  "description": "Gallantry and chivalry had no place where these epic heroes were headed. Only the piercing force of Moonsama-forged steel and bravery of legend mattered in the coming days.",
+  "rarity": 4,
+  "group": "swords",
+  "customModelData": 5,
+  "materials": [
+   "minecraft:wooden_sword",
+   "minecraft:stone_sword",
+   "minecraft:iron_sword",
+   "minecraft:golden_sword",
+   "minecraft:diamond_sword",
+   "minecraft:netherite_sword"
+  ],
+  "requirement": {
+   "collection": "moonsama-x",
+   "tokenId": 20,
+   "legacy": {
+    "chainId": 2109,
+    "address": "0x9984440fb82f1af013865141909276d26b86e303",
+    "tokenId": 20
+   }
+  }
+ },
+ {
+  "identifier": "moonsama:marlua_sword",
+  "name": "Blade Of Marlua",
+  "description": "Formed in a land thought only to be in the tales of their elders, the Blade of Marlua transforms even the youngest squire or the most weathered veteran into a Champion of Chaos.",
+  "rarity": 4,
+  "group": "swords",
+  "customModelData": 6,
+  "materials": [
+   "minecraft:wooden_sword",
+   "minecraft:stone_sword",
+   "minecraft:iron_sword",
+   "minecraft:golden_sword",
+   "minecraft:diamond_sword",
+   "minecraft:netherite_sword"
+  ],
+  "requirement": {
+   "collection": "moonsama-x",
+   "tokenId": 13,
+   "legacy": {
+    "chainId": 2109,
+    "address": "0x9984440fb82f1af013865141909276d26b86e303",
+    "tokenId": 13
+   }
+  }
+ },
+ {
+  "identifier": "moonsama:corrupted_ashbringer",
+  "name": "Corrupted Ashbringer",
+  "description": "§7Amazing choice!",
+  "rarity": 5,
+  "group": "swords",
+  "customModelData": 7,
+  "materials": [
+   "minecraft:diamond_sword",
+   "minecraft:netherite_sword"
+  ],
+  "requirement": null
+ },
+ {
+  "identifier": "moonsama:bloodmoon_sword",
+  "name": "Crimson Eclipse",
+  "description": "The nightmares brought on by visions of their allies' blood glistening in the moonlight of the battlefield destroyed their morale and cemented victory for the wielders of this soul-forged katana.",
+  "rarity": 4,
+  "group": "swords",
+  "customModelData": 8,
+  "materials": [
+   "minecraft:wooden_sword",
+   "minecraft:stone_sword",
+   "minecraft:iron_sword",
+   "minecraft:golden_sword",
+   "minecraft:diamond_sword",
+   "minecraft:netherite_sword"
+  ],
+  "requirement": {
+   "collection": "moonsama-x",
+   "tokenId": 11,
+   "legacy": {
+    "chainId": 2109,
+    "address": "0x9984440fb82f1af013865141909276d26b86e303",
+    "tokenId": 11
+   }
+  }
+ },
+ {
+  "identifier": "moonsama:harbinger_sword",
+  "name": "Harbinger Of Light",
+  "description": "The harmonic screech of Harbinger's blades passing through the armor and flesh of adversaries emits a beacon of light that serves as a battle cry to the heavens.",
+  "rarity": 4,
+  "group": "swords",
+  "customModelData": 9,
+  "materials": [
+   "minecraft:wooden_sword",
+   "minecraft:stone_sword",
+   "minecraft:iron_sword",
+   "minecraft:golden_sword",
+   "minecraft:diamond_sword",
+   "minecraft:netherite_sword"
+  ],
+  "requirement": {
+   "collection": "moonsama-x",
+   "tokenId": 17,
+   "legacy": {
+    "chainId": 2109,
+    "address": "0x9984440fb82f1af013865141909276d26b86e303",
+    "tokenId": 17
+   }
+  }
+ },
+ {
+  "identifier": "moonsama:kabuki_sword",
+  "name": "Dancing Fury",
+  "description": "Many Kabuki warriors did not wear heavy armor or don helmets of steel. They adorned flowing silk finery that hypnotized their enemy and shrouded the biting edge of death hidden within.",
+  "rarity": 4,
+  "group": "swords",
+  "customModelData": 10,
+  "materials": [
+   "minecraft:wooden_sword",
+   "minecraft:stone_sword",
+   "minecraft:iron_sword",
+   "minecraft:golden_sword",
+   "minecraft:diamond_sword",
+   "minecraft:netherite_sword"
+  ],
+  "requirement": {
+   "collection": "moonsama-x",
+   "tokenId": 14,
+   "legacy": {
+    "chainId": 2109,
+    "address": "0x9984440fb82f1af013865141909276d26b86e303",
+    "tokenId": 14
+   }
+  }
+ },
+ {
+  "identifier": "moonsama:keymaster_sword",
+  "name": "Keymaster",
+  "description": "A password, nay. A sequence on knocks, nay. Passage to the realm of glory was only granted to she whom mastered this ancient weapon.",
+  "rarity": 4,
+  "group": "swords",
+  "customModelData": 11,
+  "materials": [
+   "minecraft:wooden_sword",
+   "minecraft:stone_sword",
+   "minecraft:iron_sword",
+   "minecraft:golden_sword",
+   "minecraft:diamond_sword",
+   "minecraft:netherite_sword"
+  ],
+  "requirement": {
+   "collection": "moonsama-x",
+   "tokenId": 18,
+   "legacy": {
+    "chainId": 2109,
+    "address": "0x9984440fb82f1af013865141909276d26b86e303",
+    "tokenId": 18
+   }
+  }
+ },
+ {
+  "identifier": "moonsama:rainbow_sword",
+  "name": "Rainbow Sword",
+  "description": "Drenched in the spectral heat of the Inner Kingdom, and pounded into form by the wizardry of He - the Rainbow Sword entranced all when unsheathed.",
+  "rarity": 4,
+  "group": "swords",
+  "customModelData": 12,
+  "materials": [
+   "minecraft:wooden_sword",
+   "minecraft:stone_sword",
+   "minecraft:iron_sword",
+   "minecraft:golden_sword",
+   "minecraft:diamond_sword",
+   "minecraft:netherite_sword"
+  ],
+  "requirement": {
+   "collection": "moonsama-x",
+   "tokenId": 21,
+   "legacy": {
+    "chainId": 2109,
+    "address": "0x9984440fb82f1af013865141909276d26b86e303",
+    "tokenId": 21
+   }
+  }
+ },
+ {
+  "identifier": "moonsama:tiff_sword",
+  "name": "Untamed Triumph",
+  "description": "Heavy from the experience and passion from all whom have held it, Untamed Triumph crashed down on evil and dispersed the spectres of Doom.",
+  "rarity": 4,
+  "group": "swords",
+  "customModelData": 13,
+  "materials": [
+   "minecraft:wooden_sword",
+   "minecraft:stone_sword",
+   "minecraft:iron_sword",
+   "minecraft:golden_sword",
+   "minecraft:diamond_sword",
+   "minecraft:netherite_sword"
+  ],
+  "requirement": {
+   "collection": "moonsama-x",
+   "tokenId": 22,
+   "legacy": {
+    "chainId": 2109,
+    "address": "0x9984440fb82f1af013865141909276d26b86e303",
+    "tokenId": 22
+   }
+  }
+ },
+ {
+  "identifier": "moonsama:yumi_sword",
+  "name": "Nemesis",
+  "description": "Nemesis is the personification of will for revenge. The longer people dream about ones who hurt them, the more powerful she becomes. Holder of the NFT receives full control over this character. Who knows what powers it can bring?",
+  "rarity": 4,
+  "group": "swords",
+  "customModelData": 14,
+  "materials": [
+   "minecraft:wooden_sword",
+   "minecraft:stone_sword",
+   "minecraft:iron_sword",
+   "minecraft:golden_sword",
+   "minecraft:diamond_sword",
+   "minecraft:netherite_sword"
+  ],
+  "requirement": {
+   "collection": "moonsama-x",
+   "tokenId": 10,
+   "legacy": {
+    "chainId": 2109,
+    "address": "0x9984440fb82f1af013865141909276d26b86e303",
+    "tokenId": 10
+   }
+  }
+ },
+ {
+  "identifier": "moonsama:soul_sucker",
+  "name": "Soul Sucker",
+  "description": "Licking their wounds delivered a false sense of solace followed by a descent into a sweet dream of nothingness.",
+  "rarity": 4,
+  "group": "swords",
+  "customModelData": 52,
+  "materials": [
+   "minecraft:wooden_sword",
+   "minecraft:stone_sword",
+   "minecraft:iron_sword",
+   "minecraft:golden_sword",
+   "minecraft:diamond_sword",
+   "minecraft:netherite_sword"
+  ],
+  "requirement": {
+   "collection": "moonsama-x",
+   "tokenId": 19,
+   "legacy": {
+    "chainId": 2109,
+    "address": "0x9984440fb82f1af013865141909276d26b86e303",
+    "tokenId": 19
+   }
+  }
+ },
+ {
+  "identifier": "moonsama:amethyst_battle_axe",
+  "name": "Amethyst Battle Axe",
+  "description": "The battle axe is known to be effective at dealing crushing blows to armored enemies and severing the limbs of the unprepared.",
+  "rarity": 1,
+  "group": "swords",
+  "customModelData": 15,
+  "materials": [
+   "minecraft:iron_sword",
+   "minecraft:golden_sword",
+   "minecraft:diamond_sword",
+   "minecraft:netherite_sword"
+  ],
+  "requirement": {
+   "collection": "moonsama-x",
+   "tokenId": 24,
+   "legacy": {
+    "chainId": 2109,
+    "address": "0x9984440fb82f1af013865141909276d26b86e303",
+    "tokenId": 24
+   }
+  }
+ },
+ {
+  "identifier": "moonsama:amethyst_halberd",
+  "name": "Amethyst Halberd",
+  "description": "The halberd is renowned for its effectiveness in combatting mounted foes due to its length and razor sharp blade.",
+  "rarity": 1,
+  "group": "swords",
+  "customModelData": 16,
+  "materials": [
+   "minecraft:iron_sword",
+   "minecraft:golden_sword",
+   "minecraft:diamond_sword",
+   "minecraft:netherite_sword"
+  ],
+  "requirement": {
+   "collection": "moonsama-x",
+   "tokenId": 30,
+   "legacy": {
+    "chainId": 2109,
+    "address": "0x9984440fb82f1af013865141909276d26b86e303",
+    "tokenId": 30
+   }
+  }
+ },
+ {
+  "identifier": "moonsama:amethyst_katana",
+  "name": "Amethyst Katana",
+  "description": "The katana is a supreme blade for close combat due it's low profile and slight weight.",
+  "rarity": 1,
+  "group": "swords",
+  "customModelData": 17,
+  "materials": [
+   "minecraft:iron_sword",
+   "minecraft:golden_sword",
+   "minecraft:diamond_sword",
+   "minecraft:netherite_sword"
+  ],
+  "requirement": {
+   "collection": "moonsama-x",
+   "tokenId": 34,
+   "legacy": {
+    "chainId": 2109,
+    "address": "0x9984440fb82f1af013865141909276d26b86e303",
+    "tokenId": 34
+   }
+  }
+ },
+ {
+  "identifier": "moonsama:amethyst_machete",
+  "name": "Amethyst Machete",
+  "description": "Machetes are utility weapons that are extremely useful in jungle warfare. They see heavy use by guerillas both as a combat blade and a tool to clear paths.",
+  "rarity": 1,
+  "group": "swords",
+  "customModelData": 18,
+  "materials": [
+   "minecraft:iron_sword",
+   "minecraft:golden_sword",
+   "minecraft:diamond_sword",
+   "minecraft:netherite_sword"
+  ],
+  "requirement": {
+   "collection": "moonsama-x",
+   "tokenId": 39,
+   "legacy": {
+    "chainId": 2109,
+    "address": "0x9984440fb82f1af013865141909276d26b86e303",
+    "tokenId": 39
+   }
+  }
+ },
+ {
+  "identifier": "moonsama:amethyst_power_sword",
+  "name": "Amethyst Power Sword",
+  "description": "The power sword is famed for it's incredibly powerful first stroke, and defensive prowess due to its substantial hilt.",
+  "rarity": 1,
+  "group": "swords",
+  "customModelData": 19,
+  "materials": [
+   "minecraft:iron_sword",
+   "minecraft:golden_sword",
+   "minecraft:diamond_sword",
+   "minecraft:netherite_sword"
+  ],
+  "requirement": {
+   "collection": "moonsama-x",
+   "tokenId": 44,
+   "legacy": {
+    "chainId": 2109,
+    "address": "0x9984440fb82f1af013865141909276d26b86e303",
+    "tokenId": 44
+   }
+  }
+ },
+ {
+  "identifier": "moonsama:amethyst_short_sword",
+  "name": "Amethyst Short Sword",
+  "description": "Short swords are favored by one-on-one specialists. Their lightweight allows those using them to minimize fatigue and quickly recover from prolonged engagements.",
+  "rarity": 1,
+  "group": "swords",
+  "customModelData": 20,
+  "materials": [
+   "minecraft:iron_sword",
+   "minecraft:golden_sword",
+   "minecraft:diamond_sword",
+   "minecraft:netherite_sword"
+  ],
+  "requirement": {
+   "collection": "moonsama-x",
+   "tokenId": 49,
+   "legacy": {
+    "chainId": 2109,
+    "address": "0x9984440fb82f1af013865141909276d26b86e303",
+    "tokenId": 49
+   }
+  }
+ },
+ {
+  "identifier": "moonsama:amethyst_wide_sword",
+  "name": "Amethyst Wide Sword",
+  "description": "Wide Swords are the preferred blades of warriors that like a balanced hand-feel paired with tremendous cutting power.",
+  "rarity": 1,
+  "group": "swords",
+  "customModelData": 21,
+  "materials": [
+   "minecraft:iron_sword",
+   "minecraft:golden_sword",
+   "minecraft:diamond_sword",
+   "minecraft:netherite_sword"
+  ],
+  "requirement": {
+   "collection": "moonsama-x",
+   "tokenId": 54,
+   "legacy": {
+    "chainId": 2109,
+    "address": "0x9984440fb82f1af013865141909276d26b86e303",
+    "tokenId": 54
+   }
+  }
+ },
+ {
+  "identifier": "moonsama:diamond_battle_axe",
+  "name": "Diamond Battle Axe",
+  "description": "The battle axe is known to be effective at dealing crushing blows to armored enemies and severing the limbs of the unprepared.",
+  "rarity": 1,
+  "group": "swords",
+  "customModelData": 22,
+  "materials": [
+   "minecraft:iron_sword",
+   "minecraft:golden_sword",
+   "minecraft:diamond_sword",
+   "minecraft:netherite_sword"
+  ],
+  "requirement": {
+   "collection": "moonsama-x",
+   "tokenId": 25,
+   "legacy": {
+    "chainId": 2109,
+    "address": "0x9984440fb82f1af013865141909276d26b86e303",
+    "tokenId": 25
+   }
+  }
+ },
+ {
+  "identifier": "moonsama:diamond_halberd",
+  "name": "Diamond Halberd",
+  "description": "The halberd is renowned for its effectiveness in combatting mounted foes due to its length and razor sharp blade.",
+  "rarity": 1,
+  "group": "swords",
+  "customModelData": 23,
+  "materials": [
+   "minecraft:iron_sword",
+   "minecraft:golden_sword",
+   "minecraft:diamond_sword",
+   "minecraft:netherite_sword"
+  ],
+  "requirement": {
+   "collection": "moonsama-x",
+   "tokenId": 31,
+   "legacy": {
+    "chainId": 2109,
+    "address": "0x9984440fb82f1af013865141909276d26b86e303",
+    "tokenId": 31
+   }
+  }
+ },
+ {
+  "identifier": "moonsama:diamond_katana",
+  "name": "Diamond Katana",
+  "description": "The katana is a supreme blade for close combat due it's low profile and slight weight.",
+  "rarity": 1,
+  "group": "swords",
+  "customModelData": 24,
+  "materials": [
+   "minecraft:iron_sword",
+   "minecraft:golden_sword",
+   "minecraft:diamond_sword",
+   "minecraft:netherite_sword"
+  ],
+  "requirement": {
+   "collection": "moonsama-x",
+   "tokenId": 35,
+   "legacy": {
+    "chainId": 2109,
+    "address": "0x9984440fb82f1af013865141909276d26b86e303",
+    "tokenId": 35
+   }
+  }
+ },
+ {
+  "identifier": "moonsama:diamond_machete",
+  "name": "Diamond Machete",
+  "description": "Machetes are utility weapons that are extremely useful in jungle warfare. They see heavy use by guerillas both as a combat blade and a tool to clear paths.",
+  "rarity": 1,
+  "group": "swords",
+  "customModelData": 25,
+  "materials": [
+   "minecraft:iron_sword",
+   "minecraft:golden_sword",
+   "minecraft:diamond_sword",
+   "minecraft:netherite_sword"
+  ],
+  "requirement": {
+   "collection": "moonsama-x",
+   "tokenId": 40,
+   "legacy": {
+    "chainId": 2109,
+    "address": "0x9984440fb82f1af013865141909276d26b86e303",
+    "tokenId": 40
+   }
+  }
+ },
+ {
+  "identifier": "moonsama:diamond_power_sword",
+  "name": "Diamond Power Sword",
+  "description": "The power sword is famed for it's incredibly powerful first stroke, and defensive prowess due to its substantial hilt.",
+  "rarity": 1,
+  "group": "swords",
+  "customModelData": 26,
+  "materials": [
+   "minecraft:iron_sword",
+   "minecraft:golden_sword",
+   "minecraft:diamond_sword",
+   "minecraft:netherite_sword"
+  ],
+  "requirement": {
+   "collection": "moonsama-x",
+   "tokenId": 45,
+   "legacy": {
+    "chainId": 2109,
+    "address": "0x9984440fb82f1af013865141909276d26b86e303",
+    "tokenId": 45
+   }
+  }
+ },
+ {
+  "identifier": "moonsama:diamond_short_sword",
+  "name": "Diamond Short Sword",
+  "description": "Short swords are favored by one-on-one specialists. Their lightweight allows those using them to minimize fatigue and quickly recover from prolonged engagements.",
+  "rarity": 1,
+  "group": "swords",
+  "customModelData": 27,
+  "materials": [
+   "minecraft:iron_sword",
+   "minecraft:golden_sword",
+   "minecraft:diamond_sword",
+   "minecraft:netherite_sword"
+  ],
+  "requirement": {
+   "collection": "moonsama-x",
+   "tokenId": 50,
+   "legacy": {
+    "chainId": 2109,
+    "address": "0x9984440fb82f1af013865141909276d26b86e303",
+    "tokenId": 50
+   }
+  }
+ },
+ {
+  "identifier": "moonsama:diamond_wide_sword",
+  "name": "Diamond Wide Sword",
+  "description": "Wide Swords are the preferred blades of warriors that like a balanced hand-feel paired with tremendous cutting power.",
+  "rarity": 1,
+  "group": "swords",
+  "customModelData": 28,
+  "materials": [
+   "minecraft:iron_sword",
+   "minecraft:golden_sword",
+   "minecraft:diamond_sword",
+   "minecraft:netherite_sword"
+  ],
+  "requirement": {
+   "collection": "moonsama-x",
+   "tokenId": 55,
+   "legacy": {
+    "chainId": 2109,
+    "address": "0x9984440fb82f1af013865141909276d26b86e303",
+    "tokenId": 55
+   }
+  }
+ },
+ {
+  "identifier": "moonsama:emerald_battle_axe",
+  "name": "Emerald Battle Axe",
+  "description": "The battle axe is known to be effective at dealing crushing blows to armored enemies and severing the limbs of the unprepared.",
+  "rarity": 1,
+  "group": "swords",
+  "customModelData": 29,
+  "materials": [
+   "minecraft:iron_sword",
+   "minecraft:golden_sword",
+   "minecraft:diamond_sword",
+   "minecraft:netherite_sword"
+  ],
+  "requirement": {
+   "collection": "moonsama-x",
+   "tokenId": 26,
+   "legacy": {
+    "chainId": 2109,
+    "address": "0x9984440fb82f1af013865141909276d26b86e303",
+    "tokenId": 26
+   }
+  }
+ },
+ {
+  "identifier": "moonsama:emerald_halberd",
+  "name": "Emerald Halberd",
+  "description": "The halberd is renowned for its effectiveness in combatting mounted foes due to its length and razor sharp blade.",
+  "rarity": 1,
+  "group": "swords",
+  "customModelData": 30,
+  "materials": [
+   "minecraft:iron_sword",
+   "minecraft:golden_sword",
+   "minecraft:diamond_sword",
+   "minecraft:netherite_sword"
+  ],
+  "requirement": {
+   "collection": "moonsama-x",
+   "tokenId": 32,
+   "legacy": {
+    "chainId": 2109,
+    "address": "0x9984440fb82f1af013865141909276d26b86e303",
+    "tokenId": 32
+   }
+  }
+ },
+ {
+  "identifier": "moonsama:emerald_katana",
+  "name": "Emerald Katana",
+  "description": "The katana is a supreme blade for close combat due it's low profile and slight weight.",
+  "rarity": 1,
+  "group": "swords",
+  "customModelData": 31,
+  "materials": [
+   "minecraft:iron_sword",
+   "minecraft:golden_sword",
+   "minecraft:diamond_sword",
+   "minecraft:netherite_sword"
+  ],
+  "requirement": {
+   "collection": "moonsama-x",
+   "tokenId": 36,
+   "legacy": {
+    "chainId": 2109,
+    "address": "0x9984440fb82f1af013865141909276d26b86e303",
+    "tokenId": 36
+   }
+  }
+ },
+ {
+  "identifier": "moonsama:emerald_machete",
+  "name": "Emerald Machete",
+  "description": "Machetes are utility weapons that are extremely useful in jungle warfare. They see heavy use by guerillas both as a combat blade and a tool to clear paths.",
+  "rarity": 1,
+  "group": "swords",
+  "customModelData": 32,
+  "materials": [
+   "minecraft:iron_sword",
+   "minecraft:golden_sword",
+   "minecraft:diamond_sword",
+   "minecraft:netherite_sword"
+  ],
+  "requirement": {
+   "collection": "moonsama-x",
+   "tokenId": 41,
+   "legacy": {
+    "chainId": 2109,
+    "address": "0x9984440fb82f1af013865141909276d26b86e303",
+    "tokenId": 41
+   }
+  }
+ },
+ {
+  "identifier": "moonsama:emerald_power_sword",
+  "name": "Emerald Power Sword",
+  "description": "The power sword is famed for it's incredibly powerful first stroke, and defensive prowess due to its substantial hilt.",
+  "rarity": 1,
+  "group": "swords",
+  "customModelData": 33,
+  "materials": [
+   "minecraft:iron_sword",
+   "minecraft:golden_sword",
+   "minecraft:diamond_sword",
+   "minecraft:netherite_sword"
+  ],
+  "requirement": {
+   "collection": "moonsama-x",
+   "tokenId": 46,
+   "legacy": {
+    "chainId": 2109,
+    "address": "0x9984440fb82f1af013865141909276d26b86e303",
+    "tokenId": 46
+   }
+  }
+ },
+ {
+  "identifier": "moonsama:emerald_short_sword",
+  "name": "Emerald Short Sword",
+  "description": "Short swords are favored by one-on-one specialists. Their lightweight allows those using them to minimize fatigue and quickly recover from prolonged engagements.",
+  "rarity": 1,
+  "group": "swords",
+  "customModelData": 34,
+  "materials": [
+   "minecraft:iron_sword",
+   "minecraft:golden_sword",
+   "minecraft:diamond_sword",
+   "minecraft:netherite_sword"
+  ],
+  "requirement": {
+   "collection": "moonsama-x",
+   "tokenId": 51,
+   "legacy": {
+    "chainId": 2109,
+    "address": "0x9984440fb82f1af013865141909276d26b86e303",
+    "tokenId": 51
+   }
+  }
+ },
+ {
+  "identifier": "moonsama:emerald_wide_sword",
+  "name": "Emerald Wide Sword",
+  "description": "Wide Swords are the preferred blades of warriors that like a balanced hand-feel paired with tremendous cutting power.",
+  "rarity": 1,
+  "group": "swords",
+  "customModelData": 35,
+  "materials": [
+   "minecraft:iron_sword",
+   "minecraft:golden_sword",
+   "minecraft:diamond_sword",
+   "minecraft:netherite_sword"
+  ],
+  "requirement": {
+   "collection": "moonsama-x",
+   "tokenId": 56,
+   "legacy": {
+    "chainId": 2109,
+    "address": "0x9984440fb82f1af013865141909276d26b86e303",
+    "tokenId": 56
+   }
+  }
+ },
+ {
+  "identifier": "moonsama:ruby_battle_axe",
+  "name": "Ruby Battle Axe",
+  "description": "The battle axe is known to be effective at dealing crushing blows to armored enemies and severing the limbs of the unprepared.",
+  "rarity": 1,
+  "group": "swords",
+  "customModelData": 36,
+  "materials": [
+   "minecraft:iron_sword",
+   "minecraft:golden_sword",
+   "minecraft:diamond_sword",
+   "minecraft:netherite_sword"
+  ],
+  "requirement": {
+   "collection": "moonsama-x",
+   "tokenId": 27,
+   "legacy": {
+    "chainId": 2109,
+    "address": "0x9984440fb82f1af013865141909276d26b86e303",
+    "tokenId": 27
+   }
+  }
+ },
+ {
+  "identifier": "moonsama:ruby_halberd",
+  "name": "Ruby Halberd",
+  "description": "The halberd is renowned for its effectiveness in combatting mounted foes due to its length and razor sharp blade.",
+  "rarity": 2,
+  "group": "swords",
+  "customModelData": 37,
+  "materials": [
+   "minecraft:iron_sword",
+   "minecraft:golden_sword",
+   "minecraft:diamond_sword",
+   "minecraft:netherite_sword"
+  ],
+  "requirement": {
+   "collection": "moonsama-x",
+   "tokenId": 33,
+   "legacy": {
+    "chainId": 2109,
+    "address": "0x9984440fb82f1af013865141909276d26b86e303",
+    "tokenId": 33
+   }
+  }
+ },
+ {
+  "identifier": "moonsama:ruby_katana",
+  "name": "Ruby Katana",
+  "description": "The katana is a supreme blade for close combat due it's low profile and slight weight.",
+  "rarity": 2,
+  "group": "swords",
+  "customModelData": 38,
+  "materials": [
+   "minecraft:iron_sword",
+   "minecraft:golden_sword",
+   "minecraft:diamond_sword",
+   "minecraft:netherite_sword"
+  ],
+  "requirement": {
+   "collection": "moonsama-x",
+   "tokenId": 37,
+   "legacy": {
+    "chainId": 2109,
+    "address": "0x9984440fb82f1af013865141909276d26b86e303",
+    "tokenId": 37
+   }
+  }
+ },
+ {
+  "identifier": "moonsama:ruby_machete",
+  "name": "Ruby Machete",
+  "description": "Machetes are utility weapons that are extremely useful in jungle warfare. They see heavy use by guerillas both as a combat blade and a tool to clear paths.",
+  "rarity": 2,
+  "group": "swords",
+  "customModelData": 39,
+  "materials": [
+   "minecraft:iron_sword",
+   "minecraft:golden_sword",
+   "minecraft:diamond_sword",
+   "minecraft:netherite_sword"
+  ],
+  "requirement": {
+   "collection": "moonsama-x",
+   "tokenId": 42,
+   "legacy": {
+    "chainId": 2109,
+    "address": "0x9984440fb82f1af013865141909276d26b86e303",
+    "tokenId": 42
+   }
+  }
+ },
+ {
+  "identifier": "moonsama:ruby_power_sword",
+  "name": "Ruby Power Sword",
+  "description": "The power sword is famed for it's incredibly powerful first stroke, and defensive prowess due to its substantial hilt.",
+  "rarity": 2,
+  "group": "swords",
+  "customModelData": 40,
+  "materials": [
+   "minecraft:iron_sword",
+   "minecraft:golden_sword",
+   "minecraft:diamond_sword",
+   "minecraft:netherite_sword"
+  ],
+  "requirement": {
+   "collection": "moonsama-x",
+   "tokenId": 47,
+   "legacy": {
+    "chainId": 2109,
+    "address": "0x9984440fb82f1af013865141909276d26b86e303",
+    "tokenId": 47
+   }
+  }
+ },
+ {
+  "identifier": "moonsama:ruby_short_sword",
+  "name": "Ruby Short Sword",
+  "description": "Short swords are favored by one-on-one specialists. Their lightweight allows those using them to minimize fatigue and quickly recover from prolonged engagements.",
+  "rarity": 2,
+  "group": "swords",
+  "customModelData": 41,
+  "materials": [
+   "minecraft:iron_sword",
+   "minecraft:golden_sword",
+   "minecraft:diamond_sword",
+   "minecraft:netherite_sword"
+  ],
+  "requirement": {
+   "collection": "moonsama-x",
+   "tokenId": 52,
+   "legacy": {
+    "chainId": 2109,
+    "address": "0x9984440fb82f1af013865141909276d26b86e303",
+    "tokenId": 52
+   }
+  }
+ },
+ {
+  "identifier": "moonsama:ruby_wide_sword",
+  "name": "Ruby Wide Sword",
+  "description": "Wide Swords are the preferred blades of warriors that like a balanced hand-feel paired with tremendous cutting power.",
+  "rarity": 2,
+  "group": "swords",
+  "customModelData": 42,
+  "materials": [
+   "minecraft:iron_sword",
+   "minecraft:golden_sword",
+   "minecraft:diamond_sword",
+   "minecraft:netherite_sword"
+  ],
+  "requirement": {
+   "collection": "moonsama-x",
+   "tokenId": 57,
+   "legacy": {
+    "chainId": 2109,
+    "address": "0x9984440fb82f1af013865141909276d26b86e303",
+    "tokenId": 57
+   }
+  }
+ },
+ {
+  "identifier": "moonsama:sapphire_battle_axe",
+  "name": "Sapphire Battle Axe",
+  "description": "The battle axe is known to be effective at dealing crushing blows to armored enemies and severing the limbs of the unprepared.",
+  "rarity": 2,
+  "group": "swords",
+  "customModelData": 43,
+  "materials": [
+   "minecraft:iron_sword",
+   "minecraft:golden_sword",
+   "minecraft:diamond_sword",
+   "minecraft:netherite_sword"
+  ],
+  "requirement": {
+   "collection": "moonsama-x",
+   "tokenId": 28,
+   "legacy": {
+    "chainId": 2109,
+    "address": "0x9984440fb82f1af013865141909276d26b86e303",
+    "tokenId": 28
+   }
+  }
+ },
+ {
+  "identifier": "moonsama:sapphire_halberd",
+  "name": "Sapphire Halberd",
+  "description": "The halberd is renowned for its effectiveness in combatting mounted foes due to its length and razor sharp blade.",
+  "rarity": 2,
+  "group": "swords",
+  "customModelData": 44,
+  "materials": [
+   "minecraft:iron_sword",
+   "minecraft:golden_sword",
+   "minecraft:diamond_sword",
+   "minecraft:netherite_sword"
+  ],
+  "requirement": {
+   "collection": "moonsama-x",
+   "tokenId": 29,
+   "legacy": {
+    "chainId": 2109,
+    "address": "0x9984440fb82f1af013865141909276d26b86e303",
+    "tokenId": 29
+   }
+  }
+ },
+ {
+  "identifier": "moonsama:sapphire_katana",
+  "name": "Sapphire Katana",
+  "description": "The katana is a supreme blade for close combat due it's low profile and slight weight.",
+  "rarity": 2,
+  "group": "swords",
+  "customModelData": 45,
+  "materials": [
+   "minecraft:iron_sword",
+   "minecraft:golden_sword",
+   "minecraft:diamond_sword",
+   "minecraft:netherite_sword"
+  ],
+  "requirement": {
+   "collection": "moonsama-x",
+   "tokenId": 38,
+   "legacy": {
+    "chainId": 2109,
+    "address": "0x9984440fb82f1af013865141909276d26b86e303",
+    "tokenId": 38
+   }
+  }
+ },
+ {
+  "identifier": "moonsama:sapphire_machete",
+  "name": "Sapphire Machete",
+  "description": "Machetes are utility weapons that are extremely useful in jungle warfare. They see heavy use by guerillas both as a combat blade and a tool to clear paths.",
+  "rarity": 2,
+  "group": "swords",
+  "customModelData": 46,
+  "materials": [
+   "minecraft:iron_sword",
+   "minecraft:golden_sword",
+   "minecraft:diamond_sword",
+   "minecraft:netherite_sword"
+  ],
+  "requirement": {
+   "collection": "moonsama-x",
+   "tokenId": 43,
+   "legacy": {
+    "chainId": 2109,
+    "address": "0x9984440fb82f1af013865141909276d26b86e303",
+    "tokenId": 43
+   }
+  }
+ },
+ {
+  "identifier": "moonsama:sapphire_power_sword",
+  "name": "Sapphire Power Sword",
+  "description": "The power sword is famed for it's incredibly powerful first stroke, and defensive prowess due to its substantial hilt.",
+  "rarity": 2,
+  "group": "swords",
+  "customModelData": 47,
+  "materials": [
+   "minecraft:iron_sword",
+   "minecraft:golden_sword",
+   "minecraft:diamond_sword",
+   "minecraft:netherite_sword"
+  ],
+  "requirement": {
+   "collection": "moonsama-x",
+   "tokenId": 48,
+   "legacy": {
+    "chainId": 2109,
+    "address": "0x9984440fb82f1af013865141909276d26b86e303",
+    "tokenId": 48
+   }
+  }
+ },
+ {
+  "identifier": "moonsama:sapphire_short_sword",
+  "name": "Sapphire Short Sword",
+  "description": "Short swords are favored by one-on-one specialists. Their lightweight allows those using them to minimize fatigue and quickly recover from prolonged engagements.",
+  "rarity": 2,
+  "group": "swords",
+  "customModelData": 48,
+  "materials": [
+   "minecraft:iron_sword",
+   "minecraft:golden_sword",
+   "minecraft:diamond_sword",
+   "minecraft:netherite_sword"
+  ],
+  "requirement": {
+   "collection": "moonsama-x",
+   "tokenId": 53,
+   "legacy": {
+    "chainId": 2109,
+    "address": "0x9984440fb82f1af013865141909276d26b86e303",
+    "tokenId": 53
+   }
+  }
+ },
+ {
+  "identifier": "moonsama:sapphire_wide_sword",
+  "name": "Sapphire Wide Sword",
+  "description": "Wide Swords are the preferred blades of warriors that like a balanced hand-feel paired with tremendous cutting power.",
+  "rarity": 2,
+  "group": "swords",
+  "customModelData": 49,
+  "materials": [
+   "minecraft:iron_sword",
+   "minecraft:golden_sword",
+   "minecraft:diamond_sword",
+   "minecraft:netherite_sword"
+  ],
+  "requirement": {
+   "collection": "moonsama-x",
+   "tokenId": 58,
+   "legacy": {
+    "chainId": 2109,
+    "address": "0x9984440fb82f1af013865141909276d26b86e303",
+    "tokenId": 58
+   }
+  }
+ },
+ {
+  "identifier": "moonsama:cookie_sword",
+  "name": "Cookie Sword",
+  "description": "Happy Birthday, MarcMarcelle!",
+  "rarity": 4,
+  "group": "swords",
+  "customModelData": 10001,
+  "materials": [
+   "minecraft:wooden_sword",
+   "minecraft:stone_sword",
+   "minecraft:iron_sword",
+   "minecraft:golden_sword",
+   "minecraft:diamond_sword",
+   "minecraft:netherite_sword"
+  ],
+  "requirement": {
+   "collection": null,
+   "tokenId": 1,
+   "legacy": {
+    "chainId": null,
+    "address": "0x00008",
+    "tokenId": 1
+   }
+  }
+ },
+ {
+  "identifier": "bunnysama:carrot_sword",
+  "name": "Root Cause",
+  "description": "Smash your foes or replace your hoes with this useful, yet vanquishing vegetable.",
+  "rarity": 2,
+  "group": "swords",
+  "customModelData": 30001,
+  "materials": [
+   "minecraft:wooden_sword",
+   "minecraft:stone_sword",
+   "minecraft:iron_sword",
+   "minecraft:golden_sword",
+   "minecraft:diamond_sword",
+   "minecraft:netherite_sword"
+  ],
+  "requirement": {
+   "collection": "moonsama-x",
+   "tokenId": 81,
+   "legacy": {
+    "chainId": 2109,
+    "address": "0x9984440fb82f1af013865141909276d26b86e303",
+    "tokenId": 81
+   }
+  }
+ },
+ {
+  "identifier": "bunnysama:carrot_sword",
+  "name": "Root Cause",
+  "description": "Smash your foes or replace your hoes with this useful, yet vanquishing vegetable.",
+  "rarity": 2,
+  "group": "axes",
+  "customModelData": 30001,
+  "materials": [
+   "minecraft:wooden_axe",
+   "minecraft:stone_axe",
+   "minecraft:iron_axe",
+   "minecraft:golden_axe",
+   "minecraft:diamond_axe",
+   "minecraft:netherite_axe"
+  ],
+  "requirement": {
+   "collection": "moonsama-x",
+   "tokenId": 81,
+   "legacy": {
+    "chainId": 2109,
+    "address": "0x9984440fb82f1af013865141909276d26b86e303",
+    "tokenId": 81
+   }
+  }
+ },
+ {
+  "identifier": "bunnysama:carrot_sword",
+  "name": "Root Cause",
+  "description": "Smash your foes or replace your hoes with this useful, yet vanquishing vegetable.",
+  "rarity": 2,
+  "group": "hoes",
+  "customModelData": 30001,
+  "materials": [
+   "minecraft:wooden_hoe",
+   "minecraft:stone_hoe",
+   "minecraft:iron_hoe",
+   "minecraft:golden_hoe",
+   "minecraft:diamond_hoe",
+   "minecraft:netherite_hoe"
+  ],
+  "requirement": {
+   "collection": "moonsama-x",
+   "tokenId": 81,
+   "legacy": {
+    "chainId": 2109,
+    "address": "0x9984440fb82f1af013865141909276d26b86e303",
+    "tokenId": 81
+   }
+  }
+ },
+ {
+  "identifier": "bunnysama:carrot_sword",
+  "name": "Root Cause",
+  "description": "Smash your foes or replace your hoes with this useful, yet vanquishing vegetable.",
+  "rarity": 2,
+  "group": "pickaxes",
+  "customModelData": 30001,
+  "materials": [
+   "minecraft:wooden_pickaxe",
+   "minecraft:stone_pickaxe",
+   "minecraft:iron_pickaxe",
+   "minecraft:golden_pickaxe",
+   "minecraft:diamond_pickaxe",
+   "minecraft:netherite_pickaxe"
+  ],
+  "requirement": {
+   "collection": "moonsama-x",
+   "tokenId": 81,
+   "legacy": {
+    "chainId": 2109,
+    "address": "0x9984440fb82f1af013865141909276d26b86e303",
+    "tokenId": 81
+   }
+  }
+ },
+ {
+  "identifier": "bunnysama:carrot_sword",
+  "name": "Root Cause",
+  "description": "Smash your foes or replace your hoes with this useful, yet vanquishing vegetable.",
+  "rarity": 2,
+  "group": "shovels",
+  "customModelData": 30001,
+  "materials": [
+   "minecraft:wooden_shovel",
+   "minecraft:stone_shovel",
+   "minecraft:iron_shovel",
+   "minecraft:golden_shovel",
+   "minecraft:diamond_shovel",
+   "minecraft:netherite_shovel"
+  ],
+  "requirement": {
+   "collection": "moonsama-x",
+   "tokenId": 81,
+   "legacy": {
+    "chainId": 2109,
+    "address": "0x9984440fb82f1af013865141909276d26b86e303",
+    "tokenId": 81
+   }
+  }
+ },
+ {
+  "identifier": "bunnysama:carrot_sword_s",
+  "name": "Root Cause (Soulbound)",
+  "description": "Smash your foes or replace your hoes with this useful, yet vanquishing vegetable.",
+  "rarity": 2,
+  "group": "swords",
+  "customModelData": 30001,
+  "materials": [
+   "minecraft:wooden_sword",
+   "minecraft:stone_sword",
+   "minecraft:iron_sword",
+   "minecraft:golden_sword",
+   "minecraft:diamond_sword",
+   "minecraft:netherite_sword"
+  ],
+  "requirement": {
+   "collection": "moonsama-x",
+   "tokenId": 82,
+   "legacy": {
+    "chainId": 2109,
+    "address": "0x9984440fb82f1af013865141909276d26b86e303",
+    "tokenId": 82
+   }
+  }
+ },
+ {
+  "identifier": "bunnysama:carrot_sword_s",
+  "name": "Root Cause (Soulbound)",
+  "description": "Smash your foes or replace your hoes with this useful, yet vanquishing vegetable.",
+  "rarity": 2,
+  "group": "axes",
+  "customModelData": 30001,
+  "materials": [
+   "minecraft:wooden_axe",
+   "minecraft:stone_axe",
+   "minecraft:iron_axe",
+   "minecraft:golden_axe",
+   "minecraft:diamond_axe",
+   "minecraft:netherite_axe"
+  ],
+  "requirement": {
+   "collection": "moonsama-x",
+   "tokenId": 82,
+   "legacy": {
+    "chainId": 2109,
+    "address": "0x9984440fb82f1af013865141909276d26b86e303",
+    "tokenId": 82
+   }
+  }
+ },
+ {
+  "identifier": "bunnysama:carrot_sword_s",
+  "name": "Root Cause (Soulbound)",
+  "description": "Smash your foes or replace your hoes with this useful, yet vanquishing vegetable.",
+  "rarity": 2,
+  "group": "hoes",
+  "customModelData": 30001,
+  "materials": [
+   "minecraft:wooden_hoe",
+   "minecraft:stone_hoe",
+   "minecraft:iron_hoe",
+   "minecraft:golden_hoe",
+   "minecraft:diamond_hoe",
+   "minecraft:netherite_hoe"
+  ],
+  "requirement": {
+   "collection": "moonsama-x",
+   "tokenId": 82,
+   "legacy": {
+    "chainId": 2109,
+    "address": "0x9984440fb82f1af013865141909276d26b86e303",
+    "tokenId": 82
+   }
+  }
+ },
+ {
+  "identifier": "bunnysama:carrot_sword_s",
+  "name": "Root Cause (Soulbound)",
+  "description": "Smash your foes or replace your hoes with this useful, yet vanquishing vegetable.",
+  "rarity": 2,
+  "group": "pickaxes",
+  "customModelData": 30001,
+  "materials": [
+   "minecraft:wooden_pickaxe",
+   "minecraft:stone_pickaxe",
+   "minecraft:iron_pickaxe",
+   "minecraft:golden_pickaxe",
+   "minecraft:diamond_pickaxe",
+   "minecraft:netherite_pickaxe"
+  ],
+  "requirement": {
+   "collection": "moonsama-x",
+   "tokenId": 82,
+   "legacy": {
+    "chainId": 2109,
+    "address": "0x9984440fb82f1af013865141909276d26b86e303",
+    "tokenId": 82
+   }
+  }
+ },
+ {
+  "identifier": "bunnysama:carrot_sword_s",
+  "name": "Root Cause (Soulbound)",
+  "description": "Smash your foes or replace your hoes with this useful, yet vanquishing vegetable.",
+  "rarity": 2,
+  "group": "shovels",
+  "customModelData": 30001,
+  "materials": [
+   "minecraft:wooden_shovel",
+   "minecraft:stone_shovel",
+   "minecraft:iron_shovel",
+   "minecraft:golden_shovel",
+   "minecraft:diamond_shovel",
+   "minecraft:netherite_shovel"
+  ],
+  "requirement": {
+   "collection": "moonsama-x",
+   "tokenId": 82,
+   "legacy": {
+    "chainId": 2109,
+    "address": "0x9984440fb82f1af013865141909276d26b86e303",
+    "tokenId": 82
+   }
+  }
+ },
+ {
+  "identifier": "moonsama:amythest_fateweaver",
+  "name": "Amythest Fateweaver",
+  "description": "Only the worthy can harness the full might of Amethyst Fateweaver, for it is a weapon that bonds with its wielder, amplifying their will and transforming them into a battle-fueled juggernaut.",
+  "rarity": 4,
+  "group": "swords",
+  "customModelData": 10002,
+  "materials": [
+   "minecraft:wooden_sword",
+   "minecraft:stone_sword",
+   "minecraft:iron_sword",
+   "minecraft:golden_sword",
+   "minecraft:diamond_sword",
+   "minecraft:netherite_sword"
+  ],
+  "requirement": {
+   "collection": "moonsama-x",
+   "tokenId": 86,
+   "legacy": {
+    "chainId": 2109,
+    "address": "0x9984440fb82f1af013865141909276d26b86e303",
+    "tokenId": 86
+   }
+  }
+ },
+ {
+  "identifier": "moonsama:warbringer",
+  "name": "Warbringer",
+  "description": "Warbringer's blade trumpets a symphony of destruction as its merciless edge carves a path through the battlefield. With every swing, it unleashes a tempest of steel, shattering shields and heralding the arrival of its warrior.",
+  "rarity": 4,
+  "group": "swords",
+  "customModelData": 10003,
+  "materials": [
+   "minecraft:wooden_sword",
+   "minecraft:stone_sword",
+   "minecraft:iron_sword",
+   "minecraft:golden_sword",
+   "minecraft:diamond_sword",
+   "minecraft:netherite_sword"
+  ],
+  "requirement": {
+   "collection": "moonsama-x",
+   "tokenId": 87,
+   "legacy": {
+    "chainId": 2109,
+    "address": "0x9984440fb82f1af013865141909276d26b86e303",
+    "tokenId": 87
+   }
+  }
+ },
+ {
+  "identifier": "moonsama:honors_might",
+  "name": "Honor's Might",
+  "description": "With a blade wrought from the fabric of integrity, Honor's Might embodies the unwavering strength and virtuous essence that befalls those who wield it, inspiring courage and commanding respect in every clash.",
+  "rarity": 4,
+  "group": "swords",
+  "customModelData": 10004,
+  "materials": [
+   "minecraft:wooden_sword",
+   "minecraft:stone_sword",
+   "minecraft:iron_sword",
+   "minecraft:golden_sword",
+   "minecraft:diamond_sword",
+   "minecraft:netherite_sword"
+  ],
+  "requirement": {
+   "collection": "moonsama-x",
+   "tokenId": 88,
+   "legacy": {
+    "chainId": 2109,
+    "address": "0x9984440fb82f1af013865141909276d26b86e303",
+    "tokenId": 88
+   }
+  }
+ },
+ {
+  "identifier": "moonsama:pyrebrand_reaver",
+  "name": "Pyrebrand Reaver",
+  "description": "Tempered in the crucible of ancient fires, Pyrebrand Reaver devours all in its path, reducing foes to smoldering embers and scorching the battlefield with relentless ferocity.",
+  "rarity": 4,
+  "group": "swords",
+  "customModelData": 10005,
+  "materials": [
+   "minecraft:wooden_sword",
+   "minecraft:stone_sword",
+   "minecraft:iron_sword",
+   "minecraft:golden_sword",
+   "minecraft:diamond_sword",
+   "minecraft:netherite_sword"
+  ],
+  "requirement": {
+   "collection": "moonsama-x",
+   "tokenId": 89,
+   "legacy": {
+    "chainId": 2109,
+    "address": "0x9984440fb82f1af013865141909276d26b86e303",
+    "tokenId": 89
+   }
+  }
+ },
+ {
+  "identifier": "moonsama:sabre_of_the_wilds",
+  "name": "Sabre Of The Wilds",
+  "description": "With an untamed fury coursing through its steel, the Sabre of the Wilds sets free nature's primal wrath upon its foes, cutting through the heaviest of armor with deadly precision.",
+  "rarity": 4,
+  "group": "swords",
+  "customModelData": 10006,
+  "materials": [
+   "minecraft:wooden_sword",
+   "minecraft:stone_sword",
+   "minecraft:iron_sword",
+   "minecraft:golden_sword",
+   "minecraft:diamond_sword",
+   "minecraft:netherite_sword"
+  ],
+  "requirement": {
+   "collection": "moonsama-x",
+   "tokenId": 90,
+   "legacy": {
+    "chainId": 2109,
+    "address": "0x9984440fb82f1af013865141909276d26b86e303",
+    "tokenId": 90
+   }
+  }
+ },
+ {
+  "identifier": "moonsama:shattered_soulstorm",
+  "name": "Shattered Soulstorm",
+  "description": "Within the fractured shards of its gleaming blade, Shattered Soulstorm wields a swirling maelstrom of the spirit realm with each devastating swing.",
+  "rarity": 4,
+  "group": "swords",
+  "customModelData": 10007,
+  "materials": [
+   "minecraft:wooden_sword",
+   "minecraft:stone_sword",
+   "minecraft:iron_sword",
+   "minecraft:golden_sword",
+   "minecraft:diamond_sword",
+   "minecraft:netherite_sword"
+  ],
+  "requirement": {
+   "collection": "moonsama-x",
+   "tokenId": 91,
+   "legacy": {
+    "chainId": 2109,
+    "address": "0x9984440fb82f1af013865141909276d26b86e303",
+    "tokenId": 91
+   }
+  }
+ },
+ {
+  "identifier": "moonsama:shadowstrike",
+  "name": "Shadowstrike",
+  "description": "Born from the depths of darkness, Shadowstrike emerges from its sheath as a harbinger of demise to all whom conceal fear of their own mortality.",
+  "rarity": 4,
+  "group": "swords",
+  "customModelData": 10008,
+  "materials": [
+   "minecraft:wooden_sword",
+   "minecraft:stone_sword",
+   "minecraft:iron_sword",
+   "minecraft:golden_sword",
+   "minecraft:diamond_sword",
+   "minecraft:netherite_sword"
+  ],
+  "requirement": {
+   "collection": "moonsama-x",
+   "tokenId": 92,
+   "legacy": {
+    "chainId": 2109,
+    "address": "0x9984440fb82f1af013865141909276d26b86e303",
+    "tokenId": 92
+   }
+  }
+ }
+]

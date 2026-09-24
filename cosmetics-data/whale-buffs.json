@@ -1,0 +1,53 @@
+{
+ "entitledSkinCollections": [
+  {
+   "composerCollection": "moonsama",
+   "collection": "moonsama"
+  },
+  {
+   "composerCollection": "exosama",
+   "collection": "exosama"
+  },
+  {
+   "composerCollection": "multiverse-avatars",
+   "collection": null
+  },
+  {
+   "composerCollection": "moonsama-artists",
+   "collection": null
+  },
+  {
+   "composerCollection": "cowboy-country",
+   "collection": null
+  },
+  {
+   "composerCollection": "genesis-rocks",
+   "collection": null
+  },
+  {
+   "composerCollection": "moonbuddies",
+   "collection": null
+  },
+  {
+   "composerCollection": "rareships",
+   "collection": null
+  },
+  {
+   "composerCollection": "tolita-x-lokitas",
+   "collection": null
+  },
+  {
+   "composerCollection": "420budheads",
+   "collection": null
+  },
+  {
+   "composerCollection": "dark-soldiers",
+   "collection": null
+  }
+ ],
+ "power": {
+  "moonsama": 10,
+  "moonsamaNeonBonus": 100,
+  "exosama": 1
+ }
+}
