@@ -58,6 +58,12 @@
   },
   {
    "chainId": 2109,
+   "address": "0xaa821f830beff26626379d840621b92911ea53b7",
+   "portal": "pods",
+   "note": "Pods (Exosama network)"
+  },
+  {
+   "chainId": 2109,
    "address": "0xc630f52a35cfde19122ccd822f1ba00be6fd2e71",
    "portal": null,
    "note": "Multiverse Costumes; not in Portal"

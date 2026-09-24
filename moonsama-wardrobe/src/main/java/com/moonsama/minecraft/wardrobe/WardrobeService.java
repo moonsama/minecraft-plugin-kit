@@ -44,11 +44,18 @@ public final class WardrobeService {
     public WardrobeService(Plugin plugin, MoonsamaService moonsama, SkinService skins, SkinCompositor compositor,
                            WardrobeStore store, Supplier<SkinSigner> signer, Executor renderExecutor,
                            List<String> collections, Set<String> hiddenSlots) {
+        this(plugin, moonsama, skins, compositor, store, signer, renderExecutor, collections, hiddenSlots,
+                Unlocks.OutsidePortalPolicy.LOCKED);
+    }
+
+    public WardrobeService(Plugin plugin, MoonsamaService moonsama, SkinService skins, SkinCompositor compositor,
+                           WardrobeStore store, Supplier<SkinSigner> signer, Executor renderExecutor,
+                           List<String> collections, Set<String> hiddenSlots, Unlocks.OutsidePortalPolicy outsidePortal) {
         this.plugin = plugin;
         this.moonsama = moonsama;
         this.skins = skins;
         this.compositor = compositor;
-        this.unlocks = new Unlocks(compositor);
+        this.unlocks = new Unlocks(compositor, outsidePortal);
         this.store = store;
         this.signer = signer;
         this.renderExecutor = renderExecutor;

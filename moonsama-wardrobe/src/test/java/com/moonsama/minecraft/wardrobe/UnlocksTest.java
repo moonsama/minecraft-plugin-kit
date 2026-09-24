@@ -72,6 +72,29 @@ class UnlocksTest {
     }
 
     @Test
+    void freePolicyOpensCostumeOnlyPartsButNotUnknownContracts() {
+        Unlocks free = new Unlocks(compositor, Unlocks.OutsidePortalPolicy.FREE);
+        List<AssetHolding> holder = List.of(holding("moonsama", 1));
+        Set<String> owned = free.ownedParts("moonsama", holder);
+
+        // Gated on the Multiverse Costumes contract only → free.
+        assertTrue(free.isUnlocked(new SlotValue("costume", "multiverse-costumes", "multiverse_costumes:kringle_kap"), owned, holder));
+        // Still locked under the default policy.
+        assertFalse(unlocks.isUnlocked(new SlotValue("costume", "multiverse-costumes", "multiverse_costumes:kringle_kap"), owned, holder));
+        // Multiverse Items are a Portal collection (moonsama-x); FREE must not bypass them.
+        assertFalse(free.isUnlocked(new SlotValue("mainhand", "multiverse-items", "multiverse_items:amber_detectore"), owned, holder));
+    }
+
+    @Test
+    void podsUnlockThroughThePortalPodsCollection() {
+        List<AssetHolding> podHolder = List.of(holding("moonsama", 1), holding("pods", 12));
+        Set<String> owned = unlocks.ownedParts("moonsama", podHolder);
+        SlotValue pods = new SlotValue("costume", "multiverse-costumes", "multiverse_costumes:pods");
+        assertTrue(unlocks.isUnlocked(pods, owned, podHolder));
+        assertFalse(unlocks.isUnlocked(pods, owned, List.of(holding("moonsama", 1))));
+    }
+
+    @Test
     void holdingsWithZeroBalanceDoNotCount() {
         List<AssetHolding> sold = List.of(holding("moonsama", 1), new AssetHolding("moonsama", "2", "0"));
         assertFalse(offers(unlocks.available("moonsama", "hat", sold), "moonsama:aviator"));

@@ -92,10 +92,10 @@ public final class CompositorData {
         if (contracts != null && contracts.isJsonArray()) {
             for (JsonElement element : contracts.getAsJsonArray()) {
                 JsonObject row = element.getAsJsonObject();
-                if (row.has("portal") && !row.get("portal").isJsonNull()) {
-                    legacyContracts.put(contractKey(row.get("chainId").getAsLong(), row.get("address").getAsString()),
-                            row.get("portal").getAsString());
-                }
+                // Contracts Portal does not index are kept with an empty slug so callers can tell
+                // "known, never in Portal" from "unknown contract".
+                legacyContracts.put(contractKey(row.get("chainId").getAsLong(), row.get("address").getAsString()),
+                        row.has("portal") && !row.get("portal").isJsonNull() ? row.get("portal").getAsString() : "");
             }
         }
 
@@ -175,7 +175,13 @@ public final class CompositorData {
         if (address == null) {
             return Optional.empty();
         }
-        return Optional.ofNullable(legacyContracts.get(contractKey(chainId, address)));
+        String slug = legacyContracts.get(contractKey(chainId, address));
+        return slug == null || slug.isEmpty() ? Optional.empty() : Optional.of(slug);
+    }
+
+    /** True for legacy contracts listed in {@code collections.json} that Portal will never index. */
+    public boolean isOutsidePortal(long chainId, String address) {
+        return address != null && "".equals(legacyContracts.get(contractKey(chainId, address)));
     }
 
     static String contractKey(long chainId, String address) {

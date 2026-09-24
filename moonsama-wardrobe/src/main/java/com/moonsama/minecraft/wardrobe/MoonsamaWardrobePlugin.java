@@ -76,11 +76,14 @@ public final class MoonsamaWardrobePlugin extends JavaPlugin implements Listener
             t.setDaemon(true);
             return t;
         });
+        Unlocks.OutsidePortalPolicy outsidePortal = "free".equalsIgnoreCase(getConfig().getString("parts-outside-portal", "locked"))
+                ? Unlocks.OutsidePortalPolicy.FREE : Unlocks.OutsidePortalPolicy.LOCKED;
         service = new WardrobeService(this, moonsama, skins, compositor, store,
-                () -> getServer().getServicesManager().load(SkinSigner.class), renderExecutor, collections, hidden);
+                () -> getServer().getServicesManager().load(SkinSigner.class), renderExecutor, collections, hidden, outsidePortal);
 
-        getLogger().info(String.format(Locale.ROOT, "Wardrobe ready for %s; %d saved look(s); skin signing %s",
-                service.collections(), store.size(), service.signingAvailable() ? "available" : "NOT configured (set MINESKIN_API_KEY)"));
+        getLogger().info(String.format(Locale.ROOT, "Wardrobe ready for %s; %d saved look(s); skin signing %s; costume-only parts %s",
+                service.collections(), store.size(), service.signingAvailable() ? "available" : "NOT configured (set MINESKIN_API_KEY)",
+                outsidePortal == Unlocks.OutsidePortalPolicy.FREE ? "free for everyone" : "locked"));
 
         getServer().getPluginManager().registerEvents(this, this);
         getServer().getServicesManager().register(WardrobeService.class, service, this, ServicePriority.Normal);

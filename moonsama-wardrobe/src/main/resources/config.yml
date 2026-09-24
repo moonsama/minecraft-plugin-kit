@@ -16,6 +16,12 @@ hidden-slots:
   - background
   - companion
 
+# Parts whose only unlock was a Multiverse Costume / Background NFT. Portal does not index
+# those contracts, so the wardrobe cannot check them.
+#   locked - keep them unavailable (default; nobody gets the old paid costumes for free)
+#   free   - every linked player may use them
+parts-outside-portal: locked
+
 # Display names for collections in messages.
 collection-names:
   moonsama: Moonsama

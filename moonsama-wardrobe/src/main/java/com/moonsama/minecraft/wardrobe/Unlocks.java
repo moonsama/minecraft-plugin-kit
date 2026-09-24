@@ -26,10 +26,24 @@ import java.util.Set;
  * </ul>
  */
 public final class Unlocks {
+    /** What to do with rules that only reference contracts Portal will never index (Multiverse Costumes, Backgrounds). */
+    public enum OutsidePortalPolicy {
+        /** Such conditions are false; the parts stay locked (the old paid costumes are not given away). */
+        LOCKED,
+        /** Such conditions are true for every linked player; the parts become free for all. */
+        FREE
+    }
+
     private final SkinCompositor compositor;
+    private final OutsidePortalPolicy outsidePortal;
 
     public Unlocks(SkinCompositor compositor) {
+        this(compositor, OutsidePortalPolicy.LOCKED);
+    }
+
+    public Unlocks(SkinCompositor compositor, OutsidePortalPolicy outsidePortal) {
         this.compositor = compositor;
+        this.outsidePortal = outsidePortal;
     }
 
     public static String key(SlotValue value) {
@@ -121,9 +135,10 @@ public final class Unlocks {
 
     private boolean nft(JsonObject rule, String assetKey, Set<String> ownedParts, List<AssetHolding> holdings) {
         long chainId = rule.has("chainId") ? rule.get("chainId").getAsLong() : 0;
-        String portal = compositor.data().portalCollectionOf(chainId, optString(rule, "assetAddress")).orElse(null);
+        String address = optString(rule, "assetAddress");
+        String portal = compositor.data().portalCollectionOf(chainId, address).orElse(null);
         if (portal == null) {
-            return false;
+            return outsidePortal == OutsidePortalPolicy.FREE && compositor.data().isOutsidePortal(chainId, address);
         }
         String reference = optString(rule, "referenceType");
         reference = reference == null ? "any" : reference.toLowerCase(Locale.ROOT);

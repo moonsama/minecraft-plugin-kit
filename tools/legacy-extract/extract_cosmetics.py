@@ -59,6 +59,7 @@ LEGACY_CONTRACTS = {
     (1, "0xac5c7493036de60e63eb81c5e9a440b42f47ebf5"): {"portal": "exosama", "note": "Exosama (Ethereum)"},
     (1284, "0xf27a6c72398eb7e25543d19fda370b7083474735"): {"portal": "gromlin", "note": "Gromlins (Moonbeam)"},
     (1285, "0x0a54845ac3743c96e582e03f26c3636ea9c00c8a"): {"portal": "moonsama-embassy", "note": "Moonsama Embassy (Moonriver)"},
+    (2109, "0xaa821f830beff26626379d840621b92911ea53b7"): {"portal": "pods", "note": "Pods (Exosama network)"},
     (2109, "0xc630f52a35cfde19122ccd822f1ba00be6fd2e71"): {"portal": None, "note": "Multiverse Costumes; not in Portal"},
     (2109, "0x5cb76be66792a48bdc96676224cda8bf1df611d4"): {"portal": None, "note": "Multiverse Backgrounds; not in Portal"},
     (2109, "0xc2f48a85903d8a6c5276a4f63f75240c355f716c"): {"portal": None, "note": "Multiverse Avatars (Exosama network); not in Portal"},
