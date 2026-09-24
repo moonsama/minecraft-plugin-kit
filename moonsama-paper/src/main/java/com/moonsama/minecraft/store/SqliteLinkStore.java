@@ -41,15 +41,20 @@ public final class SqliteLinkStore implements LinkStore {
                     CREATE TABLE IF NOT EXISTS oauth_attempts (
                         state TEXT PRIMARY KEY NOT NULL,
                         mojang_uuid TEXT NOT NULL,
+                        mojang_name TEXT,
                         code_verifier TEXT NOT NULL,
                         expires_at INTEGER NOT NULL
                     )
                     """);
+            if (!hasColumn(connection, "oauth_attempts", "mojang_name")) {
+                // Schema 1 (kit < 0.1.0) stored attempts without the Minecraft name.
+                statement.execute("ALTER TABLE oauth_attempts ADD COLUMN mojang_name TEXT");
+            }
             statement.execute("""
                     CREATE INDEX IF NOT EXISTS oauth_attempts_expiry_idx
                     ON oauth_attempts(expires_at)
                     """);
-            statement.execute("PRAGMA user_version=1");
+            statement.execute("PRAGMA user_version=2");
         } catch (SQLException exception) {
             throw databaseFailure("initialize database", exception);
         }
@@ -64,13 +69,14 @@ public final class SqliteLinkStore implements LinkStore {
                 cleanup.executeUpdate();
             }
             try (PreparedStatement insert = connection.prepareStatement("""
-                    INSERT INTO oauth_attempts(state, mojang_uuid, code_verifier, expires_at)
-                    VALUES (?, ?, ?, ?)
+                    INSERT INTO oauth_attempts(state, mojang_uuid, mojang_name, code_verifier, expires_at)
+                    VALUES (?, ?, ?, ?, ?)
                     """)) {
                 insert.setString(1, attempt.state());
                 insert.setString(2, attempt.mojangUuid().toString());
-                insert.setString(3, attempt.codeVerifier());
-                insert.setLong(4, attempt.expiresAt().toEpochMilli());
+                insert.setString(3, attempt.mojangName());
+                insert.setString(4, attempt.codeVerifier());
+                insert.setLong(5, attempt.expiresAt().toEpochMilli());
                 insert.executeUpdate();
             }
         } catch (SQLException exception) {
@@ -85,7 +91,7 @@ public final class SqliteLinkStore implements LinkStore {
             try {
                 OAuthAttempt attempt = null;
                 try (PreparedStatement select = connection.prepareStatement("""
-                        SELECT state, mojang_uuid, code_verifier, expires_at
+                        SELECT state, mojang_uuid, mojang_name, code_verifier, expires_at
                         FROM oauth_attempts
                         WHERE state = ?
                         """)) {
@@ -95,6 +101,7 @@ public final class SqliteLinkStore implements LinkStore {
                             attempt = new OAuthAttempt(
                                     result.getString("state"),
                                     UUID.fromString(result.getString("mojang_uuid")),
+                                    result.getString("mojang_name"),
                                     result.getString("code_verifier"),
                                     Instant.ofEpochMilli(result.getLong("expires_at"))
                             );
@@ -226,6 +233,18 @@ public final class SqliteLinkStore implements LinkStore {
             journalMode.apply(connection);
         }
         return connection;
+    }
+
+    private static boolean hasColumn(Connection connection, String table, String column)
+            throws SQLException {
+        try (PreparedStatement pragma = connection.prepareStatement(
+                "SELECT COUNT(*) FROM pragma_table_info(?) WHERE name = ?")) {
+            pragma.setString(1, table);
+            pragma.setString(2, column);
+            try (ResultSet result = pragma.executeQuery()) {
+                return result.next() && result.getInt(1) > 0;
+            }
+        }
     }
 
     private static IllegalStateException databaseFailure(String action, SQLException cause) {

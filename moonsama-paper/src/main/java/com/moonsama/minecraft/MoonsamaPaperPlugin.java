@@ -215,7 +215,7 @@ public final class MoonsamaPaperPlugin extends JavaPlugin implements MoonsamaSer
         storageExecutor.close();
     }
 
-    CompletableFuture<URI> beginLink(UUID mojangUuid) {
+    CompletableFuture<URI> beginLink(UUID mojangUuid, String mojangName) {
         if (!config.isComplete()) {
             return CompletableFuture.failedFuture(
                     new IllegalStateException("Portal credentials are not configured")
@@ -225,6 +225,7 @@ public final class MoonsamaPaperPlugin extends JavaPlugin implements MoonsamaSer
         OAuthAttempt stored = new OAuthAttempt(
                 oauth.state(),
                 mojangUuid,
+                mojangName,
                 oauth.verifier(),
                 Instant.now().plus(config.oauthAttemptTtl())
         );

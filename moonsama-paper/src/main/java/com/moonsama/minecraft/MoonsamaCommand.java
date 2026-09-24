@@ -71,7 +71,7 @@ final class MoonsamaCommand implements CommandExecutor, TabCompleter {
 
     private void link(Player player) {
         player.sendRichMessage("<yellow>Preparing a secure Portal login link…</yellow>");
-        plugin.beginLink(player.getUniqueId()).whenComplete((url, failure) ->
+        plugin.beginLink(player.getUniqueId(), player.getName()).whenComplete((url, failure) ->
                 plugin.getServer().getScheduler().runTask(plugin, () -> {
                     if (failure != null) {
                         player.sendRichMessage("<red>" + safe(plugin.userMessage(failure)) + "</red>");
@@ -83,6 +83,12 @@ final class MoonsamaCommand implements CommandExecutor, TabCompleter {
                                     + "<hover:show_text:'Open Moonsama Portal'>"
                                     + "<aqua><underlined>[Open Portal]</underlined></aqua>"
                                     + "</hover></click>"
+                    );
+                    player.sendRichMessage(
+                            "<gray>Log in, then confirm <white>" + safe(player.getName())
+                                    + "</white> on the page that follows. Never open a link "
+                                    + "another player sent you - it would connect your Portal "
+                                    + "account to their Minecraft account.</gray>"
                     );
                 })
         );

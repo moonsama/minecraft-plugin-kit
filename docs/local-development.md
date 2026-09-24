@@ -118,12 +118,15 @@ uses the original key and payload.
 The browser reaches `127.0.0.1:8080` on the host. Docker forwards that request
 to the callback listener embedded in `MoonsamaCore`. The listener validates the
 single-use OAuth state and PKCE verifier, exchanges the code with Portal, and
-stores Mojang UUID to Portal player ID in SQLite.
+shows a confirmation page naming the Minecraft player. Clicking **Yes, link**
+stores Mojang UUID to Portal player ID in SQLite; **Not me** discards the login.
+The extra click is what stops a player from tricking someone else into linking
+their Portal account to the player's Minecraft account.
 
 For a remote community server, `127.0.0.1` would point at the player's
 computer, not the Minecraft server. Production operators need a public HTTPS
 callback URL routed to port 8080, and must register that exact URL on their
-Portal OAuth client.
+Portal OAuth client - see the [operator guide](operator-guide.md).
 
 ## Troubleshooting
 

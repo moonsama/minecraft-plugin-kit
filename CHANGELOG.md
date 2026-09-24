@@ -19,7 +19,9 @@ with direct Moonsama Portal integration.
 
 ### Added
 
-- **MoonsamaCore** (`moonsama-paper`): Portal account linking via OAuth (`/link`), holdings
+- **MoonsamaCore** (`moonsama-paper`): Portal account linking via OAuth (`/moonsama link`)
+  with a browser confirmation page that names the Minecraft account before the link is
+  saved (prevents forwarded-link account takeover), holdings
   cache, crash-safe economy with idempotent Portal transactions, SQLite storage
   (`storage.journal-mode`, default `wal`, `truncate` for bind-mounted volumes), resource
   pack serving with SHA-1 pinning, shared API (`MoonsamaApi`) for feature plugins.

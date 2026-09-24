@@ -91,9 +91,12 @@ credentials are present, otherwise `Portal credentials are not configured` and
 ## 4. Public HTTPS callback
 
 When a player runs `/moonsama link`, they open Portal in a browser, approve access, and
-Portal redirects the browser to your **redirect URI**. That request has to reach the
-embedded HTTP server inside the plugin (`/callback` on `oauth.callback-port`). Browsers and
-Portal both expect HTTPS on a real hostname, so put a reverse proxy in front:
+Portal redirects the browser to your **redirect URI**. The plugin then shows a
+confirmation page naming the Minecraft player ("link Portal account X to Minecraft player
+**Steve**?"); only after the Portal user clicks **Yes, link** is the link saved. That
+request has to reach the embedded HTTP server inside the plugin (`/callback` and
+`/callback/confirm` on `oauth.callback-port`). Browsers and Portal both expect HTTPS on a
+real hostname, so put a reverse proxy in front:
 
 ```
 player browser --HTTPS--> mc.example.com (nginx/Caddy/Traefik) --HTTP--> 127.0.0.1:8080
@@ -116,6 +119,7 @@ server {
     ssl_certificate     /etc/letsencrypt/live/mc.example.com/fullchain.pem;
     ssl_certificate_key /etc/letsencrypt/live/mc.example.com/privkey.pem;
 
+    # prefix match: also covers /callback/confirm and /callback/cancel (POST)
     location /callback        { proxy_pass http://127.0.0.1:8080; }
     location /resourcepack.zip { proxy_pass http://127.0.0.1:8080; }
 }
@@ -127,9 +131,15 @@ Then:
   the Portal login client).
 - `PORTAL_CALLBACK_BIND_HOST=127.0.0.1` so port 8080 is not reachable from the internet
   directly; only the proxy talks to it. Do not open 8080 in the firewall.
-- The callback page only ever handles `GET /callback?code=...&state=...`; the `state`
-  ties the browser to the Minecraft player who started `/moonsama link` and expires after
-  `oauth.attempt-ttl-minutes` (10). There is nothing else to secure behind the proxy.
+- The HTTP surface is `GET /callback?code=...&state=...` (single-use `state` + PKCE, expires
+  after `oauth.attempt-ttl-minutes`, default 10) and the `POST /callback/confirm` /
+  `POST /callback/cancel` forms of the confirmation page (single-use token, 5 minutes).
+  There is nothing else to secure behind the proxy.
+- Tell your players what the in-game message already says: never open a Portal link
+  another player sent them. The `state` identifies the Minecraft account that *started*
+  the flow, so a forwarded link would connect the victim's Portal account to the sender's
+  Minecraft account - the confirmation page (which shows the Minecraft name) is the step
+  where the Portal owner can catch that.
 
 If you run Paper in Docker, publish 8080 only to localhost (`"127.0.0.1:8080:8080"`) and
 proxy to it, or attach the proxy to the same Docker network.

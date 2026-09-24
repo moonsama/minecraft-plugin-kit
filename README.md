@@ -43,7 +43,8 @@ See [CONTRIBUTING.md](CONTRIBUTING.md).
    To refresh the Paper pin first, use `make up-latest`.
 
 5. Join `localhost:25565` with Minecraft 26.3.
-6. Run `/moonsama link`, click **Open Portal**, and approve access.
+6. Run `/moonsama link`, click **Open Portal**, approve access, then confirm your
+   Minecraft name with **Yes, link**.
 7. Run `/moonsama holdings`.
 8. Run `/offhanddemo` to equip the item gated by `sandbox-items` token `1`.
 9. Run `/buyrelic` to test a crash-safe spend of 10 `sandbox-gold`.
