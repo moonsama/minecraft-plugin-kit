@@ -1,138 +1,108 @@
 [
  {
-  "referenceId": "exosama_mc:minecraft_settings",
-  "states": {},
+  "referenceId": "moonsama_mc:landscape",
+  "states": {
+   "type": "OR",
+   "conditions": [
+    {
+     "type": "asset",
+     "slot": "background",
+     "assetId": "moonsama:landscape"
+    },
+    {
+     "type": "AND",
+     "conditions": [
+      {
+       "type": "asset",
+       "slot": "background",
+       "assetId": null
+      },
+      {
+       "type": "token",
+       "invert": true,
+       "assetId": null
+      },
+      {
+       "type": "token",
+       "invert": true,
+       "assetId": 0
+      }
+     ]
+    }
+   ]
+  },
   "config": {
-   "output": {
-    "width": 64,
-    "height": 64,
-    "result": "render",
-    "camera_x": 32,
-    "camera_y": 32,
-    "camera_size": 32,
-    "transparency": true,
-    "camera_z": -100
-   },
    "elements": [
     {
+     "id": "background",
      "type": "sprite",
-     "bone": "global",
-     "url": "#composition",
+     "bone": "background",
+     "url": "background/landscape.jpg",
      "pass": "default",
      "z-index": 0,
      "blend": "default",
      "opacity": 1,
-     "width": 64,
-     "height": 64,
+     "coordinates": "pixels",
+     "width": 1280,
+     "height": 1280,
      "x": 0,
      "y": 0,
-     "pivot_x": 0,
-     "pivot_y": 0,
-     "scale": 1
+     "pivot_x": 640,
+     "pivot_y": 640,
+     "scale": 0.25
     }
    ]
   }
  },
  {
-  "referenceId": "exosama_mc:model_settings",
-  "states": {},
-  "config": {
-   "elements": [
+  "referenceId": "moonsama_mc:neon_bird_545_beak",
+  "states": {
+   "type": "AND",
+   "conditions": [
     {
-     "id": "model",
-     "type": "model",
-     "bone": "global",
-     "url": "model/alex.glb",
-     "textures": [
-      {
-       "url": "#composition",
-       "texture": "_MainTex",
-       "material": "skin"
-      }
-     ]
-    }
-   ],
-   "output": {
-    "width": 300,
-    "height": 300,
-    "result": "model"
-   }
-  }
- },
- {
-  "referenceId": "exosama_mc:preview_settings",
-  "states": {},
-  "config": {
-   "elements": [
-    {
-     "id": "model",
-     "type": "model",
-     "bone": "global",
-     "url": "model/alex.glb",
-     "rotation": {
-      "x": 0,
-      "y": 30,
-      "z": 0
-     },
-     "textures": [
-      {
-       "material": "skin",
-       "texture": "_MainTex",
-       "url": "#composition"
-      }
-     ]
-    }
-   ],
-   "output": {
-    "width": 300,
-    "height": 300,
-    "result": "render",
-    "camera_projection": "perspective",
-    "camera_x": 0,
-    "camera_y": 1.5,
-    "camera_z": 4,
-    "camera_rotation_x": 6.3,
-    "camera_rotation_y": 180,
-    "transparency": true
-   },
-   "skeleton": [
-    {
-     "id": "background",
-     "parent": "global",
-     "rotation": {
-      "x": 6.3,
-      "y": 180,
-      "z": 0
-     },
-     "position": {
-      "x": 0,
-      "y": 0.66,
-      "z": -3.5
-     },
-     "scale": {
-      "x": 0.015,
-      "y": 0.015,
-      "z": 0.015
-     }
+     "type": "asset",
+     "slot": "dimension",
+     "assetId": "moonsama:neon"
     },
     {
-     "id": "head",
-     "scale": {
-      "x": 0.04,
-      "y": 0.04,
-      "z": 0.04
-     },
-     "position": {
-      "x": 0,
-      "y": 1.75,
-      "z": 0
-     },
-     "parent": "global",
-     "rotation": {
-      "x": 0,
-      "y": 30,
-      "z": 0
-     }
+     "type": "token",
+     "assetId": 545
+    },
+    {
+     "type": "asset",
+     "invert": true,
+     "assetId": "*",
+     "slot": "costume",
+     "tags": [
+      "hide-base"
+     ]
+    },
+    {
+     "type": "asset",
+     "invert": true,
+     "assetId": "*",
+     "slot": "costume",
+     "tags": [
+      "hide-beak"
+     ]
+    }
+   ]
+  },
+  "config": {
+   "elements": [
+    {
+     "id": "base_fragment",
+     "type": "texture_fragment",
+     "target_texture_id": "base",
+     "url": "base/neon_bird_545.png",
+     "pass": "skin",
+     "z-index": 1,
+     "width": 32,
+     "height": 16,
+     "x": 32,
+     "y": 48,
+     "pos_x": 32,
+     "pos_y": 48
     }
    ]
   }
@@ -296,6 +266,694 @@
   }
  },
  {
+  "referenceId": "moonsama_mc:white_bird_beak",
+  "states": {
+   "type": "AND",
+   "conditions": [
+    {
+     "type": "asset",
+     "assetId": "moonsama:white_bird",
+     "slot": "base"
+    },
+    {
+     "type": "asset",
+     "invert": true,
+     "assetId": "*",
+     "slot": "costume",
+     "tags": [
+      "hide-base"
+     ]
+    },
+    {
+     "type": "asset",
+     "invert": true,
+     "assetId": "*",
+     "slot": "costume",
+     "tags": [
+      "hide-beak"
+     ]
+    }
+   ]
+  },
+  "config": {
+   "elements": [
+    {
+     "id": "base_fragment",
+     "type": "texture_fragment",
+     "target_texture_id": "base",
+     "url": "base/white_bird.png",
+     "pass": "skin",
+     "width": 32,
+     "height": 16,
+     "x": 32,
+     "y": 48,
+     "pos_x": 32,
+     "pos_y": 48
+    }
+   ]
+  }
+ },
+ {
+  "referenceId": "moonsama_mc:red_shirt",
+  "states": {
+   "type": "AND",
+   "conditions": [
+    {
+     "type": "asset",
+     "assetId": "moonsama:red_shirt",
+     "slot": "outfit"
+    },
+    {
+     "type": "asset",
+     "invert": true,
+     "slot": "hat",
+     "assetId": "moonsama:astronaut"
+    },
+    {
+     "type": "asset",
+     "invert": true,
+     "slot": "costume",
+     "assetId": "*",
+     "tags": [
+      "hide-outfit"
+     ]
+    }
+   ]
+  },
+  "config": {
+   "elements": [
+    {
+     "id": "shirt_fragment",
+     "type": "texture_fragment",
+     "target_texture_id": "base",
+     "width": 64,
+     "height": 64,
+     "url": "shirt/red_shirt.png"
+    }
+   ]
+  }
+ },
+ {
+  "referenceId": "moonsama_mc:red_mohawk",
+  "states": {
+   "type": "AND",
+   "conditions": [
+    {
+     "type": "asset",
+     "assetId": "moonsama:red_mohawk",
+     "slot": "hair"
+    },
+    {
+     "type": "asset",
+     "assetId": null,
+     "slot": "hat"
+    },
+    {
+     "type": "asset",
+     "invert": true,
+     "slot": "costume",
+     "assetId": "*",
+     "tags": [
+      "hide-hair"
+     ]
+    }
+   ]
+  },
+  "config": {
+   "elements": [
+    {
+     "id": "hair_fragment",
+     "type": "texture_fragment",
+     "target_texture_id": "hair",
+     "width": 64,
+     "height": 64,
+     "url": "hair/red_mohawk.png"
+    }
+   ]
+  }
+ },
+ {
+  "referenceId": "moonsama_mc:blonde_mohawk",
+  "states": {
+   "type": "AND",
+   "conditions": [
+    {
+     "type": "asset",
+     "assetId": "moonsama:blonde_mohawk",
+     "slot": "hair"
+    },
+    {
+     "type": "asset",
+     "assetId": null,
+     "slot": "hat"
+    },
+    {
+     "type": "asset",
+     "invert": true,
+     "slot": "costume",
+     "assetId": "*",
+     "tags": [
+      "hide-hair"
+     ]
+    }
+   ]
+  },
+  "config": {
+   "elements": [
+    {
+     "id": "hair_fragment",
+     "type": "texture_fragment",
+     "target_texture_id": "hair",
+     "width": 64,
+     "height": 64,
+     "url": "hair/blonde_mohawk.png"
+    }
+   ]
+  }
+ },
+ {
+  "referenceId": "moonsama_mc:detective",
+  "states": {
+   "type": "AND",
+   "conditions": [
+    {
+     "type": "asset",
+     "assetId": "moonsama:detective",
+     "slot": "hat"
+    },
+    {
+     "type": "asset",
+     "invert": true,
+     "slot": "costume",
+     "assetId": "*",
+     "tags": [
+      "hide-hat"
+     ]
+    }
+   ]
+  },
+  "config": {
+   "elements": [
+    {
+     "id": "hat_fragment",
+     "type": "texture_fragment",
+     "target_texture_id": "hat",
+     "width": 64,
+     "height": 64,
+     "url": "hat/detective.png"
+    }
+   ]
+  }
+ },
+ {
+  "referenceId": "moonsama_mc:blue_bird",
+  "states": {
+   "type": "AND",
+   "conditions": [
+    {
+     "type": "asset",
+     "assetId": "moonsama:blue_bird",
+     "slot": "base"
+    },
+    {
+     "type": "asset",
+     "invert": true,
+     "assetId": "*",
+     "slot": "costume",
+     "tags": [
+      "hide-base"
+     ]
+    }
+   ]
+  },
+  "config": {
+   "elements": [
+    {
+     "id": "base_fragment",
+     "type": "texture_fragment",
+     "target_texture_id": "base",
+     "url": "base/blue_bird.png",
+     "pass": "skin",
+     "width": 64,
+     "height": 48
+    },
+    {
+     "id": "base_fragment",
+     "type": "texture_fragment",
+     "target_texture_id": "base",
+     "url": "base/blue_bird.png",
+     "pass": "skin",
+     "width": 32,
+     "height": 16,
+     "x": 0,
+     "y": 48,
+     "pos_x": 0,
+     "pos_y": 48
+    }
+   ]
+  }
+ },
+ {
+  "referenceId": "moonsama_mc:neon_cigar_787",
+  "states": {
+   "type": "AND",
+   "conditions": [
+    {
+     "type": "asset",
+     "slot": "dimension",
+     "assetId": "moonsama:neon"
+    },
+    {
+     "type": "asset",
+     "slot": "mouth",
+     "assetId": "moonsama:cigar"
+    },
+    {
+     "type": "token",
+     "assetId": 787
+    }
+   ]
+  },
+  "config": {
+   "elements": [
+    {
+     "id": "mouth_fragment",
+     "type": "texture_fragment",
+     "target_texture_id": "mouth",
+     "url": "mouth/neon_cigar_787.png",
+     "z-index": 1,
+     "width": 64,
+     "height": 64
+    }
+   ]
+  }
+ },
+ {
+  "referenceId": "moonsama_mc:blue_bird_beak",
+  "states": {
+   "type": "AND",
+   "conditions": [
+    {
+     "type": "asset",
+     "assetId": "moonsama:blue_bird",
+     "slot": "base"
+    },
+    {
+     "type": "asset",
+     "invert": true,
+     "assetId": "*",
+     "slot": "costume",
+     "tags": [
+      "hide-base"
+     ]
+    },
+    {
+     "type": "asset",
+     "invert": true,
+     "assetId": "*",
+     "slot": "costume",
+     "tags": [
+      "hide-beak"
+     ]
+    }
+   ]
+  },
+  "config": {
+   "elements": [
+    {
+     "id": "base_fragment",
+     "type": "texture_fragment",
+     "target_texture_id": "base",
+     "url": "base/blue_bird.png",
+     "pass": "skin",
+     "width": 32,
+     "height": 16,
+     "x": 32,
+     "y": 48,
+     "pos_x": 32,
+     "pos_y": 48
+    }
+   ]
+  }
+ },
+ {
+  "referenceId": "moonsama_mc:cyan_bird_beak",
+  "states": {
+   "type": "AND",
+   "conditions": [
+    {
+     "type": "asset",
+     "assetId": "moonsama:cyan_bird",
+     "slot": "base"
+    },
+    {
+     "type": "asset",
+     "invert": true,
+     "assetId": "*",
+     "slot": "costume",
+     "tags": [
+      "hide-base"
+     ]
+    },
+    {
+     "type": "asset",
+     "invert": true,
+     "assetId": "*",
+     "slot": "costume",
+     "tags": [
+      "hide-beak"
+     ]
+    }
+   ]
+  },
+  "config": {
+   "elements": [
+    {
+     "id": "base_fragment",
+     "type": "texture_fragment",
+     "target_texture_id": "base",
+     "url": "base/cyan_bird.png",
+     "pass": "skin",
+     "width": 32,
+     "height": 16,
+     "x": 32,
+     "y": 48,
+     "pos_x": 32,
+     "pos_y": 48
+    }
+   ]
+  }
+ },
+ {
+  "referenceId": "moonsama_mc:aviator",
+  "states": {
+   "type": "AND",
+   "conditions": [
+    {
+     "type": "asset",
+     "assetId": "moonsama:aviator",
+     "slot": "hat"
+    },
+    {
+     "type": "asset",
+     "invert": true,
+     "slot": "costume",
+     "assetId": "*",
+     "tags": [
+      "hide-hat"
+     ]
+    }
+   ]
+  },
+  "config": {
+   "elements": [
+    {
+     "id": "hat_fragment",
+     "type": "texture_fragment",
+     "target_texture_id": "hat",
+     "width": 64,
+     "height": 64,
+     "url": "hat/aviator.png"
+    }
+   ]
+  }
+ },
+ {
+  "referenceId": "moonsama_mc:boxing_gloves",
+  "states": {
+   "type": "AND",
+   "conditions": [
+    {
+     "type": "asset",
+     "assetId": "moonsama:boxing_gloves",
+     "slot": "hands"
+    },
+    {
+     "type": "asset",
+     "invert": true,
+     "slot": "costume",
+     "assetId": "*",
+     "tags": [
+      "hide-hands"
+     ]
+    }
+   ]
+  },
+  "config": {
+   "elements": [
+    {
+     "id": "hands_fragment",
+     "type": "texture_fragment",
+     "target_texture_id": "hands",
+     "width": 64,
+     "height": 64,
+     "url": "hands/boxing_gloves.png"
+    }
+   ]
+  }
+ },
+ {
+  "referenceId": "moonsama_mc:cheerleader_poms",
+  "states": {
+   "type": "AND",
+   "conditions": [
+    {
+     "type": "asset",
+     "assetId": "moonsama:cheerleader_poms",
+     "slot": "hands"
+    },
+    {
+     "type": "asset",
+     "invert": true,
+     "slot": "costume",
+     "assetId": "*",
+     "tags": [
+      "hide-hands"
+     ]
+    }
+   ]
+  },
+  "config": {
+   "elements": [
+    {
+     "id": "hands_fragment",
+     "type": "texture_fragment",
+     "target_texture_id": "hands",
+     "width": 64,
+     "height": 64,
+     "url": "hands/cheerleader_poms.png"
+    }
+   ]
+  }
+ },
+ {
+  "referenceId": "moonsama_mc:astronaut_outfit",
+  "states": {
+   "type": "AND",
+   "conditions": [
+    {
+     "type": "asset",
+     "assetId": "moonsama:astronaut",
+     "slot": "hat"
+    },
+    {
+     "type": "asset",
+     "invert": true,
+     "slot": "costume",
+     "assetId": "*",
+     "tags": [
+      "hide-outfit"
+     ]
+    }
+   ]
+  },
+  "config": {
+   "elements": [
+    {
+     "id": "outfit_fragment",
+     "type": "texture_fragment",
+     "target_texture_id": "outfit",
+     "width": 64,
+     "height": 48,
+     "url": "outfit/astronaut.png"
+    }
+   ]
+  }
+ },
+ {
+  "referenceId": "moonsama_mc:orange_cap",
+  "states": {
+   "type": "AND",
+   "conditions": [
+    {
+     "type": "asset",
+     "assetId": "moonsama:orange_cap",
+     "slot": "hat"
+    },
+    {
+     "type": "asset",
+     "invert": true,
+     "slot": "costume",
+     "assetId": "*",
+     "tags": [
+      "hide-hat"
+     ]
+    }
+   ]
+  },
+  "config": {
+   "elements": [
+    {
+     "id": "hat_fragment",
+     "type": "texture_fragment",
+     "target_texture_id": "hat",
+     "width": 64,
+     "height": 64,
+     "url": "hat/orange_cap.png"
+    }
+   ]
+  }
+ },
+ {
+  "referenceId": "moonsama_mc:red_headset",
+  "states": {
+   "type": "AND",
+   "conditions": [
+    {
+     "type": "asset",
+     "assetId": "moonsama:red_headset",
+     "slot": "hat"
+    },
+    {
+     "type": "asset",
+     "invert": true,
+     "slot": "costume",
+     "assetId": "*",
+     "tags": [
+      "hide-hat"
+     ]
+    }
+   ]
+  },
+  "config": {
+   "elements": [
+    {
+     "id": "hat_fragment",
+     "type": "texture_fragment",
+     "target_texture_id": "hat",
+     "width": 64,
+     "height": 64,
+     "url": "hat/red_headset.png"
+    }
+   ]
+  }
+ },
+ {
+  "referenceId": "moonsama_mc:neon_bird_605_beak",
+  "states": {
+   "type": "AND",
+   "conditions": [
+    {
+     "type": "asset",
+     "slot": "dimension",
+     "assetId": "moonsama:neon"
+    },
+    {
+     "type": "token",
+     "assetId": 605
+    },
+    {
+     "type": "asset",
+     "invert": true,
+     "assetId": "*",
+     "slot": "costume",
+     "tags": [
+      "hide-base"
+     ]
+    },
+    {
+     "type": "asset",
+     "invert": true,
+     "assetId": "*",
+     "slot": "costume",
+     "tags": [
+      "hide-beak"
+     ]
+    }
+   ]
+  },
+  "config": {
+   "elements": [
+    {
+     "id": "base_fragment",
+     "type": "texture_fragment",
+     "target_texture_id": "base",
+     "url": "base/neon_bird_605.png",
+     "pass": "skin",
+     "z-index": 1,
+     "width": 32,
+     "height": 16,
+     "x": 32,
+     "y": 48,
+     "pos_x": 32,
+     "pos_y": 48
+    }
+   ]
+  }
+ },
+ {
+  "referenceId": "moonsama_mc:sheriff_outfit",
+  "states": {
+   "type": "AND",
+   "conditions": [
+    {
+     "type": "asset",
+     "assetId": "moonsama:sheriff_outfit",
+     "slot": "outfit"
+    },
+    {
+     "type": "asset",
+     "invert": true,
+     "slot": "hat",
+     "assetId": "moonsama:astronaut"
+    },
+    {
+     "type": "asset",
+     "invert": true,
+     "slot": "costume",
+     "assetId": "*",
+     "tags": [
+      "hide-outfit"
+     ]
+    }
+   ]
+  },
+  "config": {
+   "elements": [
+    {
+     "id": "outfit_fragment",
+     "type": "texture_fragment",
+     "target_texture_id": "outfit",
+     "width": 64,
+     "height": 64,
+     "url": "outfit/sheriff_outfit.png"
+    },
+    {
+     "id": "outfit_fragment",
+     "type": "texture_fragment",
+     "target_texture_id": "hat",
+     "width": 64,
+     "height": 16,
+     "x": 0,
+     "y": 48,
+     "pos_x": 0,
+     "pos_y": 48,
+     "url": "outfit/sheriff_outfit.png"
+    }
+   ]
+  }
+ },
+ {
   "referenceId": "moonsama_mc:astronaut",
   "states": {
    "type": "AND",
@@ -343,14 +1001,70 @@
   }
  },
  {
-  "referenceId": "moonsama_mc:astronaut_outfit",
+  "referenceId": "moonsama_mc:neon_rainbow_shirt_920",
   "states": {
    "type": "AND",
    "conditions": [
     {
      "type": "asset",
-     "assetId": "moonsama:astronaut",
-     "slot": "hat"
+     "slot": "outfit",
+     "assetId": "moonsama:rainbow_shirt"
+    },
+    {
+     "type": "asset",
+     "slot": "dimension",
+     "assetId": "moonsama:neon"
+    },
+    {
+     "type": "token",
+     "assetId": 920
+    },
+    {
+     "type": "asset",
+     "invert": true,
+     "slot": "hat",
+     "assetId": "moonsama:astronaut"
+    },
+    {
+     "type": "asset",
+     "invert": true,
+     "slot": "costume",
+     "assetId": "*",
+     "tags": [
+      "hide-outfit"
+     ]
+    }
+   ]
+  },
+  "config": {
+   "elements": [
+    {
+     "id": "shirt_fragment",
+     "type": "texture_fragment",
+     "target_texture_id": "base",
+     "width": 64,
+     "height": 64,
+     "z-index": 1,
+     "url": "shirt/neon_rainbow_shirt_920.png"
+    }
+   ]
+  }
+ },
+ {
+  "referenceId": "moonsama_mc:judo_outfit",
+  "states": {
+   "type": "AND",
+   "conditions": [
+    {
+     "type": "asset",
+     "assetId": "moonsama:judo_outfit",
+     "slot": "outfit"
+    },
+    {
+     "type": "asset",
+     "invert": true,
+     "slot": "hat",
+     "assetId": "moonsama:astronaut"
     },
     {
      "type": "asset",
@@ -370,120 +1084,60 @@
      "type": "texture_fragment",
      "target_texture_id": "outfit",
      "width": 64,
-     "height": 48,
-     "url": "outfit/astronaut.png"
-    }
-   ]
-  }
- },
- {
-  "referenceId": "moonsama_mc:aviator",
-  "states": {
-   "type": "AND",
-   "conditions": [
-    {
-     "type": "asset",
-     "assetId": "moonsama:aviator",
-     "slot": "hat"
+     "height": 64,
+     "url": "outfit/judo_outfit.png"
     },
     {
-     "type": "asset",
-     "invert": true,
-     "slot": "costume",
-     "assetId": "*",
-     "tags": [
-      "hide-hat"
-     ]
-    }
-   ]
-  },
-  "config": {
-   "elements": [
-    {
-     "id": "hat_fragment",
+     "id": "outfit_fragment",
      "type": "texture_fragment",
      "target_texture_id": "hat",
      "width": 64,
-     "height": 64,
-     "url": "hat/aviator.png"
-    }
-   ]
-  }
- },
- {
-  "referenceId": "moonsama_mc:black_bird",
-  "states": {
-   "type": "AND",
-   "conditions": [
-    {
-     "type": "asset",
-     "assetId": "moonsama:black_bird",
-     "slot": "base"
-    },
-    {
-     "type": "asset",
-     "invert": true,
-     "assetId": "*",
-     "slot": "costume",
-     "tags": [
-      "hide-base"
-     ]
-    }
-   ]
-  },
-  "config": {
-   "elements": [
-    {
-     "id": "base_fragment",
-     "type": "texture_fragment",
-     "target_texture_id": "base",
-     "url": "base/black_bird.png",
-     "pass": "skin",
-     "width": 64,
-     "height": 48
-    },
-    {
-     "id": "base_fragment",
-     "type": "texture_fragment",
-     "target_texture_id": "base",
-     "url": "base/black_bird.png",
-     "pass": "skin",
-     "width": 32,
      "height": 16,
      "x": 0,
      "y": 48,
      "pos_x": 0,
-     "pos_y": 48
+     "pos_y": 48,
+     "url": "outfit/judo_outfit.png"
     }
    ]
   }
  },
  {
-  "referenceId": "moonsama_mc:black_bird_beak",
+  "referenceId": "moonsama_mc:hero_outfit",
   "states": {
    "type": "AND",
    "conditions": [
     {
      "type": "asset",
-     "assetId": "moonsama:black_bird",
-     "slot": "base"
+     "assetId": "moonsama:hero_outfit",
+     "slot": "outfit"
     },
     {
-     "type": "asset",
-     "invert": true,
-     "assetId": "*",
-     "slot": "costume",
-     "tags": [
-      "hide-base"
+     "type": "OR",
+     "conditions": [
+      {
+       "type": "asset",
+       "slot": "costume",
+       "assetId": "*",
+       "tags": [
+        "hide-hat"
+       ]
+      },
+      {
+       "type": "asset",
+       "invert": true,
+       "assetId": "moonsama:astronaut",
+       "slot": "hat"
+      }
      ]
     },
     {
      "type": "asset",
      "invert": true,
-     "assetId": "*",
      "slot": "costume",
+     "assetId": "*",
      "tags": [
-      "hide-beak"
+      "hide-outfit"
      ]
     }
    ]
@@ -491,17 +1145,102 @@
   "config": {
    "elements": [
     {
-     "id": "base_fragment",
+     "id": "outfit_fragment",
+     "type": "texture_fragment",
+     "target_texture_id": "outfit",
+     "width": 64,
+     "height": 64,
+     "url": "outfit/hero_outfit.png"
+    }
+   ]
+  }
+ },
+ {
+  "referenceId": "moonsama_mc:rainbow_shirt",
+  "states": {
+   "type": "AND",
+   "conditions": [
+    {
+     "type": "asset",
+     "assetId": "moonsama:rainbow_shirt",
+     "slot": "outfit"
+    },
+    {
+     "type": "asset",
+     "invert": true,
+     "slot": "hat",
+     "assetId": "moonsama:astronaut"
+    },
+    {
+     "type": "asset",
+     "invert": true,
+     "slot": "costume",
+     "assetId": "*",
+     "tags": [
+      "hide-outfit"
+     ]
+    }
+   ]
+  },
+  "config": {
+   "elements": [
+    {
+     "id": "shirt_fragment",
      "type": "texture_fragment",
      "target_texture_id": "base",
-     "url": "base/black_bird.png",
-     "pass": "skin",
-     "width": 32,
-     "height": 16,
-     "x": 32,
-     "y": 48,
-     "pos_x": 32,
-     "pos_y": 48
+     "width": 64,
+     "height": 64,
+     "url": "shirt/rainbow_shirt.png"
+    }
+   ]
+  }
+ },
+ {
+  "referenceId": "moonsama_mc:neon_shirt_787",
+  "states": {
+   "type": "AND",
+   "conditions": [
+    {
+     "type": "asset",
+     "slot": "outfit",
+     "assetId": "moonsama:red_shirt"
+    },
+    {
+     "type": "asset",
+     "slot": "dimension",
+     "assetId": "moonsama:neon"
+    },
+    {
+     "type": "token",
+     "assetId": 787
+    },
+    {
+     "type": "asset",
+     "invert": true,
+     "slot": "hat",
+     "assetId": "moonsama:astronaut"
+    },
+    {
+     "type": "asset",
+     "invert": true,
+     "slot": "costume",
+     "assetId": "*",
+     "tags": [
+      "hide-outfit"
+     ]
+    }
+   ]
+  },
+  "config": {
+   "elements": [
+    {
+     "id": "shirt_fragment",
+     "type": "texture_fragment",
+     "target_texture_id": "base",
+     "width": 64,
+     "height": 64,
+     "z-index": 1,
+     "url": "shirt/neon_shirt_787.png"
     }
    ]
   }
@@ -536,134 +1275,6 @@
      "width": 64,
      "height": 64,
      "url": "hat/black_cap.png"
-    }
-   ]
-  }
- },
- {
-  "referenceId": "moonsama_mc:black_cowboy",
-  "states": {
-   "type": "AND",
-   "conditions": [
-    {
-     "type": "asset",
-     "assetId": "moonsama:black_cowboy",
-     "slot": "hat"
-    },
-    {
-     "type": "asset",
-     "invert": true,
-     "assetId": "moonsama:neon",
-     "slot": "dimension"
-    },
-    {
-     "type": "asset",
-     "invert": true,
-     "slot": "costume",
-     "assetId": "*",
-     "tags": [
-      "hide-hat"
-     ]
-    },
-    {
-     "type": "OR",
-     "conditions": [
-      {
-       "type": "renderType",
-       "renderType": "preview"
-      },
-      {
-       "type": "renderType",
-       "renderType": "preview-minecraft"
-      }
-     ]
-    }
-   ]
-  },
-  "config": {
-   "elements": [
-    {
-     "id": "hat",
-     "type": "model",
-     "url": "model/cowboy.glb",
-     "bone": "hat",
-     "position": {
-      "x": -0.5,
-      "y": -0.5,
-      "z": 0.5
-     },
-     "textures": [
-      {
-       "material": "material_0",
-       "texture": "_MainTex",
-       "url": "#hat_texture"
-      }
-     ]
-    },
-    {
-     "id": "hat_texture",
-     "type": "texture",
-     "url": "hat/black_cowboy.png"
-    }
-   ],
-   "skeleton": [
-    {
-     "id": "anchor",
-     "parent": "head",
-     "position": {
-      "x": 0,
-      "y": 18,
-      "z": 0
-     },
-     "scale": {
-      "x": 16,
-      "y": 16,
-      "z": 16
-     }
-    },
-    {
-     "id": "hat",
-     "parent": "anchor",
-     "scale": {
-      "x": 1.83,
-      "y": 1.83,
-      "z": 1.83
-     }
-    }
-   ]
-  }
- },
- {
-  "referenceId": "moonsama_mc:black_geeky_glasses",
-  "states": {
-   "type": "AND",
-   "conditions": [
-    {
-     "type": "asset",
-     "assetId": "moonsama:black_geeky_glasses",
-     "slot": "eyes"
-    },
-    {
-     "type": "asset",
-     "invert": true,
-     "slot": "costume",
-     "assetId": "*",
-     "tags": [
-      "hide-glasses"
-     ]
-    }
-   ]
-  },
-  "config": {
-   "elements": [
-    {
-     "id": "glasses_fragment",
-     "type": "texture_fragment",
-     "target_texture_id": "eyes",
-     "z-index": 1,
-     "width": 64,
-     "height": 64,
-     "url": "eyes/black_geeky_glasses.png"
     }
    ]
   }
@@ -743,27 +1354,26 @@
   }
  },
  {
-  "referenceId": "moonsama_mc:black_straight",
+  "referenceId": "moonsama_mc:neon_bird_920",
   "states": {
    "type": "AND",
    "conditions": [
     {
      "type": "asset",
-     "assetId": "moonsama:black_straight",
-     "slot": "hair"
+     "slot": "dimension",
+     "assetId": "moonsama:neon"
     },
     {
-     "type": "asset",
-     "assetId": null,
-     "slot": "hat"
+     "type": "token",
+     "assetId": 920
     },
     {
      "type": "asset",
      "invert": true,
-     "slot": "costume",
      "assetId": "*",
+     "slot": "costume",
      "tags": [
-      "hide-hair"
+      "hide-base"
      ]
     }
    ]
@@ -771,38 +1381,53 @@
   "config": {
    "elements": [
     {
-     "id": "hair_fragment",
+     "id": "base_fragment",
      "type": "texture_fragment",
-     "target_texture_id": "hair",
+     "target_texture_id": "base",
+     "url": "base/neon_bird_920.png",
+     "pass": "skin",
+     "z-index": 1,
      "width": 64,
-     "height": 64,
-     "url": "hair/black_straight.png"
+     "height": 48
+    },
+    {
+     "id": "base_fragment",
+     "type": "texture_fragment",
+     "target_texture_id": "base",
+     "url": "base/neon_bird_920.png",
+     "pass": "skin",
+     "z-index": 1,
+     "width": 32,
+     "height": 16,
+     "x": 0,
+     "y": 48,
+     "pos_x": 0,
+     "pos_y": 48
     }
    ]
   }
  },
  {
-  "referenceId": "moonsama_mc:blonde_mohawk",
+  "referenceId": "moonsama_mc:neon_bird_545",
   "states": {
    "type": "AND",
    "conditions": [
     {
      "type": "asset",
-     "assetId": "moonsama:blonde_mohawk",
-     "slot": "hair"
+     "slot": "dimension",
+     "assetId": "moonsama:neon"
     },
     {
-     "type": "asset",
-     "assetId": null,
-     "slot": "hat"
+     "type": "token",
+     "assetId": 545
     },
     {
      "type": "asset",
      "invert": true,
-     "slot": "costume",
      "assetId": "*",
+     "slot": "costume",
      "tags": [
-      "hide-hair"
+      "hide-base"
      ]
     }
    ]
@@ -810,102 +1435,40 @@
   "config": {
    "elements": [
     {
-     "id": "hair_fragment",
+     "id": "base_fragment",
      "type": "texture_fragment",
-     "target_texture_id": "hair",
+     "target_texture_id": "base",
+     "url": "base/neon_bird_545.png",
+     "pass": "skin",
+     "z-index": 1,
      "width": 64,
-     "height": 64,
-     "url": "hair/blonde_mohawk.png"
+     "height": 48
+    },
+    {
+     "id": "base_fragment",
+     "type": "texture_fragment",
+     "target_texture_id": "base",
+     "url": "base/neon_bird_545.png",
+     "pass": "skin",
+     "z-index": 1,
+     "width": 32,
+     "height": 16,
+     "x": 0,
+     "y": 48,
+     "pos_x": 0,
+     "pos_y": 48
     }
    ]
   }
  },
  {
-  "referenceId": "moonsama_mc:blonde_slick",
+  "referenceId": "moonsama_mc:green_bird",
   "states": {
    "type": "AND",
    "conditions": [
     {
      "type": "asset",
-     "assetId": "moonsama:blonde_slick",
-     "slot": "hair"
-    },
-    {
-     "type": "asset",
-     "assetId": null,
-     "slot": "hat"
-    },
-    {
-     "type": "asset",
-     "invert": true,
-     "slot": "costume",
-     "assetId": "*",
-     "tags": [
-      "hide-hair"
-     ]
-    }
-   ]
-  },
-  "config": {
-   "elements": [
-    {
-     "id": "hair_fragment",
-     "type": "texture_fragment",
-     "target_texture_id": "hair",
-     "width": 64,
-     "height": 64,
-     "url": "hair/blonde_slick.png"
-    }
-   ]
-  }
- },
- {
-  "referenceId": "moonsama_mc:blonde_straight",
-  "states": {
-   "type": "AND",
-   "conditions": [
-    {
-     "type": "asset",
-     "assetId": "moonsama:blonde_straight",
-     "slot": "hair"
-    },
-    {
-     "type": "asset",
-     "assetId": null,
-     "slot": "hat"
-    },
-    {
-     "type": "asset",
-     "invert": true,
-     "slot": "costume",
-     "assetId": "*",
-     "tags": [
-      "hide-hair"
-     ]
-    }
-   ]
-  },
-  "config": {
-   "elements": [
-    {
-     "id": "hair_fragment",
-     "type": "texture_fragment",
-     "target_texture_id": "hair",
-     "width": 64,
-     "height": 64,
-     "url": "hair/blonde_straight.png"
-    }
-   ]
-  }
- },
- {
-  "referenceId": "moonsama_mc:blue_bird",
-  "states": {
-   "type": "AND",
-   "conditions": [
-    {
-     "type": "asset",
-     "assetId": "moonsama:blue_bird",
+     "assetId": "moonsama:green_bird",
      "slot": "base"
     },
     {
@@ -925,7 +1488,7 @@
      "id": "base_fragment",
      "type": "texture_fragment",
      "target_texture_id": "base",
-     "url": "base/blue_bird.png",
+     "url": "base/green_bird.png",
      "pass": "skin",
      "width": 64,
      "height": 48
@@ -934,7 +1497,7 @@
      "id": "base_fragment",
      "type": "texture_fragment",
      "target_texture_id": "base",
-     "url": "base/blue_bird.png",
+     "url": "base/green_bird.png",
      "pass": "skin",
      "width": 32,
      "height": 16,
@@ -947,13 +1510,125 @@
   }
  },
  {
-  "referenceId": "moonsama_mc:blue_bird_beak",
+  "referenceId": "exosama_mc:preview_settings",
+  "states": {},
+  "config": {
+   "elements": [
+    {
+     "id": "model",
+     "type": "model",
+     "bone": "global",
+     "url": "model/alex.glb",
+     "rotation": {
+      "x": 0,
+      "y": 30,
+      "z": 0
+     },
+     "textures": [
+      {
+       "material": "skin",
+       "texture": "_MainTex",
+       "url": "#composition"
+      }
+     ]
+    }
+   ],
+   "output": {
+    "width": 300,
+    "height": 300,
+    "result": "render",
+    "camera_projection": "perspective",
+    "camera_x": 0,
+    "camera_y": 1.5,
+    "camera_z": 4,
+    "camera_rotation_x": 6.3,
+    "camera_rotation_y": 180,
+    "transparency": true
+   },
+   "skeleton": [
+    {
+     "id": "background",
+     "parent": "global",
+     "rotation": {
+      "x": 6.3,
+      "y": 180,
+      "z": 0
+     },
+     "position": {
+      "x": 0,
+      "y": 0.66,
+      "z": -3.5
+     },
+     "scale": {
+      "x": 0.015,
+      "y": 0.015,
+      "z": 0.015
+     }
+    },
+    {
+     "id": "head",
+     "scale": {
+      "x": 0.04,
+      "y": 0.04,
+      "z": 0.04
+     },
+     "position": {
+      "x": 0,
+      "y": 1.75,
+      "z": 0
+     },
+     "parent": "global",
+     "rotation": {
+      "x": 0,
+      "y": 30,
+      "z": 0
+     }
+    }
+   ]
+  }
+ },
+ {
+  "referenceId": "exosama_mc:minecraft_settings",
+  "states": {},
+  "config": {
+   "output": {
+    "width": 64,
+    "height": 64,
+    "result": "render",
+    "camera_x": 32,
+    "camera_y": 32,
+    "camera_size": 32,
+    "transparency": true,
+    "camera_z": -100
+   },
+   "elements": [
+    {
+     "type": "sprite",
+     "bone": "global",
+     "url": "#composition",
+     "pass": "default",
+     "z-index": 0,
+     "blend": "default",
+     "opacity": 1,
+     "width": 64,
+     "height": 64,
+     "x": 0,
+     "y": 0,
+     "pivot_x": 0,
+     "pivot_y": 0,
+     "scale": 1
+    }
+   ]
+  }
+ },
+ {
+  "referenceId": "moonsama_mc:pink_bird_beak",
   "states": {
    "type": "AND",
    "conditions": [
     {
      "type": "asset",
-     "assetId": "moonsama:blue_bird",
+     "assetId": "moonsama:pink_bird",
      "slot": "base"
     },
     {
@@ -982,7 +1657,7 @@
      "id": "base_fragment",
      "type": "texture_fragment",
      "target_texture_id": "base",
-     "url": "base/blue_bird.png",
+     "url": "base/pink_bird.png",
      "pass": "skin",
      "width": 32,
      "height": 16,
@@ -990,99 +1665,6 @@
      "y": 48,
      "pos_x": 32,
      "pos_y": 48
-    }
-   ]
-  }
- },
- {
-  "referenceId": "moonsama_mc:blue_bufoon",
-  "states": {
-   "type": "AND",
-   "conditions": [
-    {
-     "type": "asset",
-     "assetId": "moonsama:blue_bufoon",
-     "slot": "hat"
-    },
-    {
-     "type": "asset",
-     "invert": true,
-     "assetId": "moonsama:neon",
-     "slot": "dimension"
-    },
-    {
-     "type": "asset",
-     "invert": true,
-     "slot": "costume",
-     "assetId": "*",
-     "tags": [
-      "hide-hat"
-     ]
-    },
-    {
-     "type": "OR",
-     "conditions": [
-      {
-       "type": "renderType",
-       "renderType": "preview"
-      },
-      {
-       "type": "renderType",
-       "renderType": "preview-minecraft"
-      }
-     ]
-    }
-   ]
-  },
-  "config": {
-   "elements": [
-    {
-     "id": "hat",
-     "type": "model",
-     "url": "model/bufoon.glb",
-     "bone": "hat",
-     "position": {
-      "x": -0.5,
-      "y": -0.5,
-      "z": 0.5
-     },
-     "textures": [
-      {
-       "material": "material_0",
-       "texture": "_MainTex",
-       "url": "#hat_texture"
-      }
-     ]
-    },
-    {
-     "id": "hat_texture",
-     "type": "texture",
-     "url": "hat/blue_bufoon.png"
-    }
-   ],
-   "skeleton": [
-    {
-     "id": "anchor",
-     "parent": "head",
-     "position": {
-      "x": 0,
-      "y": 18,
-      "z": 0
-     },
-     "scale": {
-      "x": 16,
-      "y": 16,
-      "z": 16
-     }
-    },
-    {
-     "id": "hat",
-     "parent": "anchor",
-     "scale": {
-      "x": 1.83,
-      "y": 1.83,
-      "z": 1.83
-     }
     }
    ]
   }
@@ -1161,6 +1743,218 @@
   }
  },
  {
+  "referenceId": "moonsama_mc:green_bird_beak",
+  "states": {
+   "type": "AND",
+   "conditions": [
+    {
+     "type": "asset",
+     "assetId": "moonsama:green_bird",
+     "slot": "base"
+    },
+    {
+     "type": "asset",
+     "invert": true,
+     "assetId": "*",
+     "slot": "costume",
+     "tags": [
+      "hide-base"
+     ]
+    },
+    {
+     "type": "asset",
+     "invert": true,
+     "assetId": "*",
+     "slot": "costume",
+     "tags": [
+      "hide-beak"
+     ]
+    }
+   ]
+  },
+  "config": {
+   "elements": [
+    {
+     "id": "base_fragment",
+     "type": "texture_fragment",
+     "target_texture_id": "base",
+     "url": "base/green_bird.png",
+     "pass": "skin",
+     "width": 32,
+     "height": 16,
+     "x": 32,
+     "y": 48,
+     "pos_x": 32,
+     "pos_y": 48
+    }
+   ]
+  }
+ },
+ {
+  "referenceId": "moonsama_mc:crown",
+  "states": {
+   "type": "AND",
+   "conditions": [
+    {
+     "type": "asset",
+     "assetId": "moonsama:crown",
+     "slot": "hat"
+    },
+    {
+     "type": "asset",
+     "invert": true,
+     "slot": "costume",
+     "assetId": "*",
+     "tags": [
+      "hide-hat"
+     ]
+    }
+   ]
+  },
+  "config": {
+   "elements": [
+    {
+     "id": "hat_fragment",
+     "type": "texture_fragment",
+     "target_texture_id": "hat",
+     "width": 64,
+     "height": 64,
+     "url": "hat/crown.png"
+    }
+   ]
+  }
+ },
+ {
+  "referenceId": "moonsama_mc:red_bird",
+  "states": {
+   "type": "AND",
+   "conditions": [
+    {
+     "type": "asset",
+     "assetId": "moonsama:red_bird",
+     "slot": "base"
+    },
+    {
+     "type": "asset",
+     "invert": true,
+     "assetId": "*",
+     "slot": "costume",
+     "tags": [
+      "hide-base"
+     ]
+    }
+   ]
+  },
+  "config": {
+   "elements": [
+    {
+     "id": "base_fragment",
+     "type": "texture_fragment",
+     "target_texture_id": "base",
+     "url": "base/red_bird.png",
+     "pass": "skin",
+     "width": 64,
+     "height": 48
+    },
+    {
+     "id": "base_fragment",
+     "type": "texture_fragment",
+     "target_texture_id": "base",
+     "url": "base/red_bird.png",
+     "pass": "skin",
+     "width": 32,
+     "height": 16,
+     "x": 0,
+     "y": 48,
+     "pos_x": 0,
+     "pos_y": 48
+    }
+   ]
+  }
+ },
+ {
+  "referenceId": "moonsama_mc:yellow_bird",
+  "states": {
+   "type": "AND",
+   "conditions": [
+    {
+     "type": "asset",
+     "assetId": "moonsama:yellow_bird",
+     "slot": "base"
+    },
+    {
+     "type": "asset",
+     "invert": true,
+     "assetId": "*",
+     "slot": "costume",
+     "tags": [
+      "hide-base"
+     ]
+    }
+   ]
+  },
+  "config": {
+   "elements": [
+    {
+     "id": "base_fragment",
+     "type": "texture_fragment",
+     "target_texture_id": "base",
+     "url": "base/yellow_bird.png",
+     "pass": "skin",
+     "width": 64,
+     "height": 48
+    },
+    {
+     "id": "base_fragment",
+     "type": "texture_fragment",
+     "target_texture_id": "base",
+     "url": "base/yellow_bird.png",
+     "pass": "skin",
+     "width": 32,
+     "height": 16,
+     "x": 0,
+     "y": 48,
+     "pos_x": 0,
+     "pos_y": 48
+    }
+   ]
+  }
+ },
+ {
+  "referenceId": "moonsama_mc:bored_eyes",
+  "states": {
+   "type": "AND",
+   "conditions": [
+    {
+     "type": "asset",
+     "assetId": "moonsama:bored_eyes",
+     "slot": "eyes"
+    },
+    {
+     "type": "asset",
+     "invert": true,
+     "slot": "costume",
+     "assetId": "*",
+     "tags": [
+      "hide-eyes"
+     ]
+    }
+   ]
+  },
+  "config": {
+   "elements": [
+    {
+     "id": "eyes_fragment",
+     "type": "texture_fragment",
+     "target_texture_id": "eyes",
+     "width": 64,
+     "height": 64,
+     "url": "eyes/bored_eyes.png"
+    }
+   ]
+  }
+ },
+ {
   "referenceId": "moonsama_mc:blue_shirt",
   "states": {
    "type": "AND",
@@ -1196,6 +1990,896 @@
      "width": 64,
      "height": 64,
      "url": "shirt/blue_shirt.png"
+    }
+   ]
+  }
+ },
+ {
+  "referenceId": "moonsama_mc:grey_headset",
+  "states": {
+   "type": "AND",
+   "conditions": [
+    {
+     "type": "asset",
+     "assetId": "moonsama:grey_headset",
+     "slot": "hat"
+    },
+    {
+     "type": "asset",
+     "invert": true,
+     "slot": "costume",
+     "assetId": "*",
+     "tags": [
+      "hide-hat"
+     ]
+    }
+   ]
+  },
+  "config": {
+   "elements": [
+    {
+     "id": "hat_fragment",
+     "type": "texture_fragment",
+     "target_texture_id": "hat",
+     "width": 64,
+     "height": 64,
+     "url": "hat/grey_headset.png"
+    }
+   ]
+  }
+ },
+ {
+  "referenceId": "moonsama_mc:champion_gloves",
+  "states": {
+   "type": "AND",
+   "conditions": [
+    {
+     "type": "asset",
+     "assetId": "moonsama:champion_gloves",
+     "slot": "hands"
+    },
+    {
+     "type": "asset",
+     "invert": true,
+     "slot": "costume",
+     "assetId": "*",
+     "tags": [
+      "hide-hands"
+     ]
+    }
+   ]
+  },
+  "config": {
+   "elements": [
+    {
+     "id": "hands_fragment",
+     "type": "texture_fragment",
+     "target_texture_id": "hands",
+     "width": 64,
+     "height": 64,
+     "url": "hands/champion_gloves.png"
+    }
+   ]
+  }
+ },
+ {
+  "referenceId": "moonsama_mc:happy_eyes",
+  "states": {
+   "type": "AND",
+   "conditions": [
+    {
+     "type": "asset",
+     "assetId": "moonsama:happy_eyes",
+     "slot": "eyes"
+    },
+    {
+     "type": "asset",
+     "invert": true,
+     "slot": "costume",
+     "assetId": "*",
+     "tags": [
+      "hide-eyes"
+     ]
+    }
+   ]
+  },
+  "config": {
+   "elements": [
+    {
+     "id": "eyes_fragment",
+     "type": "texture_fragment",
+     "target_texture_id": "eyes",
+     "width": 64,
+     "height": 64,
+     "url": "eyes/happy_eyes.png"
+    }
+   ]
+  }
+ },
+ {
+  "referenceId": "moonsama_mc:cigar",
+  "states": {
+   "type": "asset",
+   "assetId": "moonsama:cigar",
+   "slot": "mouth"
+  },
+  "config": {
+   "elements": [
+    {
+     "id": "mouth_fragment",
+     "type": "texture_fragment",
+     "target_texture_id": "mouth",
+     "url": "mouth/cigar.png",
+     "width": 64,
+     "height": 64
+    }
+   ]
+  }
+ },
+ {
+  "referenceId": "moonsama_mc:neon_shades_545",
+  "states": {
+   "type": "AND",
+   "conditions": [
+    {
+     "type": "asset",
+     "assetId": "moonsama:black_shades",
+     "slot": "eyes"
+    },
+    {
+     "type": "asset",
+     "slot": "dimension",
+     "assetId": "moonsama:neon"
+    },
+    {
+     "type": "token",
+     "assetId": 545
+    },
+    {
+     "type": "asset",
+     "invert": true,
+     "slot": "costume",
+     "assetId": "*",
+     "tags": [
+      "hide-glasses"
+     ]
+    }
+   ]
+  },
+  "config": {
+   "elements": [
+    {
+     "id": "glasses_fragment",
+     "type": "texture_fragment",
+     "target_texture_id": "eyes",
+     "width": 64,
+     "height": 64,
+     "z-index": 2,
+     "url": "eyes/neon_shades_545.png"
+    }
+   ]
+  }
+ },
+ {
+  "referenceId": "moonsama_mc:white_shades",
+  "states": {
+   "type": "AND",
+   "conditions": [
+    {
+     "type": "asset",
+     "assetId": "moonsama:white_shades",
+     "slot": "eyes"
+    },
+    {
+     "type": "asset",
+     "invert": true,
+     "slot": "costume",
+     "assetId": "*",
+     "tags": [
+      "hide-glasses"
+     ]
+    }
+   ]
+  },
+  "config": {
+   "elements": [
+    {
+     "id": "glasses_fragment",
+     "type": "texture_fragment",
+     "target_texture_id": "eyes",
+     "z-index": 1,
+     "width": 64,
+     "height": 64,
+     "url": "eyes/white_shades.png"
+    }
+   ]
+  }
+ },
+ {
+  "referenceId": "moonsama_mc:cyclops",
+  "states": {
+   "type": "AND",
+   "conditions": [
+    {
+     "type": "asset",
+     "assetId": "moonsama:cyclops",
+     "slot": "eyes"
+    },
+    {
+     "type": "asset",
+     "invert": true,
+     "slot": "costume",
+     "assetId": "*",
+     "tags": [
+      "hide-glasses"
+     ]
+    }
+   ]
+  },
+  "config": {
+   "elements": [
+    {
+     "id": "glasses_fragment",
+     "type": "texture_fragment",
+     "target_texture_id": "eyes",
+     "z-index": 1,
+     "width": 64,
+     "height": 64,
+     "url": "eyes/cyclops.png"
+    }
+   ]
+  }
+ },
+ {
+  "referenceId": "moonsama_mc:neon_curious_eyes_920",
+  "states": {
+   "type": "AND",
+   "conditions": [
+    {
+     "type": "asset",
+     "slot": "eyes",
+     "assetId": "moonsama:curious_eyes"
+    },
+    {
+     "type": "asset",
+     "slot": "dimension",
+     "assetId": "moonsama:neon"
+    },
+    {
+     "type": "token",
+     "assetId": 920
+    },
+    {
+     "type": "asset",
+     "invert": true,
+     "slot": "costume",
+     "assetId": "*",
+     "tags": [
+      "hide-eyes"
+     ]
+    }
+   ]
+  },
+  "config": {
+   "elements": [
+    {
+     "id": "eyes_fragment",
+     "type": "texture_fragment",
+     "target_texture_id": "eyes",
+     "z-index": 1,
+     "width": 64,
+     "height": 64,
+     "url": "eyes/neon_curious_eyes_920.png"
+    }
+   ]
+  }
+ },
+ {
+  "referenceId": "moonsama_mc:neon_happy_eyes_787",
+  "states": {
+   "type": "AND",
+   "conditions": [
+    {
+     "type": "asset",
+     "slot": "eyes",
+     "assetId": "moonsama:happy_eyes"
+    },
+    {
+     "type": "asset",
+     "slot": "dimension",
+     "assetId": "moonsama:neon"
+    },
+    {
+     "type": "token",
+     "assetId": 787
+    },
+    {
+     "type": "asset",
+     "invert": true,
+     "slot": "costume",
+     "assetId": "*",
+     "tags": [
+      "hide-eyes"
+     ]
+    }
+   ]
+  },
+  "config": {
+   "elements": [
+    {
+     "id": "eyes_fragment",
+     "type": "texture_fragment",
+     "target_texture_id": "eyes",
+     "z-index": 1,
+     "width": 64,
+     "height": 64,
+     "url": "eyes/neon_happy_eyes_787.png"
+    }
+   ]
+  }
+ },
+ {
+  "referenceId": "moonsama_mc:neon_shades_276",
+  "states": {
+   "type": "AND",
+   "conditions": [
+    {
+     "type": "asset",
+     "assetId": "moonsama:white_shades",
+     "slot": "eyes"
+    },
+    {
+     "type": "asset",
+     "slot": "dimension",
+     "assetId": "moonsama:neon"
+    },
+    {
+     "type": "token",
+     "assetId": 276
+    },
+    {
+     "type": "asset",
+     "invert": true,
+     "slot": "costume",
+     "assetId": "*",
+     "tags": [
+      "hide-glasses"
+     ]
+    }
+   ]
+  },
+  "config": {
+   "elements": [
+    {
+     "id": "glasses_fragment",
+     "type": "texture_fragment",
+     "target_texture_id": "eyes",
+     "width": 64,
+     "height": 64,
+     "z-index": 2,
+     "url": "eyes/neon_shades_276.png"
+    }
+   ]
+  }
+ },
+ {
+  "referenceId": "moonsama_mc:yellow_geeky_glasses",
+  "states": {
+   "type": "AND",
+   "conditions": [
+    {
+     "type": "asset",
+     "assetId": "moonsama:yellow_geeky_glasses",
+     "slot": "eyes"
+    },
+    {
+     "type": "asset",
+     "invert": true,
+     "slot": "costume",
+     "assetId": "*",
+     "tags": [
+      "hide-glasses"
+     ]
+    }
+   ]
+  },
+  "config": {
+   "elements": [
+    {
+     "id": "glasses_fragment",
+     "type": "texture_fragment",
+     "target_texture_id": "eyes",
+     "z-index": 1,
+     "width": 64,
+     "height": 64,
+     "url": "eyes/yellow_geeky_glasses.png"
+    }
+   ]
+  }
+ },
+ {
+  "referenceId": "moonsama_mc:curious_eyes",
+  "states": {
+   "type": "AND",
+   "conditions": [
+    {
+     "type": "asset",
+     "assetId": "moonsama:curious_eyes",
+     "slot": "eyes"
+    },
+    {
+     "type": "asset",
+     "invert": true,
+     "slot": "costume",
+     "assetId": "*",
+     "tags": [
+      "hide-eyes"
+     ]
+    }
+   ]
+  },
+  "config": {
+   "elements": [
+    {
+     "id": "eyes_fragment",
+     "type": "texture_fragment",
+     "target_texture_id": "eyes",
+     "width": 64,
+     "height": 64,
+     "url": "eyes/curious_eyes.png"
+    }
+   ]
+  }
+ },
+ {
+  "referenceId": "moonsama_mc:green_headset",
+  "states": {
+   "type": "AND",
+   "conditions": [
+    {
+     "type": "asset",
+     "assetId": "moonsama:green_headset",
+     "slot": "hat"
+    },
+    {
+     "type": "asset",
+     "invert": true,
+     "slot": "costume",
+     "assetId": "*",
+     "tags": [
+      "hide-hat"
+     ]
+    }
+   ]
+  },
+  "config": {
+   "elements": [
+    {
+     "id": "hat_fragment",
+     "type": "texture_fragment",
+     "target_texture_id": "hat",
+     "width": 64,
+     "height": 64,
+     "url": "hat/green_headset.png"
+    }
+   ]
+  }
+ },
+ {
+  "referenceId": "moonsama_mc:black_geeky_glasses",
+  "states": {
+   "type": "AND",
+   "conditions": [
+    {
+     "type": "asset",
+     "assetId": "moonsama:black_geeky_glasses",
+     "slot": "eyes"
+    },
+    {
+     "type": "asset",
+     "invert": true,
+     "slot": "costume",
+     "assetId": "*",
+     "tags": [
+      "hide-glasses"
+     ]
+    }
+   ]
+  },
+  "config": {
+   "elements": [
+    {
+     "id": "glasses_fragment",
+     "type": "texture_fragment",
+     "target_texture_id": "eyes",
+     "z-index": 1,
+     "width": 64,
+     "height": 64,
+     "url": "eyes/black_geeky_glasses.png"
+    }
+   ]
+  }
+ },
+ {
+  "referenceId": "moonsama_mc:neon_bird_276",
+  "states": {
+   "type": "AND",
+   "conditions": [
+    {
+     "type": "asset",
+     "slot": "dimension",
+     "assetId": "moonsama:neon"
+    },
+    {
+     "type": "token",
+     "assetId": 276
+    },
+    {
+     "type": "asset",
+     "invert": true,
+     "assetId": "*",
+     "slot": "costume",
+     "tags": [
+      "hide-base"
+     ]
+    }
+   ]
+  },
+  "config": {
+   "elements": [
+    {
+     "id": "base_fragment",
+     "type": "texture_fragment",
+     "target_texture_id": "base",
+     "url": "base/neon_bird_276.png",
+     "pass": "skin",
+     "z-index": 1,
+     "width": 64,
+     "height": 48
+    },
+    {
+     "id": "base_fragment",
+     "type": "texture_fragment",
+     "target_texture_id": "base",
+     "url": "base/neon_bird_276.png",
+     "pass": "skin",
+     "z-index": 1,
+     "width": 32,
+     "height": 16,
+     "x": 0,
+     "y": 48,
+     "pos_x": 0,
+     "pos_y": 48
+    }
+   ]
+  }
+ },
+ {
+  "referenceId": "moonsama_mc:pink_headset",
+  "states": {
+   "type": "AND",
+   "conditions": [
+    {
+     "type": "asset",
+     "assetId": "moonsama:pink_headset",
+     "slot": "hat"
+    },
+    {
+     "type": "asset",
+     "invert": true,
+     "slot": "costume",
+     "assetId": "*",
+     "tags": [
+      "hide-hat"
+     ]
+    }
+   ]
+  },
+  "config": {
+   "elements": [
+    {
+     "id": "hat_fragment",
+     "type": "texture_fragment",
+     "target_texture_id": "hat",
+     "width": 64,
+     "height": 64,
+     "url": "hat/pink_headset.png"
+    }
+   ]
+  }
+ },
+ {
+  "referenceId": "exosama_mc:model_settings",
+  "states": {},
+  "config": {
+   "elements": [
+    {
+     "id": "model",
+     "type": "model",
+     "bone": "global",
+     "url": "model/alex.glb",
+     "textures": [
+      {
+       "url": "#composition",
+       "texture": "_MainTex",
+       "material": "skin"
+      }
+     ]
+    }
+   ],
+   "output": {
+    "width": 300,
+    "height": 300,
+    "result": "model"
+   }
+  }
+ },
+ {
+  "referenceId": "moonsama_mc:gold_chain",
+  "states": {
+   "type": "asset",
+   "assetId": "moonsama:gold_chain",
+   "slot": "bodyaccessory"
+  },
+  "config": {
+   "elements": [
+    {
+     "id": "bodyaccessory_fragment",
+     "type": "texture_fragment",
+     "target_texture_id": "outfit",
+     "url": "bodyaccessory/gold_chain.png",
+     "z-index": 1,
+     "width": 64,
+     "height": 64
+    }
+   ]
+  }
+ },
+ {
+  "referenceId": "moonsama_mc:neon_crown_276",
+  "states": {
+   "type": "AND",
+   "conditions": [
+    {
+     "type": "asset",
+     "slot": "hat",
+     "assetId": "moonsama:crown"
+    },
+    {
+     "type": "asset",
+     "slot": "dimension",
+     "assetId": "moonsama:neon"
+    },
+    {
+     "type": "token",
+     "assetId": 276
+    },
+    {
+     "type": "asset",
+     "invert": true,
+     "slot": "costume",
+     "assetId": "*",
+     "tags": [
+      "hide-hat"
+     ]
+    }
+   ]
+  },
+  "config": {
+   "elements": [
+    {
+     "id": "hat_fragment",
+     "type": "texture_fragment",
+     "target_texture_id": "hat",
+     "width": 64,
+     "height": 64,
+     "z-index": 1,
+     "url": "hat/neon_crown_276.png"
+    }
+   ]
+  }
+ },
+ {
+  "referenceId": "moonsama_mc:neon_geeky_glasses_605",
+  "states": {
+   "type": "AND",
+   "conditions": [
+    {
+     "type": "asset",
+     "assetId": "moonsama:black_geeky_glasses",
+     "slot": "eyes"
+    },
+    {
+     "type": "asset",
+     "slot": "dimension",
+     "assetId": "moonsama:neon"
+    },
+    {
+     "type": "token",
+     "assetId": 605
+    },
+    {
+     "type": "asset",
+     "invert": true,
+     "slot": "costume",
+     "assetId": "*",
+     "tags": [
+      "hide-glasses"
+     ]
+    }
+   ]
+  },
+  "config": {
+   "elements": [
+    {
+     "id": "glasses_fragment",
+     "type": "texture_fragment",
+     "target_texture_id": "eyes",
+     "width": 64,
+     "height": 64,
+     "z-index": 2,
+     "url": "eyes/neon_geeky_glasses_605.png"
+    }
+   ]
+  }
+ },
+ {
+  "referenceId": "moonsama_mc:neon_geeky_glasses_511",
+  "states": {
+   "type": "AND",
+   "conditions": [
+    {
+     "type": "asset",
+     "assetId": "moonsama:black_geeky_glasses",
+     "slot": "eyes"
+    },
+    {
+     "type": "asset",
+     "slot": "dimension",
+     "assetId": "moonsama:neon"
+    },
+    {
+     "type": "token",
+     "assetId": 511
+    },
+    {
+     "type": "asset",
+     "invert": true,
+     "slot": "costume",
+     "assetId": "*",
+     "tags": [
+      "hide-glasses"
+     ]
+    }
+   ]
+  },
+  "config": {
+   "elements": [
+    {
+     "id": "glasses_fragment",
+     "type": "texture_fragment",
+     "target_texture_id": "eyes",
+     "width": 64,
+     "height": 64,
+     "z-index": 2,
+     "url": "eyes/neon_geeky_glasses_511.png"
+    }
+   ]
+  }
+ },
+ {
+  "referenceId": "moonsama_mc:red_straight",
+  "states": {
+   "type": "AND",
+   "conditions": [
+    {
+     "type": "asset",
+     "assetId": "moonsama:red_straight",
+     "slot": "hair"
+    },
+    {
+     "type": "asset",
+     "assetId": null,
+     "slot": "hat"
+    },
+    {
+     "type": "asset",
+     "invert": true,
+     "slot": "costume",
+     "assetId": "*",
+     "tags": [
+      "hide-hair"
+     ]
+    }
+   ]
+  },
+  "config": {
+   "elements": [
+    {
+     "id": "hair_fragment",
+     "type": "texture_fragment",
+     "target_texture_id": "hair",
+     "width": 64,
+     "height": 64,
+     "url": "hair/red_straight.png"
+    }
+   ]
+  }
+ },
+ {
+  "referenceId": "moonsama_mc:samurai_top",
+  "states": {
+   "type": "AND",
+   "conditions": [
+    {
+     "type": "asset",
+     "assetId": "moonsama:samurai_top",
+     "slot": "hair"
+    },
+    {
+     "type": "asset",
+     "assetId": null,
+     "slot": "hat"
+    },
+    {
+     "type": "asset",
+     "invert": true,
+     "slot": "costume",
+     "assetId": "*",
+     "tags": [
+      "hide-hair"
+     ]
+    }
+   ]
+  },
+  "config": {
+   "elements": [
+    {
+     "id": "hair_fragment",
+     "type": "texture_fragment",
+     "target_texture_id": "hair",
+     "width": 64,
+     "height": 64,
+     "url": "hair/samurai_top.png"
+    }
+   ]
+  }
+ },
+ {
+  "referenceId": "moonsama_mc:blonde_straight",
+  "states": {
+   "type": "AND",
+   "conditions": [
+    {
+     "type": "asset",
+     "assetId": "moonsama:blonde_straight",
+     "slot": "hair"
+    },
+    {
+     "type": "asset",
+     "assetId": null,
+     "slot": "hat"
+    },
+    {
+     "type": "asset",
+     "invert": true,
+     "slot": "costume",
+     "assetId": "*",
+     "tags": [
+      "hide-hair"
+     ]
+    }
+   ]
+  },
+  "config": {
+   "elements": [
+    {
+     "id": "hair_fragment",
+     "type": "texture_fragment",
+     "target_texture_id": "hair",
+     "width": 64,
+     "height": 64,
+     "url": "hair/blonde_straight.png"
     }
    ]
   }
@@ -1240,174 +2924,13 @@
   }
  },
  {
-  "referenceId": "moonsama_mc:bored_eyes",
+  "referenceId": "moonsama_mc:green_mohawk",
   "states": {
    "type": "AND",
    "conditions": [
     {
      "type": "asset",
-     "assetId": "moonsama:bored_eyes",
-     "slot": "eyes"
-    },
-    {
-     "type": "asset",
-     "invert": true,
-     "slot": "costume",
-     "assetId": "*",
-     "tags": [
-      "hide-eyes"
-     ]
-    }
-   ]
-  },
-  "config": {
-   "elements": [
-    {
-     "id": "eyes_fragment",
-     "type": "texture_fragment",
-     "target_texture_id": "eyes",
-     "width": 64,
-     "height": 64,
-     "url": "eyes/bored_eyes.png"
-    }
-   ]
-  }
- },
- {
-  "referenceId": "moonsama_mc:boxing_gloves",
-  "states": {
-   "type": "AND",
-   "conditions": [
-    {
-     "type": "asset",
-     "assetId": "moonsama:boxing_gloves",
-     "slot": "hands"
-    },
-    {
-     "type": "asset",
-     "invert": true,
-     "slot": "costume",
-     "assetId": "*",
-     "tags": [
-      "hide-hands"
-     ]
-    }
-   ]
-  },
-  "config": {
-   "elements": [
-    {
-     "id": "hands_fragment",
-     "type": "texture_fragment",
-     "target_texture_id": "hands",
-     "width": 64,
-     "height": 64,
-     "url": "hands/boxing_gloves.png"
-    }
-   ]
-  }
- },
- {
-  "referenceId": "moonsama_mc:brown_cowboy",
-  "states": {
-   "type": "AND",
-   "conditions": [
-    {
-     "type": "asset",
-     "assetId": "moonsama:brown_cowboy",
-     "slot": "hat"
-    },
-    {
-     "type": "asset",
-     "invert": true,
-     "assetId": "moonsama:neon",
-     "slot": "dimension"
-    },
-    {
-     "type": "asset",
-     "invert": true,
-     "slot": "costume",
-     "assetId": "*",
-     "tags": [
-      "hide-hat"
-     ]
-    },
-    {
-     "type": "OR",
-     "conditions": [
-      {
-       "type": "renderType",
-       "renderType": "preview"
-      },
-      {
-       "type": "renderType",
-       "renderType": "preview-minecraft"
-      }
-     ]
-    }
-   ]
-  },
-  "config": {
-   "elements": [
-    {
-     "id": "hat",
-     "type": "model",
-     "url": "model/cowboy.glb",
-     "bone": "hat",
-     "position": {
-      "x": -0.5,
-      "y": -0.5,
-      "z": 0.5
-     },
-     "textures": [
-      {
-       "material": "material_0",
-       "texture": "_MainTex",
-       "url": "#hat_texture"
-      }
-     ]
-    },
-    {
-     "id": "hat_texture",
-     "type": "texture",
-     "url": "hat/brown_cowboy.png"
-    }
-   ],
-   "skeleton": [
-    {
-     "id": "anchor",
-     "parent": "head",
-     "position": {
-      "x": 0,
-      "y": 18,
-      "z": 0
-     },
-     "scale": {
-      "x": 16,
-      "y": 16,
-      "z": 16
-     }
-    },
-    {
-     "id": "hat",
-     "parent": "anchor",
-     "scale": {
-      "x": 1.83,
-      "y": 1.83,
-      "z": 1.83
-     }
-    }
-   ]
-  }
- },
- {
-  "referenceId": "moonsama_mc:brown_straight",
-  "states": {
-   "type": "AND",
-   "conditions": [
-    {
-     "type": "asset",
-     "assetId": "moonsama:brown_straight",
+     "assetId": "moonsama:green_mohawk",
      "slot": "hair"
     },
     {
@@ -1434,107 +2957,24 @@
      "target_texture_id": "hair",
      "width": 64,
      "height": 64,
-     "url": "hair/brown_straight.png"
+     "url": "hair/green_mohawk.png"
     }
    ]
   }
  },
  {
-  "referenceId": "moonsama_mc:champion_gloves",
+  "referenceId": "moonsama_mc:green_slick",
   "states": {
    "type": "AND",
    "conditions": [
     {
      "type": "asset",
-     "assetId": "moonsama:champion_gloves",
-     "slot": "hands"
+     "assetId": "moonsama:green_slick",
+     "slot": "hair"
     },
     {
      "type": "asset",
-     "invert": true,
-     "slot": "costume",
-     "assetId": "*",
-     "tags": [
-      "hide-hands"
-     ]
-    }
-   ]
-  },
-  "config": {
-   "elements": [
-    {
-     "id": "hands_fragment",
-     "type": "texture_fragment",
-     "target_texture_id": "hands",
-     "width": 64,
-     "height": 64,
-     "url": "hands/champion_gloves.png"
-    }
-   ]
-  }
- },
- {
-  "referenceId": "moonsama_mc:cheerleader_poms",
-  "states": {
-   "type": "AND",
-   "conditions": [
-    {
-     "type": "asset",
-     "assetId": "moonsama:cheerleader_poms",
-     "slot": "hands"
-    },
-    {
-     "type": "asset",
-     "invert": true,
-     "slot": "costume",
-     "assetId": "*",
-     "tags": [
-      "hide-hands"
-     ]
-    }
-   ]
-  },
-  "config": {
-   "elements": [
-    {
-     "id": "hands_fragment",
-     "type": "texture_fragment",
-     "target_texture_id": "hands",
-     "width": 64,
-     "height": 64,
-     "url": "hands/cheerleader_poms.png"
-    }
-   ]
-  }
- },
- {
-  "referenceId": "moonsama_mc:cigar",
-  "states": {
-   "type": "asset",
-   "assetId": "moonsama:cigar",
-   "slot": "mouth"
-  },
-  "config": {
-   "elements": [
-    {
-     "id": "mouth_fragment",
-     "type": "texture_fragment",
-     "target_texture_id": "mouth",
-     "url": "mouth/cigar.png",
-     "width": 64,
-     "height": 64
-    }
-   ]
-  }
- },
- {
-  "referenceId": "moonsama_mc:crown",
-  "states": {
-   "type": "AND",
-   "conditions": [
-    {
-     "type": "asset",
-     "assetId": "moonsama:crown",
+     "assetId": null,
      "slot": "hat"
     },
     {
@@ -1543,7 +2983,7 @@
      "slot": "costume",
      "assetId": "*",
      "tags": [
-      "hide-hat"
+      "hide-hair"
      ]
     }
    ]
@@ -1551,340 +2991,75 @@
   "config": {
    "elements": [
     {
-     "id": "hat_fragment",
+     "id": "hair_fragment",
      "type": "texture_fragment",
-     "target_texture_id": "hat",
+     "target_texture_id": "hair",
      "width": 64,
      "height": 64,
-     "url": "hat/crown.png"
+     "url": "hair/green_slick.png"
     }
    ]
   }
  },
  {
-  "referenceId": "moonsama_mc:curious_eyes",
+  "referenceId": "moonsama_mc:green_straight",
   "states": {
    "type": "AND",
    "conditions": [
     {
      "type": "asset",
-     "assetId": "moonsama:curious_eyes",
-     "slot": "eyes"
+     "assetId": "moonsama:green_straight",
+     "slot": "hair"
     },
     {
      "type": "asset",
-     "invert": true,
-     "slot": "costume",
-     "assetId": "*",
-     "tags": [
-      "hide-eyes"
-     ]
-    }
-   ]
-  },
-  "config": {
-   "elements": [
-    {
-     "id": "eyes_fragment",
-     "type": "texture_fragment",
-     "target_texture_id": "eyes",
-     "width": 64,
-     "height": 64,
-     "url": "eyes/curious_eyes.png"
-    }
-   ]
-  }
- },
- {
-  "referenceId": "moonsama_mc:curious_eyes_fallback",
-  "states": {
-   "type": "AND",
-   "conditions": [
-    {
-     "type": "OR",
-     "conditions": [
-      {
-       "note": "Use when no eyes are equipped",
-       "type": "asset",
-       "assetId": null,
-       "slot": "eyes"
-      },
-      {
-       "note": "Use when the costume hides glasses",
-       "type": "asset",
-       "assetId": "*",
-       "slot": "costume",
-       "tags": [
-        "hide-glasses"
-       ]
-      }
-     ]
+     "assetId": null,
+     "slot": "hat"
     },
     {
-     "note": "Only use when the costume does not hide the eyes",
      "type": "asset",
      "invert": true,
      "slot": "costume",
      "assetId": "*",
      "tags": [
-      "hide-eyes"
+      "hide-hair"
      ]
-    },
-    {
-     "note": "Only use in actual compositions, not in previews",
-     "type": "token",
-     "invert": true,
-     "assetId": null
     }
    ]
   },
   "config": {
    "elements": [
     {
-     "id": "eyes_fragment",
+     "id": "hair_fragment",
      "type": "texture_fragment",
-     "target_texture_id": "eyes",
+     "target_texture_id": "hair",
      "width": 64,
      "height": 64,
-     "url": "eyes/curious_eyes.png"
+     "url": "hair/green_straight.png"
     }
    ]
   }
  },
  {
-  "referenceId": "moonsama_mc:curious_eyes_fallback_neon",
+  "referenceId": "moonsama_mc:neon_gold_chain_545",
   "states": {
    "type": "AND",
    "conditions": [
     {
-     "type": "OR",
-     "conditions": [
-      {
-       "note": "Use when no eyes are equipped",
-       "type": "asset",
-       "assetId": null,
-       "slot": "eyes"
-      },
-      {
-       "note": "Use when the costume hides glasses",
-       "type": "asset",
-       "assetId": "*",
-       "slot": "costume",
-       "tags": [
-        "hide-glasses"
-       ]
-      }
-     ]
-    },
-    {
-     "note": "Only use when it is a neon bird",
      "type": "asset",
      "slot": "dimension",
      "assetId": "moonsama:neon"
     },
     {
-     "note": "Only use when the costume does not hide the eyes",
      "type": "asset",
-     "invert": true,
-     "slot": "costume",
-     "assetId": "*",
-     "tags": [
-      "hide-eyes"
-     ]
+     "slot": "bodyaccessory",
+     "assetId": "moonsama:gold_chain"
     },
     {
-     "note": "Only use in actual compositions, not in previews",
      "type": "token",
-     "invert": true,
-     "assetId": null
+     "assetId": 545
     }
    ]
-  },
-  "config": {
-   "elements": [
-    {
-     "id": "eyes_fragment",
-     "type": "texture_fragment",
-     "target_texture_id": "eyes",
-     "width": 64,
-     "height": 64,
-     "z-index": 1,
-     "url": "eyes/neon_curious_eyes_920.png"
-    }
-   ]
-  }
- },
- {
-  "referenceId": "moonsama_mc:cyan_bird",
-  "states": {
-   "type": "AND",
-   "conditions": [
-    {
-     "type": "asset",
-     "assetId": "moonsama:cyan_bird",
-     "slot": "base"
-    },
-    {
-     "type": "asset",
-     "invert": true,
-     "assetId": "*",
-     "slot": "costume",
-     "tags": [
-      "hide-base"
-     ]
-    }
-   ]
-  },
-  "config": {
-   "elements": [
-    {
-     "id": "base_fragment",
-     "type": "texture_fragment",
-     "target_texture_id": "base",
-     "url": "base/cyan_bird.png",
-     "pass": "skin",
-     "width": 64,
-     "height": 48
-    },
-    {
-     "id": "base_fragment",
-     "type": "texture_fragment",
-     "target_texture_id": "base",
-     "url": "base/cyan_bird.png",
-     "pass": "skin",
-     "width": 32,
-     "height": 16,
-     "x": 0,
-     "y": 48,
-     "pos_x": 0,
-     "pos_y": 48
-    }
-   ]
-  }
- },
- {
-  "referenceId": "moonsama_mc:cyan_bird_beak",
-  "states": {
-   "type": "AND",
-   "conditions": [
-    {
-     "type": "asset",
-     "assetId": "moonsama:cyan_bird",
-     "slot": "base"
-    },
-    {
-     "type": "asset",
-     "invert": true,
-     "assetId": "*",
-     "slot": "costume",
-     "tags": [
-      "hide-base"
-     ]
-    },
-    {
-     "type": "asset",
-     "invert": true,
-     "assetId": "*",
-     "slot": "costume",
-     "tags": [
-      "hide-beak"
-     ]
-    }
-   ]
-  },
-  "config": {
-   "elements": [
-    {
-     "id": "base_fragment",
-     "type": "texture_fragment",
-     "target_texture_id": "base",
-     "url": "base/cyan_bird.png",
-     "pass": "skin",
-     "width": 32,
-     "height": 16,
-     "x": 32,
-     "y": 48,
-     "pos_x": 32,
-     "pos_y": 48
-    }
-   ]
-  }
- },
- {
-  "referenceId": "moonsama_mc:cyclops",
-  "states": {
-   "type": "AND",
-   "conditions": [
-    {
-     "type": "asset",
-     "assetId": "moonsama:cyclops",
-     "slot": "eyes"
-    },
-    {
-     "type": "asset",
-     "invert": true,
-     "slot": "costume",
-     "assetId": "*",
-     "tags": [
-      "hide-glasses"
-     ]
-    }
-   ]
-  },
-  "config": {
-   "elements": [
-    {
-     "id": "glasses_fragment",
-     "type": "texture_fragment",
-     "target_texture_id": "eyes",
-     "z-index": 1,
-     "width": 64,
-     "height": 64,
-     "url": "eyes/cyclops.png"
-    }
-   ]
-  }
- },
- {
-  "referenceId": "moonsama_mc:detective",
-  "states": {
-   "type": "AND",
-   "conditions": [
-    {
-     "type": "asset",
-     "assetId": "moonsama:detective",
-     "slot": "hat"
-    },
-    {
-     "type": "asset",
-     "invert": true,
-     "slot": "costume",
-     "assetId": "*",
-     "tags": [
-      "hide-hat"
-     ]
-    }
-   ]
-  },
-  "config": {
-   "elements": [
-    {
-     "id": "hat_fragment",
-     "type": "texture_fragment",
-     "target_texture_id": "hat",
-     "width": 64,
-     "height": 64,
-     "url": "hat/detective.png"
-    }
-   ]
-  }
- },
- {
-  "referenceId": "moonsama_mc:gold_chain",
-  "states": {
-   "type": "asset",
-   "assetId": "moonsama:gold_chain",
-   "slot": "bodyaccessory"
   },
   "config": {
    "elements": [
@@ -1892,8 +3067,8 @@
      "id": "bodyaccessory_fragment",
      "type": "texture_fragment",
      "target_texture_id": "outfit",
-     "url": "bodyaccessory/gold_chain.png",
-     "z-index": 1,
+     "url": "bodyaccessory/neon_gold_chain_545.png",
+     "z-index": 5,
      "width": 64,
      "height": 64
     }
@@ -1901,13 +3076,149 @@
   }
  },
  {
-  "referenceId": "moonsama_mc:golden_bird",
+  "referenceId": "moonsama_mc:black_straight",
   "states": {
    "type": "AND",
    "conditions": [
     {
      "type": "asset",
-     "assetId": "moonsama:golden_bird",
+     "assetId": "moonsama:black_straight",
+     "slot": "hair"
+    },
+    {
+     "type": "asset",
+     "assetId": null,
+     "slot": "hat"
+    },
+    {
+     "type": "asset",
+     "invert": true,
+     "slot": "costume",
+     "assetId": "*",
+     "tags": [
+      "hide-hair"
+     ]
+    }
+   ]
+  },
+  "config": {
+   "elements": [
+    {
+     "id": "hair_fragment",
+     "type": "texture_fragment",
+     "target_texture_id": "hair",
+     "width": 64,
+     "height": 64,
+     "url": "hair/black_straight.png"
+    }
+   ]
+  }
+ },
+ {
+  "referenceId": "moonsama_mc:blonde_slick",
+  "states": {
+   "type": "AND",
+   "conditions": [
+    {
+     "type": "asset",
+     "assetId": "moonsama:blonde_slick",
+     "slot": "hair"
+    },
+    {
+     "type": "asset",
+     "assetId": null,
+     "slot": "hat"
+    },
+    {
+     "type": "asset",
+     "invert": true,
+     "slot": "costume",
+     "assetId": "*",
+     "tags": [
+      "hide-hair"
+     ]
+    }
+   ]
+  },
+  "config": {
+   "elements": [
+    {
+     "id": "hair_fragment",
+     "type": "texture_fragment",
+     "target_texture_id": "hair",
+     "width": 64,
+     "height": 64,
+     "url": "hair/blonde_slick.png"
+    }
+   ]
+  }
+ },
+ {
+  "referenceId": "moonsama_mc:neon_moonfinity_gauntlet_545",
+  "states": {
+   "type": "AND",
+   "conditions": [
+    {
+     "type": "asset",
+     "assetId": "moonsama:moonfinity_gauntlet",
+     "slot": "offhand"
+    },
+    {
+     "type": "asset",
+     "slot": "dimension",
+     "assetId": "moonsama:neon"
+    },
+    {
+     "type": "token",
+     "assetId": 545
+    },
+    {
+     "type": "asset",
+     "slot": "hands",
+     "assetId": null
+    },
+    {
+     "type": "asset",
+     "invert": true,
+     "slot": "costume",
+     "assetId": "*",
+     "tags": [
+      "hide-hands"
+     ]
+    },
+    {
+     "type": "asset",
+     "invert": true,
+     "slot": "costume",
+     "assetId": "*",
+     "tags": [
+      "hide-offhand"
+     ]
+    }
+   ]
+  },
+  "config": {
+   "elements": [
+    {
+     "id": "offhand_fragment",
+     "type": "texture_fragment",
+     "target_texture_id": "hands",
+     "width": 64,
+     "height": 64,
+     "z-index": 1,
+     "url": "hands/neon_moonfinity_gauntlet_545.png"
+    }
+   ]
+  }
+ },
+ {
+  "referenceId": "moonsama_mc:white_bird",
+  "states": {
+   "type": "AND",
+   "conditions": [
+    {
+     "type": "asset",
+     "assetId": "moonsama:white_bird",
      "slot": "base"
     },
     {
@@ -1927,7 +3238,7 @@
      "id": "base_fragment",
      "type": "texture_fragment",
      "target_texture_id": "base",
-     "url": "base/golden_bird.png",
+     "url": "base/white_bird.png",
      "pass": "skin",
      "width": 64,
      "height": 48
@@ -1936,7 +3247,7 @@
      "id": "base_fragment",
      "type": "texture_fragment",
      "target_texture_id": "base",
-     "url": "base/golden_bird.png",
+     "url": "base/white_bird.png",
      "pass": "skin",
      "width": 32,
      "height": 16,
@@ -1949,13 +3260,62 @@
   }
  },
  {
-  "referenceId": "moonsama_mc:golden_bird_beak",
+  "referenceId": "moonsama_mc:neon_slick_787",
   "states": {
    "type": "AND",
    "conditions": [
     {
      "type": "asset",
-     "assetId": "moonsama:golden_bird",
+     "assetId": "moonsama:blue_slick",
+     "slot": "hair"
+    },
+    {
+     "type": "asset",
+     "slot": "dimension",
+     "assetId": "moonsama:neon"
+    },
+    {
+     "type": "token",
+     "assetId": 787
+    },
+    {
+     "type": "asset",
+     "assetId": null,
+     "slot": "hat"
+    },
+    {
+     "type": "asset",
+     "invert": true,
+     "slot": "costume",
+     "assetId": "*",
+     "tags": [
+      "hide-hair"
+     ]
+    }
+   ]
+  },
+  "config": {
+   "elements": [
+    {
+     "id": "hair_fragment",
+     "type": "texture_fragment",
+     "target_texture_id": "hair",
+     "z-index": 1,
+     "width": 64,
+     "height": 64,
+     "url": "hair/neon_slick_787.png"
+    }
+   ]
+  }
+ },
+ {
+  "referenceId": "moonsama_mc:black_bird_beak",
+  "states": {
+   "type": "AND",
+   "conditions": [
+    {
+     "type": "asset",
+     "assetId": "moonsama:black_bird",
      "slot": "base"
     },
     {
@@ -1984,103 +3344,7 @@
      "id": "base_fragment",
      "type": "texture_fragment",
      "target_texture_id": "base",
-     "url": "base/golden_bird.png",
-     "pass": "skin",
-     "width": 32,
-     "height": 16,
-     "x": 32,
-     "y": 48,
-     "pos_x": 32,
-     "pos_y": 48
-    }
-   ]
-  }
- },
- {
-  "referenceId": "moonsama_mc:green_bird",
-  "states": {
-   "type": "AND",
-   "conditions": [
-    {
-     "type": "asset",
-     "assetId": "moonsama:green_bird",
-     "slot": "base"
-    },
-    {
-     "type": "asset",
-     "invert": true,
-     "assetId": "*",
-     "slot": "costume",
-     "tags": [
-      "hide-base"
-     ]
-    }
-   ]
-  },
-  "config": {
-   "elements": [
-    {
-     "id": "base_fragment",
-     "type": "texture_fragment",
-     "target_texture_id": "base",
-     "url": "base/green_bird.png",
-     "pass": "skin",
-     "width": 64,
-     "height": 48
-    },
-    {
-     "id": "base_fragment",
-     "type": "texture_fragment",
-     "target_texture_id": "base",
-     "url": "base/green_bird.png",
-     "pass": "skin",
-     "width": 32,
-     "height": 16,
-     "x": 0,
-     "y": 48,
-     "pos_x": 0,
-     "pos_y": 48
-    }
-   ]
-  }
- },
- {
-  "referenceId": "moonsama_mc:green_bird_beak",
-  "states": {
-   "type": "AND",
-   "conditions": [
-    {
-     "type": "asset",
-     "assetId": "moonsama:green_bird",
-     "slot": "base"
-    },
-    {
-     "type": "asset",
-     "invert": true,
-     "assetId": "*",
-     "slot": "costume",
-     "tags": [
-      "hide-base"
-     ]
-    },
-    {
-     "type": "asset",
-     "invert": true,
-     "assetId": "*",
-     "slot": "costume",
-     "tags": [
-      "hide-beak"
-     ]
-    }
-   ]
-  },
-  "config": {
-   "elements": [
-    {
-     "id": "base_fragment",
-     "type": "texture_fragment",
-     "target_texture_id": "base",
-     "url": "base/green_bird.png",
+     "url": "base/black_bird.png",
      "pass": "skin",
      "width": 32,
      "height": 16,
@@ -2186,14 +3450,20 @@
   }
  },
  {
-  "referenceId": "moonsama_mc:green_headset",
+  "referenceId": "moonsama_mc:orange_bufoon",
   "states": {
    "type": "AND",
    "conditions": [
     {
      "type": "asset",
-     "assetId": "moonsama:green_headset",
+     "assetId": "moonsama:orange_bufoon",
      "slot": "hat"
+    },
+    {
+     "type": "asset",
+     "invert": true,
+     "assetId": "moonsama:neon",
+     "slot": "dimension"
     },
     {
      "type": "asset",
@@ -2203,309 +3473,90 @@
      "tags": [
       "hide-hat"
      ]
-    }
-   ]
-  },
-  "config": {
-   "elements": [
-    {
-     "id": "hat_fragment",
-     "type": "texture_fragment",
-     "target_texture_id": "hat",
-     "width": 64,
-     "height": 64,
-     "url": "hat/green_headset.png"
-    }
-   ]
-  }
- },
- {
-  "referenceId": "moonsama_mc:green_mohawk",
-  "states": {
-   "type": "AND",
-   "conditions": [
-    {
-     "type": "asset",
-     "assetId": "moonsama:green_mohawk",
-     "slot": "hair"
-    },
-    {
-     "type": "asset",
-     "assetId": null,
-     "slot": "hat"
-    },
-    {
-     "type": "asset",
-     "invert": true,
-     "slot": "costume",
-     "assetId": "*",
-     "tags": [
-      "hide-hair"
-     ]
-    }
-   ]
-  },
-  "config": {
-   "elements": [
-    {
-     "id": "hair_fragment",
-     "type": "texture_fragment",
-     "target_texture_id": "hair",
-     "width": 64,
-     "height": 64,
-     "url": "hair/green_mohawk.png"
-    }
-   ]
-  }
- },
- {
-  "referenceId": "moonsama_mc:green_shirt",
-  "states": {
-   "type": "AND",
-   "conditions": [
-    {
-     "type": "asset",
-     "assetId": "moonsama:green_shirt",
-     "slot": "outfit"
-    },
-    {
-     "type": "asset",
-     "invert": true,
-     "slot": "hat",
-     "assetId": "moonsama:astronaut"
-    },
-    {
-     "type": "asset",
-     "invert": true,
-     "slot": "costume",
-     "assetId": "*",
-     "tags": [
-      "hide-outfit"
-     ]
-    }
-   ]
-  },
-  "config": {
-   "elements": [
-    {
-     "id": "shirt_fragment",
-     "type": "texture_fragment",
-     "target_texture_id": "base",
-     "width": 64,
-     "height": 64,
-     "url": "shirt/green_shirt.png"
-    }
-   ]
-  }
- },
- {
-  "referenceId": "moonsama_mc:green_slick",
-  "states": {
-   "type": "AND",
-   "conditions": [
-    {
-     "type": "asset",
-     "assetId": "moonsama:green_slick",
-     "slot": "hair"
-    },
-    {
-     "type": "asset",
-     "assetId": null,
-     "slot": "hat"
-    },
-    {
-     "type": "asset",
-     "invert": true,
-     "slot": "costume",
-     "assetId": "*",
-     "tags": [
-      "hide-hair"
-     ]
-    }
-   ]
-  },
-  "config": {
-   "elements": [
-    {
-     "id": "hair_fragment",
-     "type": "texture_fragment",
-     "target_texture_id": "hair",
-     "width": 64,
-     "height": 64,
-     "url": "hair/green_slick.png"
-    }
-   ]
-  }
- },
- {
-  "referenceId": "moonsama_mc:green_straight",
-  "states": {
-   "type": "AND",
-   "conditions": [
-    {
-     "type": "asset",
-     "assetId": "moonsama:green_straight",
-     "slot": "hair"
-    },
-    {
-     "type": "asset",
-     "assetId": null,
-     "slot": "hat"
-    },
-    {
-     "type": "asset",
-     "invert": true,
-     "slot": "costume",
-     "assetId": "*",
-     "tags": [
-      "hide-hair"
-     ]
-    }
-   ]
-  },
-  "config": {
-   "elements": [
-    {
-     "id": "hair_fragment",
-     "type": "texture_fragment",
-     "target_texture_id": "hair",
-     "width": 64,
-     "height": 64,
-     "url": "hair/green_straight.png"
-    }
-   ]
-  }
- },
- {
-  "referenceId": "moonsama_mc:grey_headset",
-  "states": {
-   "type": "AND",
-   "conditions": [
-    {
-     "type": "asset",
-     "assetId": "moonsama:grey_headset",
-     "slot": "hat"
-    },
-    {
-     "type": "asset",
-     "invert": true,
-     "slot": "costume",
-     "assetId": "*",
-     "tags": [
-      "hide-hat"
-     ]
-    }
-   ]
-  },
-  "config": {
-   "elements": [
-    {
-     "id": "hat_fragment",
-     "type": "texture_fragment",
-     "target_texture_id": "hat",
-     "width": 64,
-     "height": 64,
-     "url": "hat/grey_headset.png"
-    }
-   ]
-  }
- },
- {
-  "referenceId": "moonsama_mc:happy_eyes",
-  "states": {
-   "type": "AND",
-   "conditions": [
-    {
-     "type": "asset",
-     "assetId": "moonsama:happy_eyes",
-     "slot": "eyes"
-    },
-    {
-     "type": "asset",
-     "invert": true,
-     "slot": "costume",
-     "assetId": "*",
-     "tags": [
-      "hide-eyes"
-     ]
-    }
-   ]
-  },
-  "config": {
-   "elements": [
-    {
-     "id": "eyes_fragment",
-     "type": "texture_fragment",
-     "target_texture_id": "eyes",
-     "width": 64,
-     "height": 64,
-     "url": "eyes/happy_eyes.png"
-    }
-   ]
-  }
- },
- {
-  "referenceId": "moonsama_mc:hero_outfit",
-  "states": {
-   "type": "AND",
-   "conditions": [
-    {
-     "type": "asset",
-     "assetId": "moonsama:hero_outfit",
-     "slot": "outfit"
     },
     {
      "type": "OR",
      "conditions": [
       {
-       "type": "asset",
-       "slot": "costume",
-       "assetId": "*",
-       "tags": [
-        "hide-hat"
-       ]
+       "type": "renderType",
+       "renderType": "preview"
       },
       {
-       "type": "asset",
-       "invert": true,
-       "assetId": "moonsama:astronaut",
-       "slot": "hat"
+       "type": "renderType",
+       "renderType": "preview-minecraft"
+      }
+     ]
+    }
+   ]
+  },
+  "config": {
+   "elements": [
+    {
+     "id": "hat",
+     "type": "model",
+     "url": "model/bufoon.glb",
+     "bone": "hat",
+     "position": {
+      "x": -0.5,
+      "y": -0.5,
+      "z": 0.5
+     },
+     "textures": [
+      {
+       "material": "material_0",
+       "texture": "_MainTex",
+       "url": "#hat_texture"
       }
      ]
     },
     {
-     "type": "asset",
-     "invert": true,
-     "slot": "costume",
-     "assetId": "*",
-     "tags": [
-      "hide-outfit"
-     ]
+     "id": "hat_texture",
+     "type": "texture",
+     "url": "hat/orange_bufoon.png"
     }
-   ]
-  },
-  "config": {
-   "elements": [
+   ],
+   "skeleton": [
     {
-     "id": "outfit_fragment",
-     "type": "texture_fragment",
-     "target_texture_id": "outfit",
-     "width": 64,
-     "height": 64,
-     "url": "outfit/hero_outfit.png"
+     "id": "anchor",
+     "parent": "head",
+     "position": {
+      "x": 0,
+      "y": 18,
+      "z": 0
+     },
+     "scale": {
+      "x": 16,
+      "y": 16,
+      "z": 16
+     }
+    },
+    {
+     "id": "hat",
+     "parent": "anchor",
+     "scale": {
+      "x": 1.83,
+      "y": 1.83,
+      "z": 1.83
+     }
     }
    ]
   }
  },
  {
-  "referenceId": "moonsama_mc:hero_outfit_cape",
+  "referenceId": "moonsama_mc:blue_bufoon",
   "states": {
    "type": "AND",
    "conditions": [
     {
      "type": "asset",
-     "assetId": "moonsama:hero_outfit",
-     "slot": "outfit"
+     "assetId": "moonsama:blue_bufoon",
+     "slot": "hat"
+    },
+    {
+     "type": "asset",
+     "invert": true,
+     "assetId": "moonsama:neon",
+     "slot": "dimension"
     },
     {
      "type": "asset",
@@ -2513,119 +3564,19 @@
      "slot": "costume",
      "assetId": "*",
      "tags": [
-      "hide-outfit"
+      "hide-hat"
      ]
-    }
-   ]
-  },
-  "config": {
-   "elements": [
-    {
-     "id": "outfit_fragment",
-     "type": "texture_fragment",
-     "target_texture_id": "cape",
-     "width": 8,
-     "height": 12,
-     "x": 32,
-     "y": 16,
-     "pos_x": 32,
-     "pos_y": 16,
-     "url": "outfit/hero_outfit.png"
     },
     {
-     "id": "outfit_fragment",
-     "type": "texture_fragment",
-     "target_texture_id": "cape",
-     "width": 8,
-     "height": 4,
-     "x": 20,
-     "y": 28,
-     "pos_x": 20,
-     "pos_y": 28,
-     "url": "outfit/hero_outfit.png"
-    }
-   ]
-  }
- },
- {
-  "referenceId": "moonsama_mc:judo_outfit",
-  "states": {
-   "type": "AND",
-   "conditions": [
-    {
-     "type": "asset",
-     "assetId": "moonsama:judo_outfit",
-     "slot": "outfit"
-    },
-    {
-     "type": "asset",
-     "invert": true,
-     "slot": "hat",
-     "assetId": "moonsama:astronaut"
-    },
-    {
-     "type": "asset",
-     "invert": true,
-     "slot": "costume",
-     "assetId": "*",
-     "tags": [
-      "hide-outfit"
-     ]
-    }
-   ]
-  },
-  "config": {
-   "elements": [
-    {
-     "id": "outfit_fragment",
-     "type": "texture_fragment",
-     "target_texture_id": "outfit",
-     "width": 64,
-     "height": 64,
-     "url": "outfit/judo_outfit.png"
-    },
-    {
-     "id": "outfit_fragment",
-     "type": "texture_fragment",
-     "target_texture_id": "hat",
-     "width": 64,
-     "height": 16,
-     "x": 0,
-     "y": 48,
-     "pos_x": 0,
-     "pos_y": 48,
-     "url": "outfit/judo_outfit.png"
-    }
-   ]
-  }
- },
- {
-  "referenceId": "moonsama_mc:landscape",
-  "states": {
-   "type": "OR",
-   "conditions": [
-    {
-     "type": "asset",
-     "slot": "background",
-     "assetId": "moonsama:landscape"
-    },
-    {
-     "type": "AND",
+     "type": "OR",
      "conditions": [
       {
-       "type": "asset",
-       "slot": "background",
-       "assetId": null
+       "type": "renderType",
+       "renderType": "preview"
       },
       {
-       "type": "token",
-       "invert": true,
-       "assetId": null
-      },
-      {
-       "type": "token",
-       "invert": true,
-       "assetId": 0
+       "type": "renderType",
+       "renderType": "preview-minecraft"
       }
      ]
     }
@@ -2634,22 +3585,145 @@
   "config": {
    "elements": [
     {
-     "id": "background",
-     "type": "sprite",
-     "bone": "background",
-     "url": "background/landscape.jpg",
-     "pass": "default",
-     "z-index": 0,
-     "blend": "default",
-     "opacity": 1,
-     "coordinates": "pixels",
-     "width": 1280,
-     "height": 1280,
-     "x": 0,
-     "y": 0,
-     "pivot_x": 640,
-     "pivot_y": 640,
-     "scale": 0.25
+     "id": "hat",
+     "type": "model",
+     "url": "model/bufoon.glb",
+     "bone": "hat",
+     "position": {
+      "x": -0.5,
+      "y": -0.5,
+      "z": 0.5
+     },
+     "textures": [
+      {
+       "material": "material_0",
+       "texture": "_MainTex",
+       "url": "#hat_texture"
+      }
+     ]
+    },
+    {
+     "id": "hat_texture",
+     "type": "texture",
+     "url": "hat/blue_bufoon.png"
+    }
+   ],
+   "skeleton": [
+    {
+     "id": "anchor",
+     "parent": "head",
+     "position": {
+      "x": 0,
+      "y": 18,
+      "z": 0
+     },
+     "scale": {
+      "x": 16,
+      "y": 16,
+      "z": 16
+     }
+    },
+    {
+     "id": "hat",
+     "parent": "anchor",
+     "scale": {
+      "x": 1.83,
+      "y": 1.83,
+      "z": 1.83
+     }
+    }
+   ]
+  }
+ },
+ {
+  "referenceId": "moonsama_mc:brown_cowboy",
+  "states": {
+   "type": "AND",
+   "conditions": [
+    {
+     "type": "asset",
+     "assetId": "moonsama:brown_cowboy",
+     "slot": "hat"
+    },
+    {
+     "type": "asset",
+     "invert": true,
+     "assetId": "moonsama:neon",
+     "slot": "dimension"
+    },
+    {
+     "type": "asset",
+     "invert": true,
+     "slot": "costume",
+     "assetId": "*",
+     "tags": [
+      "hide-hat"
+     ]
+    },
+    {
+     "type": "OR",
+     "conditions": [
+      {
+       "type": "renderType",
+       "renderType": "preview"
+      },
+      {
+       "type": "renderType",
+       "renderType": "preview-minecraft"
+      }
+     ]
+    }
+   ]
+  },
+  "config": {
+   "elements": [
+    {
+     "id": "hat",
+     "type": "model",
+     "url": "model/cowboy.glb",
+     "bone": "hat",
+     "position": {
+      "x": -0.5,
+      "y": -0.5,
+      "z": 0.5
+     },
+     "textures": [
+      {
+       "material": "material_0",
+       "texture": "_MainTex",
+       "url": "#hat_texture"
+      }
+     ]
+    },
+    {
+     "id": "hat_texture",
+     "type": "texture",
+     "url": "hat/brown_cowboy.png"
+    }
+   ],
+   "skeleton": [
+    {
+     "id": "anchor",
+     "parent": "head",
+     "position": {
+      "x": 0,
+      "y": 18,
+      "z": 0
+     },
+     "scale": {
+      "x": 16,
+      "y": 16,
+      "z": 16
+     }
+    },
+    {
+     "id": "hat",
+     "parent": "anchor",
+     "scale": {
+      "x": 1.83,
+      "y": 1.83,
+      "z": 1.83
+     }
     }
    ]
   }
@@ -2698,793 +3772,6 @@
      "width": 64,
      "height": 64,
      "url": "hands/moonfinity_gauntlet.png"
-    }
-   ]
-  }
- },
- {
-  "referenceId": "moonsama_mc:neon_astronaut_545",
-  "states": {
-   "type": "AND",
-   "conditions": [
-    {
-     "type": "asset",
-     "slot": "hat",
-     "assetId": "moonsama:astronaut"
-    },
-    {
-     "type": "asset",
-     "slot": "dimension",
-     "assetId": "moonsama:neon"
-    },
-    {
-     "type": "token",
-     "assetId": 545
-    },
-    {
-     "type": "asset",
-     "invert": true,
-     "slot": "costume",
-     "assetId": "*",
-     "tags": [
-      "hide-hat"
-     ]
-    },
-    {
-     "type": "asset",
-     "invert": true,
-     "slot": "costume",
-     "assetId": "*",
-     "tags": [
-      "hide-outfit"
-     ]
-    }
-   ]
-  },
-  "config": {
-   "elements": [
-    {
-     "id": "hat_fragment",
-     "type": "texture_fragment",
-     "target_texture_id": "hat",
-     "z-index": 1,
-     "width": 64,
-     "height": 16,
-     "x": 0,
-     "y": 48,
-     "pos_x": 0,
-     "pos_y": 48,
-     "url": "outfit/neon_astronaut_545.png"
-    }
-   ]
-  }
- },
- {
-  "referenceId": "moonsama_mc:neon_astronaut_545_outfit",
-  "states": {
-   "type": "AND",
-   "conditions": [
-    {
-     "type": "asset",
-     "slot": "hat",
-     "assetId": "moonsama:astronaut"
-    },
-    {
-     "type": "asset",
-     "slot": "dimension",
-     "assetId": "moonsama:neon"
-    },
-    {
-     "type": "token",
-     "assetId": 545
-    },
-    {
-     "type": "asset",
-     "invert": true,
-     "slot": "costume",
-     "assetId": "*",
-     "tags": [
-      "hide-outfit"
-     ]
-    }
-   ]
-  },
-  "config": {
-   "elements": [
-    {
-     "id": "outfit_fragment",
-     "type": "texture_fragment",
-     "target_texture_id": "outfit",
-     "width": 64,
-     "height": 48,
-     "z-index": 2,
-     "url": "outfit/neon_astronaut_545.png"
-    }
-   ]
-  }
- },
- {
-  "referenceId": "moonsama_mc:neon_bird_276",
-  "states": {
-   "type": "AND",
-   "conditions": [
-    {
-     "type": "asset",
-     "slot": "dimension",
-     "assetId": "moonsama:neon"
-    },
-    {
-     "type": "token",
-     "assetId": 276
-    },
-    {
-     "type": "asset",
-     "invert": true,
-     "assetId": "*",
-     "slot": "costume",
-     "tags": [
-      "hide-base"
-     ]
-    }
-   ]
-  },
-  "config": {
-   "elements": [
-    {
-     "id": "base_fragment",
-     "type": "texture_fragment",
-     "target_texture_id": "base",
-     "url": "base/neon_bird_276.png",
-     "pass": "skin",
-     "z-index": 1,
-     "width": 64,
-     "height": 48
-    },
-    {
-     "id": "base_fragment",
-     "type": "texture_fragment",
-     "target_texture_id": "base",
-     "url": "base/neon_bird_276.png",
-     "pass": "skin",
-     "z-index": 1,
-     "width": 32,
-     "height": 16,
-     "x": 0,
-     "y": 48,
-     "pos_x": 0,
-     "pos_y": 48
-    }
-   ]
-  }
- },
- {
-  "referenceId": "moonsama_mc:neon_bird_276_beak",
-  "states": {
-   "type": "AND",
-   "conditions": [
-    {
-     "type": "asset",
-     "slot": "dimension",
-     "assetId": "moonsama:neon"
-    },
-    {
-     "type": "token",
-     "assetId": 276
-    },
-    {
-     "type": "asset",
-     "invert": true,
-     "assetId": "*",
-     "slot": "costume",
-     "tags": [
-      "hide-base"
-     ]
-    },
-    {
-     "type": "asset",
-     "invert": true,
-     "assetId": "*",
-     "slot": "costume",
-     "tags": [
-      "hide-beak"
-     ]
-    }
-   ]
-  },
-  "config": {
-   "elements": [
-    {
-     "id": "base_fragment",
-     "type": "texture_fragment",
-     "target_texture_id": "base",
-     "url": "base/neon_bird_276.png",
-     "pass": "skin",
-     "z-index": 1,
-     "width": 32,
-     "height": 16,
-     "x": 32,
-     "y": 48,
-     "pos_x": 32,
-     "pos_y": 48
-    }
-   ]
-  }
- },
- {
-  "referenceId": "moonsama_mc:neon_bird_511",
-  "states": {
-   "type": "AND",
-   "conditions": [
-    {
-     "type": "asset",
-     "slot": "dimension",
-     "assetId": "moonsama:neon"
-    },
-    {
-     "type": "token",
-     "assetId": 511
-    },
-    {
-     "type": "asset",
-     "invert": true,
-     "assetId": "*",
-     "slot": "costume",
-     "tags": [
-      "hide-base"
-     ]
-    }
-   ]
-  },
-  "config": {
-   "elements": [
-    {
-     "id": "base_fragment",
-     "type": "texture_fragment",
-     "target_texture_id": "base",
-     "url": "base/neon_bird_511.png",
-     "pass": "skin",
-     "z-index": 1,
-     "width": 64,
-     "height": 48
-    },
-    {
-     "id": "base_fragment",
-     "type": "texture_fragment",
-     "target_texture_id": "base",
-     "url": "base/neon_bird_511.png",
-     "pass": "skin",
-     "z-index": 1,
-     "width": 32,
-     "height": 16,
-     "x": 0,
-     "y": 48,
-     "pos_x": 0,
-     "pos_y": 48
-    }
-   ]
-  }
- },
- {
-  "referenceId": "moonsama_mc:neon_bird_511_beak",
-  "states": {
-   "type": "AND",
-   "conditions": [
-    {
-     "type": "asset",
-     "slot": "dimension",
-     "assetId": "moonsama:neon"
-    },
-    {
-     "type": "token",
-     "assetId": 511
-    },
-    {
-     "type": "asset",
-     "invert": true,
-     "assetId": "*",
-     "slot": "costume",
-     "tags": [
-      "hide-base"
-     ]
-    },
-    {
-     "type": "asset",
-     "invert": true,
-     "assetId": "*",
-     "slot": "costume",
-     "tags": [
-      "hide-beak"
-     ]
-    }
-   ]
-  },
-  "config": {
-   "elements": [
-    {
-     "id": "base_fragment",
-     "type": "texture_fragment",
-     "target_texture_id": "base",
-     "url": "base/neon_bird_511.png",
-     "pass": "skin",
-     "z-index": 1,
-     "width": 32,
-     "height": 16,
-     "x": 32,
-     "y": 48,
-     "pos_x": 32,
-     "pos_y": 48
-    }
-   ]
-  }
- },
- {
-  "referenceId": "moonsama_mc:neon_bird_545",
-  "states": {
-   "type": "AND",
-   "conditions": [
-    {
-     "type": "asset",
-     "slot": "dimension",
-     "assetId": "moonsama:neon"
-    },
-    {
-     "type": "token",
-     "assetId": 545
-    },
-    {
-     "type": "asset",
-     "invert": true,
-     "assetId": "*",
-     "slot": "costume",
-     "tags": [
-      "hide-base"
-     ]
-    }
-   ]
-  },
-  "config": {
-   "elements": [
-    {
-     "id": "base_fragment",
-     "type": "texture_fragment",
-     "target_texture_id": "base",
-     "url": "base/neon_bird_545.png",
-     "pass": "skin",
-     "z-index": 1,
-     "width": 64,
-     "height": 48
-    },
-    {
-     "id": "base_fragment",
-     "type": "texture_fragment",
-     "target_texture_id": "base",
-     "url": "base/neon_bird_545.png",
-     "pass": "skin",
-     "z-index": 1,
-     "width": 32,
-     "height": 16,
-     "x": 0,
-     "y": 48,
-     "pos_x": 0,
-     "pos_y": 48
-    }
-   ]
-  }
- },
- {
-  "referenceId": "moonsama_mc:neon_bird_545_beak",
-  "states": {
-   "type": "AND",
-   "conditions": [
-    {
-     "type": "asset",
-     "slot": "dimension",
-     "assetId": "moonsama:neon"
-    },
-    {
-     "type": "token",
-     "assetId": 545
-    },
-    {
-     "type": "asset",
-     "invert": true,
-     "assetId": "*",
-     "slot": "costume",
-     "tags": [
-      "hide-base"
-     ]
-    },
-    {
-     "type": "asset",
-     "invert": true,
-     "assetId": "*",
-     "slot": "costume",
-     "tags": [
-      "hide-beak"
-     ]
-    }
-   ]
-  },
-  "config": {
-   "elements": [
-    {
-     "id": "base_fragment",
-     "type": "texture_fragment",
-     "target_texture_id": "base",
-     "url": "base/neon_bird_545.png",
-     "pass": "skin",
-     "z-index": 1,
-     "width": 32,
-     "height": 16,
-     "x": 32,
-     "y": 48,
-     "pos_x": 32,
-     "pos_y": 48
-    }
-   ]
-  }
- },
- {
-  "referenceId": "moonsama_mc:neon_bird_605",
-  "states": {
-   "type": "AND",
-   "conditions": [
-    {
-     "type": "asset",
-     "slot": "dimension",
-     "assetId": "moonsama:neon"
-    },
-    {
-     "type": "token",
-     "assetId": 605
-    },
-    {
-     "type": "asset",
-     "invert": true,
-     "assetId": "*",
-     "slot": "costume",
-     "tags": [
-      "hide-base"
-     ]
-    }
-   ]
-  },
-  "config": {
-   "elements": [
-    {
-     "id": "base_fragment",
-     "type": "texture_fragment",
-     "target_texture_id": "base",
-     "url": "base/neon_bird_605.png",
-     "pass": "skin",
-     "z-index": 1,
-     "width": 64,
-     "height": 48
-    },
-    {
-     "id": "base_fragment",
-     "type": "texture_fragment",
-     "target_texture_id": "base",
-     "url": "base/neon_bird_605.png",
-     "pass": "skin",
-     "z-index": 1,
-     "width": 32,
-     "height": 16,
-     "x": 0,
-     "y": 48,
-     "pos_x": 0,
-     "pos_y": 48
-    }
-   ]
-  }
- },
- {
-  "referenceId": "moonsama_mc:neon_bird_605_beak",
-  "states": {
-   "type": "AND",
-   "conditions": [
-    {
-     "type": "asset",
-     "slot": "dimension",
-     "assetId": "moonsama:neon"
-    },
-    {
-     "type": "token",
-     "assetId": 605
-    },
-    {
-     "type": "asset",
-     "invert": true,
-     "assetId": "*",
-     "slot": "costume",
-     "tags": [
-      "hide-base"
-     ]
-    },
-    {
-     "type": "asset",
-     "invert": true,
-     "assetId": "*",
-     "slot": "costume",
-     "tags": [
-      "hide-beak"
-     ]
-    }
-   ]
-  },
-  "config": {
-   "elements": [
-    {
-     "id": "base_fragment",
-     "type": "texture_fragment",
-     "target_texture_id": "base",
-     "url": "base/neon_bird_605.png",
-     "pass": "skin",
-     "z-index": 1,
-     "width": 32,
-     "height": 16,
-     "x": 32,
-     "y": 48,
-     "pos_x": 32,
-     "pos_y": 48
-    }
-   ]
-  }
- },
- {
-  "referenceId": "moonsama_mc:neon_bird_787",
-  "states": {
-   "type": "AND",
-   "conditions": [
-    {
-     "type": "asset",
-     "slot": "dimension",
-     "assetId": "moonsama:neon"
-    },
-    {
-     "type": "token",
-     "assetId": 787
-    },
-    {
-     "type": "asset",
-     "invert": true,
-     "assetId": "*",
-     "slot": "costume",
-     "tags": [
-      "hide-base"
-     ]
-    }
-   ]
-  },
-  "config": {
-   "elements": [
-    {
-     "id": "base_fragment",
-     "type": "texture_fragment",
-     "target_texture_id": "base",
-     "url": "base/neon_bird_787.png",
-     "pass": "skin",
-     "z-index": 1,
-     "width": 64,
-     "height": 48
-    },
-    {
-     "id": "base_fragment",
-     "type": "texture_fragment",
-     "target_texture_id": "base",
-     "url": "base/neon_bird_787.png",
-     "pass": "skin",
-     "z-index": 1,
-     "width": 32,
-     "height": 16,
-     "x": 0,
-     "y": 48,
-     "pos_x": 0,
-     "pos_y": 48
-    }
-   ]
-  }
- },
- {
-  "referenceId": "moonsama_mc:neon_bird_787_beak",
-  "states": {
-   "type": "AND",
-   "conditions": [
-    {
-     "type": "asset",
-     "slot": "dimension",
-     "assetId": "moonsama:neon"
-    },
-    {
-     "type": "token",
-     "assetId": 787
-    },
-    {
-     "type": "asset",
-     "invert": true,
-     "assetId": "*",
-     "slot": "costume",
-     "tags": [
-      "hide-base"
-     ]
-    },
-    {
-     "type": "asset",
-     "invert": true,
-     "assetId": "*",
-     "slot": "costume",
-     "tags": [
-      "hide-beak"
-     ]
-    }
-   ]
-  },
-  "config": {
-   "elements": [
-    {
-     "id": "base_fragment",
-     "type": "texture_fragment",
-     "target_texture_id": "base",
-     "url": "base/neon_bird_787.png",
-     "pass": "skin",
-     "z-index": 1,
-     "width": 32,
-     "height": 16,
-     "x": 32,
-     "y": 48,
-     "pos_x": 32,
-     "pos_y": 48
-    }
-   ]
-  }
- },
- {
-  "referenceId": "moonsama_mc:neon_bird_920",
-  "states": {
-   "type": "AND",
-   "conditions": [
-    {
-     "type": "asset",
-     "slot": "dimension",
-     "assetId": "moonsama:neon"
-    },
-    {
-     "type": "token",
-     "assetId": 920
-    },
-    {
-     "type": "asset",
-     "invert": true,
-     "assetId": "*",
-     "slot": "costume",
-     "tags": [
-      "hide-base"
-     ]
-    }
-   ]
-  },
-  "config": {
-   "elements": [
-    {
-     "id": "base_fragment",
-     "type": "texture_fragment",
-     "target_texture_id": "base",
-     "url": "base/neon_bird_920.png",
-     "pass": "skin",
-     "z-index": 1,
-     "width": 64,
-     "height": 48
-    },
-    {
-     "id": "base_fragment",
-     "type": "texture_fragment",
-     "target_texture_id": "base",
-     "url": "base/neon_bird_920.png",
-     "pass": "skin",
-     "z-index": 1,
-     "width": 32,
-     "height": 16,
-     "x": 0,
-     "y": 48,
-     "pos_x": 0,
-     "pos_y": 48
-    }
-   ]
-  }
- },
- {
-  "referenceId": "moonsama_mc:neon_bird_920_beak",
-  "states": {
-   "type": "AND",
-   "conditions": [
-    {
-     "type": "asset",
-     "slot": "dimension",
-     "assetId": "moonsama:neon"
-    },
-    {
-     "type": "token",
-     "assetId": 920
-    },
-    {
-     "type": "asset",
-     "invert": true,
-     "assetId": "*",
-     "slot": "costume",
-     "tags": [
-      "hide-base"
-     ]
-    },
-    {
-     "type": "asset",
-     "invert": true,
-     "assetId": "*",
-     "slot": "costume",
-     "tags": [
-      "hide-beak"
-     ]
-    }
-   ]
-  },
-  "config": {
-   "elements": [
-    {
-     "id": "base_fragment",
-     "type": "texture_fragment",
-     "target_texture_id": "base",
-     "url": "base/neon_bird_920.png",
-     "pass": "skin",
-     "z-index": 1,
-     "width": 32,
-     "height": 16,
-     "x": 32,
-     "y": 48,
-     "pos_x": 32,
-     "pos_y": 48
-    }
-   ]
-  }
- },
- {
-  "referenceId": "moonsama_mc:neon_boxing_gloves_605",
-  "states": {
-   "type": "AND",
-   "conditions": [
-    {
-     "type": "asset",
-     "assetId": "moonsama:boxing_gloves",
-     "slot": "hands"
-    },
-    {
-     "type": "token",
-     "assetId": 605
-    },
-    {
-     "type": "asset",
-     "assetId": "moonsama:neon",
-     "slot": "dimension"
-    },
-    {
-     "type": "asset",
-     "invert": true,
-     "slot": "costume",
-     "assetId": "*",
-     "tags": [
-      "hide-hands"
-     ]
-    }
-   ]
-  },
-  "config": {
-   "elements": [
-    {
-     "id": "hands_fragment",
-     "type": "texture_fragment",
-     "target_texture_id": "hands",
-     "width": 64,
-     "height": 64,
-     "z-index": 1,
-     "url": "hands/neon_boxing_gloves_605.png"
     }
    ]
   }
@@ -3582,405 +3869,23 @@
   }
  },
  {
-  "referenceId": "moonsama_mc:neon_cigar_787",
-  "states": {
-   "type": "AND",
-   "conditions": [
-    {
-     "type": "asset",
-     "slot": "dimension",
-     "assetId": "moonsama:neon"
-    },
-    {
-     "type": "asset",
-     "slot": "mouth",
-     "assetId": "moonsama:cigar"
-    },
-    {
-     "type": "token",
-     "assetId": 787
-    }
-   ]
-  },
-  "config": {
-   "elements": [
-    {
-     "id": "mouth_fragment",
-     "type": "texture_fragment",
-     "target_texture_id": "mouth",
-     "url": "mouth/neon_cigar_787.png",
-     "z-index": 1,
-     "width": 64,
-     "height": 64
-    }
-   ]
-  }
- },
- {
-  "referenceId": "moonsama_mc:neon_cowboy_605",
-  "states": {
-   "type": "AND",
-   "conditions": [
-    {
-     "type": "asset",
-     "assetId": "moonsama:brown_cowboy",
-     "slot": "hat"
-    },
-    {
-     "type": "asset",
-     "assetId": "moonsama:neon",
-     "slot": "dimension"
-    },
-    {
-     "type": "asset",
-     "invert": true,
-     "slot": "costume",
-     "assetId": "*",
-     "tags": [
-      "hide-hat"
-     ]
-    },
-    {
-     "type": "OR",
-     "conditions": [
-      {
-       "type": "renderType",
-       "renderType": "preview"
-      },
-      {
-       "type": "renderType",
-       "renderType": "preview-minecraft"
-      }
-     ]
-    }
-   ]
-  },
-  "config": {
-   "elements": [
-    {
-     "id": "hat",
-     "type": "model",
-     "url": "model/cowboy.glb",
-     "bone": "hat",
-     "position": {
-      "x": -0.5,
-      "y": -0.5,
-      "z": 0.5
-     },
-     "textures": [
-      {
-       "material": "material_0",
-       "texture": "_MainTex",
-       "url": "#hat_texture"
-      }
-     ]
-    },
-    {
-     "id": "hat_texture",
-     "type": "texture",
-     "url": "hat/neon_cowboy_605.png"
-    }
-   ],
-   "skeleton": [
-    {
-     "id": "anchor",
-     "parent": "head",
-     "position": {
-      "x": 0,
-      "y": 18,
-      "z": 0
-     },
-     "scale": {
-      "x": 16,
-      "y": 16,
-      "z": 16
-     }
-    },
-    {
-     "id": "hat",
-     "parent": "anchor",
-     "scale": {
-      "x": 1.83,
-      "y": 1.83,
-      "z": 1.83
-     }
-    }
-   ]
-  }
- },
- {
-  "referenceId": "moonsama_mc:neon_crown_276",
+  "referenceId": "moonsama_mc:neon_astronaut_545",
   "states": {
    "type": "AND",
    "conditions": [
     {
      "type": "asset",
      "slot": "hat",
-     "assetId": "moonsama:crown"
+     "assetId": "moonsama:astronaut"
     },
     {
      "type": "asset",
      "slot": "dimension",
      "assetId": "moonsama:neon"
-    },
-    {
-     "type": "token",
-     "assetId": 276
-    },
-    {
-     "type": "asset",
-     "invert": true,
-     "slot": "costume",
-     "assetId": "*",
-     "tags": [
-      "hide-hat"
-     ]
-    }
-   ]
-  },
-  "config": {
-   "elements": [
-    {
-     "id": "hat_fragment",
-     "type": "texture_fragment",
-     "target_texture_id": "hat",
-     "width": 64,
-     "height": 64,
-     "z-index": 1,
-     "url": "hat/neon_crown_276.png"
-    }
-   ]
-  }
- },
- {
-  "referenceId": "moonsama_mc:neon_curious_eyes_920",
-  "states": {
-   "type": "AND",
-   "conditions": [
-    {
-     "type": "asset",
-     "slot": "eyes",
-     "assetId": "moonsama:curious_eyes"
-    },
-    {
-     "type": "asset",
-     "slot": "dimension",
-     "assetId": "moonsama:neon"
-    },
-    {
-     "type": "token",
-     "assetId": 920
-    },
-    {
-     "type": "asset",
-     "invert": true,
-     "slot": "costume",
-     "assetId": "*",
-     "tags": [
-      "hide-eyes"
-     ]
-    }
-   ]
-  },
-  "config": {
-   "elements": [
-    {
-     "id": "eyes_fragment",
-     "type": "texture_fragment",
-     "target_texture_id": "eyes",
-     "z-index": 1,
-     "width": 64,
-     "height": 64,
-     "url": "eyes/neon_curious_eyes_920.png"
-    }
-   ]
-  }
- },
- {
-  "referenceId": "moonsama_mc:neon_geeky_glasses_511",
-  "states": {
-   "type": "AND",
-   "conditions": [
-    {
-     "type": "asset",
-     "assetId": "moonsama:black_geeky_glasses",
-     "slot": "eyes"
-    },
-    {
-     "type": "asset",
-     "slot": "dimension",
-     "assetId": "moonsama:neon"
-    },
-    {
-     "type": "token",
-     "assetId": 511
-    },
-    {
-     "type": "asset",
-     "invert": true,
-     "slot": "costume",
-     "assetId": "*",
-     "tags": [
-      "hide-glasses"
-     ]
-    }
-   ]
-  },
-  "config": {
-   "elements": [
-    {
-     "id": "glasses_fragment",
-     "type": "texture_fragment",
-     "target_texture_id": "eyes",
-     "width": 64,
-     "height": 64,
-     "z-index": 2,
-     "url": "eyes/neon_geeky_glasses_511.png"
-    }
-   ]
-  }
- },
- {
-  "referenceId": "moonsama_mc:neon_geeky_glasses_605",
-  "states": {
-   "type": "AND",
-   "conditions": [
-    {
-     "type": "asset",
-     "assetId": "moonsama:black_geeky_glasses",
-     "slot": "eyes"
-    },
-    {
-     "type": "asset",
-     "slot": "dimension",
-     "assetId": "moonsama:neon"
-    },
-    {
-     "type": "token",
-     "assetId": 605
-    },
-    {
-     "type": "asset",
-     "invert": true,
-     "slot": "costume",
-     "assetId": "*",
-     "tags": [
-      "hide-glasses"
-     ]
-    }
-   ]
-  },
-  "config": {
-   "elements": [
-    {
-     "id": "glasses_fragment",
-     "type": "texture_fragment",
-     "target_texture_id": "eyes",
-     "width": 64,
-     "height": 64,
-     "z-index": 2,
-     "url": "eyes/neon_geeky_glasses_605.png"
-    }
-   ]
-  }
- },
- {
-  "referenceId": "moonsama_mc:neon_gold_chain_545",
-  "states": {
-   "type": "AND",
-   "conditions": [
-    {
-     "type": "asset",
-     "slot": "dimension",
-     "assetId": "moonsama:neon"
-    },
-    {
-     "type": "asset",
-     "slot": "bodyaccessory",
-     "assetId": "moonsama:gold_chain"
     },
     {
      "type": "token",
      "assetId": 545
-    }
-   ]
-  },
-  "config": {
-   "elements": [
-    {
-     "id": "bodyaccessory_fragment",
-     "type": "texture_fragment",
-     "target_texture_id": "outfit",
-     "url": "bodyaccessory/neon_gold_chain_545.png",
-     "z-index": 5,
-     "width": 64,
-     "height": 64
-    }
-   ]
-  }
- },
- {
-  "referenceId": "moonsama_mc:neon_happy_eyes_787",
-  "states": {
-   "type": "AND",
-   "conditions": [
-    {
-     "type": "asset",
-     "slot": "eyes",
-     "assetId": "moonsama:happy_eyes"
-    },
-    {
-     "type": "asset",
-     "slot": "dimension",
-     "assetId": "moonsama:neon"
-    },
-    {
-     "type": "token",
-     "assetId": 787
-    },
-    {
-     "type": "asset",
-     "invert": true,
-     "slot": "costume",
-     "assetId": "*",
-     "tags": [
-      "hide-eyes"
-     ]
-    }
-   ]
-  },
-  "config": {
-   "elements": [
-    {
-     "id": "eyes_fragment",
-     "type": "texture_fragment",
-     "target_texture_id": "eyes",
-     "z-index": 1,
-     "width": 64,
-     "height": 64,
-     "url": "eyes/neon_happy_eyes_787.png"
-    }
-   ]
-  }
- },
- {
-  "referenceId": "moonsama_mc:neon_headset_511",
-  "states": {
-   "type": "AND",
-   "conditions": [
-    {
-     "type": "asset",
-     "slot": "hat",
-     "assetId": "moonsama:pink_headset"
-    },
-    {
-     "type": "asset",
-     "slot": "dimension",
-     "assetId": "moonsama:neon"
-    },
-    {
-     "type": "token",
-     "assetId": 511
     },
     {
      "type": "asset",
@@ -3989,6 +3894,15 @@
      "assetId": "*",
      "tags": [
       "hide-hat"
+     ]
+    },
+    {
+     "type": "asset",
+     "invert": true,
+     "slot": "costume",
+     "assetId": "*",
+     "tags": [
+      "hide-outfit"
      ]
     }
    ]
@@ -3999,10 +3913,14 @@
      "id": "hat_fragment",
      "type": "texture_fragment",
      "target_texture_id": "hat",
-     "width": 64,
-     "height": 64,
      "z-index": 1,
-     "url": "hat/neon_headset_511.png"
+     "width": 64,
+     "height": 16,
+     "x": 0,
+     "y": 48,
+     "pos_x": 0,
+     "pos_y": 48,
+     "url": "outfit/neon_astronaut_545.png"
     }
    ]
   }
@@ -4071,31 +3989,22 @@
   }
  },
  {
-  "referenceId": "moonsama_mc:neon_hero_outfit_545_cape",
+  "referenceId": "moonsama_mc:black_bird",
   "states": {
    "type": "AND",
    "conditions": [
     {
      "type": "asset",
-     "slot": "outfit",
-     "assetId": "moonsama:hero_outfit"
-    },
-    {
-     "type": "asset",
-     "slot": "dimension",
-     "assetId": "moonsama:neon"
-    },
-    {
-     "type": "token",
-     "assetId": 545
+     "assetId": "moonsama:black_bird",
+     "slot": "base"
     },
     {
      "type": "asset",
      "invert": true,
-     "slot": "costume",
      "assetId": "*",
+     "slot": "costume",
      "tags": [
-      "hide-outfit"
+      "hide-base"
      ]
     }
    ]
@@ -4103,150 +4012,435 @@
   "config": {
    "elements": [
     {
-     "id": "outfit_fragment",
-     "type": "texture_fragment",
-     "target_texture_id": "cape",
-     "width": 8,
-     "height": 12,
-     "x": 32,
-     "y": 16,
-     "pos_x": 32,
-     "pos_y": 16,
-     "url": "outfit/neon_hero_outfit_545.png"
-    },
-    {
-     "id": "outfit_fragment",
-     "type": "texture_fragment",
-     "target_texture_id": "cape",
-     "width": 8,
-     "height": 4,
-     "x": 20,
-     "y": 28,
-     "pos_x": 20,
-     "pos_y": 28,
-     "url": "outfit/neon_hero_outfit_545.png"
-    }
-   ]
-  }
- },
- {
-  "referenceId": "moonsama_mc:neon_moonfinity_gauntlet_545",
-  "states": {
-   "type": "AND",
-   "conditions": [
-    {
-     "type": "asset",
-     "assetId": "moonsama:moonfinity_gauntlet",
-     "slot": "offhand"
-    },
-    {
-     "type": "asset",
-     "slot": "dimension",
-     "assetId": "moonsama:neon"
-    },
-    {
-     "type": "token",
-     "assetId": 545
-    },
-    {
-     "type": "asset",
-     "slot": "hands",
-     "assetId": null
-    },
-    {
-     "type": "asset",
-     "invert": true,
-     "slot": "costume",
-     "assetId": "*",
-     "tags": [
-      "hide-hands"
-     ]
-    },
-    {
-     "type": "asset",
-     "invert": true,
-     "slot": "costume",
-     "assetId": "*",
-     "tags": [
-      "hide-offhand"
-     ]
-    }
-   ]
-  },
-  "config": {
-   "elements": [
-    {
-     "id": "offhand_fragment",
-     "type": "texture_fragment",
-     "target_texture_id": "hands",
-     "width": 64,
-     "height": 64,
-     "z-index": 1,
-     "url": "hands/neon_moonfinity_gauntlet_545.png"
-    }
-   ]
-  }
- },
- {
-  "referenceId": "moonsama_mc:neon_rainbow_shirt_920",
-  "states": {
-   "type": "AND",
-   "conditions": [
-    {
-     "type": "asset",
-     "slot": "outfit",
-     "assetId": "moonsama:rainbow_shirt"
-    },
-    {
-     "type": "asset",
-     "slot": "dimension",
-     "assetId": "moonsama:neon"
-    },
-    {
-     "type": "token",
-     "assetId": 920
-    },
-    {
-     "type": "asset",
-     "invert": true,
-     "slot": "hat",
-     "assetId": "moonsama:astronaut"
-    },
-    {
-     "type": "asset",
-     "invert": true,
-     "slot": "costume",
-     "assetId": "*",
-     "tags": [
-      "hide-outfit"
-     ]
-    }
-   ]
-  },
-  "config": {
-   "elements": [
-    {
-     "id": "shirt_fragment",
+     "id": "base_fragment",
      "type": "texture_fragment",
      "target_texture_id": "base",
+     "url": "base/black_bird.png",
+     "pass": "skin",
      "width": 64,
-     "height": 64,
-     "z-index": 1,
-     "url": "shirt/neon_rainbow_shirt_920.png"
+     "height": 48
+    },
+    {
+     "id": "base_fragment",
+     "type": "texture_fragment",
+     "target_texture_id": "base",
+     "url": "base/black_bird.png",
+     "pass": "skin",
+     "width": 32,
+     "height": 16,
+     "x": 0,
+     "y": 48,
+     "pos_x": 0,
+     "pos_y": 48
     }
    ]
   }
  },
  {
-  "referenceId": "moonsama_mc:neon_shades_276",
+  "referenceId": "moonsama_mc:cyan_bird",
   "states": {
    "type": "AND",
    "conditions": [
     {
      "type": "asset",
-     "assetId": "moonsama:white_shades",
-     "slot": "eyes"
+     "assetId": "moonsama:cyan_bird",
+     "slot": "base"
     },
+    {
+     "type": "asset",
+     "invert": true,
+     "assetId": "*",
+     "slot": "costume",
+     "tags": [
+      "hide-base"
+     ]
+    }
+   ]
+  },
+  "config": {
+   "elements": [
+    {
+     "id": "base_fragment",
+     "type": "texture_fragment",
+     "target_texture_id": "base",
+     "url": "base/cyan_bird.png",
+     "pass": "skin",
+     "width": 64,
+     "height": 48
+    },
+    {
+     "id": "base_fragment",
+     "type": "texture_fragment",
+     "target_texture_id": "base",
+     "url": "base/cyan_bird.png",
+     "pass": "skin",
+     "width": 32,
+     "height": 16,
+     "x": 0,
+     "y": 48,
+     "pos_x": 0,
+     "pos_y": 48
+    }
+   ]
+  }
+ },
+ {
+  "referenceId": "moonsama_mc:golden_bird",
+  "states": {
+   "type": "AND",
+   "conditions": [
+    {
+     "type": "asset",
+     "assetId": "moonsama:golden_bird",
+     "slot": "base"
+    },
+    {
+     "type": "asset",
+     "invert": true,
+     "assetId": "*",
+     "slot": "costume",
+     "tags": [
+      "hide-base"
+     ]
+    }
+   ]
+  },
+  "config": {
+   "elements": [
+    {
+     "id": "base_fragment",
+     "type": "texture_fragment",
+     "target_texture_id": "base",
+     "url": "base/golden_bird.png",
+     "pass": "skin",
+     "width": 64,
+     "height": 48
+    },
+    {
+     "id": "base_fragment",
+     "type": "texture_fragment",
+     "target_texture_id": "base",
+     "url": "base/golden_bird.png",
+     "pass": "skin",
+     "width": 32,
+     "height": 16,
+     "x": 0,
+     "y": 48,
+     "pos_x": 0,
+     "pos_y": 48
+    }
+   ]
+  }
+ },
+ {
+  "referenceId": "moonsama_mc:pink_bird",
+  "states": {
+   "type": "AND",
+   "conditions": [
+    {
+     "type": "asset",
+     "assetId": "moonsama:pink_bird",
+     "slot": "base"
+    },
+    {
+     "type": "asset",
+     "invert": true,
+     "assetId": "*",
+     "slot": "costume",
+     "tags": [
+      "hide-base"
+     ]
+    }
+   ]
+  },
+  "config": {
+   "elements": [
+    {
+     "id": "base_fragment",
+     "type": "texture_fragment",
+     "target_texture_id": "base",
+     "url": "base/pink_bird.png",
+     "pass": "skin",
+     "width": 64,
+     "height": 48
+    },
+    {
+     "id": "base_fragment",
+     "type": "texture_fragment",
+     "target_texture_id": "base",
+     "url": "base/pink_bird.png",
+     "pass": "skin",
+     "width": 32,
+     "height": 16,
+     "x": 0,
+     "y": 48,
+     "pos_x": 0,
+     "pos_y": 48
+    }
+   ]
+  }
+ },
+ {
+  "referenceId": "moonsama_mc:purple_bird",
+  "states": {
+   "type": "AND",
+   "conditions": [
+    {
+     "type": "asset",
+     "assetId": "moonsama:purple_bird",
+     "slot": "base"
+    },
+    {
+     "type": "asset",
+     "invert": true,
+     "assetId": "*",
+     "slot": "costume",
+     "tags": [
+      "hide-base"
+     ]
+    }
+   ]
+  },
+  "config": {
+   "elements": [
+    {
+     "id": "base_fragment",
+     "type": "texture_fragment",
+     "target_texture_id": "base",
+     "url": "base/purple_bird.png",
+     "pass": "skin",
+     "width": 64,
+     "height": 48
+    },
+    {
+     "id": "base_fragment",
+     "type": "texture_fragment",
+     "target_texture_id": "base",
+     "url": "base/purple_bird.png",
+     "pass": "skin",
+     "width": 32,
+     "height": 16,
+     "x": 0,
+     "y": 48,
+     "pos_x": 0,
+     "pos_y": 48
+    }
+   ]
+  }
+ },
+ {
+  "referenceId": "moonsama_mc:neon_bird_511_beak",
+  "states": {
+   "type": "AND",
+   "conditions": [
+    {
+     "type": "asset",
+     "slot": "dimension",
+     "assetId": "moonsama:neon"
+    },
+    {
+     "type": "token",
+     "assetId": 511
+    },
+    {
+     "type": "asset",
+     "invert": true,
+     "assetId": "*",
+     "slot": "costume",
+     "tags": [
+      "hide-base"
+     ]
+    },
+    {
+     "type": "asset",
+     "invert": true,
+     "assetId": "*",
+     "slot": "costume",
+     "tags": [
+      "hide-beak"
+     ]
+    }
+   ]
+  },
+  "config": {
+   "elements": [
+    {
+     "id": "base_fragment",
+     "type": "texture_fragment",
+     "target_texture_id": "base",
+     "url": "base/neon_bird_511.png",
+     "pass": "skin",
+     "z-index": 1,
+     "width": 32,
+     "height": 16,
+     "x": 32,
+     "y": 48,
+     "pos_x": 32,
+     "pos_y": 48
+    }
+   ]
+  }
+ },
+ {
+  "referenceId": "moonsama_mc:neon_bird_511",
+  "states": {
+   "type": "AND",
+   "conditions": [
+    {
+     "type": "asset",
+     "slot": "dimension",
+     "assetId": "moonsama:neon"
+    },
+    {
+     "type": "token",
+     "assetId": 511
+    },
+    {
+     "type": "asset",
+     "invert": true,
+     "assetId": "*",
+     "slot": "costume",
+     "tags": [
+      "hide-base"
+     ]
+    }
+   ]
+  },
+  "config": {
+   "elements": [
+    {
+     "id": "base_fragment",
+     "type": "texture_fragment",
+     "target_texture_id": "base",
+     "url": "base/neon_bird_511.png",
+     "pass": "skin",
+     "z-index": 1,
+     "width": 64,
+     "height": 48
+    },
+    {
+     "id": "base_fragment",
+     "type": "texture_fragment",
+     "target_texture_id": "base",
+     "url": "base/neon_bird_511.png",
+     "pass": "skin",
+     "z-index": 1,
+     "width": 32,
+     "height": 16,
+     "x": 0,
+     "y": 48,
+     "pos_x": 0,
+     "pos_y": 48
+    }
+   ]
+  }
+ },
+ {
+  "referenceId": "moonsama_mc:neon_bird_787_beak",
+  "states": {
+   "type": "AND",
+   "conditions": [
+    {
+     "type": "asset",
+     "slot": "dimension",
+     "assetId": "moonsama:neon"
+    },
+    {
+     "type": "token",
+     "assetId": 787
+    },
+    {
+     "type": "asset",
+     "invert": true,
+     "assetId": "*",
+     "slot": "costume",
+     "tags": [
+      "hide-base"
+     ]
+    },
+    {
+     "type": "asset",
+     "invert": true,
+     "assetId": "*",
+     "slot": "costume",
+     "tags": [
+      "hide-beak"
+     ]
+    }
+   ]
+  },
+  "config": {
+   "elements": [
+    {
+     "id": "base_fragment",
+     "type": "texture_fragment",
+     "target_texture_id": "base",
+     "url": "base/neon_bird_787.png",
+     "pass": "skin",
+     "z-index": 1,
+     "width": 32,
+     "height": 16,
+     "x": 32,
+     "y": 48,
+     "pos_x": 32,
+     "pos_y": 48
+    }
+   ]
+  }
+ },
+ {
+  "referenceId": "moonsama_mc:purple_bird_beak",
+  "states": {
+   "type": "AND",
+   "conditions": [
+    {
+     "type": "asset",
+     "assetId": "moonsama:purple_bird",
+     "slot": "base"
+    },
+    {
+     "type": "asset",
+     "invert": true,
+     "assetId": "*",
+     "slot": "costume",
+     "tags": [
+      "hide-base"
+     ]
+    },
+    {
+     "type": "asset",
+     "invert": true,
+     "assetId": "*",
+     "slot": "costume",
+     "tags": [
+      "hide-beak"
+     ]
+    }
+   ]
+  },
+  "config": {
+   "elements": [
+    {
+     "id": "base_fragment",
+     "type": "texture_fragment",
+     "target_texture_id": "base",
+     "url": "base/purple_bird.png",
+     "pass": "skin",
+     "width": 32,
+     "height": 16,
+     "x": 32,
+     "y": 48,
+     "pos_x": 32,
+     "pos_y": 48
+    }
+   ]
+  }
+ },
+ {
+  "referenceId": "moonsama_mc:neon_bird_276_beak",
+  "states": {
+   "type": "AND",
+   "conditions": [
     {
      "type": "asset",
      "slot": "dimension",
@@ -4259,10 +4453,19 @@
     {
      "type": "asset",
      "invert": true,
-     "slot": "costume",
      "assetId": "*",
+     "slot": "costume",
      "tags": [
-      "hide-glasses"
+      "hide-base"
+     ]
+    },
+    {
+     "type": "asset",
+     "invert": true,
+     "assetId": "*",
+     "slot": "costume",
+     "tags": [
+      "hide-beak"
      ]
     }
    ]
@@ -4270,27 +4473,123 @@
   "config": {
    "elements": [
     {
-     "id": "glasses_fragment",
+     "id": "base_fragment",
      "type": "texture_fragment",
-     "target_texture_id": "eyes",
-     "width": 64,
-     "height": 64,
-     "z-index": 2,
-     "url": "eyes/neon_shades_276.png"
+     "target_texture_id": "base",
+     "url": "base/neon_bird_276.png",
+     "pass": "skin",
+     "z-index": 1,
+     "width": 32,
+     "height": 16,
+     "x": 32,
+     "y": 48,
+     "pos_x": 32,
+     "pos_y": 48
     }
    ]
   }
  },
  {
-  "referenceId": "moonsama_mc:neon_shades_545",
+  "referenceId": "moonsama_mc:red_bird_beak",
   "states": {
    "type": "AND",
    "conditions": [
     {
      "type": "asset",
-     "assetId": "moonsama:black_shades",
-     "slot": "eyes"
+     "assetId": "moonsama:red_bird",
+     "slot": "base"
     },
+    {
+     "type": "asset",
+     "invert": true,
+     "assetId": "*",
+     "slot": "costume",
+     "tags": [
+      "hide-base"
+     ]
+    },
+    {
+     "type": "asset",
+     "invert": true,
+     "assetId": "*",
+     "slot": "costume",
+     "tags": [
+      "hide-beak"
+     ]
+    }
+   ]
+  },
+  "config": {
+   "elements": [
+    {
+     "id": "base_fragment",
+     "type": "texture_fragment",
+     "target_texture_id": "base",
+     "url": "base/red_bird.png",
+     "pass": "skin",
+     "width": 32,
+     "height": 16,
+     "x": 32,
+     "y": 48,
+     "pos_x": 32,
+     "pos_y": 48
+    }
+   ]
+  }
+ },
+ {
+  "referenceId": "moonsama_mc:yellow_bird_beak",
+  "states": {
+   "type": "AND",
+   "conditions": [
+    {
+     "type": "asset",
+     "assetId": "moonsama:yellow_bird",
+     "slot": "base"
+    },
+    {
+     "type": "asset",
+     "invert": true,
+     "assetId": "*",
+     "slot": "costume",
+     "tags": [
+      "hide-base"
+     ]
+    },
+    {
+     "type": "asset",
+     "invert": true,
+     "assetId": "*",
+     "slot": "costume",
+     "tags": [
+      "hide-beak"
+     ]
+    }
+   ]
+  },
+  "config": {
+   "elements": [
+    {
+     "id": "base_fragment",
+     "type": "texture_fragment",
+     "target_texture_id": "base",
+     "url": "base/yellow_bird.png",
+     "pass": "skin",
+     "width": 32,
+     "height": 16,
+     "x": 32,
+     "y": 48,
+     "pos_x": 32,
+     "pos_y": 48
+    }
+   ]
+  }
+ },
+ {
+  "referenceId": "moonsama_mc:neon_bird_605",
+  "states": {
+   "type": "AND",
+   "conditions": [
     {
      "type": "asset",
      "slot": "dimension",
@@ -4298,15 +4597,15 @@
     },
     {
      "type": "token",
-     "assetId": 545
+     "assetId": 605
     },
     {
      "type": "asset",
      "invert": true,
-     "slot": "costume",
      "assetId": "*",
+     "slot": "costume",
      "tags": [
-      "hide-glasses"
+      "hide-base"
      ]
     }
    ]
@@ -4314,13 +4613,82 @@
   "config": {
    "elements": [
     {
-     "id": "glasses_fragment",
+     "id": "base_fragment",
      "type": "texture_fragment",
-     "target_texture_id": "eyes",
+     "target_texture_id": "base",
+     "url": "base/neon_bird_605.png",
+     "pass": "skin",
+     "z-index": 1,
      "width": 64,
-     "height": 64,
-     "z-index": 2,
-     "url": "eyes/neon_shades_545.png"
+     "height": 48
+    },
+    {
+     "id": "base_fragment",
+     "type": "texture_fragment",
+     "target_texture_id": "base",
+     "url": "base/neon_bird_605.png",
+     "pass": "skin",
+     "z-index": 1,
+     "width": 32,
+     "height": 16,
+     "x": 0,
+     "y": 48,
+     "pos_x": 0,
+     "pos_y": 48
+    }
+   ]
+  }
+ },
+ {
+  "referenceId": "moonsama_mc:neon_bird_787",
+  "states": {
+   "type": "AND",
+   "conditions": [
+    {
+     "type": "asset",
+     "slot": "dimension",
+     "assetId": "moonsama:neon"
+    },
+    {
+     "type": "token",
+     "assetId": 787
+    },
+    {
+     "type": "asset",
+     "invert": true,
+     "assetId": "*",
+     "slot": "costume",
+     "tags": [
+      "hide-base"
+     ]
+    }
+   ]
+  },
+  "config": {
+   "elements": [
+    {
+     "id": "base_fragment",
+     "type": "texture_fragment",
+     "target_texture_id": "base",
+     "url": "base/neon_bird_787.png",
+     "pass": "skin",
+     "z-index": 1,
+     "width": 64,
+     "height": 48
+    },
+    {
+     "id": "base_fragment",
+     "type": "texture_fragment",
+     "target_texture_id": "base",
+     "url": "base/neon_bird_787.png",
+     "pass": "skin",
+     "z-index": 1,
+     "width": 32,
+     "height": 16,
+     "x": 0,
+     "y": 48,
+     "pos_x": 0,
+     "pos_y": 48
     }
    ]
   }
@@ -4440,15 +4808,10 @@
   }
  },
  {
-  "referenceId": "moonsama_mc:neon_shirt_787",
+  "referenceId": "moonsama_mc:neon_bird_920_beak",
   "states": {
    "type": "AND",
    "conditions": [
-    {
-     "type": "asset",
-     "slot": "outfit",
-     "assetId": "moonsama:red_shirt"
-    },
     {
      "type": "asset",
      "slot": "dimension",
@@ -4456,13 +4819,56 @@
     },
     {
      "type": "token",
-     "assetId": 787
+     "assetId": 920
     },
     {
      "type": "asset",
      "invert": true,
-     "slot": "hat",
-     "assetId": "moonsama:astronaut"
+     "assetId": "*",
+     "slot": "costume",
+     "tags": [
+      "hide-base"
+     ]
+    },
+    {
+     "type": "asset",
+     "invert": true,
+     "assetId": "*",
+     "slot": "costume",
+     "tags": [
+      "hide-beak"
+     ]
+    }
+   ]
+  },
+  "config": {
+   "elements": [
+    {
+     "id": "base_fragment",
+     "type": "texture_fragment",
+     "target_texture_id": "base",
+     "url": "base/neon_bird_920.png",
+     "pass": "skin",
+     "z-index": 1,
+     "width": 32,
+     "height": 16,
+     "x": 32,
+     "y": 48,
+     "pos_x": 32,
+     "pos_y": 48
+    }
+   ]
+  }
+ },
+ {
+  "referenceId": "moonsama_mc:hero_outfit_cape",
+  "states": {
+   "type": "AND",
+   "conditions": [
+    {
+     "type": "asset",
+     "assetId": "moonsama:hero_outfit",
+     "slot": "outfit"
     },
     {
      "type": "asset",
@@ -4478,26 +4884,41 @@
   "config": {
    "elements": [
     {
-     "id": "shirt_fragment",
+     "id": "outfit_fragment",
      "type": "texture_fragment",
-     "target_texture_id": "base",
-     "width": 64,
-     "height": 64,
-     "z-index": 1,
-     "url": "shirt/neon_shirt_787.png"
+     "target_texture_id": "cape",
+     "width": 8,
+     "height": 12,
+     "x": 32,
+     "y": 16,
+     "pos_x": 32,
+     "pos_y": 16,
+     "url": "outfit/hero_outfit.png"
+    },
+    {
+     "id": "outfit_fragment",
+     "type": "texture_fragment",
+     "target_texture_id": "cape",
+     "width": 8,
+     "height": 4,
+     "x": 20,
+     "y": 28,
+     "pos_x": 20,
+     "pos_y": 28,
+     "url": "outfit/hero_outfit.png"
     }
    ]
   }
  },
  {
-  "referenceId": "moonsama_mc:neon_slick_787",
+  "referenceId": "moonsama_mc:neon_astronaut_545_outfit",
   "states": {
    "type": "AND",
    "conditions": [
     {
      "type": "asset",
-     "assetId": "moonsama:blue_slick",
-     "slot": "hair"
+     "slot": "hat",
+     "assetId": "moonsama:astronaut"
     },
     {
      "type": "asset",
@@ -4506,12 +4927,7 @@
     },
     {
      "type": "token",
-     "assetId": 787
-    },
-    {
-     "type": "asset",
-     "assetId": null,
-     "slot": "hat"
+     "assetId": 545
     },
     {
      "type": "asset",
@@ -4519,7 +4935,7 @@
      "slot": "costume",
      "assetId": "*",
      "tags": [
-      "hide-hair"
+      "hide-outfit"
      ]
     }
    ]
@@ -4527,25 +4943,88 @@
   "config": {
    "elements": [
     {
-     "id": "hair_fragment",
+     "id": "outfit_fragment",
      "type": "texture_fragment",
-     "target_texture_id": "hair",
-     "z-index": 1,
+     "target_texture_id": "outfit",
      "width": 64,
-     "height": 64,
-     "url": "hair/neon_slick_787.png"
+     "height": 48,
+     "z-index": 2,
+     "url": "outfit/neon_astronaut_545.png"
     }
    ]
   }
  },
  {
-  "referenceId": "moonsama_mc:orange_bufoon",
+  "referenceId": "moonsama_mc:curious_eyes_fallback_neon",
+  "states": {
+   "type": "AND",
+   "conditions": [
+    {
+     "type": "OR",
+     "conditions": [
+      {
+       "note": "Use when no eyes are equipped",
+       "type": "asset",
+       "assetId": null,
+       "slot": "eyes"
+      },
+      {
+       "note": "Use when the costume hides glasses",
+       "type": "asset",
+       "assetId": "*",
+       "slot": "costume",
+       "tags": [
+        "hide-glasses"
+       ]
+      }
+     ]
+    },
+    {
+     "note": "Only use when it is a neon bird",
+     "type": "asset",
+     "slot": "dimension",
+     "assetId": "moonsama:neon"
+    },
+    {
+     "note": "Only use when the costume does not hide the eyes",
+     "type": "asset",
+     "invert": true,
+     "slot": "costume",
+     "assetId": "*",
+     "tags": [
+      "hide-eyes"
+     ]
+    },
+    {
+     "note": "Only use in actual compositions, not in previews",
+     "type": "token",
+     "invert": true,
+     "assetId": null
+    }
+   ]
+  },
+  "config": {
+   "elements": [
+    {
+     "id": "eyes_fragment",
+     "type": "texture_fragment",
+     "target_texture_id": "eyes",
+     "width": 64,
+     "height": 64,
+     "z-index": 1,
+     "url": "eyes/neon_curious_eyes_920.png"
+    }
+   ]
+  }
+ },
+ {
+  "referenceId": "moonsama_mc:black_cowboy",
   "states": {
    "type": "AND",
    "conditions": [
     {
      "type": "asset",
-     "assetId": "moonsama:orange_bufoon",
+     "assetId": "moonsama:black_cowboy",
      "slot": "hat"
     },
     {
@@ -4583,7 +5062,7 @@
     {
      "id": "hat",
      "type": "model",
-     "url": "model/bufoon.glb",
+     "url": "model/cowboy.glb",
      "bone": "hat",
      "position": {
       "x": -0.5,
@@ -4601,7 +5080,7 @@
     {
      "id": "hat_texture",
      "type": "texture",
-     "url": "hat/orange_bufoon.png"
+     "url": "hat/black_cowboy.png"
     }
    ],
    "skeleton": [
@@ -4632,13 +5111,18 @@
   }
  },
  {
-  "referenceId": "moonsama_mc:orange_cap",
+  "referenceId": "moonsama_mc:brown_straight",
   "states": {
    "type": "AND",
    "conditions": [
     {
      "type": "asset",
-     "assetId": "moonsama:orange_cap",
+     "assetId": "moonsama:brown_straight",
+     "slot": "hair"
+    },
+    {
+     "type": "asset",
+     "assetId": null,
      "slot": "hat"
     },
     {
@@ -4647,7 +5131,7 @@
      "slot": "costume",
      "assetId": "*",
      "tags": [
-      "hide-hat"
+      "hide-hair"
      ]
     }
    ]
@@ -4655,250 +5139,80 @@
   "config": {
    "elements": [
     {
-     "id": "hat_fragment",
+     "id": "hair_fragment",
      "type": "texture_fragment",
-     "target_texture_id": "hat",
+     "target_texture_id": "hair",
      "width": 64,
      "height": 64,
-     "url": "hat/orange_cap.png"
+     "url": "hair/brown_straight.png"
     }
    ]
   }
  },
  {
-  "referenceId": "moonsama_mc:pink_bird",
+  "referenceId": "moonsama_mc:curious_eyes_fallback",
   "states": {
    "type": "AND",
    "conditions": [
     {
-     "type": "asset",
-     "assetId": "moonsama:pink_bird",
-     "slot": "base"
+     "type": "OR",
+     "conditions": [
+      {
+       "note": "Use when no eyes are equipped",
+       "type": "asset",
+       "assetId": null,
+       "slot": "eyes"
+      },
+      {
+       "note": "Use when the costume hides glasses",
+       "type": "asset",
+       "assetId": "*",
+       "slot": "costume",
+       "tags": [
+        "hide-glasses"
+       ]
+      }
+     ]
     },
     {
+     "note": "Only use when the costume does not hide the eyes",
      "type": "asset",
      "invert": true,
-     "assetId": "*",
      "slot": "costume",
+     "assetId": "*",
      "tags": [
-      "hide-base"
+      "hide-eyes"
      ]
+    },
+    {
+     "note": "Only use in actual compositions, not in previews",
+     "type": "token",
+     "invert": true,
+     "assetId": null
     }
    ]
   },
   "config": {
    "elements": [
     {
-     "id": "base_fragment",
+     "id": "eyes_fragment",
      "type": "texture_fragment",
-     "target_texture_id": "base",
-     "url": "base/pink_bird.png",
-     "pass": "skin",
-     "width": 64,
-     "height": 48
-    },
-    {
-     "id": "base_fragment",
-     "type": "texture_fragment",
-     "target_texture_id": "base",
-     "url": "base/pink_bird.png",
-     "pass": "skin",
-     "width": 32,
-     "height": 16,
-     "x": 0,
-     "y": 48,
-     "pos_x": 0,
-     "pos_y": 48
-    }
-   ]
-  }
- },
- {
-  "referenceId": "moonsama_mc:pink_bird_beak",
-  "states": {
-   "type": "AND",
-   "conditions": [
-    {
-     "type": "asset",
-     "assetId": "moonsama:pink_bird",
-     "slot": "base"
-    },
-    {
-     "type": "asset",
-     "invert": true,
-     "assetId": "*",
-     "slot": "costume",
-     "tags": [
-      "hide-base"
-     ]
-    },
-    {
-     "type": "asset",
-     "invert": true,
-     "assetId": "*",
-     "slot": "costume",
-     "tags": [
-      "hide-beak"
-     ]
-    }
-   ]
-  },
-  "config": {
-   "elements": [
-    {
-     "id": "base_fragment",
-     "type": "texture_fragment",
-     "target_texture_id": "base",
-     "url": "base/pink_bird.png",
-     "pass": "skin",
-     "width": 32,
-     "height": 16,
-     "x": 32,
-     "y": 48,
-     "pos_x": 32,
-     "pos_y": 48
-    }
-   ]
-  }
- },
- {
-  "referenceId": "moonsama_mc:pink_headset",
-  "states": {
-   "type": "AND",
-   "conditions": [
-    {
-     "type": "asset",
-     "assetId": "moonsama:pink_headset",
-     "slot": "hat"
-    },
-    {
-     "type": "asset",
-     "invert": true,
-     "slot": "costume",
-     "assetId": "*",
-     "tags": [
-      "hide-hat"
-     ]
-    }
-   ]
-  },
-  "config": {
-   "elements": [
-    {
-     "id": "hat_fragment",
-     "type": "texture_fragment",
-     "target_texture_id": "hat",
+     "target_texture_id": "eyes",
      "width": 64,
      "height": 64,
-     "url": "hat/pink_headset.png"
+     "url": "eyes/curious_eyes.png"
     }
    ]
   }
  },
  {
-  "referenceId": "moonsama_mc:purple_bird",
+  "referenceId": "moonsama_mc:green_shirt",
   "states": {
    "type": "AND",
    "conditions": [
     {
      "type": "asset",
-     "assetId": "moonsama:purple_bird",
-     "slot": "base"
-    },
-    {
-     "type": "asset",
-     "invert": true,
-     "assetId": "*",
-     "slot": "costume",
-     "tags": [
-      "hide-base"
-     ]
-    }
-   ]
-  },
-  "config": {
-   "elements": [
-    {
-     "id": "base_fragment",
-     "type": "texture_fragment",
-     "target_texture_id": "base",
-     "url": "base/purple_bird.png",
-     "pass": "skin",
-     "width": 64,
-     "height": 48
-    },
-    {
-     "id": "base_fragment",
-     "type": "texture_fragment",
-     "target_texture_id": "base",
-     "url": "base/purple_bird.png",
-     "pass": "skin",
-     "width": 32,
-     "height": 16,
-     "x": 0,
-     "y": 48,
-     "pos_x": 0,
-     "pos_y": 48
-    }
-   ]
-  }
- },
- {
-  "referenceId": "moonsama_mc:purple_bird_beak",
-  "states": {
-   "type": "AND",
-   "conditions": [
-    {
-     "type": "asset",
-     "assetId": "moonsama:purple_bird",
-     "slot": "base"
-    },
-    {
-     "type": "asset",
-     "invert": true,
-     "assetId": "*",
-     "slot": "costume",
-     "tags": [
-      "hide-base"
-     ]
-    },
-    {
-     "type": "asset",
-     "invert": true,
-     "assetId": "*",
-     "slot": "costume",
-     "tags": [
-      "hide-beak"
-     ]
-    }
-   ]
-  },
-  "config": {
-   "elements": [
-    {
-     "id": "base_fragment",
-     "type": "texture_fragment",
-     "target_texture_id": "base",
-     "url": "base/purple_bird.png",
-     "pass": "skin",
-     "width": 32,
-     "height": 16,
-     "x": 32,
-     "y": 48,
-     "pos_x": 32,
-     "pos_y": 48
-    }
-   ]
-  }
- },
- {
-  "referenceId": "moonsama_mc:rainbow_shirt",
-  "states": {
-   "type": "AND",
-   "conditions": [
-    {
-     "type": "asset",
-     "assetId": "moonsama:rainbow_shirt",
+     "assetId": "moonsama:green_shirt",
      "slot": "outfit"
     },
     {
@@ -4926,116 +5240,29 @@
      "target_texture_id": "base",
      "width": 64,
      "height": 64,
-     "url": "shirt/rainbow_shirt.png"
+     "url": "shirt/green_shirt.png"
     }
    ]
   }
  },
  {
-  "referenceId": "moonsama_mc:red_bird",
+  "referenceId": "moonsama_mc:neon_headset_511",
   "states": {
    "type": "AND",
    "conditions": [
     {
      "type": "asset",
-     "assetId": "moonsama:red_bird",
-     "slot": "base"
+     "slot": "hat",
+     "assetId": "moonsama:pink_headset"
     },
     {
      "type": "asset",
-     "invert": true,
-     "assetId": "*",
-     "slot": "costume",
-     "tags": [
-      "hide-base"
-     ]
-    }
-   ]
-  },
-  "config": {
-   "elements": [
-    {
-     "id": "base_fragment",
-     "type": "texture_fragment",
-     "target_texture_id": "base",
-     "url": "base/red_bird.png",
-     "pass": "skin",
-     "width": 64,
-     "height": 48
+     "slot": "dimension",
+     "assetId": "moonsama:neon"
     },
     {
-     "id": "base_fragment",
-     "type": "texture_fragment",
-     "target_texture_id": "base",
-     "url": "base/red_bird.png",
-     "pass": "skin",
-     "width": 32,
-     "height": 16,
-     "x": 0,
-     "y": 48,
-     "pos_x": 0,
-     "pos_y": 48
-    }
-   ]
-  }
- },
- {
-  "referenceId": "moonsama_mc:red_bird_beak",
-  "states": {
-   "type": "AND",
-   "conditions": [
-    {
-     "type": "asset",
-     "assetId": "moonsama:red_bird",
-     "slot": "base"
-    },
-    {
-     "type": "asset",
-     "invert": true,
-     "assetId": "*",
-     "slot": "costume",
-     "tags": [
-      "hide-base"
-     ]
-    },
-    {
-     "type": "asset",
-     "invert": true,
-     "assetId": "*",
-     "slot": "costume",
-     "tags": [
-      "hide-beak"
-     ]
-    }
-   ]
-  },
-  "config": {
-   "elements": [
-    {
-     "id": "base_fragment",
-     "type": "texture_fragment",
-     "target_texture_id": "base",
-     "url": "base/red_bird.png",
-     "pass": "skin",
-     "width": 32,
-     "height": 16,
-     "x": 32,
-     "y": 48,
-     "pos_x": 32,
-     "pos_y": 48
-    }
-   ]
-  }
- },
- {
-  "referenceId": "moonsama_mc:red_headset",
-  "states": {
-   "type": "AND",
-   "conditions": [
-    {
-     "type": "asset",
-     "assetId": "moonsama:red_headset",
-     "slot": "hat"
+     "type": "token",
+     "assetId": 511
     },
     {
      "type": "asset",
@@ -5056,276 +5283,20 @@
      "target_texture_id": "hat",
      "width": 64,
      "height": 64,
-     "url": "hat/red_headset.png"
+     "z-index": 1,
+     "url": "hat/neon_headset_511.png"
     }
    ]
   }
  },
  {
-  "referenceId": "moonsama_mc:red_mohawk",
+  "referenceId": "moonsama_mc:golden_bird_beak",
   "states": {
    "type": "AND",
    "conditions": [
     {
      "type": "asset",
-     "assetId": "moonsama:red_mohawk",
-     "slot": "hair"
-    },
-    {
-     "type": "asset",
-     "assetId": null,
-     "slot": "hat"
-    },
-    {
-     "type": "asset",
-     "invert": true,
-     "slot": "costume",
-     "assetId": "*",
-     "tags": [
-      "hide-hair"
-     ]
-    }
-   ]
-  },
-  "config": {
-   "elements": [
-    {
-     "id": "hair_fragment",
-     "type": "texture_fragment",
-     "target_texture_id": "hair",
-     "width": 64,
-     "height": 64,
-     "url": "hair/red_mohawk.png"
-    }
-   ]
-  }
- },
- {
-  "referenceId": "moonsama_mc:red_shirt",
-  "states": {
-   "type": "AND",
-   "conditions": [
-    {
-     "type": "asset",
-     "assetId": "moonsama:red_shirt",
-     "slot": "outfit"
-    },
-    {
-     "type": "asset",
-     "invert": true,
-     "slot": "hat",
-     "assetId": "moonsama:astronaut"
-    },
-    {
-     "type": "asset",
-     "invert": true,
-     "slot": "costume",
-     "assetId": "*",
-     "tags": [
-      "hide-outfit"
-     ]
-    }
-   ]
-  },
-  "config": {
-   "elements": [
-    {
-     "id": "shirt_fragment",
-     "type": "texture_fragment",
-     "target_texture_id": "base",
-     "width": 64,
-     "height": 64,
-     "url": "shirt/red_shirt.png"
-    }
-   ]
-  }
- },
- {
-  "referenceId": "moonsama_mc:red_straight",
-  "states": {
-   "type": "AND",
-   "conditions": [
-    {
-     "type": "asset",
-     "assetId": "moonsama:red_straight",
-     "slot": "hair"
-    },
-    {
-     "type": "asset",
-     "assetId": null,
-     "slot": "hat"
-    },
-    {
-     "type": "asset",
-     "invert": true,
-     "slot": "costume",
-     "assetId": "*",
-     "tags": [
-      "hide-hair"
-     ]
-    }
-   ]
-  },
-  "config": {
-   "elements": [
-    {
-     "id": "hair_fragment",
-     "type": "texture_fragment",
-     "target_texture_id": "hair",
-     "width": 64,
-     "height": 64,
-     "url": "hair/red_straight.png"
-    }
-   ]
-  }
- },
- {
-  "referenceId": "moonsama_mc:samurai_top",
-  "states": {
-   "type": "AND",
-   "conditions": [
-    {
-     "type": "asset",
-     "assetId": "moonsama:samurai_top",
-     "slot": "hair"
-    },
-    {
-     "type": "asset",
-     "assetId": null,
-     "slot": "hat"
-    },
-    {
-     "type": "asset",
-     "invert": true,
-     "slot": "costume",
-     "assetId": "*",
-     "tags": [
-      "hide-hair"
-     ]
-    }
-   ]
-  },
-  "config": {
-   "elements": [
-    {
-     "id": "hair_fragment",
-     "type": "texture_fragment",
-     "target_texture_id": "hair",
-     "width": 64,
-     "height": 64,
-     "url": "hair/samurai_top.png"
-    }
-   ]
-  }
- },
- {
-  "referenceId": "moonsama_mc:sheriff_outfit",
-  "states": {
-   "type": "AND",
-   "conditions": [
-    {
-     "type": "asset",
-     "assetId": "moonsama:sheriff_outfit",
-     "slot": "outfit"
-    },
-    {
-     "type": "asset",
-     "invert": true,
-     "slot": "hat",
-     "assetId": "moonsama:astronaut"
-    },
-    {
-     "type": "asset",
-     "invert": true,
-     "slot": "costume",
-     "assetId": "*",
-     "tags": [
-      "hide-outfit"
-     ]
-    }
-   ]
-  },
-  "config": {
-   "elements": [
-    {
-     "id": "outfit_fragment",
-     "type": "texture_fragment",
-     "target_texture_id": "outfit",
-     "width": 64,
-     "height": 64,
-     "url": "outfit/sheriff_outfit.png"
-    },
-    {
-     "id": "outfit_fragment",
-     "type": "texture_fragment",
-     "target_texture_id": "hat",
-     "width": 64,
-     "height": 16,
-     "x": 0,
-     "y": 48,
-     "pos_x": 0,
-     "pos_y": 48,
-     "url": "outfit/sheriff_outfit.png"
-    }
-   ]
-  }
- },
- {
-  "referenceId": "moonsama_mc:white_bird",
-  "states": {
-   "type": "AND",
-   "conditions": [
-    {
-     "type": "asset",
-     "assetId": "moonsama:white_bird",
-     "slot": "base"
-    },
-    {
-     "type": "asset",
-     "invert": true,
-     "assetId": "*",
-     "slot": "costume",
-     "tags": [
-      "hide-base"
-     ]
-    }
-   ]
-  },
-  "config": {
-   "elements": [
-    {
-     "id": "base_fragment",
-     "type": "texture_fragment",
-     "target_texture_id": "base",
-     "url": "base/white_bird.png",
-     "pass": "skin",
-     "width": 64,
-     "height": 48
-    },
-    {
-     "id": "base_fragment",
-     "type": "texture_fragment",
-     "target_texture_id": "base",
-     "url": "base/white_bird.png",
-     "pass": "skin",
-     "width": 32,
-     "height": 16,
-     "x": 0,
-     "y": 48,
-     "pos_x": 0,
-     "pos_y": 48
-    }
-   ]
-  }
- },
- {
-  "referenceId": "moonsama_mc:white_bird_beak",
-  "states": {
-   "type": "AND",
-   "conditions": [
-    {
-     "type": "asset",
-     "assetId": "moonsama:white_bird",
+     "assetId": "moonsama:golden_bird",
      "slot": "base"
     },
     {
@@ -5354,7 +5325,7 @@
      "id": "base_fragment",
      "type": "texture_fragment",
      "target_texture_id": "base",
-     "url": "base/white_bird.png",
+     "url": "base/golden_bird.png",
      "pass": "skin",
      "width": 32,
      "height": 16,
@@ -5367,14 +5338,23 @@
   }
  },
  {
-  "referenceId": "moonsama_mc:white_shades",
+  "referenceId": "moonsama_mc:neon_hero_outfit_545_cape",
   "states": {
    "type": "AND",
    "conditions": [
     {
      "type": "asset",
-     "assetId": "moonsama:white_shades",
-     "slot": "eyes"
+     "slot": "outfit",
+     "assetId": "moonsama:hero_outfit"
+    },
+    {
+     "type": "asset",
+     "slot": "dimension",
+     "assetId": "moonsama:neon"
+    },
+    {
+     "type": "token",
+     "assetId": 545
     },
     {
      "type": "asset",
@@ -5382,7 +5362,7 @@
      "slot": "costume",
      "assetId": "*",
      "tags": [
-      "hide-glasses"
+      "hide-outfit"
      ]
     }
    ]
@@ -5390,122 +5370,50 @@
   "config": {
    "elements": [
     {
-     "id": "glasses_fragment",
+     "id": "outfit_fragment",
      "type": "texture_fragment",
-     "target_texture_id": "eyes",
-     "z-index": 1,
-     "width": 64,
-     "height": 64,
-     "url": "eyes/white_shades.png"
-    }
-   ]
-  }
- },
- {
-  "referenceId": "moonsama_mc:yellow_bird",
-  "states": {
-   "type": "AND",
-   "conditions": [
-    {
-     "type": "asset",
-     "assetId": "moonsama:yellow_bird",
-     "slot": "base"
-    },
-    {
-     "type": "asset",
-     "invert": true,
-     "assetId": "*",
-     "slot": "costume",
-     "tags": [
-      "hide-base"
-     ]
-    }
-   ]
-  },
-  "config": {
-   "elements": [
-    {
-     "id": "base_fragment",
-     "type": "texture_fragment",
-     "target_texture_id": "base",
-     "url": "base/yellow_bird.png",
-     "pass": "skin",
-     "width": 64,
-     "height": 48
-    },
-    {
-     "id": "base_fragment",
-     "type": "texture_fragment",
-     "target_texture_id": "base",
-     "url": "base/yellow_bird.png",
-     "pass": "skin",
-     "width": 32,
-     "height": 16,
-     "x": 0,
-     "y": 48,
-     "pos_x": 0,
-     "pos_y": 48
-    }
-   ]
-  }
- },
- {
-  "referenceId": "moonsama_mc:yellow_bird_beak",
-  "states": {
-   "type": "AND",
-   "conditions": [
-    {
-     "type": "asset",
-     "assetId": "moonsama:yellow_bird",
-     "slot": "base"
-    },
-    {
-     "type": "asset",
-     "invert": true,
-     "assetId": "*",
-     "slot": "costume",
-     "tags": [
-      "hide-base"
-     ]
-    },
-    {
-     "type": "asset",
-     "invert": true,
-     "assetId": "*",
-     "slot": "costume",
-     "tags": [
-      "hide-beak"
-     ]
-    }
-   ]
-  },
-  "config": {
-   "elements": [
-    {
-     "id": "base_fragment",
-     "type": "texture_fragment",
-     "target_texture_id": "base",
-     "url": "base/yellow_bird.png",
-     "pass": "skin",
-     "width": 32,
-     "height": 16,
+     "target_texture_id": "cape",
+     "width": 8,
+     "height": 12,
      "x": 32,
-     "y": 48,
+     "y": 16,
      "pos_x": 32,
-     "pos_y": 48
+     "pos_y": 16,
+     "url": "outfit/neon_hero_outfit_545.png"
+    },
+    {
+     "id": "outfit_fragment",
+     "type": "texture_fragment",
+     "target_texture_id": "cape",
+     "width": 8,
+     "height": 4,
+     "x": 20,
+     "y": 28,
+     "pos_x": 20,
+     "pos_y": 28,
+     "url": "outfit/neon_hero_outfit_545.png"
     }
    ]
   }
  },
  {
-  "referenceId": "moonsama_mc:yellow_geeky_glasses",
+  "referenceId": "moonsama_mc:neon_boxing_gloves_605",
   "states": {
    "type": "AND",
    "conditions": [
     {
      "type": "asset",
-     "assetId": "moonsama:yellow_geeky_glasses",
-     "slot": "eyes"
+     "assetId": "moonsama:boxing_gloves",
+     "slot": "hands"
+    },
+    {
+     "type": "token",
+     "assetId": 605
+    },
+    {
+     "type": "asset",
+     "assetId": "moonsama:neon",
+     "slot": "dimension"
     },
     {
      "type": "asset",
@@ -5513,7 +5421,7 @@
      "slot": "costume",
      "assetId": "*",
      "tags": [
-      "hide-glasses"
+      "hide-hands"
      ]
     }
    ]
@@ -5521,13 +5429,105 @@
   "config": {
    "elements": [
     {
-     "id": "glasses_fragment",
+     "id": "hands_fragment",
      "type": "texture_fragment",
-     "target_texture_id": "eyes",
-     "z-index": 1,
+     "target_texture_id": "hands",
      "width": 64,
      "height": 64,
-     "url": "eyes/yellow_geeky_glasses.png"
+     "z-index": 1,
+     "url": "hands/neon_boxing_gloves_605.png"
+    }
+   ]
+  }
+ },
+ {
+  "referenceId": "moonsama_mc:neon_cowboy_605",
+  "states": {
+   "type": "AND",
+   "conditions": [
+    {
+     "type": "asset",
+     "assetId": "moonsama:brown_cowboy",
+     "slot": "hat"
+    },
+    {
+     "type": "asset",
+     "assetId": "moonsama:neon",
+     "slot": "dimension"
+    },
+    {
+     "type": "asset",
+     "invert": true,
+     "slot": "costume",
+     "assetId": "*",
+     "tags": [
+      "hide-hat"
+     ]
+    },
+    {
+     "type": "OR",
+     "conditions": [
+      {
+       "type": "renderType",
+       "renderType": "preview"
+      },
+      {
+       "type": "renderType",
+       "renderType": "preview-minecraft"
+      }
+     ]
+    }
+   ]
+  },
+  "config": {
+   "elements": [
+    {
+     "id": "hat",
+     "type": "model",
+     "url": "model/cowboy.glb",
+     "bone": "hat",
+     "position": {
+      "x": -0.5,
+      "y": -0.5,
+      "z": 0.5
+     },
+     "textures": [
+      {
+       "material": "material_0",
+       "texture": "_MainTex",
+       "url": "#hat_texture"
+      }
+     ]
+    },
+    {
+     "id": "hat_texture",
+     "type": "texture",
+     "url": "hat/neon_cowboy_605.png"
+    }
+   ],
+   "skeleton": [
+    {
+     "id": "anchor",
+     "parent": "head",
+     "position": {
+      "x": 0,
+      "y": 18,
+      "z": 0
+     },
+     "scale": {
+      "x": 16,
+      "y": 16,
+      "z": 16
+     }
+    },
+    {
+     "id": "hat",
+     "parent": "anchor",
+     "scale": {
+      "x": 1.83,
+      "y": 1.83,
+      "z": 1.83
+     }
     }
    ]
   }

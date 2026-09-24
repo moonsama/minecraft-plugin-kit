@@ -32,3 +32,6 @@ Do not edit by hand; re-run the extractor instead.
   table only ever held `cyber_wiring/cyber_wiring_v<n>.png`; the legacy renderer never
   had those layers either. Treat the `cyber_wiring` slot as a no-op or alias the files.
 - Per-token `bird_head` hat textures were never stored anywhere recoverable.
+- Gromlins have no slots, assets or default compositions in the Composer; their skins were
+  produced elsewhere and only exist as the pre-signed textures in `skins/gromlin.jsonl`.
+  `skin-compositor` therefore cannot re-compose them.

@@ -1,113 +1,104 @@
 [
  {
-  "referenceId": "default:female",
-  "states": {
-   "type": "token",
-   "assetId": 1
-  },
+  "referenceId": "default:model_settings",
+  "states": {},
   "config": {
    "elements": [
     {
-     "id": "skin",
-     "type": "texture_fragment",
-     "target_texture_id": "body",
-     "url": "texture/default_1.png",
+     "id": "steve",
+     "type": "model",
+     "bone": "global",
+     "url": "model/steve.glb",
+     "textures": [
+      {
+       "url": "#composition",
+       "texture": "_MainTex",
+       "material": "skin"
+      }
+     ]
+    }
+   ],
+   "output": {
+    "width": 300,
+    "height": 300,
+    "result": "model"
+   }
+  }
+ },
+ {
+  "referenceId": "default:template_settings",
+  "states": {},
+  "config": {
+   "skeleton": [
+    {
+     "id": "global"
+    }
+   ],
+   "elements": [
+    {
+     "id": "body",
+     "type": "texture",
+     "texture_type": "empty",
+     "width": 64,
+     "height": 64
+    },
+    {
+     "id": "composition",
+     "type": "texture_atlas",
+     "width": 64,
+     "height": 64,
+     "layers": [
+      {
+       "url": "#body",
+       "x": 0,
+       "y": 0
+      },
+      {
+       "url": "#hat",
+       "x": 0,
+       "y": 0
+      }
+     ]
+    },
+    {
+     "id": "hat",
+     "type": "texture",
+     "texture_type": "empty",
+     "width": 64,
+     "height": 64
+    }
+   ]
+  }
+ },
+ {
+  "referenceId": "default:render_settings",
+  "states": {},
+  "config": {
+   "output": {
+    "width": 64,
+    "height": 64,
+    "result": "render",
+    "camera_x": 32,
+    "camera_y": 32,
+    "camera_size": 32,
+    "transparency": true,
+    "camera_z": -100
+   },
+   "elements": [
+    {
+     "type": "sprite",
+     "bone": "global",
+     "url": "#composition",
      "pass": "default",
      "z-index": 0,
      "blend": "default",
      "opacity": 1,
-     "coordinates": "pixels",
      "width": 64,
-     "height": 48,
+     "height": 64,
      "x": 0,
      "y": 0,
-     "pos_x": 0,
-     "pos_y": 0,
-     "scale": 1
-    }
-   ]
-  }
- },
- {
-  "referenceId": "default:female_head",
-  "states": {
-   "type": "AND",
-   "conditions": [
-    {
-     "type": "token",
-     "assetId": 1
-    },
-    {
-     "type": "asset",
-     "invert": true,
-     "slot": "costume",
-     "assetId": "*",
-     "tags": [
-      "hat"
-     ]
-    }
-   ]
-  },
-  "config": {
-   "elements": [
-    {
-     "id": "skin",
-     "type": "texture_fragment",
-     "target_texture_id": "body",
-     "url": "texture/default_1.png",
-     "pass": "default",
-     "z-index": 0,
-     "blend": "default",
-     "opacity": 1,
-     "coordinates": "pixels",
-     "width": 64,
-     "height": 16,
-     "x": 0,
-     "y": 48,
-     "pos_x": 0,
-     "pos_y": 48,
-     "scale": 1
-    }
-   ]
-  }
- },
- {
-  "referenceId": "default:female_head_hat",
-  "states": {
-   "type": "AND",
-   "conditions": [
-    {
-     "type": "token",
-     "assetId": 1
-    },
-    {
-     "type": "asset",
-     "slot": "costume",
-     "assetId": "*",
-     "tags": [
-      "hat"
-     ]
-    }
-   ]
-  },
-  "config": {
-   "elements": [
-    {
-     "id": "skin",
-     "type": "texture_fragment",
-     "target_texture_id": "body",
-     "url": "texture/default_1_hat.png",
-     "pass": "default",
-     "z-index": 0,
-     "blend": "default",
-     "opacity": 1,
-     "coordinates": "pixels",
-     "width": 64,
-     "height": 16,
-     "x": 0,
-     "y": 48,
-     "pos_x": 0,
-     "pos_y": 48,
+     "pivot_x": 0,
+     "pivot_y": 0,
      "scale": 1
     }
    ]
@@ -140,117 +131,6 @@
      "scale": 1
     }
    ]
-  }
- },
- {
-  "referenceId": "default:male_head",
-  "states": {
-   "type": "AND",
-   "conditions": [
-    {
-     "type": "token",
-     "assetId": 2
-    },
-    {
-     "type": "asset",
-     "invert": true,
-     "slot": "costume",
-     "assetId": "*",
-     "tags": [
-      "hat"
-     ]
-    }
-   ]
-  },
-  "config": {
-   "elements": [
-    {
-     "id": "skin",
-     "type": "texture_fragment",
-     "target_texture_id": "body",
-     "url": "texture/default_2.png",
-     "pass": "default",
-     "z-index": 0,
-     "blend": "default",
-     "opacity": 1,
-     "coordinates": "pixels",
-     "width": 64,
-     "height": 16,
-     "x": 0,
-     "y": 48,
-     "pos_x": 0,
-     "pos_y": 48,
-     "scale": 1
-    }
-   ]
-  }
- },
- {
-  "referenceId": "default:male_head_hat",
-  "states": {
-   "type": "AND",
-   "conditions": [
-    {
-     "type": "token",
-     "assetId": 2
-    },
-    {
-     "type": "asset",
-     "slot": "costume",
-     "assetId": "*",
-     "tags": [
-      "hat"
-     ]
-    }
-   ]
-  },
-  "config": {
-   "elements": [
-    {
-     "id": "skin",
-     "type": "texture_fragment",
-     "target_texture_id": "body",
-     "url": "texture/default_2_hat.png",
-     "pass": "default",
-     "z-index": 0,
-     "blend": "default",
-     "opacity": 1,
-     "coordinates": "pixels",
-     "width": 64,
-     "height": 16,
-     "x": 0,
-     "y": 48,
-     "pos_x": 0,
-     "pos_y": 48,
-     "scale": 1
-    }
-   ]
-  }
- },
- {
-  "referenceId": "default:model_settings",
-  "states": {},
-  "config": {
-   "elements": [
-    {
-     "id": "steve",
-     "type": "model",
-     "bone": "global",
-     "url": "model/steve.glb",
-     "textures": [
-      {
-       "url": "#composition",
-       "texture": "_MainTex",
-       "material": "skin"
-      }
-     ]
-    }
-   ],
-   "output": {
-    "width": 300,
-    "height": 300,
-    "result": "model"
-   }
   }
  },
  {
@@ -332,80 +212,200 @@
   }
  },
  {
-  "referenceId": "default:render_settings",
-  "states": {},
+  "referenceId": "default:female_head_hat",
+  "states": {
+   "type": "AND",
+   "conditions": [
+    {
+     "type": "token",
+     "assetId": 1
+    },
+    {
+     "type": "asset",
+     "slot": "costume",
+     "assetId": "*",
+     "tags": [
+      "hat"
+     ]
+    }
+   ]
+  },
   "config": {
-   "output": {
-    "width": 64,
-    "height": 64,
-    "result": "render",
-    "camera_x": 32,
-    "camera_y": 32,
-    "camera_size": 32,
-    "transparency": true,
-    "camera_z": -100
-   },
    "elements": [
     {
-     "type": "sprite",
-     "bone": "global",
-     "url": "#composition",
+     "id": "skin",
+     "type": "texture_fragment",
+     "target_texture_id": "body",
+     "url": "texture/default_1_hat.png",
      "pass": "default",
      "z-index": 0,
      "blend": "default",
      "opacity": 1,
+     "coordinates": "pixels",
      "width": 64,
-     "height": 64,
+     "height": 16,
      "x": 0,
-     "y": 0,
-     "pivot_x": 0,
-     "pivot_y": 0,
+     "y": 48,
+     "pos_x": 0,
+     "pos_y": 48,
      "scale": 1
     }
    ]
   }
  },
  {
-  "referenceId": "default:template_settings",
-  "states": {},
+  "referenceId": "default:female",
+  "states": {
+   "type": "token",
+   "assetId": 1
+  },
   "config": {
-   "skeleton": [
-    {
-     "id": "global"
-    }
-   ],
    "elements": [
     {
-     "id": "body",
-     "type": "texture",
-     "texture_type": "empty",
+     "id": "skin",
+     "type": "texture_fragment",
+     "target_texture_id": "body",
+     "url": "texture/default_1.png",
+     "pass": "default",
+     "z-index": 0,
+     "blend": "default",
+     "opacity": 1,
+     "coordinates": "pixels",
      "width": 64,
-     "height": 64
+     "height": 48,
+     "x": 0,
+     "y": 0,
+     "pos_x": 0,
+     "pos_y": 0,
+     "scale": 1
+    }
+   ]
+  }
+ },
+ {
+  "referenceId": "default:male_head_hat",
+  "states": {
+   "type": "AND",
+   "conditions": [
+    {
+     "type": "token",
+     "assetId": 2
     },
     {
-     "id": "composition",
-     "type": "texture_atlas",
-     "width": 64,
-     "height": 64,
-     "layers": [
-      {
-       "url": "#body",
-       "x": 0,
-       "y": 0
-      },
-      {
-       "url": "#hat",
-       "x": 0,
-       "y": 0
-      }
+     "type": "asset",
+     "slot": "costume",
+     "assetId": "*",
+     "tags": [
+      "hat"
      ]
+    }
+   ]
+  },
+  "config": {
+   "elements": [
+    {
+     "id": "skin",
+     "type": "texture_fragment",
+     "target_texture_id": "body",
+     "url": "texture/default_2_hat.png",
+     "pass": "default",
+     "z-index": 0,
+     "blend": "default",
+     "opacity": 1,
+     "coordinates": "pixels",
+     "width": 64,
+     "height": 16,
+     "x": 0,
+     "y": 48,
+     "pos_x": 0,
+     "pos_y": 48,
+     "scale": 1
+    }
+   ]
+  }
+ },
+ {
+  "referenceId": "default:female_head",
+  "states": {
+   "type": "AND",
+   "conditions": [
+    {
+     "type": "token",
+     "assetId": 1
     },
     {
-     "id": "hat",
-     "type": "texture",
-     "texture_type": "empty",
+     "type": "asset",
+     "invert": true,
+     "slot": "costume",
+     "assetId": "*",
+     "tags": [
+      "hat"
+     ]
+    }
+   ]
+  },
+  "config": {
+   "elements": [
+    {
+     "id": "skin",
+     "type": "texture_fragment",
+     "target_texture_id": "body",
+     "url": "texture/default_1.png",
+     "pass": "default",
+     "z-index": 0,
+     "blend": "default",
+     "opacity": 1,
+     "coordinates": "pixels",
      "width": 64,
-     "height": 64
+     "height": 16,
+     "x": 0,
+     "y": 48,
+     "pos_x": 0,
+     "pos_y": 48,
+     "scale": 1
+    }
+   ]
+  }
+ },
+ {
+  "referenceId": "default:male_head",
+  "states": {
+   "type": "AND",
+   "conditions": [
+    {
+     "type": "token",
+     "assetId": 2
+    },
+    {
+     "type": "asset",
+     "invert": true,
+     "slot": "costume",
+     "assetId": "*",
+     "tags": [
+      "hat"
+     ]
+    }
+   ]
+  },
+  "config": {
+   "elements": [
+    {
+     "id": "skin",
+     "type": "texture_fragment",
+     "target_texture_id": "body",
+     "url": "texture/default_2.png",
+     "pass": "default",
+     "z-index": 0,
+     "blend": "default",
+     "opacity": 1,
+     "coordinates": "pixels",
+     "width": 64,
+     "height": 16,
+     "x": 0,
+     "y": 48,
+     "pos_x": 0,
+     "pos_y": 48,
+     "scale": 1
     }
    ]
   }

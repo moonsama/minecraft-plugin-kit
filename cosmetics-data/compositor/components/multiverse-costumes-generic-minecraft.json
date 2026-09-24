@@ -1,68 +1,62 @@
 [
  {
-  "referenceId": "mv_costumes_mc:2nd_anniversary_party_hat_hat",
-  "states": {
-   "type": "AND",
-   "conditions": [
+  "referenceId": "mv_costumes_mc:render_settings",
+  "states": {},
+  "config": {
+   "output": {
+    "width": 64,
+    "height": 64,
+    "result": "render",
+    "camera_x": 32,
+    "camera_y": 32,
+    "camera_size": 32,
+    "transparency": true,
+    "camera_z": -100
+   },
+   "elements": [
     {
-     "type": "asset",
-     "assetId": "multiverse_costumes:2nd_anniversary_party_hat",
-     "slot": "costume"
-    },
-    {
-     "type": "OR",
-     "conditions": [
-      {
-       "type": "renderType",
-       "renderType": "preview"
-      },
-      {
-       "type": "renderType",
-       "renderType": "preview-minecraft"
-      }
-     ]
+     "type": "sprite",
+     "bone": "global",
+     "url": "#composition",
+     "pass": "default",
+     "z-index": 0,
+     "blend": "default",
+     "opacity": 1,
+     "width": 64,
+     "height": 64,
+     "x": 0,
+     "y": 0,
+     "pivot_x": 0,
+     "pivot_y": 0,
+     "scale": 1
     }
    ]
-  },
+  }
+ },
+ {
+  "referenceId": "mv_costumes_mc:model_settings",
+  "states": {},
   "config": {
    "elements": [
     {
-     "id": "hat",
+     "id": "alex",
      "type": "model",
-     "url": "model/2nd_anniversary_party_hat.glb",
-     "bone": "hat",
-     "position": {
-      "x": -0.5,
-      "y": -0.5,
-      "z": 0.5
-     }
+     "bone": "global",
+     "url": "model/alex.glb",
+     "textures": [
+      {
+       "url": "#composition",
+       "texture": "_MainTex",
+       "material": "skin"
+      }
+     ]
     }
    ],
-   "skeleton": [
-    {
-     "id": "anchor",
-     "parent": "head",
-     "position": {
-      "x": 0,
-      "y": 15.25,
-      "z": 0
-     },
-     "scale": {
-      "x": 16,
-      "y": 16,
-      "z": 16
-     }
-    },
-    {
-     "id": "hat",
-     "parent": "anchor",
-     "scale": {
-      "x": 1.12305,
-      "y": 1.12305,
-      "z": 1.12305
-     }
-    }
-   ]
+   "output": {
+    "width": 300,
+    "height": 300,
+    "result": "model"
+   }
   }
  },
  {
@@ -132,6 +126,31 @@
   }
  },
  {
+  "referenceId": "mv_costumes_mc:skin",
+  "states": {
+   "type": "none"
+  },
+  "config": {
+   "elements": [
+    {
+     "id": "skin",
+     "type": "texture_fragment",
+     "target_texture_id": "body",
+     "url": "texture/default-1.png",
+     "pass": "default",
+     "z-index": 0,
+     "blend": "default",
+     "opacity": 1,
+     "width": 64,
+     "height": 64,
+     "x": 0,
+     "y": 0,
+     "scale": 1
+    }
+   ]
+  }
+ },
+ {
   "referenceId": "mv_costumes_mc:kringle_kap_headwear",
   "states": {
    "type": "asset",
@@ -145,6 +164,54 @@
      "type": "texture_fragment",
      "target_texture_id": "hat",
      "url": "costume/kringle_kap.png",
+     "width": 32,
+     "height": 16,
+     "x": 0,
+     "y": 48,
+     "pos_x": 0,
+     "pos_y": 48
+    }
+   ]
+  }
+ },
+ {
+  "referenceId": "mv_costumes_mc:pods_headwear",
+  "states": {
+   "type": "asset",
+   "assetId": "multiverse_costumes:pods",
+   "slot": "costume"
+  },
+  "config": {
+   "elements": [
+    {
+     "id": "layer-hat",
+     "type": "texture_fragment",
+     "target_texture_id": "hat",
+     "url": "costume/pods.png",
+     "width": 32,
+     "height": 16,
+     "x": 0,
+     "y": 48,
+     "pos_x": 0,
+     "pos_y": 48
+    }
+   ]
+  }
+ },
+ {
+  "referenceId": "mv_costumes_mc:tiara_headwear",
+  "states": {
+   "type": "asset",
+   "assetId": "multiverse_costumes:tiara",
+   "slot": "costume"
+  },
+  "config": {
+   "elements": [
+    {
+     "id": "layer-hat",
+     "type": "texture_fragment",
+     "target_texture_id": "hat",
+     "url": "costume/tiara.png",
      "width": 32,
      "height": 16,
      "x": 0,
@@ -180,33 +247,7 @@
   }
  },
  {
-  "referenceId": "mv_costumes_mc:model_settings",
-  "states": {},
-  "config": {
-   "elements": [
-    {
-     "id": "alex",
-     "type": "model",
-     "bone": "global",
-     "url": "model/alex.glb",
-     "textures": [
-      {
-       "url": "#composition",
-       "texture": "_MainTex",
-       "material": "skin"
-      }
-     ]
-    }
-   ],
-   "output": {
-    "width": 300,
-    "height": 300,
-    "result": "model"
-   }
-  }
- },
- {
-  "referenceId": "mv_costumes_mc:pods_headwear",
+  "referenceId": "mv_costumes_mc:pods_headwear_overlay",
   "states": {
    "type": "asset",
    "assetId": "multiverse_costumes:pods",
@@ -221,19 +262,19 @@
      "url": "costume/pods.png",
      "width": 32,
      "height": 16,
-     "x": 0,
+     "x": 32,
      "y": 48,
-     "pos_x": 0,
+     "pos_x": 32,
      "pos_y": 48
     }
    ]
   }
  },
  {
-  "referenceId": "mv_costumes_mc:pods_headwear_overlay",
+  "referenceId": "mv_costumes_mc:tiara_headwear_overlay",
   "states": {
    "type": "asset",
-   "assetId": "multiverse_costumes:pods",
+   "assetId": "multiverse_costumes:tiara",
    "slot": "costume"
   },
   "config": {
@@ -242,7 +283,7 @@
      "id": "layer-hat",
      "type": "texture_fragment",
      "target_texture_id": "hat",
-     "url": "costume/pods.png",
+     "url": "costume/tiara.png",
      "width": 32,
      "height": 16,
      "x": 32,
@@ -345,65 +386,6 @@
   }
  },
  {
-  "referenceId": "mv_costumes_mc:render_settings",
-  "states": {},
-  "config": {
-   "output": {
-    "width": 64,
-    "height": 64,
-    "result": "render",
-    "camera_x": 32,
-    "camera_y": 32,
-    "camera_size": 32,
-    "transparency": true,
-    "camera_z": -100
-   },
-   "elements": [
-    {
-     "type": "sprite",
-     "bone": "global",
-     "url": "#composition",
-     "pass": "default",
-     "z-index": 0,
-     "blend": "default",
-     "opacity": 1,
-     "width": 64,
-     "height": 64,
-     "x": 0,
-     "y": 0,
-     "pivot_x": 0,
-     "pivot_y": 0,
-     "scale": 1
-    }
-   ]
-  }
- },
- {
-  "referenceId": "mv_costumes_mc:skin",
-  "states": {
-   "type": "none"
-  },
-  "config": {
-   "elements": [
-    {
-     "id": "skin",
-     "type": "texture_fragment",
-     "target_texture_id": "body",
-     "url": "texture/default-1.png",
-     "pass": "default",
-     "z-index": 0,
-     "blend": "default",
-     "opacity": 1,
-     "width": 64,
-     "height": 64,
-     "x": 0,
-     "y": 0,
-     "scale": 1
-    }
-   ]
-  }
- },
- {
   "referenceId": "mv_costumes_mc:template_settings",
   "states": {},
   "config": {
@@ -449,49 +431,67 @@
   }
  },
  {
-  "referenceId": "mv_costumes_mc:tiara_headwear",
+  "referenceId": "mv_costumes_mc:2nd_anniversary_party_hat_hat",
   "states": {
-   "type": "asset",
-   "assetId": "multiverse_costumes:tiara",
-   "slot": "costume"
-  },
-  "config": {
-   "elements": [
+   "type": "AND",
+   "conditions": [
     {
-     "id": "layer-hat",
-     "type": "texture_fragment",
-     "target_texture_id": "hat",
-     "url": "costume/tiara.png",
-     "width": 32,
-     "height": 16,
-     "x": 0,
-     "y": 48,
-     "pos_x": 0,
-     "pos_y": 48
+     "type": "asset",
+     "assetId": "multiverse_costumes:2nd_anniversary_party_hat",
+     "slot": "costume"
+    },
+    {
+     "type": "OR",
+     "conditions": [
+      {
+       "type": "renderType",
+       "renderType": "preview"
+      },
+      {
+       "type": "renderType",
+       "renderType": "preview-minecraft"
+      }
+     ]
     }
    ]
-  }
- },
- {
-  "referenceId": "mv_costumes_mc:tiara_headwear_overlay",
-  "states": {
-   "type": "asset",
-   "assetId": "multiverse_costumes:tiara",
-   "slot": "costume"
   },
   "config": {
    "elements": [
     {
-     "id": "layer-hat",
-     "type": "texture_fragment",
-     "target_texture_id": "hat",
-     "url": "costume/tiara.png",
-     "width": 32,
-     "height": 16,
-     "x": 32,
-     "y": 48,
-     "pos_x": 32,
-     "pos_y": 48
+     "id": "hat",
+     "type": "model",
+     "url": "model/2nd_anniversary_party_hat.glb",
+     "bone": "hat",
+     "position": {
+      "x": -0.5,
+      "y": -0.5,
+      "z": 0.5
+     }
+    }
+   ],
+   "skeleton": [
+    {
+     "id": "anchor",
+     "parent": "head",
+     "position": {
+      "x": 0,
+      "y": 15.25,
+      "z": 0
+     },
+     "scale": {
+      "x": 16,
+      "y": 16,
+      "z": 16
+     }
+    },
+    {
+     "id": "hat",
+     "parent": "anchor",
+     "scale": {
+      "x": 1.12305,
+      "y": 1.12305,
+      "z": 1.12305
+     }
     }
    ]
   }

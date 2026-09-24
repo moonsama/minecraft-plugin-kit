@@ -296,12 +296,17 @@ def export_compositor(db: LegacyDatabases) -> dict[str, int]:
 
     collections = {row["referenceId"]: row for row in load("collections")}
     by_id = {row["id"]: row["referenceId"] for row in load("collections")}
+    # Every non-preview Minecraft render variant, e.g. moonsama/minecraft -> moonsama-minecraft and
+    # multiverse-costumes/minecraft-moonsama -> multiverse-costumes-minecraft-moonsama (slot
+    # permissions append the "-moonsama" suffix to the render type).
     render_variants = [
         r
         for r in load("render_variants")
-        if r["renderType"] == "minecraft" and r["variant_collection"] in COMPOSITOR_COLLECTIONS
+        if r["renderType"].startswith("minecraft") and r["variant_collection"] in COMPOSITOR_COLLECTIONS
     ]
-    variant_of = {r["collection"]: r["variant_collection"] for r in render_variants}
+    variant_of: dict[str, dict[str, str]] = defaultdict(dict)
+    for r in render_variants:
+        variant_of[r["collection"]][r["renderType"]] = r["variant_collection"]
 
     components = defaultdict(list)
     for row in load("components"):
@@ -314,9 +319,10 @@ def export_compositor(db: LegacyDatabases) -> dict[str, int]:
                 "config": load_json_text(row["config"], {}),
             }
         )
-    result_types = defaultdict(dict)
+    # Ordered list: base components are added in result-type order (render type '*' first).
+    result_types = defaultdict(list)
     for row in load("result_types"):
-        result_types[row["collection"]][row["renderType"]] = row["component"]
+        result_types[row["collection"]].append({"renderType": row["renderType"], "component": row["component"]})
 
     slots = defaultdict(list)
     for row in load("slots"):
@@ -381,7 +387,7 @@ def export_compositor(db: LegacyDatabases) -> dict[str, int]:
                 ref: {
                     "type": collections[ref]["type"],
                     "parentCollection": by_id.get(collections[ref]["parentCollectionId"]),
-                    "resultTypes": result_types.get(ref, {}),
+                    "resultTypes": result_types.get(ref, []),
                     "slots": slots.get(ref, []),
                     "slotPermissions": slot_permissions.get(ref, []),
                     "assets": assets.get(ref, []),
@@ -482,6 +488,9 @@ Do not edit by hand; re-run the extractor instead.
   table only ever held `cyber_wiring/cyber_wiring_v<n>.png`; the legacy renderer never
   had those layers either. Treat the `cyber_wiring` slot as a no-op or alias the files.
 - Per-token `bird_head` hat textures were never stored anywhere recoverable.
+- Gromlins have no slots, assets or default compositions in the Composer; their skins were
+  produced elsewhere and only exist as the pre-signed textures in `skins/gromlin.jsonl`.
+  `skin-compositor` therefore cannot re-compose them.
 """
     (OUT / "README.md").write_text(text)
 

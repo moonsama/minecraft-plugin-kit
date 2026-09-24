@@ -1,20 +1,45 @@
 {
  "renderVariants": {
-  "exosama": "exosama-minecraft",
-  "gromlins": "gromlins-minecraft",
-  "moonsama": "moonsama-minecraft",
-  "moonsama-embassy": "moonsama-embassy-minecraft"
+  "exosama": {
+   "minecraft": "exosama-minecraft"
+  },
+  "gromlins": {
+   "minecraft": "gromlins-minecraft"
+  },
+  "moonsama": {
+   "minecraft": "moonsama-minecraft"
+  },
+  "moonsama-embassy": {
+   "minecraft": "moonsama-embassy-minecraft"
+  },
+  "multiverse-costumes": {
+   "minecraft-exosama": "multiverse-costumes-minecraft-exosama",
+   "minecraft-generic": "multiverse-costumes-generic-minecraft",
+   "minecraft-moonsama": "multiverse-costumes-minecraft-moonsama"
+  }
  },
  "collections": {
   "default-minecraft": {
    "type": "main",
    "parentCollection": null,
-   "resultTypes": {
-    "*": "default:template_settings",
-    "minecraft": "default:render_settings",
-    "preview": "default:preview_settings",
-    "preview-minecraft": "default:preview_settings"
-   },
+   "resultTypes": [
+    {
+     "renderType": "*",
+     "component": "default:template_settings"
+    },
+    {
+     "renderType": "minecraft",
+     "component": "default:render_settings"
+    },
+    {
+     "renderType": "preview",
+     "component": "default:preview_settings"
+    },
+    {
+     "renderType": "preview-minecraft",
+     "component": "default:preview_settings"
+    }
+   ],
    "slots": [
     {
      "referenceId": "background",
@@ -72,18 +97,48 @@
   "exosama": {
    "type": "main",
    "parentCollection": null,
-   "resultTypes": {
-    "*": "exosama:template_settings",
-    "cutout": "exosama:cutout_settings",
-    "head": "exosama:cutout_head_settings",
-    "minecraft": "",
-    "nft": "exosama:nft_cover_art_settings",
-    "pfp": "exosama:profile_picture_settings",
-    "preview": "exosama:preview_settings",
-    "preview-minecraft": "",
-    "twitter-banner": "exosama:twitter_banner_settings",
-    "twitter-profile": "exosama:twitter_profile_settings"
-   },
+   "resultTypes": [
+    {
+     "renderType": "*",
+     "component": "exosama:template_settings"
+    },
+    {
+     "renderType": "cutout",
+     "component": "exosama:cutout_settings"
+    },
+    {
+     "renderType": "head",
+     "component": "exosama:cutout_head_settings"
+    },
+    {
+     "renderType": "minecraft",
+     "component": ""
+    },
+    {
+     "renderType": "nft",
+     "component": "exosama:nft_cover_art_settings"
+    },
+    {
+     "renderType": "pfp",
+     "component": "exosama:profile_picture_settings"
+    },
+    {
+     "renderType": "preview",
+     "component": "exosama:preview_settings"
+    },
+    {
+     "renderType": "preview-minecraft",
+     "component": ""
+    },
+    {
+     "renderType": "twitter-banner",
+     "component": "exosama:twitter_banner_settings"
+    },
+    {
+     "renderType": "twitter-profile",
+     "component": "exosama:twitter_profile_settings"
+    }
+   ],
    "slots": [
     {
      "referenceId": "background",
@@ -7992,13 +8047,28 @@
   "exosama-minecraft": {
    "type": "proxy",
    "parentCollection": "exosama",
-   "resultTypes": {
-    "*": "exosama_mc:template_settings",
-    "glb": "exosama_mc:model_settings",
-    "minecraft": "exosama_mc:minecraft_settings",
-    "preview": "exosama_mc:preview_settings",
-    "preview-minecraft": "exosama_mc:preview_settings"
-   },
+   "resultTypes": [
+    {
+     "renderType": "*",
+     "component": "exosama_mc:template_settings"
+    },
+    {
+     "renderType": "glb",
+     "component": "exosama_mc:model_settings"
+    },
+    {
+     "renderType": "minecraft",
+     "component": "exosama_mc:minecraft_settings"
+    },
+    {
+     "renderType": "preview",
+     "component": "exosama_mc:preview_settings"
+    },
+    {
+     "renderType": "preview-minecraft",
+     "component": "exosama_mc:preview_settings"
+    }
+   ],
    "slots": [],
    "slotPermissions": [],
    "assets": [],
@@ -8009,13 +8079,28 @@
   "gromlins": {
    "type": "main",
    "parentCollection": null,
-   "resultTypes": {
-    "*": "gromlins:template_settings",
-    "minecraft": "",
-    "nft": "gromlins:nft_settings",
-    "preview": "gromlins:preview_settings",
-    "preview-minecraft": ""
-   },
+   "resultTypes": [
+    {
+     "renderType": "*",
+     "component": "gromlins:template_settings"
+    },
+    {
+     "renderType": "minecraft",
+     "component": ""
+    },
+    {
+     "renderType": "nft",
+     "component": "gromlins:nft_settings"
+    },
+    {
+     "renderType": "preview",
+     "component": "gromlins:preview_settings"
+    },
+    {
+     "renderType": "preview-minecraft",
+     "component": ""
+    }
+   ],
    "slots": [
     {
      "referenceId": "background",
@@ -8073,13 +8158,28 @@
   "gromlins-minecraft": {
    "type": "proxy",
    "parentCollection": "gromlins",
-   "resultTypes": {
-    "*": "gromlins:template_settings",
-    "glb": "gromlins_mc:model_settings",
-    "minecraft": "gromlins_mc:minecraft_settings",
-    "preview": "gromlins_mc:preview_settings",
-    "preview-minecraft": "gromlins_mc:preview_settings"
-   },
+   "resultTypes": [
+    {
+     "renderType": "*",
+     "component": "gromlins:template_settings"
+    },
+    {
+     "renderType": "glb",
+     "component": "gromlins_mc:model_settings"
+    },
+    {
+     "renderType": "minecraft",
+     "component": "gromlins_mc:minecraft_settings"
+    },
+    {
+     "renderType": "preview",
+     "component": "gromlins_mc:preview_settings"
+    },
+    {
+     "renderType": "preview-minecraft",
+     "component": "gromlins_mc:preview_settings"
+    }
+   ],
    "slots": [],
    "slotPermissions": [],
    "assets": [],
@@ -8090,18 +8190,48 @@
   "moonsama": {
    "type": "main",
    "parentCollection": null,
-   "resultTypes": {
-    "*": "moonsama:template_settings",
-    "cutout": "moonsama:cutout_settings",
-    "head": "moonsama:cutout_head_settings",
-    "minecraft": "",
-    "nft": "moonsama:nft_cover_art_settings",
-    "pfp": "moonsama:profile_picture_settings",
-    "preview": "moonsama:preview_settings",
-    "preview-minecraft": "",
-    "twitter-banner": "moonsama:twitter_banner_settings",
-    "twitter-profile": "moonsama:twitter_profile_settings"
-   },
+   "resultTypes": [
+    {
+     "renderType": "*",
+     "component": "moonsama:template_settings"
+    },
+    {
+     "renderType": "cutout",
+     "component": "moonsama:cutout_settings"
+    },
+    {
+     "renderType": "head",
+     "component": "moonsama:cutout_head_settings"
+    },
+    {
+     "renderType": "minecraft",
+     "component": ""
+    },
+    {
+     "renderType": "nft",
+     "component": "moonsama:nft_cover_art_settings"
+    },
+    {
+     "renderType": "pfp",
+     "component": "moonsama:profile_picture_settings"
+    },
+    {
+     "renderType": "preview",
+     "component": "moonsama:preview_settings"
+    },
+    {
+     "renderType": "preview-minecraft",
+     "component": ""
+    },
+    {
+     "renderType": "twitter-banner",
+     "component": "moonsama:twitter_banner_settings"
+    },
+    {
+     "renderType": "twitter-profile",
+     "component": "moonsama:twitter_profile_settings"
+    }
+   ],
    "slots": [
     {
      "referenceId": "background",
@@ -9379,13 +9509,28 @@
   "moonsama-embassy": {
    "type": "main",
    "parentCollection": null,
-   "resultTypes": {
-    "*": "moonsama_embassy:template_settings",
-    "minecraft": "",
-    "nft": "moonsama_embassy:nft_settings",
-    "preview": "moonsama_embassy:preview_settings",
-    "preview-minecraft": ""
-   },
+   "resultTypes": [
+    {
+     "renderType": "*",
+     "component": "moonsama_embassy:template_settings"
+    },
+    {
+     "renderType": "minecraft",
+     "component": ""
+    },
+    {
+     "renderType": "nft",
+     "component": "moonsama_embassy:nft_settings"
+    },
+    {
+     "renderType": "preview",
+     "component": "moonsama_embassy:preview_settings"
+    },
+    {
+     "renderType": "preview-minecraft",
+     "component": ""
+    }
+   ],
    "slots": [
     {
      "referenceId": "background",
@@ -9443,12 +9588,24 @@
   "moonsama-embassy-minecraft": {
    "type": "proxy",
    "parentCollection": "moonsama-embassy",
-   "resultTypes": {
-    "*": "msama_embassy_mc:template_settings",
-    "minecraft": "msama_embassy_mc:render_settings",
-    "preview": "msama_embassy_mc:preview_settings",
-    "preview-minecraft": "msama_embassy_mc:preview_settings"
-   },
+   "resultTypes": [
+    {
+     "renderType": "*",
+     "component": "msama_embassy_mc:template_settings"
+    },
+    {
+     "renderType": "minecraft",
+     "component": "msama_embassy_mc:render_settings"
+    },
+    {
+     "renderType": "preview",
+     "component": "msama_embassy_mc:preview_settings"
+    },
+    {
+     "renderType": "preview-minecraft",
+     "component": "msama_embassy_mc:preview_settings"
+    }
+   ],
    "slots": [],
    "slotPermissions": [],
    "assets": [],
@@ -9459,13 +9616,28 @@
   "moonsama-minecraft": {
    "type": "proxy",
    "parentCollection": "moonsama",
-   "resultTypes": {
-    "*": "exosama_mc:template_settings",
-    "glb": "exosama_mc:model_settings",
-    "minecraft": "exosama_mc:minecraft_settings",
-    "preview": "exosama_mc:preview_settings",
-    "preview-minecraft": "exosama_mc:preview_settings"
-   },
+   "resultTypes": [
+    {
+     "renderType": "*",
+     "component": "exosama_mc:template_settings"
+    },
+    {
+     "renderType": "glb",
+     "component": "exosama_mc:model_settings"
+    },
+    {
+     "renderType": "minecraft",
+     "component": "exosama_mc:minecraft_settings"
+    },
+    {
+     "renderType": "preview",
+     "component": "exosama_mc:preview_settings"
+    },
+    {
+     "renderType": "preview-minecraft",
+     "component": "exosama_mc:preview_settings"
+    }
+   ],
    "slots": [],
    "slotPermissions": [],
    "assets": [],
@@ -9476,15 +9648,36 @@
   "multiverse-backgrounds": {
    "type": "equippable",
    "parentCollection": null,
-   "resultTypes": {
-    "nft": "",
-    "pfp": "",
-    "preview": "multiverse_backgrounds:image_settings",
-    "preview-minecraft": "",
-    "self": "multiverse_backgrounds:image_settings",
-    "twitter-banner": "",
-    "twitter-profile": ""
-   },
+   "resultTypes": [
+    {
+     "renderType": "nft",
+     "component": ""
+    },
+    {
+     "renderType": "pfp",
+     "component": ""
+    },
+    {
+     "renderType": "preview",
+     "component": "multiverse_backgrounds:image_settings"
+    },
+    {
+     "renderType": "preview-minecraft",
+     "component": ""
+    },
+    {
+     "renderType": "self",
+     "component": "multiverse_backgrounds:image_settings"
+    },
+    {
+     "renderType": "twitter-banner",
+     "component": ""
+    },
+    {
+     "renderType": "twitter-profile",
+     "component": ""
+    }
+   ],
    "slots": [],
    "slotPermissions": [],
    "assets": [
@@ -9996,10 +10189,16 @@
   "multiverse-costumes": {
    "type": "equippable",
    "parentCollection": null,
-   "resultTypes": {
-    "preview": "multiverse_costumes:image_settings",
-    "self": "multiverse_costumes:image_settings"
-   },
+   "resultTypes": [
+    {
+     "renderType": "preview",
+     "component": "multiverse_costumes:image_settings"
+    },
+    {
+     "renderType": "self",
+     "component": "multiverse_costumes:image_settings"
+    }
+   ],
    "slots": [],
    "slotPermissions": [],
    "assets": [
@@ -10925,12 +11124,24 @@
   "multiverse-costumes-generic-minecraft": {
    "type": "proxy",
    "parentCollection": "multiverse-costumes",
-   "resultTypes": {
-    "*": "mv_costumes_mc:template_settings",
-    "minecraft": "mv_costumes_mc:render_settings",
-    "preview": "mv_costumes_mc:preview_settings",
-    "preview-minecraft": "mv_costumes_mc:preview_settings"
-   },
+   "resultTypes": [
+    {
+     "renderType": "*",
+     "component": "mv_costumes_mc:template_settings"
+    },
+    {
+     "renderType": "minecraft",
+     "component": "mv_costumes_mc:render_settings"
+    },
+    {
+     "renderType": "preview",
+     "component": "mv_costumes_mc:preview_settings"
+    },
+    {
+     "renderType": "preview-minecraft",
+     "component": "mv_costumes_mc:preview_settings"
+    }
+   ],
    "slots": [],
    "slotPermissions": [],
    "assets": [],
@@ -10941,13 +11152,28 @@
   "multiverse-costumes-minecraft-exosama": {
    "type": "proxy",
    "parentCollection": "multiverse-costumes",
-   "resultTypes": {
-    "*": "mv_costumes:template_settings",
-    "glb-exosama": "mv_costumes:model_settings",
-    "minecraft-exosama": "mv_costumes_mc:minecraft_settings",
-    "preview": "mv_costumes_mc:preview_settings",
-    "preview-minecraft-exosama": "mv_costumes_mc:preview_settings"
-   },
+   "resultTypes": [
+    {
+     "renderType": "*",
+     "component": "mv_costumes:template_settings"
+    },
+    {
+     "renderType": "glb-exosama",
+     "component": "mv_costumes:model_settings"
+    },
+    {
+     "renderType": "minecraft-exosama",
+     "component": "mv_costumes_mc:minecraft_settings"
+    },
+    {
+     "renderType": "preview",
+     "component": "mv_costumes_mc:preview_settings"
+    },
+    {
+     "renderType": "preview-minecraft-exosama",
+     "component": "mv_costumes_mc:preview_settings"
+    }
+   ],
    "slots": [],
    "slotPermissions": [],
    "assets": [],
@@ -11147,13 +11373,28 @@
   "multiverse-costumes-minecraft-moonsama": {
    "type": "proxy",
    "parentCollection": "multiverse-costumes",
-   "resultTypes": {
-    "*": "mv_costumes:template_settings",
-    "glb-exosama": "mv_costumes:model_settings",
-    "minecraft-exosama": "mv_costumes_mc:minecraft_settings",
-    "preview": "mv_costumes_mc:preview_settings",
-    "preview-minecraft-exosama": "mv_costumes_mc:preview_settings"
-   },
+   "resultTypes": [
+    {
+     "renderType": "*",
+     "component": "mv_costumes:template_settings"
+    },
+    {
+     "renderType": "glb-exosama",
+     "component": "mv_costumes:model_settings"
+    },
+    {
+     "renderType": "minecraft-exosama",
+     "component": "mv_costumes_mc:minecraft_settings"
+    },
+    {
+     "renderType": "preview",
+     "component": "mv_costumes_mc:preview_settings"
+    },
+    {
+     "renderType": "preview-minecraft-exosama",
+     "component": "mv_costumes_mc:preview_settings"
+    }
+   ],
    "slots": [],
    "slotPermissions": [],
    "assets": [],
@@ -11344,9 +11585,12 @@
   "multiverse-items": {
    "type": "equippable",
    "parentCollection": null,
-   "resultTypes": {
-    "preview": ""
-   },
+   "resultTypes": [
+    {
+     "renderType": "preview",
+     "component": ""
+    }
+   ],
    "slots": [],
    "slotPermissions": [],
    "assets": [
@@ -13705,14 +13949,32 @@
   "multiverse-items-minecraft": {
    "type": "proxy",
    "parentCollection": "multiverse-items",
-   "resultTypes": {
-    "minecraft": "",
-    "minecraft-exosama": "",
-    "minecraft-moonsama": "",
-    "preview-minecraft": "",
-    "preview-minecraft-exosama": "",
-    "preview-minecraft-moonsama": ""
-   },
+   "resultTypes": [
+    {
+     "renderType": "minecraft",
+     "component": ""
+    },
+    {
+     "renderType": "minecraft-exosama",
+     "component": ""
+    },
+    {
+     "renderType": "minecraft-moonsama",
+     "component": ""
+    },
+    {
+     "renderType": "preview-minecraft",
+     "component": ""
+    },
+    {
+     "renderType": "preview-minecraft-exosama",
+     "component": ""
+    },
+    {
+     "renderType": "preview-minecraft-moonsama",
+     "component": ""
+    }
+   ],
    "slots": [],
    "slotPermissions": [],
    "assets": [],

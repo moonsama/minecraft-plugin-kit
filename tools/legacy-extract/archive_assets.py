@@ -179,11 +179,12 @@ def dump_compositor_tables(db: LegacyDatabases) -> None:
             order by 1, 2
         """,
         "components": f"""
-            select c."referenceId" as collection, cm."referenceId", cm.name, cm.states, cm.config
+            select c."referenceId" as collection, cm."referenceId", cm.name, cm.states, cm.config,
+                   cm."createdAt", cm."modifiedAt"
             from composable_component_entity cm
             join composable_collection_entity c on c.id = cm."composableCollectionId"
             where {MINECRAFT_COLLECTION_FILTER}
-            order by 1, 2
+            order by 1, cm."createdAt", cm.id
         """,
         "tokens": """
             select c."referenceId" as collection, t."referenceId", t."assetId", t.name, t.attributes,

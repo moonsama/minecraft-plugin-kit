@@ -59,6 +59,10 @@ See [local development](docs/local-development.md) for setup and troubleshooting
 - `moonsama-skins`: `/skins` plugin that lets a linked player wear the skin of an
   NFT they hold in Portal. Needs no Customizer, Minecraft API or Mineskin; the
   signed textures ship inside the JAR.
+- `skin-compositor`: Paper-independent Java port of the legacy Composer/Unity avatar
+  renderer. Turns a Moonsama or Exosama composition (base, outfit, hat, costume, …)
+  into a 64×64 skin PNG from the layers in `cosmetics-data`. See
+  [skin-compositor/README.md](skin-compositor/README.md).
 - `examples/offhand-demo`: minimal plugin consuming the builder API.
 - `resourcepack`: Minecraft 26.3 sample pack using modern custom model data.
 - `tools/legacy-extract`: read-only scripts that regenerate `cosmetics-data`

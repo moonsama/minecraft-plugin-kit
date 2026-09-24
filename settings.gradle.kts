@@ -18,6 +18,7 @@ include(
     "portal-client",
     "moonsama-paper",
     "cosmetics-data",
+    "skin-compositor",
     "moonsama-skins",
     "examples:offhand-demo",
     "resourcepack",
