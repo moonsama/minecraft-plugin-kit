@@ -238,6 +238,10 @@ from the code — it makes review of the gameplay logic far easier.
 - Dependabot opens PRs for Gradle, GitHub Actions and dev-container updates
   (`.github/dependabot.yml`); the Paper API is pinned on purpose - move it with
   `make refresh-paper`, not by merging the bot's bump.
+- Trivy scans the repository and the Paper image on every push to `main` and weekly
+  (`.github/workflows/security.yml`); findings land in the Security tab and never block
+  a merge. Most image findings are Paper's bundled libraries, which move with the
+  pinned Paper build.
 
 ### License of contributions
 
