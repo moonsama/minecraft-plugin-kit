@@ -1,0 +1,17 @@
+FROM curlimages/curl:8.16.0 AS downloader
+
+ARG PAPER_URL
+ARG PAPER_SHA256
+
+RUN curl --fail --location --retry 3 "${PAPER_URL}" --output /tmp/paper.jar \
+    && echo "${PAPER_SHA256}  /tmp/paper.jar" | sha256sum -c -
+
+FROM eclipse-temurin:25-jre
+
+WORKDIR /data
+
+COPY --from=downloader /tmp/paper.jar /opt/paper/paper.jar
+
+EXPOSE 25565 8080
+
+CMD ["sh", "-c", "printf 'eula=true\n' > eula.txt; if [ ! -f server.properties ]; then printf 'motd=Moonsama Portal Starter\nonline-mode=true\nwhite-list=false\nenforce-whitelist=false\nserver-port=25565\n' > server.properties; fi; exec java --enable-native-access=ALL-UNNAMED -Xms1G -Xmx2G -jar /opt/paper/paper.jar --nogui"]

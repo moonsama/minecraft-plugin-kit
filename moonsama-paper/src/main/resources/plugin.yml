@@ -1,0 +1,21 @@
+name: MoonsamaCore
+version: '${version}'
+main: com.moonsama.minecraft.MoonsamaPaperPlugin
+api-version: '26.3'
+authors: [Moonsama]
+description: Links Minecraft players to Moonsama Portal.
+website: https://moonsama.com
+
+commands:
+  moonsama:
+    description: Link and inspect your Moonsama Portal account.
+    usage: /moonsama <link|status|holdings|admin>
+    aliases: [msama]
+
+permissions:
+  moonsama.use:
+    description: Allows use of player-facing Moonsama commands.
+    default: true
+  moonsama.admin:
+    description: Allows inspection of MoonsamaCore operation status.
+    default: op

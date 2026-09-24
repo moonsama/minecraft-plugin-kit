@@ -1,0 +1,32 @@
+portal:
+  api-url: 'https://portal-api.moonsama.com'
+  web-url: 'https://portal.moonsama.com'
+  api-key: ''
+  api-secret: ''
+
+oauth:
+  client-id: ''
+  client-secret: ''
+  redirect-uri: 'http://127.0.0.1:8080/callback'
+  callback-bind-host: '0.0.0.0'
+  callback-port: 8080
+  attempt-ttl-minutes: 10
+
+resource-pack:
+  enabled: true
+  public-url: 'http://127.0.0.1:8080/resourcepack.zip'
+  file: 'resourcepack.zip'
+  required: true
+
+# Value-moving operations are opt-in. Enable only the routes this server needs.
+economy:
+  spend-enabled: false
+  reward-enabled: false
+  refund-enabled: false
+  holds-enabled: false
+
+sync:
+  holdings-ttl-seconds: 60
+  changes-interval-seconds: 5
+  erasures-interval-seconds: 86400
+  receipts-interval-seconds: 30

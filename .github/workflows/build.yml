@@ -1,0 +1,28 @@
+name: Build
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  gradle:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-java@v5
+        with:
+          distribution: temurin
+          java-version: '25'
+      - uses: gradle/actions/setup-gradle@v4
+      - run: ./gradlew build
+      - uses: actions/upload-artifact@v4
+        with:
+          name: minecraft-plugin-kit
+          path: |
+            moonsama-paper/build/libs/moonsama-paper-*.jar
+            examples/offhand-demo/build/libs/offhand-demo-*.jar
+            resourcepack/build/resourcepack.zip

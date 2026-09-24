@@ -1,0 +1,33 @@
+services:
+  paper:
+    build:
+      context: .
+      dockerfile: Dockerfile.paper
+      args:
+        PAPER_URL: https://fill-data.papermc.io/v1/objects/78e29c6c80fc43c6d46db6ec86f6ce3089a647d881e6bfe262aad9276af9dfcf/paper-26.3-26.jar
+        PAPER_SHA256: 78e29c6c80fc43c6d46db6ec86f6ce3089a647d881e6bfe262aad9276af9dfcf
+    ports:
+      - '25565:25565'
+      - '8080:8080'
+    environment:
+      PORTAL_API_URL: ${PORTAL_API_URL:-https://portal-api.moonsama.com}
+      PORTAL_WEB_URL: ${PORTAL_WEB_URL:-https://portal.moonsama.com}
+      PORTAL_API_KEY: ${PORTAL_API_KEY:-}
+      PORTAL_API_SECRET: ${PORTAL_API_SECRET:-}
+      PORTAL_OAUTH_CLIENT_ID: ${PORTAL_OAUTH_CLIENT_ID:-}
+      PORTAL_OAUTH_CLIENT_SECRET: ${PORTAL_OAUTH_CLIENT_SECRET:-}
+      PORTAL_OAUTH_REDIRECT_URI: ${PORTAL_OAUTH_REDIRECT_URI:-http://127.0.0.1:8080/callback}
+      PORTAL_CALLBACK_BIND_HOST: 0.0.0.0
+      PORTAL_CALLBACK_PORT: 8080
+      PORTAL_SPEND_ENABLED: ${PORTAL_SPEND_ENABLED:-false}
+      PORTAL_REWARD_ENABLED: ${PORTAL_REWARD_ENABLED:-false}
+      PORTAL_REFUND_ENABLED: ${PORTAL_REFUND_ENABLED:-false}
+      PORTAL_HOLDS_ENABLED: ${PORTAL_HOLDS_ENABLED:-false}
+    volumes:
+      - ./dev-data:/data
+      - ./moonsama-paper/build/libs/moonsama-paper-0.1.0-SNAPSHOT.jar:/data/plugins/MoonsamaCore.jar:ro
+      - ./moonsama-skins/build/libs/moonsama-skins-0.1.0-SNAPSHOT.jar:/data/plugins/MoonsamaSkins.jar:ro
+      - ./examples/offhand-demo/build/libs/offhand-demo-0.1.0-SNAPSHOT.jar:/data/plugins/MoonsamaOffhandDemo.jar:ro
+      - ./resourcepack/build/resourcepack.zip:/data/plugins/MoonsamaCore/resourcepack.zip:ro
+    stdin_open: true
+    tty: true

@@ -1,0 +1,15 @@
+name: MoonsamaOffhandDemo
+version: '${version}'
+main: com.moonsama.example.offhand.OffhandDemoPlugin
+api-version: '26.3'
+authors: [Moonsama]
+description: Example Portal-gated custom offhand.
+depend: [MoonsamaCore]
+
+commands:
+  offhanddemo:
+    description: Claim the Portal-gated sample offhand.
+    usage: /offhanddemo
+  buyrelic:
+    description: Spend 10 sandbox-gold for a sample Portal Relic.
+    usage: /buyrelic
