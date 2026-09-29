@@ -6,7 +6,7 @@ and assets in Minecraft.
 The kit links Mojang-authenticated players to Portal and gives builder plugins
 a durable API for holdings, spend, rewards, refunds, and asset holds.
 
-> Paper 26.3 is currently alpha software. The server and API are pinned to a
+> Paper 26.3 is currently pre-release (beta) software. The server and API are pinned to a
 > verified build so upgrades are explicit and reproducible. Run
 > `make refresh-paper` to pin the newest available 26.3 build.
 
