@@ -15,7 +15,7 @@ Pick one; they all produce identical builds.
 | | What you need | How Gradle runs |
 | --- | --- | --- |
 | **Dev container** (recommended) | VS Code / Cursor with the Dev Containers extension, or a GitHub Codespace | `./gradlew` with the container's JDK 25 |
-| **Docker only** | Docker Desktop / Docker Engine + Compose v2 | inside a throw-away `gradle:9.1.0-jdk25` container (`make …`) |
+| **Docker only** | Docker Desktop / Docker Engine + Compose v2 | inside a throw-away JDK 25 Gradle container (`make …`; the wrapper in the repo decides the Gradle version) |
 | **Local JDK** | JDK 25 (Temurin), Docker for the Paper server | `./gradlew` directly, or `make GRADLE=./gradlew …` |
 
 ### Dev container

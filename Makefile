@@ -5,10 +5,14 @@ GRADLE_IMAGE := gradle:9.1.0-jdk25
 # container does this for you).
 GRADLE ?= docker run --rm -v "$(CURDIR):/workspace" -v moonsama-gradle-cache:/home/gradle/.gradle -w /workspace $(GRADLE_IMAGE) ./gradlew
 
+# Gradle version for `make wrapper`. Dependabot bumps the wrapper on its own; this target is
+# for moving it by hand, e.g. `make wrapper GRADLE_VERSION=9.8.0`.
+GRADLE_VERSION ?= latest
+
 .PHONY: wrapper refresh-paper build test up up-latest down logs clean
 
 wrapper:
-	$(GRADLE) wrapper --gradle-version 9.1.0
+	$(GRADLE) wrapper --gradle-version $(GRADLE_VERSION)
 
 refresh-paper:
 	python3 scripts/refresh-paper.py
