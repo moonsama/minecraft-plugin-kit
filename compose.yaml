@@ -4,8 +4,8 @@ services:
       context: .
       dockerfile: Dockerfile.paper
       args:
-        PAPER_URL: https://fill-data.papermc.io/v1/objects/49399919246cbf443efc8507447dc948eb7477c41be560b0e87e2a455aff824a/paper-26.3-40.jar
-        PAPER_SHA256: 49399919246cbf443efc8507447dc948eb7477c41be560b0e87e2a455aff824a
+        PAPER_URL: https://fill-data.papermc.io/v1/objects/2478b45f35e00fe3e43f2e0ce9c94f9c554e732232d51fc38d631696b4ff8fd5/paper-26.3-139.jar
+        PAPER_SHA256: 2478b45f35e00fe3e43f2e0ce9c94f9c554e732232d51fc38d631696b4ff8fd5
     ports:
       - '25565:25565'
       - '8080:8080'

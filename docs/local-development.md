@@ -36,8 +36,8 @@ the container's JDK; see [CONTRIBUTING.md](../CONTRIBUTING.md#development-enviro
 
 `make up` uses the checksum-pinned Paper build. Use `make up-latest` when you
 want to refresh that pin from Paper's official downloads API before building.
-This keeps normal builds reproducible while 26.3 is receiving frequent alpha
-updates.
+This keeps normal builds reproducible while 26.3 is receiving frequent
+pre-release updates.
 
 This command:
 
@@ -45,7 +45,7 @@ This command:
 2. Runs unit tests.
 3. Assembles `build/dist/` (every plugin JAR under its plugin name, `resourcepack.zip`,
    `SHA256SUMS`); the compose file mounts those files into the server.
-4. Builds a checksum-verified Paper 26.3 alpha image.
+4. Builds a checksum-verified Paper 26.3 image.
 5. Starts one online-mode Paper server.
 
 Exposed ports:
@@ -152,7 +152,7 @@ change the server to offline mode.
 
 ### Paper fails during startup
 
-26.3 is an alpha target. Check the Paper logs first; the pinned build may need
+26.3 is a pre-release target. Check the Paper logs first; the pinned build may need
 an explicit upgrade after an upstream breaking change.
 
 ### The JVM crashes with `SIGBUS` while MoonsamaCore enables

@@ -12,7 +12,7 @@ server needs its own Portal app.
 
 | What | Version / note |
 | --- | --- |
-| Paper | **26.3** (`api-version: '26.3'`). Each kit release states the Paper build it was tested with (`paperBuild` in `gradle.properties`, currently 40). 26.3 is alpha; newer builds usually work, older ones may not. |
+| Paper | **26.3** (`api-version: '26.3'`). Each kit release states the Paper build it was tested with (`paperBuild` in `gradle.properties`, currently 139). 26.3 is in beta; newer builds usually work, older ones may not. |
 | Java | 25 (Temurin or any OpenJDK 25). |
 | Network | Players reach the server on `25565`. One extra **public HTTPS URL** for the Portal OAuth callback (see §4). |
 | Portal | A Moonsama Portal **production** API key pair and OAuth client for this server (§3). |
