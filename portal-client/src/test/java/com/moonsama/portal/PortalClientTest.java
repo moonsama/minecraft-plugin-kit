@@ -73,6 +73,32 @@ class PortalClientTest {
     }
 
     @Test
+    void exchangesCodeWithPkceAndOptionalClientSecret() throws Exception {
+        List<String> bodies = new java.util.concurrent.CopyOnWriteArrayList<>();
+        server = server(exchange -> {
+            bodies.add(new String(exchange.getRequestBody().readAllBytes(), StandardCharsets.UTF_8));
+            respond(exchange, 200, """
+                    {"access_token":"at","token_type":"Bearer","expires_in":3600,
+                     "refresh_token":"rt","refresh_token_expires_in":86400,"id_token":"idt"}
+                    """);
+        });
+
+        try (PortalClient client = client()) {
+            URI redirect = URI.create("http://127.0.0.1:8080/callback");
+            assertThat(client.exchangeCode("cid", "", "code1", redirect, "verifier1").join().accessToken())
+                    .isEqualTo("at");
+            assertThat(client.exchangeCode("cid", "s3cret", "code2", redirect, "verifier2").join().accessToken())
+                    .isEqualTo("at");
+        }
+
+        assertThat(bodies).hasSize(2);
+        assertThat(bodies.get(0))
+                .contains("grant_type=authorization_code", "client_id=cid", "code=code1", "code_verifier=verifier1")
+                .doesNotContain("client_secret");
+        assertThat(bodies.get(1)).contains("client_secret=s3cret", "code_verifier=verifier2");
+    }
+
+    @Test
     void buildsPkceAuthorizationUrl() {
         PortalOAuth.Attempt attempt = PortalOAuth.newAttempt();
         URI uri = PortalOAuth.authorizationUri(

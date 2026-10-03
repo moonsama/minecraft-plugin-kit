@@ -68,11 +68,11 @@ public record MoonsamaConfig(
         );
     }
 
+    /** The OAuth client secret is optional: public (PKCE-only) Portal clients have none. */
     boolean isComplete() {
         return notBlank(apiKey)
                 && notBlank(apiSecret)
-                && notBlank(oauthClientId)
-                && notBlank(oauthClientSecret);
+                && notBlank(oauthClientId);
     }
 
     private static String value(FileConfiguration config, String path, String environmentName) {

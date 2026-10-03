@@ -8,7 +8,8 @@ Open `https://portal-admin.moonsama.com` and use the **Sandbox** tab.
 2. Save both the API key and one-time API secret.
 3. Register `http://127.0.0.1:8080/callback` as the redirect URI.
 4. Click **Create login client**.
-5. Save the OAuth client ID and one-time client secret.
+5. Save the OAuth client ID, and the one-time client secret if Portal shows one (public
+   clients have none; the login uses PKCE either way).
 
 Sandbox keys expire after seven days. Requesting a replacement revokes the
 previous key.

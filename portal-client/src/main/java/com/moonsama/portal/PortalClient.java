@@ -327,6 +327,11 @@ public final class PortalClient implements AutoCloseable {
         return Optional.ofNullable(latestRateLimit.get());
     }
 
+    /**
+     * Redeems an authorization code. PKCE ({@code codeVerifier}) always protects the exchange;
+     * {@code clientSecret} is sent only when non-blank, so the same code works for Portal
+     * clients registered as public (no secret) and confidential (secret issued at creation).
+     */
     public CompletableFuture<TokenSet> exchangeCode(
             String clientId,
             String clientSecret,
@@ -334,14 +339,16 @@ public final class PortalClient implements AutoCloseable {
             URI redirectUri,
             String codeVerifier
     ) {
-        String form = form(Map.of(
-                "grant_type", "authorization_code",
-                "client_id", clientId,
-                "client_secret", clientSecret,
-                "code", code,
-                "redirect_uri", redirectUri.toString(),
-                "code_verifier", codeVerifier
-        ));
+        Map<String, String> fields = new LinkedHashMap<>();
+        fields.put("grant_type", "authorization_code");
+        fields.put("client_id", clientId);
+        if (clientSecret != null && !clientSecret.isBlank()) {
+            fields.put("client_secret", clientSecret);
+        }
+        fields.put("code", code);
+        fields.put("redirect_uri", redirectUri.toString());
+        fields.put("code_verifier", codeVerifier);
+        String form = form(fields);
         HttpRequest request = baseRequest("/oauth2/token")
                 .header("Content-Type", "application/x-www-form-urlencoded")
                 .POST(HttpRequest.BodyPublishers.ofString(form))
