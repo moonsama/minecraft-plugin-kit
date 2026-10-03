@@ -69,7 +69,7 @@ another, and so that Portal can attribute spends and rewards.
    | Variable | Config key | Meaning |
    | --- | --- | --- |
    | `PORTAL_API_KEY` / `PORTAL_API_SECRET` | `portal.api-key` / `portal.api-secret` | Production key pair for this server. |
-   | `PORTAL_OAUTH_CLIENT_ID` / `PORTAL_OAUTH_CLIENT_SECRET` | `oauth.client-id` / `oauth.client-secret` | The login client from step 2. |
+   | `PORTAL_OAUTH_CLIENT_ID` / `PORTAL_OAUTH_CLIENT_SECRET` | `oauth.client-id` / `oauth.client-secret` | The login client from step 2. The secret is optional: set it if Portal issued one (confidential client), leave it empty for a public client. PKCE protects the exchange in both cases. |
    | `PORTAL_OAUTH_REDIRECT_URI` | `oauth.redirect-uri` | Must match step 2 byte for byte. |
    | `PORTAL_API_URL` / `PORTAL_WEB_URL` | `portal.api-url` / `portal.web-url` | Leave at the defaults (`https://portal-api.moonsama.com`, `https://portal.moonsama.com`). |
    | `PORTAL_CALLBACK_BIND_HOST` / `PORTAL_CALLBACK_PORT` | `oauth.callback-bind-host` / `oauth.callback-port` | Where the embedded HTTP server listens (default `0.0.0.0:8080`). Bind to `127.0.0.1` when the reverse proxy runs on the same host. |
