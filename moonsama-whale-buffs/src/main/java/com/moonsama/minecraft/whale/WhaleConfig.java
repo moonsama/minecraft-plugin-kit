@@ -18,6 +18,7 @@ public record WhaleConfig(
         boolean requireEntitledSkin,
         Set<String> entitledCollections,
         boolean fireEnabled,
+        boolean showFireIcon,
         Set<String> fireCollections,
         Map<String, Double> powerPerToken,
         List<PowerOverride> overrides,
@@ -123,6 +124,7 @@ public record WhaleConfig(
                 root.getString("whale-mode.scepter.name", "<light_purple>Whale Scepter</light_purple>"));
 
         boolean fireEnabled = root.getBoolean("fire-resistance.enabled", true);
+        boolean showFireIcon = root.getBoolean("fire-resistance.show-icon", true);
         List<String> configuredFireCollections = root.isSet("fire-resistance.collections")
                 ? root.getStringList("fire-resistance.collections")
                 : DEFAULT_FIRE_COLLECTIONS;
@@ -137,6 +139,7 @@ public record WhaleConfig(
                 root.getBoolean("skins.require-entitled-skin", true),
                 new HashSet<>(root.getStringList("skins.collections")),
                 fireEnabled,
+                showFireIcon,
                 fireCollections,
                 perToken,
                 overrides,

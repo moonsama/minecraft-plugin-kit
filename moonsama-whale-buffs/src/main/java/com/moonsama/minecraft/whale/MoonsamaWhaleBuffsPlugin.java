@@ -140,6 +140,7 @@ public final class MoonsamaWhaleBuffsPlugin extends JavaPlugin implements Listen
                 sender.sendRichMessage("<gold>Whale buffs:</gold> " + (config.enabled() ? "<green>ON</green>" : "<red>OFF</red>")
                         + " <gray>entitled skin required=" + config.requireEntitledSkin()
                         + ", fire-resistance enabled=" + config.fireEnabled() + " collections=" + config.fireCollections()
+                        + ", show-icon=" + config.showFireIcon()
                         + (needsSkins ? " (" + (skins != null ? "MoonsamaSkins linked" : "MoonsamaSkins MISSING") + ")" : "")
                         + ", scepter at " + config.whaleMode().scepterMinPower() + " power</gray>");
                 Player target = args.length >= 2 ? getServer().getPlayer(args[1])

@@ -21,14 +21,18 @@ import org.bukkit.event.entity.EntityDamageEvent;
 import org.bukkit.event.entity.PlayerDeathEvent;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.event.inventory.InventoryType;
+import org.bukkit.event.player.PlayerChangedWorldEvent;
 import org.bukkit.event.player.PlayerDropItemEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
+import org.bukkit.event.player.PlayerRespawnEvent;
 import org.bukkit.inventory.EquipmentSlot;
 import org.bukkit.inventory.EquipmentSlotGroup;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.plugin.Plugin;
+import org.bukkit.potion.PotionEffect;
+import org.bukkit.potion.PotionEffectType;
 import org.bukkit.scheduler.BukkitTask;
 
 import java.time.Duration;
@@ -55,6 +59,15 @@ public final class WhaleBuffs implements Listener {
         private FireTypes() {}
     }
 
+    /** Holder: the registry-backed potion type must not initialize before the server is up. */
+    private static final class FireIconEffect {
+        static final PotionEffectType EFFECT_TYPE = PotionEffectType.FIRE_RESISTANCE;
+        static final PotionEffect EFFECT_VALUE = new PotionEffect(
+                EFFECT_TYPE, PotionEffect.INFINITE_DURATION, 0, false, false, true);
+
+        private FireIconEffect() {}
+    }
+
     /** Returns whether the damage type is one protected by skin-gated fire resistance. */
     static boolean isFireType(DamageType type) {
         return type != null && FireTypes.ALL.contains(type);
@@ -66,6 +79,7 @@ public final class WhaleBuffs implements Listener {
         boolean entitled;
         long whaleModeUntil;
         long cooldownUntil;
+        boolean fireIconShown;
         BukkitTask countdown;
 
         public double power() {
@@ -94,6 +108,7 @@ public final class WhaleBuffs implements Listener {
     /** Answers "does this player wear an entitled skin"; null when MoonsamaSkins is absent. */
     private SkinBridge skins;
     private BukkitTask ticker;
+    private volatile boolean stopped;
 
     public WhaleBuffs(Plugin plugin, MoonsamaService moonsama, WhaleConfig config) {
         this.plugin = plugin;
@@ -123,6 +138,7 @@ public final class WhaleBuffs implements Listener {
     }
 
     public void stop() {
+        stopped = true;
         if (ticker != null) {
             ticker.cancel();
             ticker = null;
@@ -156,7 +172,8 @@ public final class WhaleBuffs implements Listener {
     public void refresh(Player player) {
         UUID uuid = player.getUniqueId();
         moonsama.cachedHoldings(uuid).whenComplete((snapshot, failure) -> runMain(() -> {
-            if (!player.isOnline()) {
+            // A stale completion after reload/disable must not recreate trackers or icon state.
+            if (stopped || !player.isOnline()) {
                 return;
             }
             if (failure != null) {
@@ -169,6 +186,9 @@ public final class WhaleBuffs implements Listener {
     }
 
     public void setHoldings(Player player, List<AssetHolding> holdings) {
+        if (stopped) {
+            return;
+        }
         Tracker tracker = trackerOf(player);
         tracker.power = MoonPower.of(config, holdings);
         tracker.entitled = entitled(player);
@@ -203,6 +223,38 @@ public final class WhaleBuffs implements Listener {
         applyName(player, power);
         applyHealth(player, power, tracker.whaleMode());
         scepter.sync(player, tracker.power, config.enabled() && tracker.entitled);
+        syncFireIcon(player);
+    }
+
+    /** Transition decision: when a genuine FIRE_RESISTANCE effect owns the client's HUD entry for
+     * that type, the fake display must neither push over it nor remove it. */
+    static void applyIconTransition(Tracker tracker, boolean want, boolean realActive,
+            PotionEffect value, PotionEffectType type,
+            java.util.function.Consumer<PotionEffect> push,
+            java.util.function.Consumer<PotionEffectType> remove) {
+        if (realActive) {
+            tracker.fireIconShown = false; // genuine effect's display owns the entry; forget ours
+            return;
+        }
+        if (want && !tracker.fireIconShown) {
+            push.accept(value);
+            tracker.fireIconShown = true;
+        } else if (!want && tracker.fireIconShown) {
+            remove.accept(type);
+            tracker.fireIconShown = false;
+        }
+    }
+
+    private void syncFireIcon(Player player) {
+        syncFireIcon(player, trackerOf(player));
+    }
+
+    private void syncFireIcon(Player player, Tracker tracker) {
+        boolean want = config.enabled() && config.fireEnabled() && config.showFireIcon() && wearsFireSkin(player);
+        applyIconTransition(tracker, want, player.hasPotionEffect(FireIconEffect.EFFECT_TYPE),
+                FireIconEffect.EFFECT_VALUE, FireIconEffect.EFFECT_TYPE,
+                value -> player.sendPotionEffectChange(player, value),
+                type -> player.sendPotionEffectChangeRemove(player, type));
     }
 
     private void applyName(Player player, double power) {
@@ -250,6 +302,11 @@ public final class WhaleBuffs implements Listener {
             player.playerListName(null);
         }
         scepter.remove(player);
+        if (player.isOnline() && tracker != null && tracker.fireIconShown
+                && !player.hasPotionEffect(FireIconEffect.EFFECT_TYPE)) {
+            player.sendPotionEffectChangeRemove(player, FireIconEffect.EFFECT_TYPE);
+            tracker.fireIconShown = false;
+        }
     }
 
     // ------------------------------------------------------------ whale mode
@@ -326,11 +383,15 @@ public final class WhaleBuffs implements Listener {
     }
 
     private void tick() {
+        boolean syncFireIcons = config.fireEnabled() && config.showFireIcon();
         for (Player player : plugin.getServer().getOnlinePlayers()) {
             Tracker tracker = trackers.get(player.getUniqueId());
             if (tracker != null && tracker.whaleModeUntil > 0 && !tracker.whaleMode()) {
                 endWhaleMode(player, tracker, true);
                 player.sendActionBar(Component.text("Whale Mode is over", NamedTextColor.GRAY));
+            }
+            if (tracker != null && syncFireIcons) {
+                syncFireIcon(player, tracker);
             }
         }
     }
@@ -340,6 +401,27 @@ public final class WhaleBuffs implements Listener {
     @EventHandler
     public void onJoin(PlayerJoinEvent event) {
         refresh(event.getPlayer());
+    }
+
+    @EventHandler
+    public void onRespawn(PlayerRespawnEvent event) {
+        Player player = event.getPlayer();
+        plugin.getServer().getScheduler().runTask(plugin, () -> {
+            Tracker tracker = trackers.get(player.getUniqueId());
+            if (tracker != null && player.isOnline()) {
+                tracker.fireIconShown = false; // client display map was reset by respawn; force re-push
+                syncFireIcon(player);
+            }
+        });
+    }
+
+    @EventHandler
+    public void onWorldChanged(PlayerChangedWorldEvent event) {
+        Tracker tracker = trackers.get(event.getPlayer().getUniqueId());
+        if (tracker != null) {
+            tracker.fireIconShown = false; // world change also resets client effects
+            syncFireIcon(event.getPlayer());
+        }
     }
 
     @EventHandler

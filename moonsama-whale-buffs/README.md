@@ -31,7 +31,9 @@ Protections follow Paper's data-driven damage types for fire, lava, magma, campf
 cannot be ignited, including by Fire Aspect. Set `fire-resistance.enabled: false` to disable it.
 This protection uses `MoonsamaSkins` directly and works independently of Moon Power, Whale Mode,
 `skins.require-entitled-skin`, and potion effects; it never adds or removes a `FIRE_RESISTANCE`
-effect.
+effect. `fire-resistance.show-icon` (default `true`) shows the wearer a display-only
+fire-resistance HUD icon (no particles, no real potion effect, survives `/clear`). While a genuine
+fire-resistance effect is active its icon takes precedence; the skin icon returns within 5 seconds after it ends.
 
 Deliberate differences from the legacy plugin:
 

@@ -19,6 +19,10 @@ fire-resistance:
   # nothing is applied to the player's effects, buff wipes cannot clear it, other fire
   # resistance sources are untouched. Works while require-entitled-skin is false too.
   collections: [moonsama, exosama, moonsama-multiverse-art-eth]
+  # Display-only fire-resistance icon on the HUD effect column while such a skin is worn.
+  # Not a real potion effect: no particles, survives /clear. While a genuine fire-resistance
+  # effect is active its icon takes precedence; the skin icon returns within 5 seconds after it ends.
+  show-icon: true
 
 power:
   # Power per token held, by Portal collection slug.
