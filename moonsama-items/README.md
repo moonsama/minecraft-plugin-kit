@@ -18,7 +18,9 @@ follow the worn NFT skin). Bundles the item tables of `cosmetics-data`; the mode
   armor, crafting, external containers or the ground; they cannot be dropped or lost
   on death, and duplication is prevented. Perks activate only while the cosmetic sits in the
   physical off-hand slot; a stored copy is inert until it returns. The stored off-hand is
-  restored on join/respawn without displacing a legitimate off-hand item. When Portal
+  restored on join/respawn without displacing a legitimate off-hand item. Copies found
+  parked in an ender chest are removed automatically on join (cosmetics are rebuildable, and
+  the chest is not a valid resting place). When Portal
   reports the token is gone, every copy is removed (`unequip-when-sold`).
   Vanilla F-swap may park the selected cosmetic in the main hand, where its perk is inactive
   until it is swapped back; death removes that copy from drops and respawn rebuilds it safely.

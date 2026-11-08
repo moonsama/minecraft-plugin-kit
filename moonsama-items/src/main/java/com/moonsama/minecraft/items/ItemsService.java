@@ -4,11 +4,13 @@ import com.moonsama.minecraft.api.AssetHolding;
 import com.moonsama.minecraft.api.HoldingsSnapshot;
 import com.moonsama.minecraft.api.MoonsamaService;
 import org.bukkit.entity.Player;
+import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.PlayerInventory;
 import org.bukkit.plugin.Plugin;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
@@ -157,9 +159,26 @@ public final class ItemsService {
     public boolean removeOffhand(Player player) {
         String selectedId = offhandStore.get(player.getUniqueId()).orElse("");
         boolean removed = removeManagedOffhands(player.getInventory());
+        stripEnderChest(player);
         clearStaleHandCopy(player, selectedId);
         offhandStore.remove(player.getUniqueId());
         return removed;
+    }
+
+    /** Removes rebuildable cosmetic copies from an invalid resting place. Main thread only. */
+    public int stripEnderChest(Player player) {
+        Inventory enderChest = player.getEnderChest();
+        List<Integer> straySlots = enderChestStraySlots(
+                Arrays.asList(enderChest.getContents()),
+                item -> item instanceof ItemStack stack && items.offhandOf(stack).isPresent());
+        for (int slot : straySlots) {
+            enderChest.setItem(slot, null);
+        }
+        if (!straySlots.isEmpty()) {
+            plugin.getLogger().info("Stripped " + straySlots.size()
+                    + " off-hand cosmetic copy(ies) from the ender chest of " + player.getName());
+        }
+        return straySlots.size();
     }
 
     /** Hands the stored off-hand back (join/respawn) if the slot is free. Main thread only. */
@@ -303,6 +322,17 @@ public final class ItemsService {
         List<Integer> slots = new ArrayList<>();
         for (int slot = 0; slot < contents.length; slot++) {
             if (isManaged.test(contents[slot])) {
+                slots.add(slot);
+            }
+        }
+        return List.copyOf(slots);
+    }
+
+    static List<Integer> enderChestStraySlots(List<?> contents, Predicate<Object> isManaged) {
+        List<Integer> slots = new ArrayList<>();
+        for (int slot = 0; slot < contents.size(); slot++) {
+            Object item = contents.get(slot);
+            if (item != null && isManaged.test(item)) {
                 slots.add(slot);
             }
         }

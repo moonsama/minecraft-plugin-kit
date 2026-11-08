@@ -6,6 +6,8 @@ import com.moonsama.minecraft.api.event.PortalHoldingsLoadedEvent;
 import com.moonsama.minecraft.api.event.PortalPlayerErasedEvent;
 import com.moonsama.minecraft.items.perks.PerkManager;
 import com.moonsama.minecraft.items.perks.PerkSettings;
+import net.kyori.adventure.text.Component;
+import net.kyori.adventure.text.format.NamedTextColor;
 import org.bukkit.NamespacedKey;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
@@ -20,8 +22,11 @@ import org.bukkit.event.inventory.InventoryAction;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.event.inventory.InventoryCloseEvent;
 import org.bukkit.event.inventory.InventoryDragEvent;
+import org.bukkit.event.inventory.InventoryOpenEvent;
+import org.bukkit.event.inventory.InventoryType;
 import org.bukkit.event.player.PlayerDropItemEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
+import org.bukkit.event.player.PlayerQuitEvent;
 import org.bukkit.event.player.PlayerRespawnEvent;
 import org.bukkit.event.player.PlayerSwapHandItemsEvent;
 import org.bukkit.inventory.ItemStack;
@@ -34,11 +39,13 @@ import org.bukkit.plugin.java.JavaPlugin;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 import java.util.Optional;
+import java.util.Set;
 import java.util.UUID;
 import java.util.concurrent.CompletableFuture;
 import java.util.logging.Level;
@@ -50,6 +57,8 @@ public final class MoonsamaItemsPlugin extends JavaPlugin implements Listener, T
     private PerkManager perks;
     private NamespacedKey entryKey;
     private Map<String, String> collectionNames;
+    // Bukkit inventory events are delivered on the main thread.
+    private final Set<UUID> enderChestView = new HashSet<>();
 
     @Override
     public void onEnable() {
@@ -521,17 +530,49 @@ public final class MoonsamaItemsPlugin extends JavaPlugin implements Listener, T
         }
     }
 
+    @EventHandler(priority = EventPriority.MONITOR, ignoreCancelled = true)
+    public void onInventoryOpen(InventoryOpenEvent event) {
+        if (event.getInventory().getType() == InventoryType.ENDER_CHEST) {
+            enderChestView.add(event.getPlayer().getUniqueId());
+        }
+    }
+
     @EventHandler
     public void onInventoryClose(InventoryCloseEvent event) {
+        enderChestView.remove(event.getPlayer().getUniqueId());
+        if (!(event.getPlayer() instanceof Player player)) {
+            return;
+        }
         if (!(event.getView().getBottomInventory() instanceof PlayerInventory inventory)) {
             return;
         }
-        ItemStack cursor = event.getView().getCursor();
         CosmeticItems items = service.items();
+
+        if (event.getView().getTopInventory().getType() == InventoryType.ENDER_CHEST) {
+            ItemStack hand = inventory.getItemInMainHand();
+            if (items.offhandOf(hand).isPresent()) {
+                inventory.setItemInMainHand(null);
+                if (inventory.getItemInOffHand().isEmpty()) {
+                    inventory.setItemInOffHand(hand);
+                } else {
+                    placeSafely(player, hand);
+                }
+                getLogger().fine("Returned parked off-hand cosmetic from the main hand of "
+                        + player.getName() + " after closing an ender chest");
+            }
+        }
+
+        ItemStack cursor = event.getView().getCursor();
         if (!items.isManagedCosmetic(cursor) || items.isHat(cursor)) {
             return;
         }
 
+        event.getView().setCursor(null);
+        placeSafely(player, cursor);
+    }
+
+    private void placeSafely(Player player, ItemStack cosmetic) {
+        PlayerInventory inventory = player.getInventory();
         ItemStack[] storage = inventory.getStorageContents();
         boolean[] occupied = new boolean[storage.length];
         for (int index = 0; index < storage.length; index++) {
@@ -539,21 +580,17 @@ public final class MoonsamaItemsPlugin extends JavaPlugin implements Listener, T
         }
         int emptyStorageIndex = InventoryGuard.firstEmptyStorageIndex(occupied);
         if (emptyStorageIndex >= 0) {
-            event.getView().setCursor(null);
-            inventory.setItem(emptyStorageIndex, cursor);
+            inventory.setItem(emptyStorageIndex, cosmetic);
             return;
         }
 
         ItemStack offhand = inventory.getItem(40);
         if (offhand == null || offhand.isEmpty()) {
-            event.getView().setCursor(null);
-            inventory.setItem(40, cursor);
+            inventory.setItem(40, cosmetic);
             return;
         }
 
-        var player = event.getPlayer();
         // Managed cosmetics are deterministic rebuildables; the stored selection survives this discarded stack.
-        event.getView().setCursor(null);
         getLogger().warning("Inventory full - parked off-hand cosmetic discarded for " + player.getName()
                 + "; it will rebuild automatically from the stored selection");
         player.sendRichMessage("<gray>Inventory full - parked off-hand cosmetic discarded; "
@@ -563,6 +600,15 @@ public final class MoonsamaItemsPlugin extends JavaPlugin implements Listener, T
     @EventHandler(ignoreCancelled = true)
     public void onSwapHands(PlayerSwapHandItemsEvent event) {
         Player player = event.getPlayer();
+        boolean swappingManaged = service.items().isManagedCosmetic(event.getOffHandItem())
+                || service.items().isManagedCosmetic(event.getMainHandItem());
+        if (swappingManaged && enderChestView.contains(player.getUniqueId())) {
+            event.setCancelled(true);
+            // The hand can be smuggled into the chest view's offhand slot; refuse while that view is open.
+            player.sendActionBar(Component.text(
+                    "Off-hand swap is disabled while the ender chest is open", NamedTextColor.GRAY));
+            return;
+        }
         getServer().getScheduler().runTask(this, () -> {
             if (player.isOnline() && perks != null) {
                 perks.sync(player);
@@ -617,6 +663,7 @@ public final class MoonsamaItemsPlugin extends JavaPlugin implements Listener, T
     @EventHandler
     public void onJoin(PlayerJoinEvent event) {
         Player player = event.getPlayer();
+        service.stripEnderChest(player);
         if (offhandsEnabled() && getConfig().getBoolean("offhands.reequip-on-join", true)) {
             service.restoreOffhand(player);
         } else {
@@ -627,6 +674,11 @@ public final class MoonsamaItemsPlugin extends JavaPlugin implements Listener, T
         } else {
             service.removeHat(player);
         }
+    }
+
+    @EventHandler
+    public void onQuit(PlayerQuitEvent event) {
+        enderChestView.remove(event.getPlayer().getUniqueId());
     }
 
     @EventHandler

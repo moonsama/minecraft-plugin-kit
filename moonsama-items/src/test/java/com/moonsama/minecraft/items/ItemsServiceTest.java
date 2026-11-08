@@ -5,6 +5,8 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Set;
 import java.util.concurrent.atomic.AtomicInteger;
 
@@ -12,6 +14,28 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static com.moonsama.minecraft.items.ItemsService.RestorePlan.Action.*;
 
 class ItemsServiceTest {
+    @Test
+    void enderChestStraySlotsFindsManagedCopiesByIdentity() {
+        List<Object> contents = new ArrayList<>(java.util.Collections.nCopies(27, null));
+        Set<Integer> managedSlots = Set.of(0, 3, 26);
+        managedSlots.forEach(slot -> contents.set(slot, new Object()));
+
+        assertThat(ItemsService.enderChestStraySlots(contents,
+                item -> managedSlots.stream().anyMatch(slot -> contents.get(slot) == item)))
+                .containsExactly(0, 3, 26);
+    }
+
+    @Test
+    void enderChestStraySlotsFindsNoneInEmptyList() {
+        assertThat(ItemsService.enderChestStraySlots(List.of(), item -> true)).isEmpty();
+    }
+
+    @Test
+    void enderChestStraySlotsIgnoresNullEntries() {
+        assertThat(ItemsService.enderChestStraySlots(
+                new ArrayList<>(java.util.Collections.nCopies(27, null)), item -> true)).isEmpty();
+    }
+
     @Test
     void managedCopySlotsFindsNoCopies() {
         ItemStack[] contents = new ItemStack[41];
@@ -120,4 +144,5 @@ class ItemsServiceTest {
         AtomicInteger index = new AtomicInteger();
         return ignored -> managedSlots.contains(index.getAndIncrement());
     }
+
 }
