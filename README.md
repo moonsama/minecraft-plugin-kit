@@ -98,7 +98,9 @@ Changes between versions are listed in [CHANGELOG.md](CHANGELOG.md).
   play; others are kicked or parked in a waiting room where they can still link. Off by
   default. See [moonsama-gatekeeper/README.md](moonsama-gatekeeper/README.md).
 - `moonsama-whale-buffs`: Moon Power from held NFTs → extra health, damage, name colours and
-  the Whale Scepter / Whale Mode, active while wearing an entitled NFT skin. All numbers in
+  the Whale Scepter / Whale Mode, active while wearing an entitled NFT skin. Wearing a skin
+  from the fire-resistant collections also grants independent fire/lava immunity (not a
+  potion effect) with an optional display-only HUD icon. All numbers in
   config. See [moonsama-whale-buffs/README.md](moonsama-whale-buffs/README.md).
 - `examples/offhand-demo`: minimal plugin consuming the builder API.
 - `resourcepack`: Minecraft 26.3 pack (format 97) with the ported legacy models for item
