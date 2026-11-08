@@ -562,10 +562,12 @@ public final class MoonsamaItemsPlugin extends JavaPlugin implements Listener, T
 
     @EventHandler(ignoreCancelled = true)
     public void onSwapHands(PlayerSwapHandItemsEvent event) {
-        if (service.items().isManagedCosmetic(event.getOffHandItem())
-                || service.items().isManagedCosmetic(event.getMainHandItem())) {
-            event.setCancelled(true);
-        }
+        Player player = event.getPlayer();
+        getServer().getScheduler().runTask(this, () -> {
+            if (player.isOnline() && perks != null) {
+                perks.sync(player);
+            }
+        });
     }
 
     @EventHandler(ignoreCancelled = true)
@@ -616,12 +618,6 @@ public final class MoonsamaItemsPlugin extends JavaPlugin implements Listener, T
     public void onJoin(PlayerJoinEvent event) {
         Player player = event.getPlayer();
         if (offhandsEnabled() && getConfig().getBoolean("offhands.reequip-on-join", true)) {
-            ItemStack hand = player.getInventory().getItemInMainHand();
-            if (service.items().offhandOf(hand).isPresent()) {
-                // Clear carried-state leftovers before normalizing the selected off-hand cosmetic.
-                player.getInventory().setItemInMainHand(null);
-                getLogger().fine("Removed carried off-hand cosmetic from the main hand of " + player.getName());
-            }
             service.restoreOffhand(player);
         } else {
             service.removeOffhand(player);

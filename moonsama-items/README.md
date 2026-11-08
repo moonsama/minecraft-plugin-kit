@@ -15,11 +15,13 @@ follow the worn NFT skin). Bundles the item tables of `cosmetics-data`; the mode
 - `/items skin <id>|clear`, `/items offhand <id>|none`, `/items list`, `/items status`.
 - Off-hands and hats are managed items. Hats stay fixed. Off-hands may be moved freely
   within the player's own inventory (off-hand <-> hotbar <-> storage rows) but never into
-  hands, armor, crafting, external containers or the ground; they cannot be dropped or lost
+  armor, crafting, external containers or the ground; they cannot be dropped or lost
   on death, and duplication is prevented. Perks activate only while the cosmetic sits in the
   physical off-hand slot; a stored copy is inert until it returns. The stored off-hand is
   restored on join/respawn without displacing a legitimate off-hand item. When Portal
   reports the token is gone, every copy is removed (`unequip-when-sold`).
+  Vanilla F-swap may park the selected cosmetic in the main hand, where its perk is inactive
+  until it is swapped back; death removes that copy from drops and respawn rebuilds it safely.
 
 ## Off-hand perks
 

@@ -45,42 +45,56 @@ class ItemsServiceTest {
 
     @Test
     void planRestorePrioritizesMatchingWornCopy() {
-        assertPlan(true, false, false, -1, SWEEP_ONLY, 40);
-        assertPlan(true, true, true, 7, SWEEP_ONLY, 40);
-        assertPlan(true, false, true, 3, SWEEP_ONLY, 40);
+        assertPlan(true, false, false, -1, ItemsService.HandState.EMPTY, SWEEP_ONLY, 40);
+        assertPlan(true, true, true, 41, ItemsService.HandState.MATCHING, SWEEP_ONLY, 40);
+        assertPlan(true, false, true, 3, ItemsService.HandState.STALE, SWEEP_ONLY, 40);
     }
 
     @Test
     void planRestoreMovesMatchingStorageCopyIntoAirOffhand() {
-        assertPlan(false, false, true, 7, MOVE_TO_OFFHAND, 7);
-        assertPlan(false, true, true, 4, MOVE_TO_OFFHAND, 4);
+        assertPlan(false, false, true, 7, ItemsService.HandState.EMPTY, MOVE_TO_OFFHAND, 7);
+        assertPlan(false, true, true, 4, ItemsService.HandState.OCCUPIED_REAL, MOVE_TO_OFFHAND, 4);
     }
 
     @Test
     void planRestoreBuildsWhenAirOffhandHasNoMatchingCopy() {
-        assertPlan(false, false, true, -1, BUILD, -1);
+        assertPlan(false, false, true, -1, ItemsService.HandState.EMPTY, BUILD, -1);
     }
 
     @Test
     void planRestoreSweepsStaleWornCopyThenMovesMatchingCopy() {
-        assertPlan(false, true, false, 9, SWEEP_STALE_THEN_MOVE, 9);
+        assertPlan(false, true, false, 9, ItemsService.HandState.EMPTY, SWEEP_STALE_THEN_MOVE, 9);
     }
 
     @Test
     void planRestoreSweepsStaleWornCopyThenBuilds() {
-        assertPlan(false, true, false, -1, SWEEP_STALE_THEN_BUILD, -1);
+        assertPlan(false, true, false, -1, ItemsService.HandState.STALE, SWEEP_STALE_THEN_BUILD, -1);
     }
 
     @Test
     void planRestoreKeepsOneMatchingCopyBehindLegitimateItem() {
-        assertPlan(false, false, false, 2, SWEEP_TO_ONE, 2);
-        assertPlan(false, false, false, 39, SWEEP_TO_ONE, 39);
+        assertPlan(false, false, false, 2, ItemsService.HandState.OCCUPIED_REAL, SWEEP_TO_ONE, 2);
+        assertPlan(false, false, false, 39, ItemsService.HandState.OCCUPIED_REAL, SWEEP_TO_ONE, 39);
     }
 
     @Test
     void planRestoreLeavesSelectionDormantBehindLegitimateItemWithoutCopy() {
-        assertPlan(false, false, false, -1, SWEEP_ALL_STALE_AND_DORMANT, -1);
-        assertPlan(false, false, false, -2, SWEEP_ALL_STALE_AND_DORMANT, -1);
+        assertPlan(false, false, false, -1, ItemsService.HandState.OCCUPIED_REAL,
+                SWEEP_ALL_STALE_AND_DORMANT, -1);
+        assertPlan(false, false, false, -2, ItemsService.HandState.OCCUPIED_REAL,
+                SWEEP_ALL_STALE_AND_DORMANT, -1);
+    }
+
+    @Test
+    void planRestoreKeepsMatchingMainHandCopy() {
+        assertPlan(false, false, true, 41, ItemsService.HandState.MATCHING, KEEP_IN_HAND, 41);
+        assertPlan(false, false, false, 41, ItemsService.HandState.MATCHING,
+                SWEEP_CONTENTS_KEEP_HAND, 41);
+    }
+
+    @Test
+    void planRestoreTreatsClearedStaleHandAsAbsent() {
+        assertPlan(false, false, true, 7, ItemsService.HandState.STALE, MOVE_TO_OFFHAND, 7);
     }
 
     @Test
@@ -94,9 +108,10 @@ class ItemsServiceTest {
         assertThat(ItemsService.needsAmountNormalization(amount)).isTrue();
     }
 
-    private static void assertPlan(boolean matching, boolean stale, boolean air, int storageSlot,
+    private static void assertPlan(boolean matching, boolean stale, boolean air, int matchingSlot,
+                                   ItemsService.HandState handState,
                                    ItemsService.RestorePlan.Action action, int keepSlot) {
-        assertThat(ItemsService.planRestore(matching, stale, air, storageSlot))
+        assertThat(ItemsService.planRestore(matching, stale, air, matchingSlot, handState))
                 .isEqualTo(new ItemsService.RestorePlan(action, keepSlot));
     }
 

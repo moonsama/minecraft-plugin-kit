@@ -139,6 +139,7 @@ public final class ItemsService {
     /** Puts the off-hand item in place, moving a real item out of the way. Main thread only. */
     private boolean placeOffhand(Player player, Offhand offhand) {
         PlayerInventory inventory = player.getInventory();
+        clearStaleHandCopy(player, offhand.id());
         removeManagedOffhands(inventory);
         ItemStack current = inventory.getItemInOffHand();
         if (!current.getType().isAir()) {
@@ -154,7 +155,9 @@ public final class ItemsService {
 
     /** Removes the cosmetic off-hand and forgets the choice. Main thread only. */
     public boolean removeOffhand(Player player) {
+        String selectedId = offhandStore.get(player.getUniqueId()).orElse("");
         boolean removed = removeManagedOffhands(player.getInventory());
+        clearStaleHandCopy(player, selectedId);
         offhandStore.remove(player.getUniqueId());
         return removed;
     }
@@ -169,20 +172,47 @@ public final class ItemsService {
         PlayerInventory inventory = player.getInventory();
         ItemStack[] contents = inventory.getContents();
         List<Integer> managedSlots = managedCopySlots(contents, item -> items.offhandOf(item).isPresent());
+        int heldSlot = inventory.getHeldItemSlot();
+        managedSlots = managedSlots.stream().filter(slot -> slot != heldSlot).toList();
         ItemStack worn = inventory.getItemInOffHand();
         Optional<String> wornId = items.offhandOf(worn);
         boolean wornManagedMatching = wornId.filter(stored.get().id()::equals).isPresent();
         boolean wornManagedStale = wornId.isPresent() && !wornManagedMatching;
         boolean wornAir = worn.getType().isAir();
+        ItemStack hand = inventory.getItemInMainHand();
+        Optional<String> handId = items.offhandOf(hand);
+        HandState handState;
+        if (hand.getType().isAir()) {
+            handState = HandState.EMPTY;
+        } else if (handId.filter(stored.get().id()::equals).isPresent()) {
+            handState = HandState.MATCHING;
+        } else if (handId.isPresent()) {
+            handState = HandState.STALE;
+        } else {
+            handState = HandState.OCCUPIED_REAL;
+        }
+        clearStaleHandCopy(player, stored.get().id());
+        if (handState == HandState.MATCHING && needsAmountNormalization(hand.getAmount())) {
+            inventory.setItemInMainHand(normalizedSingle(hand));
+        }
         int matchingStorageSlot = -1;
         for (int slot = 0; slot < Math.min(40, contents.length); slot++) {
+            if (slot == heldSlot) {
+                continue;
+            }
             if (items.offhandOf(contents[slot]).filter(stored.get().id()::equals).isPresent()) {
                 matchingStorageSlot = slot;
                 break;
             }
         }
+        int matchingSlot = handState == HandState.MATCHING ? 41 : matchingStorageSlot;
         RestorePlan plan = planRestore(
-                wornManagedMatching, wornManagedStale, wornAir, matchingStorageSlot);
+                wornManagedMatching, wornManagedStale, wornAir, matchingSlot, handState);
+        if (handState == HandState.MATCHING
+                && plan.action() != RestorePlan.Action.KEEP_IN_HAND
+                && plan.action() != RestorePlan.Action.SWEEP_CONTENTS_KEEP_HAND) {
+            inventory.setItemInMainHand(null);
+        }
         switch (plan.action()) {
             case SWEEP_ONLY -> {
                 sweepManaged(inventory, managedSlots, 40);
@@ -218,6 +248,11 @@ public final class ItemsService {
                 plugin.getLogger().fine("Off-hand slot occupied; keeping stored cosmetic selection dormant for "
                         + player.getName());
             }
+            case KEEP_IN_HAND, SWEEP_CONTENTS_KEEP_HAND -> {
+                sweepManaged(inventory, managedSlots, -1);
+                plugin.getLogger().fine("Keeping stored off-hand cosmetic parked in the main hand of "
+                        + player.getName());
+            }
         }
     }
 
@@ -232,22 +267,27 @@ public final class ItemsService {
     }
 
     static RestorePlan planRestore(boolean wornManagedMatching, boolean wornManagedStale,
-                                   boolean wornAir, int matchingStorageSlot) {
+                                   boolean wornAir, int matchingSlot, HandState handState) {
         if (wornManagedMatching) {
             return new RestorePlan(RestorePlan.Action.SWEEP_ONLY, 40);
         }
+        if (handState == HandState.MATCHING && matchingSlot == 41) {
+            return new RestorePlan(wornAir
+                    ? RestorePlan.Action.KEEP_IN_HAND
+                    : RestorePlan.Action.SWEEP_CONTENTS_KEEP_HAND, 41);
+        }
         if (wornAir) {
-            return matchingStorageSlot >= 0
-                    ? new RestorePlan(RestorePlan.Action.MOVE_TO_OFFHAND, matchingStorageSlot)
+            return matchingSlot >= 0
+                    ? new RestorePlan(RestorePlan.Action.MOVE_TO_OFFHAND, matchingSlot)
                     : new RestorePlan(RestorePlan.Action.BUILD, -1);
         }
         if (wornManagedStale) {
-            return matchingStorageSlot >= 0
-                    ? new RestorePlan(RestorePlan.Action.SWEEP_STALE_THEN_MOVE, matchingStorageSlot)
+            return matchingSlot >= 0
+                    ? new RestorePlan(RestorePlan.Action.SWEEP_STALE_THEN_MOVE, matchingSlot)
                     : new RestorePlan(RestorePlan.Action.SWEEP_STALE_THEN_BUILD, -1);
         }
-        return matchingStorageSlot >= 0
-                ? new RestorePlan(RestorePlan.Action.SWEEP_TO_ONE, matchingStorageSlot)
+        return matchingSlot >= 0
+                ? new RestorePlan(RestorePlan.Action.SWEEP_TO_ONE, matchingSlot)
                 : new RestorePlan(RestorePlan.Action.SWEEP_ALL_STALE_AND_DORMANT, -1);
     }
 
@@ -279,6 +319,15 @@ public final class ItemsService {
             }
         }
         return removed;
+    }
+
+    private void clearStaleHandCopy(Player player, String selectedId) {
+        ItemStack hand = player.getInventory().getItemInMainHand();
+        Optional<String> handId = items.offhandOf(hand);
+        if (handId.isPresent() && !handId.get().equals(selectedId)) {
+            player.getInventory().setItemInMainHand(null);
+            plugin.getLogger().fine("Removed stale cosmetic from the main hand of " + player.getName());
+        }
     }
 
     // ------------------------------------------------------------------- hats
@@ -397,6 +446,13 @@ public final class ItemsService {
     public record Owned(HoldingsSnapshot.Status status, List<ItemSkin> skins, List<Offhand> offhands) {
     }
 
+    enum HandState {
+        EMPTY,
+        MATCHING,
+        STALE,
+        OCCUPIED_REAL
+    }
+
     record RestorePlan(Action action, int keepSlot) {
         enum Action {
             SWEEP_ONLY,
@@ -405,7 +461,9 @@ public final class ItemsService {
             SWEEP_STALE_THEN_MOVE,
             SWEEP_STALE_THEN_BUILD,
             SWEEP_TO_ONE,
-            SWEEP_ALL_STALE_AND_DORMANT
+            SWEEP_ALL_STALE_AND_DORMANT,
+            KEEP_IN_HAND,
+            SWEEP_CONTENTS_KEEP_HAND
         }
     }
 }
