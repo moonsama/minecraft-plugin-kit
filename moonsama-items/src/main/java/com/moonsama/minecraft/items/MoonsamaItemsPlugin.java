@@ -16,13 +16,18 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.PlayerDeathEvent;
+import org.bukkit.event.inventory.InventoryAction;
 import org.bukkit.event.inventory.InventoryClickEvent;
+import org.bukkit.event.inventory.InventoryCloseEvent;
 import org.bukkit.event.inventory.InventoryDragEvent;
 import org.bukkit.event.player.PlayerDropItemEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerRespawnEvent;
 import org.bukkit.event.player.PlayerSwapHandItemsEvent;
 import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.CraftingInventory;
+import org.bukkit.inventory.PlayerInventory;
+import org.bukkit.inventory.meta.BundleMeta;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.ServicePriority;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -380,30 +385,179 @@ public final class MoonsamaItemsPlugin extends JavaPlugin implements Listener, T
 
     // ------------------------------------------------- cosmetic item protection
 
-    /** Off-hands and hats stay where the plugin put them: no dropping, storing or shuffling. */
+    /** Hats remain fixed; off-hands may move only within safe player-inventory slots. */
     @EventHandler(priority = EventPriority.HIGH, ignoreCancelled = true)
     public void onCosmeticClick(InventoryClickEvent event) {
         if (event.getInventory().getHolder(false) instanceof ItemsMenu) {
             return;
         }
         CosmeticItems items = service.items();
-        if (items.isManagedCosmetic(event.getCurrentItem()) || items.isManagedCosmetic(event.getCursor())) {
+        ItemStack current = event.getCurrentItem();
+        ItemStack cursor = event.getCursor();
+        int hotbarButton = event.getHotbarButton();
+        ItemStack hotbar = hotbarButton >= 0 && event.getWhoClicked() instanceof Player player
+                ? player.getInventory().getItem(hotbarButton)
+                : null;
+        boolean clickedTop = event.getClickedInventory() != event.getView().getBottomInventory();
+        boolean taintedCurrentBundle = bundleHoldsManaged(current, items);
+        boolean taintedCursorBundle = bundleHoldsManaged(cursor, items);
+        if (isBundleRetrieval(event.getAction())
+                && taintedCurrentBundle) {
+            // Refuse retrieval from bundles containing managed copies to prevent a second live cosmetic.
             event.setCancelled(true);
             return;
         }
-        if (event.getHotbarButton() >= 0 && event.getWhoClicked() instanceof Player player) {
-            ItemStack hotbar = player.getInventory().getItem(event.getHotbarButton());
-            if (items.isManagedCosmetic(hotbar)) {
-                event.setCancelled(true);
-            }
+        if ((clickedTop && (taintedCurrentBundle || taintedCursorBundle))
+                || (event.getAction() == InventoryAction.CLONE_STACK && taintedCurrentBundle)
+                || (isDropAction(event.getAction()) && (taintedCurrentBundle || taintedCursorBundle))
+                || (event.getAction() == InventoryAction.MOVE_TO_OTHER_INVENTORY && taintedCurrentBundle)) {
+            // Legacy-world taint is contained at every movement boundary: retrieval, cloning, transfer, and dropping
+            // are refused, so contents survive on the owner. Ownership-loss sweeps do not inspect bundle contents;
+            // a stale tainted bundle can therefore remain as an acceptable locked curiosity.
+            event.setCancelled(true);
+            return;
         }
+        boolean managedCurrent = items.isManagedCosmetic(current);
+        boolean managedCursor = items.isManagedCosmetic(cursor);
+        boolean topIsOwnCrafting = event.getView().getTopInventory() instanceof CraftingInventory
+                && event.getView().getTopInventory().getHolder(false) == event.getWhoClicked();
+        if (items.isHat(current) || items.isHat(cursor)) {
+            event.setCancelled(true);
+            return;
+        }
+        if (taintedCurrentBundle || taintedCursorBundle
+                || (hotbarButton >= 0 && bundleHoldsManaged(hotbar, items))) {
+            event.setCancelled(true);
+            return;
+        }
+
+        if (!managedCurrent && !managedCursor
+                && hotbarButton >= 0 && hotbar != null) {
+            if (items.isHat(hotbar)) {
+                event.setCancelled(true);
+                return;
+            }
+            if (!items.isManagedCosmetic(hotbar)) {
+                return;
+            }
+            if (event.getClickedInventory() == null) {
+                event.setCancelled(true);
+                return;
+            }
+            boolean clickedBottom = event.getClickedInventory() == event.getView().getBottomInventory();
+            InventoryGuard.ClickOutcome outcome = InventoryGuard.classifyOffhandClick(
+                    !clickedBottom,
+                    event.getSlotType(),
+                    event.getSlot(),
+                    event.getView().getBottomInventory() instanceof PlayerInventory,
+                    InventoryGuard.actionStaysPlayer(event.getAction(), topIsOwnCrafting));
+            event.setCancelled(outcome == InventoryGuard.ClickOutcome.BLOCK);
+            return;
+        }
+
+        if (!managedCurrent && !managedCursor) {
+            return;
+        }
+        if (event.getClickedInventory() == null) {
+            event.setCancelled(true);
+            return;
+        }
+
+        boolean clickedBottom = event.getClickedInventory() == event.getView().getBottomInventory();
+        boolean destinationStaysPlayer = InventoryGuard.actionStaysPlayer(event.getAction(), topIsOwnCrafting);
+        InventoryGuard.ClickOutcome outcome = InventoryGuard.classifyOffhandClick(
+                !clickedBottom,
+                event.getSlotType(),
+                event.getSlot(),
+                event.getView().getBottomInventory() instanceof PlayerInventory,
+                destinationStaysPlayer);
+        if (outcome == InventoryGuard.ClickOutcome.BLOCK) {
+            event.setCancelled(true);
+        }
+    }
+
+    private static boolean isBundleRetrieval(InventoryAction action) {
+        return switch (action) {
+            case PICKUP_FROM_BUNDLE, PICKUP_ALL, PICKUP_HALF, PICKUP_ONE, PICKUP_SOME -> true;
+            default -> false;
+        };
+    }
+
+    private static boolean isDropAction(InventoryAction action) {
+        return switch (action) {
+            case DROP_ALL_CURSOR, DROP_ALL_SLOT, DROP_ONE_CURSOR, DROP_ONE_SLOT -> true;
+            default -> false;
+        };
+    }
+
+    private static boolean bundleHoldsManaged(ItemStack stack, CosmeticItems items) {
+        return stack != null
+                && stack.getItemMeta() instanceof BundleMeta bundle
+                && InventoryGuard.containsManaged(bundle.getItems(), items::isManagedCosmetic);
     }
 
     @EventHandler(priority = EventPriority.HIGH, ignoreCancelled = true)
     public void onCosmeticDrag(InventoryDragEvent event) {
-        if (service.items().isManagedCosmetic(event.getOldCursor())) {
+        CosmeticItems items = service.items();
+        if (bundleHoldsManaged(event.getOldCursor(), items)) {
+            event.setCancelled(true);
+            return;
+        }
+        if (items.isHat(event.getOldCursor())) {
+            event.setCancelled(true);
+            return;
+        }
+        if (!items.isManagedCosmetic(event.getOldCursor())) {
+            return;
+        }
+
+        // Conservatively allow drags only across raw 9-45 of the player's own default view.
+        boolean ownCraftingView = event.getView().getTopInventory() instanceof CraftingInventory
+                && event.getView().getTopInventory().getHolder(false) == event.getWhoClicked()
+                && event.getView().getBottomInventory() instanceof PlayerInventory;
+        boolean onlySafePlayerSlots = event.getRawSlots().stream().allMatch(slot -> slot >= 9 && slot <= 45);
+        if (!ownCraftingView || !onlySafePlayerSlots) {
             event.setCancelled(true);
         }
+    }
+
+    @EventHandler
+    public void onInventoryClose(InventoryCloseEvent event) {
+        if (!(event.getView().getBottomInventory() instanceof PlayerInventory inventory)) {
+            return;
+        }
+        ItemStack cursor = event.getView().getCursor();
+        CosmeticItems items = service.items();
+        if (!items.isManagedCosmetic(cursor) || items.isHat(cursor)) {
+            return;
+        }
+
+        ItemStack[] storage = inventory.getStorageContents();
+        boolean[] occupied = new boolean[storage.length];
+        for (int index = 0; index < storage.length; index++) {
+            occupied[index] = storage[index] != null && !storage[index].isEmpty();
+        }
+        int emptyStorageIndex = InventoryGuard.firstEmptyStorageIndex(occupied);
+        if (emptyStorageIndex >= 0) {
+            event.getView().setCursor(null);
+            inventory.setItem(emptyStorageIndex, cursor);
+            return;
+        }
+
+        ItemStack offhand = inventory.getItem(40);
+        if (offhand == null || offhand.isEmpty()) {
+            event.getView().setCursor(null);
+            inventory.setItem(40, cursor);
+            return;
+        }
+
+        var player = event.getPlayer();
+        // Managed cosmetics are deterministic rebuildables; the stored selection survives this discarded stack.
+        event.getView().setCursor(null);
+        getLogger().warning("Inventory full - parked off-hand cosmetic discarded for " + player.getName()
+                + "; it will rebuild automatically from the stored selection");
+        player.sendRichMessage("<gray>Inventory full - parked off-hand cosmetic discarded; "
+                + "it will rebuild automatically from the stored selection</gray>");
     }
 
     @EventHandler(ignoreCancelled = true)
@@ -416,7 +570,8 @@ public final class MoonsamaItemsPlugin extends JavaPlugin implements Listener, T
 
     @EventHandler(ignoreCancelled = true)
     public void onDrop(PlayerDropItemEvent event) {
-        if (service.items().isManagedCosmetic(event.getItemDrop().getItemStack())) {
+        ItemStack dropped = event.getItemDrop().getItemStack();
+        if (service.items().isManagedCosmetic(dropped) || bundleHoldsManaged(dropped, service.items())) {
             event.setCancelled(true);
         }
     }
@@ -424,6 +579,19 @@ public final class MoonsamaItemsPlugin extends JavaPlugin implements Listener, T
     @EventHandler
     public void onDeath(PlayerDeathEvent event) {
         event.getDrops().removeIf(service.items()::isManagedCosmetic);
+        for (ItemStack dropped : event.getDrops()) {
+            if (!(dropped.getItemMeta() instanceof BundleMeta bundle)
+                    || !InventoryGuard.containsManaged(bundle.getItems(), service.items()::isManagedCosmetic)) {
+                continue;
+            }
+            List<ItemStack> safeContents = bundle.getItems().stream()
+                    .filter(item -> !service.items().isManagedCosmetic(item))
+                    .toList();
+            bundle.setItems(safeContents);
+            dropped.setItemMeta(bundle);
+            getLogger().fine("Scrubbed managed cosmetics from a dropped bundle owned by "
+                    + event.getEntity().getName());
+        }
     }
 
     @EventHandler
@@ -448,6 +616,12 @@ public final class MoonsamaItemsPlugin extends JavaPlugin implements Listener, T
     public void onJoin(PlayerJoinEvent event) {
         Player player = event.getPlayer();
         if (offhandsEnabled() && getConfig().getBoolean("offhands.reequip-on-join", true)) {
+            ItemStack hand = player.getInventory().getItemInMainHand();
+            if (service.items().offhandOf(hand).isPresent()) {
+                // Clear carried-state leftovers before normalizing the selected off-hand cosmetic.
+                player.getInventory().setItemInMainHand(null);
+                getLogger().fine("Removed carried off-hand cosmetic from the main hand of " + player.getName());
+            }
             service.restoreOffhand(player);
         } else {
             service.removeOffhand(player);

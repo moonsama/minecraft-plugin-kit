@@ -14,6 +14,7 @@ import java.util.Map;
 import java.util.Optional;
 import java.util.UUID;
 import java.util.concurrent.CompletableFuture;
+import java.util.function.Predicate;
 import java.util.function.Supplier;
 import java.util.logging.Level;
 
@@ -166,11 +167,106 @@ public final class ItemsService {
             return;
         }
         PlayerInventory inventory = player.getInventory();
-        ItemStack current = inventory.getItemInOffHand();
-        if (current.getType().isAir() || items.offhandOf(current).isPresent()) {
-            removeManagedOffhands(inventory);
-            inventory.setItemInOffHand(items.buildOffhand(stored.get()));
+        ItemStack[] contents = inventory.getContents();
+        List<Integer> managedSlots = managedCopySlots(contents, item -> items.offhandOf(item).isPresent());
+        ItemStack worn = inventory.getItemInOffHand();
+        Optional<String> wornId = items.offhandOf(worn);
+        boolean wornManagedMatching = wornId.filter(stored.get().id()::equals).isPresent();
+        boolean wornManagedStale = wornId.isPresent() && !wornManagedMatching;
+        boolean wornAir = worn.getType().isAir();
+        int matchingStorageSlot = -1;
+        for (int slot = 0; slot < Math.min(40, contents.length); slot++) {
+            if (items.offhandOf(contents[slot]).filter(stored.get().id()::equals).isPresent()) {
+                matchingStorageSlot = slot;
+                break;
+            }
         }
+        RestorePlan plan = planRestore(
+                wornManagedMatching, wornManagedStale, wornAir, matchingStorageSlot);
+        switch (plan.action()) {
+            case SWEEP_ONLY -> {
+                sweepManaged(inventory, managedSlots, 40);
+                if (needsAmountNormalization(contents[40].getAmount())) {
+                    inventory.setItem(40, normalizedSingle(contents[40]));
+                }
+            }
+            case MOVE_TO_OFFHAND -> {
+                ItemStack selectedCopy = normalizedSingle(contents[plan.keepSlot()]);
+                sweepManaged(inventory, managedSlots, -1);
+                inventory.setItem(40, selectedCopy);
+            }
+            case BUILD -> {
+                sweepManaged(inventory, managedSlots, -1);
+                inventory.setItemInOffHand(items.buildOffhand(stored.get()));
+            }
+            case SWEEP_STALE_THEN_MOVE -> {
+                ItemStack selectedCopy = normalizedSingle(contents[plan.keepSlot()]);
+                sweepManaged(inventory, managedSlots, -1);
+                inventory.setItem(40, selectedCopy);
+            }
+            case SWEEP_STALE_THEN_BUILD -> {
+                sweepManaged(inventory, managedSlots, -1);
+                inventory.setItemInOffHand(items.buildOffhand(stored.get()));
+            }
+            case SWEEP_TO_ONE -> {
+                ItemStack selectedCopy = normalizedSingle(contents[plan.keepSlot()]);
+                sweepManaged(inventory, managedSlots, plan.keepSlot());
+                inventory.setItem(plan.keepSlot(), selectedCopy);
+            }
+            case SWEEP_ALL_STALE_AND_DORMANT -> {
+                sweepManaged(inventory, managedSlots, -1);
+                plugin.getLogger().fine("Off-hand slot occupied; keeping stored cosmetic selection dormant for "
+                        + player.getName());
+            }
+        }
+    }
+
+    static boolean needsAmountNormalization(int amount) {
+        return amount != 1;
+    }
+
+    private static ItemStack normalizedSingle(ItemStack stack) {
+        ItemStack single = stack.clone();
+        single.setAmount(1);
+        return single;
+    }
+
+    static RestorePlan planRestore(boolean wornManagedMatching, boolean wornManagedStale,
+                                   boolean wornAir, int matchingStorageSlot) {
+        if (wornManagedMatching) {
+            return new RestorePlan(RestorePlan.Action.SWEEP_ONLY, 40);
+        }
+        if (wornAir) {
+            return matchingStorageSlot >= 0
+                    ? new RestorePlan(RestorePlan.Action.MOVE_TO_OFFHAND, matchingStorageSlot)
+                    : new RestorePlan(RestorePlan.Action.BUILD, -1);
+        }
+        if (wornManagedStale) {
+            return matchingStorageSlot >= 0
+                    ? new RestorePlan(RestorePlan.Action.SWEEP_STALE_THEN_MOVE, matchingStorageSlot)
+                    : new RestorePlan(RestorePlan.Action.SWEEP_STALE_THEN_BUILD, -1);
+        }
+        return matchingStorageSlot >= 0
+                ? new RestorePlan(RestorePlan.Action.SWEEP_TO_ONE, matchingStorageSlot)
+                : new RestorePlan(RestorePlan.Action.SWEEP_ALL_STALE_AND_DORMANT, -1);
+    }
+
+    private static void sweepManaged(PlayerInventory inventory, List<Integer> managedSlots, int keepSlot) {
+        for (int slot : managedSlots) {
+            if (slot != keepSlot) {
+                inventory.setItem(slot, null);
+            }
+        }
+    }
+
+    static List<Integer> managedCopySlots(ItemStack[] contents, Predicate<ItemStack> isManaged) {
+        List<Integer> slots = new ArrayList<>();
+        for (int slot = 0; slot < contents.length; slot++) {
+            if (isManaged.test(contents[slot])) {
+                slots.add(slot);
+            }
+        }
+        return List.copyOf(slots);
     }
 
     private boolean removeManagedOffhands(PlayerInventory inventory) {
@@ -299,5 +395,17 @@ public final class ItemsService {
     }
 
     public record Owned(HoldingsSnapshot.Status status, List<ItemSkin> skins, List<Offhand> offhands) {
+    }
+
+    record RestorePlan(Action action, int keepSlot) {
+        enum Action {
+            SWEEP_ONLY,
+            MOVE_TO_OFFHAND,
+            BUILD,
+            SWEEP_STALE_THEN_MOVE,
+            SWEEP_STALE_THEN_BUILD,
+            SWEEP_TO_ONE,
+            SWEEP_ALL_STALE_AND_DORMANT
+        }
     }
 }
