@@ -26,14 +26,19 @@ so player files never carry buffs.
 
 ## Skin-gated fire resistance
 
-Protections follow Paper's data-driven damage types for fire, lava, magma, campfires, fireballs
-(including unattributed fireballs), dragon breath clouds and sulfur cubes; protected players also
-cannot be ignited, including by Fire Aspect. Set `fire-resistance.enabled: false` to disable it.
+Protected players take none of the damage a real Fire Resistance effect blocks (Minecraft's
+`is_fire` damage type tag: fire, burning, lava, magma blocks, campfires, fireballs), and they
+cannot be ignited, including by Fire Aspect. Dragon breath still hurts, as it does with the
+potion. Set `fire-resistance.enabled: false` or an empty `fire-resistance.collections` to disable
+it; the other buffs keep working either way.
 This protection uses `MoonsamaSkins` directly and works independently of Moon Power, Whale Mode,
 `skins.require-entitled-skin`, and potion effects; it never adds or removes a `FIRE_RESISTANCE`
 effect. `fire-resistance.show-icon` (default `true`) shows the wearer a display-only
 fire-resistance HUD icon (no particles, no real potion effect, survives `/clear`). While a genuine
-fire-resistance effect is active its icon takes precedence; the skin icon returns within 5 seconds after it ends.
+fire-resistance effect is active its icon takes precedence; the skin icon returns right after it ends.
+
+The legacy skins plugin gave every Moonsama holder a permanent Fire Resistance II potion effect;
+here it follows the worn skin instead, and it also prevents catching fire.
 
 Deliberate differences from the legacy plugin:
 

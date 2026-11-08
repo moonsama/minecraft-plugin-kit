@@ -123,16 +123,13 @@ public record WhaleConfig(
                 root.getInt("whale-mode.scepter.custom-model-data", 2),
                 root.getString("whale-mode.scepter.name", "<light_purple>Whale Scepter</light_purple>"));
 
-        boolean fireEnabled = root.getBoolean("fire-resistance.enabled", true);
         boolean showFireIcon = root.getBoolean("fire-resistance.show-icon", true);
         List<String> configuredFireCollections = root.isSet("fire-resistance.collections")
                 ? root.getStringList("fire-resistance.collections")
                 : DEFAULT_FIRE_COLLECTIONS;
         Set<String> fireCollections = new HashSet<>(configuredFireCollections);
-        if (fireEnabled && fireCollections.isEmpty()) {
-            throw new IllegalArgumentException(
-                    "fire-resistance.collections must not be empty when fire-resistance.enabled is true");
-        }
+        // An empty list switches only fire resistance off; it must not take the other buffs down with it.
+        boolean fireEnabled = root.getBoolean("fire-resistance.enabled", true) && !fireCollections.isEmpty();
 
         return new WhaleConfig(
                 root.getBoolean("enabled", true),

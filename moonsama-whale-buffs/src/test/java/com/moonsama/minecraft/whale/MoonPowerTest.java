@@ -104,16 +104,16 @@ class MoonPowerTest {
     }
 
     @Test
-    void fireResistanceRejectsEmptyCollectionsWhenEnabled() {
+    void emptyFireCollectionsSwitchOnlyFireResistanceOff() {
         YamlConfiguration yaml = YamlConfiguration.loadConfiguration(new StringReader("""
                 fire-resistance:
                   enabled: true
                   collections: []
                 """));
 
-        assertThatThrownBy(() -> WhaleConfig.from(yaml))
-                .isInstanceOf(IllegalArgumentException.class)
-                .hasMessage("fire-resistance.collections must not be empty when fire-resistance.enabled is true");
+        WhaleConfig config = WhaleConfig.from(yaml);
+        assertThat(config.fireEnabled()).isFalse();
+        assertThat(config.enabled()).isTrue();
     }
 
     @Test

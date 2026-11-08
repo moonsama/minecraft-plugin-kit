@@ -7,6 +7,7 @@ import net.kyori.adventure.text.format.NamedTextColor;
 import net.kyori.adventure.title.Title;
 import org.bukkit.Location;
 import org.bukkit.NamespacedKey;
+import org.bukkit.Tag;
 import org.bukkit.attribute.Attribute;
 import org.bukkit.attribute.AttributeInstance;
 import org.bukkit.attribute.AttributeModifier;
@@ -18,6 +19,7 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.entity.EntityCombustEvent;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
 import org.bukkit.event.entity.EntityDamageEvent;
+import org.bukkit.event.entity.EntityPotionEffectEvent;
 import org.bukkit.event.entity.PlayerDeathEvent;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.event.inventory.InventoryType;
@@ -34,13 +36,13 @@ import org.bukkit.plugin.Plugin;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
 import org.bukkit.scheduler.BukkitTask;
+import org.bukkit.tag.DamageTypeTags;
 
 import java.time.Duration;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
-import java.util.Set;
 import java.util.UUID;
 import java.util.logging.Level;
 
@@ -50,11 +52,10 @@ import java.util.logging.Level;
  */
 public final class WhaleBuffs implements Listener {
     static final int PERIOD_TICKS = 5;
-    /** Holder: the registry-backed DamageType constants must not initialize before the server is up. */
+    /** Holder: the registry-backed tag must not initialize before the server is up. */
     private static final class FireTypes {
-        static final Set<DamageType> ALL = Set.of(DamageType.IN_FIRE, DamageType.ON_FIRE, DamageType.LAVA,
-                DamageType.HOT_FLOOR, DamageType.CAMPFIRE, DamageType.FIREBALL,
-                DamageType.UNATTRIBUTED_FIREBALL, DamageType.DRAGON_BREATH, DamageType.SULFUR_CUBE_HOT);
+        /** Minecraft's own is_fire tag: exactly the damage a real Fire Resistance effect blocks. */
+        static final Tag<DamageType> ALL = DamageTypeTags.IS_FIRE;
 
         private FireTypes() {}
     }
@@ -70,7 +71,7 @@ public final class WhaleBuffs implements Listener {
 
     /** Returns whether the damage type is one protected by skin-gated fire resistance. */
     static boolean isFireType(DamageType type) {
-        return type != null && FireTypes.ALL.contains(type);
+        return type != null && FireTypes.ALL.isTagged(type);
     }
 
     /** Per-player state; power is what the holdings are worth, entitled whether it applies. */
@@ -424,6 +425,18 @@ public final class WhaleBuffs implements Listener {
         }
     }
 
+    @EventHandler(priority = EventPriority.MONITOR, ignoreCancelled = true)
+    public void onPotionEffect(EntityPotionEffectEvent event) {
+        if (!(event.getEntity() instanceof Player player) || event.getModifiedType() != FireIconEffect.EFFECT_TYPE) {
+            return;
+        }
+        Tracker tracker = trackers.get(player.getUniqueId());
+        if (tracker != null) {
+            // A genuine effect's packets replace or remove our icon, even if it ends before the next sync.
+            tracker.fireIconShown = false;
+        }
+    }
+
     @EventHandler
     public void onQuit(PlayerQuitEvent event) {
         Player player = event.getPlayer();
@@ -458,7 +471,7 @@ public final class WhaleBuffs implements Listener {
         event.setDamage(Math.max(1, event.getDamage()) * MoonPower.damageFactor(config, power));
     }
 
-    /** Cancels fire, lava, fire projectile and area cloud damage for players wearing an entitled fire skin. */
+    /** Cancels the damage a real Fire Resistance effect blocks for players wearing an entitled fire skin. */
     @EventHandler(priority = EventPriority.HIGHEST, ignoreCancelled = false)
     public void onFireDamage(EntityDamageEvent event) {
         if (!config.enabled() || !config.fireEnabled()) {
