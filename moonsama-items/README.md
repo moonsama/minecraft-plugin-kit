@@ -40,7 +40,7 @@ also show as the vanilla item cooldown overlay.
 | Moonrum | Drink from the off-hand: Strength I, Nausea and Slowness for 30 s, +2 food, 2 min cooldown, pirate laugh |
 | Moonpaw | Sneak for 2 s, then sprint/jump within 3 s to pounce: Speed I for 10 s, 40 s cooldown |
 | Detectore (5 gems) | Samples blocks within 3.5 blocks; when an ore is near the gem glows in that ore's colour until the block changes or you walk 5 blocks away |
-| Moonsquid / Moonsquid Neon | Aqua Affinity: a squid helmet on a bare head, or the enchantment added to the worn helmet; both undone on unequip |
+| Moonsquid / Moonsquid Neon | Aqua Affinity: a squid helmet on a bare head, otherwise the effect itself (the worn helmet is never changed); undone on unequip |
 | Moonbroom | Right-click to launch on a broom (speed 1.5); 60 s cooldown, and hitting a player grounds the broom for at least 10 s |
 | Moontree | Right-click the ground to plant up to 4 saplings that grow into spruce trees after 10 s (needs sky light ≥ 13); one sapling regrows per minute |
 | Moonflake | When another player hits you: blizzard — everyone within 20 blocks gets Slowness VI for 10 s and is frozen. 3 min cooldown, restarted on equip |
@@ -55,6 +55,8 @@ Differences from the legacy plugin, on purpose:
   similar), copies that escape are deleted instead of waiting on the ground, and a perk
   only works for the owner's own copy of their selected off-hand.
 - Off-hand forms never work as weapons, even when their look is a sword.
+- Moonsquid gives Aqua Affinity directly instead of enchanting the player's own helmet; the
+  legacy enchantment stayed on the helmet when it was dropped or lost on death.
 - Moonbag applies the tier level as written in the tables (level II/III where the table says
   so); the old code always applied level I despite promising more.
 - The Detectore ore table had two typo'd keys (`nether_gold_core`, `nether_quartz_core`);
