@@ -38,7 +38,9 @@ with direct Moonsama Portal integration.
   renderer in `skin-compositor`) with optional MineSkin signing; per-player signing budget
   (`signing-budget`) so one player cannot exhaust the MineSkin quota.
 - **MoonsamaGatekeeper**: optional collection-based join gate (disabled by default).
-- **MoonsamaWhaleBuffs**: "moon power" buffs scaled by held collections.
+- **MoonsamaWhaleBuffs**: "moon power" buffs scaled by held collections. Wearing a Moonsama,
+  Exosama or Multiverse Art skin also makes the player immune to fire and lava
+  (`fire-resistance`, on by default) with an optional HUD icon.
 - **MoonsamaOffhandDemo** (`examples/offhand-demo`): minimal feature plugin showing the
   API surface.
 - `cosmetics-data`: generated dataset extracted from the legacy databases (signed skins,

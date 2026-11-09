@@ -17,6 +17,9 @@ public record WhaleConfig(
         boolean enabled,
         boolean requireEntitledSkin,
         Set<String> entitledCollections,
+        boolean fireEnabled,
+        boolean showFireIcon,
+        Set<String> fireCollections,
         Map<String, Double> powerPerToken,
         List<PowerOverride> overrides,
         double healthPerPower,
@@ -25,6 +28,9 @@ public record WhaleConfig(
         List<NameTier> nameTiers,
         WhaleMode whaleMode
 ) {
+    private static final List<String> DEFAULT_FIRE_COLLECTIONS =
+            List.of("moonsama", "exosama", "moonsama-multiverse-art-eth");
+
     public record PowerOverride(String collection, Set<String> tokenIds, double power) {}
 
     /** {@code color} is a named text colour or {@code rainbow}. */
@@ -46,6 +52,7 @@ public record WhaleConfig(
 
     public WhaleConfig {
         entitledCollections = Set.copyOf(entitledCollections);
+        fireCollections = Set.copyOf(fireCollections);
         powerPerToken = Map.copyOf(powerPerToken);
         overrides = List.copyOf(overrides);
         nameTiers = nameTiers.stream().sorted(Comparator.comparingDouble(NameTier::minPower)).toList();
@@ -116,10 +123,21 @@ public record WhaleConfig(
                 root.getInt("whale-mode.scepter.custom-model-data", 2),
                 root.getString("whale-mode.scepter.name", "<light_purple>Whale Scepter</light_purple>"));
 
+        boolean showFireIcon = root.getBoolean("fire-resistance.show-icon", true);
+        List<String> configuredFireCollections = root.isSet("fire-resistance.collections")
+                ? root.getStringList("fire-resistance.collections")
+                : DEFAULT_FIRE_COLLECTIONS;
+        Set<String> fireCollections = new HashSet<>(configuredFireCollections);
+        // An empty list switches only fire resistance off; it must not take the other buffs down with it.
+        boolean fireEnabled = root.getBoolean("fire-resistance.enabled", true) && !fireCollections.isEmpty();
+
         return new WhaleConfig(
                 root.getBoolean("enabled", true),
                 root.getBoolean("skins.require-entitled-skin", true),
                 new HashSet<>(root.getStringList("skins.collections")),
+                fireEnabled,
+                showFireIcon,
+                fireCollections,
                 perToken,
                 overrides,
                 root.getDouble("health-per-power", 0.1),

@@ -183,7 +183,10 @@ touch:
 - **`MoonsamaWhaleBuffs`** - `power.per-token` (Moon Power per held NFT per collection),
   `health-per-power`, `damage-per-power`, `names.tiers`, `whale-mode` (scepter). With
   `skins.require-entitled-skin: true` (default) buffs only apply while the player wears
-  an entitled NFT skin.
+  an entitled NFT skin. `fire-resistance` (`enabled`, `collections`, `show-icon`) adds
+  skin-gated fire/lava immunity independent of Moon Power and Whale Mode; it is not a
+  `FIRE_RESISTANCE` potion effect, and `show-icon` renders a display-only HUD icon for
+  the wearer.
 - **`MoonsamaItems`** - `item-skins.enabled`, `offhands.enabled`, `hats.enabled`;
   `offhands.perks.enabled` switches all gameplay perks off (items stay cosmetic) and
   `offhands.perks.disabled` lists individual off-hand ids whose perk is off (flight, ore

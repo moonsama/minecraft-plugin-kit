@@ -12,6 +12,20 @@ skins:
   require-entitled-skin: true
   collections: [moonsama, exosama, moonsama-multiverse-art-eth]
 
+fire-resistance:
+  enabled: true
+  # Full immunity to fire/lava damage while the player WEARS an NFT skin from one of these
+  # collections. Independent of Moon Power, Whale Mode, and any FIRE_RESISTANCE potion effect:
+  # nothing is applied to the player's effects, buff wipes cannot clear it, other fire
+  # resistance sources are untouched. Works while require-entitled-skin is false too.
+  # Blocks the same damage a real Fire Resistance effect does, and the player cannot catch
+  # fire. An empty list switches fire resistance off.
+  collections: [moonsama, exosama, moonsama-multiverse-art-eth]
+  # Display-only fire-resistance icon on the HUD effect column while such a skin is worn.
+  # Not a real potion effect: no particles, survives /clear. While a genuine fire-resistance
+  # effect is active its icon takes precedence; the skin icon returns right after it ends.
+  show-icon: true
+
 power:
   # Power per token held, by Portal collection slug.
   per-token:

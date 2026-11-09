@@ -53,12 +53,17 @@ public final class MoonsamaWhaleBuffsPlugin extends JavaPlugin implements Listen
             getLogger().info("Whale buffs are disabled (enabled: false).");
             return;
         }
-        if (config.requireEntitledSkin()) {
+        if (config.requireEntitledSkin() || config.fireEnabled()) {
             Plugin skinsPlugin = getServer().getPluginManager().getPlugin("MoonsamaSkins");
             skins = skinsPlugin != null && skinsPlugin.isEnabled() ? SkinBridge.create(getServer(), buffs).orElse(null) : null;
             if (skins == null) {
-                getLogger().warning("skins.require-entitled-skin is on but MoonsamaSkins is not available: "
-                        + "nobody is entitled, so no buffs apply. Install MoonsamaSkins or set it to false.");
+                if (config.requireEntitledSkin()) {
+                    getLogger().warning("skins.require-entitled-skin is on but MoonsamaSkins is not available: "
+                            + "nobody is entitled, so no buffs apply. Install MoonsamaSkins or set it to false.");
+                } else {
+                    getLogger().warning("fire-resistance.enabled is on but MoonsamaSkins is not available: "
+                            + "skin-gated fire resistance is inactive until MoonsamaSkins is installed.");
+                }
             } else {
                 buffs.skins(skins);
                 getServer().getPluginManager().registerEvents(skins, this);
@@ -131,9 +136,12 @@ public final class MoonsamaWhaleBuffsPlugin extends JavaPlugin implements Listen
                     return true;
                 }
                 WhaleConfig config = buffs.config();
+                boolean needsSkins = config.requireEntitledSkin() || config.fireEnabled();
                 sender.sendRichMessage("<gold>Whale buffs:</gold> " + (config.enabled() ? "<green>ON</green>" : "<red>OFF</red>")
                         + " <gray>entitled skin required=" + config.requireEntitledSkin()
-                        + (config.requireEntitledSkin() ? " (" + (skins != null ? "MoonsamaSkins linked" : "MoonsamaSkins MISSING") + ")" : "")
+                        + ", fire-resistance enabled=" + config.fireEnabled() + " collections=" + config.fireCollections()
+                        + ", show-icon=" + config.showFireIcon()
+                        + (needsSkins ? " (" + (skins != null ? "MoonsamaSkins linked" : "MoonsamaSkins MISSING") + ")" : "")
                         + ", scepter at " + config.whaleMode().scepterMinPower() + " power</gray>");
                 Player target = args.length >= 2 ? getServer().getPlayer(args[1])
                         : sender instanceof Player self ? self : null;

@@ -9,6 +9,7 @@ import org.bukkit.configuration.file.YamlConfiguration;
 import org.junit.jupiter.api.Test;
 
 import java.io.InputStreamReader;
+import java.io.StringReader;
 import java.nio.charset.StandardCharsets;
 import java.util.List;
 
@@ -29,6 +30,9 @@ class MoonPowerTest {
         assertThat(config.enabled()).isTrue();
         assertThat(config.requireEntitledSkin()).isTrue();
         assertThat(config.entitledCollections())
+                .containsExactlyInAnyOrder("moonsama", "exosama", "moonsama-multiverse-art-eth");
+        assertThat(config.fireEnabled()).isTrue();
+        assertThat(config.fireCollections())
                 .containsExactlyInAnyOrder("moonsama", "exosama", "moonsama-multiverse-art-eth");
         assertThat(config.powerPerToken()).containsEntry("moonsama", 10.0).containsEntry("exosama", 1.0)
                 .containsEntry("moonsama-multiverse-art-eth", 10.0);
@@ -97,6 +101,115 @@ class MoonPowerTest {
         assertThat(java.nio.file.Files.readString(definition))
                 .contains("\"threshold\": " + config.whaleMode().scepterModel() + ".0")
                 .contains("whale_scepter");
+    }
+
+    @Test
+    void emptyFireCollectionsSwitchOnlyFireResistanceOff() {
+        YamlConfiguration yaml = YamlConfiguration.loadConfiguration(new StringReader("""
+                fire-resistance:
+                  enabled: true
+                  collections: []
+                """));
+
+        WhaleConfig config = WhaleConfig.from(yaml);
+        assertThat(config.fireEnabled()).isFalse();
+        assertThat(config.enabled()).isTrue();
+    }
+
+    @Test
+    void fireIconDefaultsToShownWhenSettingIsMissing() {
+        YamlConfiguration yaml = YamlConfiguration.loadConfiguration(new StringReader("""
+                fire-resistance:
+                  enabled: true
+                  collections: [moonsama]
+                """));
+
+        assertThat(WhaleConfig.from(yaml).showFireIcon()).isTrue();
+    }
+
+    @Test
+    void fireIconCanBeDisabled() {
+        YamlConfiguration yaml = YamlConfiguration.loadConfiguration(new StringReader("""
+                fire-resistance:
+                  enabled: true
+                  show-icon: false
+                  collections: [moonsama]
+                """));
+
+        assertThat(WhaleConfig.from(yaml).showFireIcon()).isFalse();
+    }
+
+    @Test
+    void fireIconDefaultsToShownWhenFireResistanceSectionIsMissing() {
+        assertThat(WhaleConfig.from(new YamlConfiguration()).showFireIcon()).isTrue();
+    }
+
+    @Test
+    void fireIconYieldsToGenuineEffectWithoutSendingChanges() {
+        WhaleBuffs.Tracker tracker = new WhaleBuffs.Tracker();
+        boolean[] pushed = {false};
+        boolean[] removed = {false};
+
+        WhaleBuffs.applyIconTransition(tracker, true, true, null, null,
+                ignored -> pushed[0] = true, ignored -> removed[0] = true);
+
+        assertThat(pushed[0]).isFalse();
+        assertThat(removed[0]).isFalse();
+        assertThat(tracker.fireIconShown).isFalse();
+    }
+
+    @Test
+    void fireIconPushIsIdempotentWhileShown() {
+        WhaleBuffs.Tracker tracker = new WhaleBuffs.Tracker();
+        int[] pushes = {0};
+
+        WhaleBuffs.applyIconTransition(tracker, true, false, null, null,
+                ignored -> pushes[0]++, ignored -> { });
+        WhaleBuffs.applyIconTransition(tracker, true, false, null, null,
+                ignored -> pushes[0]++, ignored -> { });
+
+        assertThat(pushes[0]).isEqualTo(1);
+        assertThat(tracker.fireIconShown).isTrue();
+    }
+
+    @Test
+    void fireIconRemovesOnlyWhenFakeDisplayOwnsEntry() {
+        WhaleBuffs.Tracker tracker = new WhaleBuffs.Tracker();
+        tracker.fireIconShown = true;
+        int[] removes = {0};
+
+        WhaleBuffs.applyIconTransition(tracker, false, false, null, null,
+                ignored -> { }, ignored -> removes[0]++);
+
+        assertThat(removes[0]).isEqualTo(1);
+        assertThat(tracker.fireIconShown).isFalse();
+
+        tracker.fireIconShown = true;
+        WhaleBuffs.applyIconTransition(tracker, false, true, null, null,
+                ignored -> { }, ignored -> removes[0]++);
+
+        assertThat(removes[0]).isEqualTo(1);
+        assertThat(tracker.fireIconShown).isFalse();
+    }
+
+    @Test
+    void whaleBuffsClassLoadsWithoutBukkitServer() throws NoSuchMethodException {
+        java.lang.reflect.Method m = WhaleBuffs.class.getDeclaredMethod(
+                "onFireDamage", org.bukkit.event.entity.EntityDamageEvent.class);
+        org.bukkit.event.EventHandler handler = m.getAnnotation(org.bukkit.event.EventHandler.class);
+        assertThat(handler).isNotNull();
+        assertThat(handler.priority()).isEqualTo(org.bukkit.event.EventPriority.HIGHEST);
+        assertThat(handler.ignoreCancelled()).isFalse();
+    }
+
+    @Test
+    void combustHandlerKeepsPriorityAndCancellationPolicy() throws NoSuchMethodException {
+        java.lang.reflect.Method m = WhaleBuffs.class.getDeclaredMethod(
+                "onCombust", org.bukkit.event.entity.EntityCombustEvent.class);
+        org.bukkit.event.EventHandler handler = m.getAnnotation(org.bukkit.event.EventHandler.class);
+        assertThat(handler).isNotNull();
+        assertThat(handler.priority()).isEqualTo(org.bukkit.event.EventPriority.HIGHEST);
+        assertThat(handler.ignoreCancelled()).isFalse();
     }
 
     @Test
