@@ -21,7 +21,7 @@ with direct Moonsama Portal integration.
 
 ### Added
 
-- **MoonsamaCore** (`moonsama-paper`): Portal account linking via OAuth (`/moonsama link`)
+- **MoonsamaCore** (`moonsama-core`): Portal account linking via OAuth (`/moonsama link`)
   with a browser confirmation page that names the Minecraft account before the link is
   saved (prevents forwarded-link account takeover), holdings
   cache with `collection-aliases` for chain-migrated collections (`multiverseitems` =

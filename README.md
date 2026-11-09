@@ -67,7 +67,7 @@ Changes between versions are listed in [CHANGELOG.md](CHANGELOG.md).
 ## Modules
 
 - `portal-client`: Paper-independent asynchronous Java client for Portal.
-- `moonsama-paper`: OAuth linking, SQLite persistence, commands, and builder API.
+- `moonsama-core`: OAuth linking, SQLite persistence, commands, and builder API.
 - `cosmetics-data`: offline data recovered from the retired Moonsama services:
   Mojang-signed skins for every Moonsama, Exosama, Gromlin, Embassy and Multiverse Avatar NFT, item
   skin/gate mappings, and the avatar compositor rules. Keyed only by Portal

@@ -7,10 +7,10 @@ val paperApiVersion: String by rootProject
 
 dependencies {
     implementation(project(":skin-compositor"))
-    compileOnly(project(":moonsama-paper"))
+    compileOnly(project(":moonsama-core"))
     compileOnly(project(":moonsama-skins"))
     compileOnly("io.papermc.paper:paper-api:$paperApiVersion")
-    testImplementation(project(":moonsama-paper"))
+    testImplementation(project(":moonsama-core"))
     testImplementation(project(":moonsama-skins"))
     testImplementation("io.papermc.paper:paper-api:$paperApiVersion")
 }

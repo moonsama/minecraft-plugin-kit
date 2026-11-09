@@ -46,7 +46,7 @@ subprojects {
 evaluationDependsOnChildren()
 
 val pluginProjects = linkedMapOf(
-    ":moonsama-paper" to "MoonsamaCore",
+    ":moonsama-core" to "MoonsamaCore",
     ":moonsama-skins" to "MoonsamaSkins",
     ":moonsama-items" to "MoonsamaItems",
     ":moonsama-wardrobe" to "MoonsamaWardrobe",
