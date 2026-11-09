@@ -138,11 +138,22 @@ final class SoulboundGuard implements Listener {
         }
     }
 
+    /** The owner keeps their bound items through death, in their slots; anyone else's are deleted. */
     @EventHandler(priority = EventPriority.HIGH)
     public void onDeath(PlayerDeathEvent event) {
-        event.getDrops().removeIf(soulbound::isBound);
-        for (ItemStack drop : event.getDrops()) {
-            stripBundle(drop);
+        Player player = event.getEntity();
+        var drops = event.getDrops().iterator();
+        while (drops.hasNext()) {
+            ItemStack drop = drops.next();
+            if (soulbound.isBoundTo(drop, player)) {
+                drops.remove();
+                event.getItemsToKeep().add(drop);
+            } else if (soulbound.isBound(drop)) {
+                drops.remove();
+                soulbound.removed(drop, Reason.NOT_OWNER);
+            } else {
+                stripBundle(drop);
+            }
         }
     }
 

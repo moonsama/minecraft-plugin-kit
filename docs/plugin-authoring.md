@@ -72,7 +72,8 @@ player.getInventory().addItem(wand);
   you put it in (hats, helmets).
 - It never leaves the owner: no dropping, containers (the ender chest
   included), crafting grid, bundles, item frames, armor stands, allays, pots or
-  shelves, and nobody else can pick it up. It is not dropped on death.
+  shelves, and nobody else can pick it up. The owner keeps it through death, in
+  the same slot.
 - A bound item found where it does not belong (with another player, in a
   container, on the ground) is deleted and `SoulboundItemRemovedEvent` fires,
   with the owner if they are online. So **bound items must be rebuildable**:
