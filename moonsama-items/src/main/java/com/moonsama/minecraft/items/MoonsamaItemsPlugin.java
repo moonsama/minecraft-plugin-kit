@@ -404,7 +404,7 @@ public final class MoonsamaItemsPlugin extends JavaPlugin implements Listener, T
         InventoryType type = event.getInventory().getType();
         if (type != InventoryType.CRAFTING && type != InventoryType.PLAYER && type != InventoryType.CREATIVE
                 && !(event.getInventory().getHolder(false) instanceof ItemsMenu)) {
-            service.removeCosmetics(event.getInventory());
+            service.removeUnboundCosmetics(event.getInventory());
         }
     }
 

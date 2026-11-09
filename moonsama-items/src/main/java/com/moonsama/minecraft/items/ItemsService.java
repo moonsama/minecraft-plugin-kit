@@ -222,26 +222,23 @@ public final class ItemsService {
     }
 
     /**
-     * Removes this plugin's cosmetics that are not the player's own bound copies from their
-     * inventory, and any from their ender chest: copies from before soulbinding, or ones that
-     * slipped out. Bound copies of other players are already gone (MoonsamaCore). Main thread only.
+     * Removes copies from before soulbinding from the player's inventory and ender chest; the
+     * restore and hat sync that follow hand out bound ones. Bound copies that belong to someone
+     * else are MoonsamaCore's to remove. Main thread only.
      */
     public void removeStrays(Player player) {
-        PlayerInventory inventory = player.getInventory();
-        ItemStack[] contents = inventory.getContents();
-        for (int slot = 0; slot < contents.length; slot++) {
-            if (items.isManagedCosmetic(contents[slot]) && !items.isBoundTo(contents[slot], player)) {
-                inventory.setItem(slot, null);
-            }
-        }
-        removeCosmetics(player.getEnderChest());
+        removeUnboundCosmetics(player.getInventory());
+        removeUnboundCosmetics(player.getEnderChest());
     }
 
-    /** Clears this plugin's cosmetics out of a container they must never be in. Main thread only. */
-    public void removeCosmetics(Inventory container) {
+    /**
+     * Clears copies from before soulbinding out of a container. Bound copies are MoonsamaCore's
+     * to remove, so their owner gets them back. Main thread only.
+     */
+    public void removeUnboundCosmetics(Inventory container) {
         ItemStack[] contents = container.getContents();
         for (int slot = 0; slot < contents.length; slot++) {
-            if (items.isManagedCosmetic(contents[slot])) {
+            if (items.isManagedCosmetic(contents[slot]) && !items.isBound(contents[slot])) {
                 container.setItem(slot, null);
             }
         }
