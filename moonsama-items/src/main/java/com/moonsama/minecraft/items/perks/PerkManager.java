@@ -25,6 +25,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Optional;
 import java.util.UUID;
+import java.util.function.BiPredicate;
 import java.util.logging.Level;
 
 /**
@@ -38,14 +39,18 @@ public final class PerkManager implements Listener {
     private final Plugin plugin;
     private final CosmeticItems items;
     private final PerkRegistry registry;
+    /** True for the player's own bound copy of their selected off-hand; anything else stays inert. */
+    private final BiPredicate<Player, ItemStack> currentCopy;
     private final Map<UUID, Active> active = new HashMap<>();
     private BukkitTask task;
 
     private record Active(Perk perk, PerkState state) {}
 
-    public PerkManager(Plugin plugin, ItemsCatalog catalog, CosmeticItems items, PerkSettings settings) {
+    public PerkManager(Plugin plugin, ItemsCatalog catalog, CosmeticItems items, PerkSettings settings,
+                       BiPredicate<Player, ItemStack> currentCopy) {
         this.plugin = plugin;
         this.items = items;
+        this.currentCopy = currentCopy;
         this.registry = new PerkRegistry(new PerkContext(plugin, items, settings), catalog, settings);
     }
 
@@ -98,7 +103,10 @@ public final class PerkManager implements Listener {
 
     /** Aligns the active perk with the item in the off-hand slot. */
     public void sync(Player player) {
-        Optional<Perk> wanted = items.offhandOf(player.getInventory().getItemInOffHand()).flatMap(registry::forOffhand);
+        ItemStack held = player.getInventory().getItemInOffHand();
+        Optional<Perk> wanted = currentCopy.test(player, held)
+                ? items.offhandOf(held).flatMap(registry::forOffhand)
+                : Optional.empty();
         Active current = active.get(player.getUniqueId());
         if (current != null && wanted.isPresent() && current.perk() == wanted.get()) {
             return;

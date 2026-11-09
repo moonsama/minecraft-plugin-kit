@@ -65,7 +65,7 @@ public final class PerkContext {
         if (current.getType() == material && Math.max(1, amount) == current.getAmount() && modelOf(current) == customModelData) {
             return; // lore is static per form, so material + model + amount identify it
         }
-        ItemStack form = items.buildOffhandForm(offhand, material, customModelData, extraLore);
+        ItemStack form = items.buildOffhandForm(player, offhand, material, customModelData, extraLore);
         form.setAmount(Math.max(1, amount));
         inventory.setItemInOffHand(form);
     }

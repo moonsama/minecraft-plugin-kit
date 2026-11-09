@@ -1,10 +1,15 @@
 package com.moonsama.minecraft.items;
 
+import com.moonsama.minecraft.api.SoulboundItems;
 import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.format.NamedTextColor;
 import net.kyori.adventure.text.format.TextDecoration;
 import org.bukkit.Material;
 import org.bukkit.NamespacedKey;
+import org.bukkit.attribute.Attribute;
+import org.bukkit.attribute.AttributeModifier;
+import org.bukkit.entity.Player;
+import org.bukkit.inventory.EquipmentSlotGroup;
 import org.bukkit.inventory.ItemFlag;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
@@ -22,16 +27,29 @@ import java.util.Optional;
  * persistent data tag so it can be found again (and stripped) regardless of its looks.
  */
 public final class CosmeticItems {
+    private final SoulboundItems soulbound;
     private final NamespacedKey skinKey;
     private final NamespacedKey offhandKey;
     private final NamespacedKey hatKey;
     private final NamespacedKey perkKey;
+    private final NamespacedKey noDamageKey;
 
-    public CosmeticItems(Plugin plugin) {
+    public CosmeticItems(Plugin plugin, SoulboundItems soulbound) {
+        this.soulbound = soulbound;
         this.skinKey = new NamespacedKey(plugin, "item_skin");
         this.offhandKey = new NamespacedKey(plugin, "offhand");
         this.hatKey = new NamespacedKey(plugin, "hat");
         this.perkKey = new NamespacedKey(plugin, "perk_item");
+        this.noDamageKey = new NamespacedKey(plugin, "cosmetic_no_damage");
+    }
+
+    /** Bound to {@code player} by MoonsamaCore, i.e. a copy that is really theirs. */
+    public boolean isBoundTo(ItemStack item, Player player) {
+        return soulbound.isBoundTo(item, player);
+    }
+
+    public boolean isBound(ItemStack item) {
+        return soulbound.isBound(item);
     }
 
     // ------------------------------------------------------------ item skins
@@ -69,15 +87,17 @@ public final class CosmeticItems {
 
     // -------------------------------------------------------------- offhands
 
-    public ItemStack buildOffhand(Offhand offhand) {
-        return buildOffhandForm(offhand, offhand.material(), offhand.customModelData(), List.of());
+    /** The off-hand in its catalog look, bound to {@code owner}. */
+    public ItemStack buildOffhand(Player owner, Offhand offhand) {
+        return buildOffhandForm(owner, offhand, offhand.material(), offhand.customModelData(), List.of());
     }
 
     /**
      * An alternative look of the same off-hand (e.g. the drinkable or "recharging" form a perk
-     * switches to). Carries the same tag, so it is still recognised as that off-hand.
+     * switches to). Carries the same tag, so it is still recognised as that off-hand. Owners may
+     * move it around their inventory, so it never works as a weapon, whatever its material.
      */
-    public ItemStack buildOffhandForm(Offhand offhand, Material material, int customModelData, List<String> extraLore) {
+    public ItemStack buildOffhandForm(Player owner, Offhand offhand, Material material, int customModelData, List<String> extraLore) {
         ItemStack item = new ItemStack(material);
         ItemMeta meta = item.getItemMeta();
         setModelData(meta, customModelData);
@@ -100,9 +120,12 @@ public final class CosmeticItems {
         cooldown.setCooldownGroup(cooldownGroup(offhand.id()));
         cooldown.setCooldownSeconds(1.0f);
         meta.setUseCooldown(cooldown);
+        // Any explicit modifier replaces the material's defaults, so a sword-shaped form hits like a fist.
+        meta.addAttributeModifier(Attribute.ATTACK_DAMAGE, new AttributeModifier(noDamageKey, 0,
+                AttributeModifier.Operation.ADD_NUMBER, EquipmentSlotGroup.MAINHAND));
         meta.getPersistentDataContainer().set(offhandKey, PersistentDataType.STRING, offhand.id());
         item.setItemMeta(meta);
-        return item;
+        return soulbound.bind(item, owner, SoulboundItems.Movement.FREE);
     }
 
     public static NamespacedKey cooldownGroup(String offhandId) {
@@ -115,8 +138,8 @@ public final class CosmeticItems {
 
     // ------------------------------------------------------------ perk items
 
-    /** An item a perk hands out (e.g. the Moonsquid helmet); protected like an off-hand. */
-    public ItemStack buildPerkItem(String perkItemId, Material material, int customModelData, String name, List<String> loreLines) {
+    /** An item a perk hands out (e.g. the Moonsquid helmet), bound to {@code owner} and fixed in its slot. */
+    public ItemStack buildPerkItem(Player owner, String perkItemId, Material material, int customModelData, String name, List<String> loreLines) {
         ItemStack item = new ItemStack(material);
         ItemMeta meta = item.getItemMeta();
         setModelData(meta, customModelData);
@@ -130,7 +153,7 @@ public final class CosmeticItems {
         meta.addItemFlags(ItemFlag.HIDE_UNBREAKABLE, ItemFlag.HIDE_ATTRIBUTES, ItemFlag.HIDE_ADDITIONAL_TOOLTIP);
         meta.getPersistentDataContainer().set(perkKey, PersistentDataType.STRING, perkItemId);
         item.setItemMeta(meta);
-        return item;
+        return soulbound.bind(item, owner, SoulboundItems.Movement.LOCKED);
     }
 
     public Optional<String> perkItemOf(ItemStack item) {
@@ -139,7 +162,8 @@ public final class CosmeticItems {
 
     // ------------------------------------------------------------------ hats
 
-    public ItemStack buildHat(HatRules rules, HatRules.Rule rule) {
+    /** The hat for {@code rule}, bound to {@code owner} and fixed in the helmet slot. */
+    public ItemStack buildHat(Player owner, HatRules rules, HatRules.Rule rule) {
         ItemStack item = new ItemStack(rules.material());
         ItemMeta meta = item.getItemMeta();
         setModelData(meta, rule.customModelData());
@@ -150,7 +174,7 @@ public final class CosmeticItems {
         meta.addItemFlags(ItemFlag.HIDE_UNBREAKABLE, ItemFlag.HIDE_ATTRIBUTES);
         meta.getPersistentDataContainer().set(hatKey, PersistentDataType.INTEGER, rule.customModelData());
         item.setItemMeta(meta);
-        return item;
+        return soulbound.bind(item, owner, SoulboundItems.Movement.LOCKED);
     }
 
     public boolean isHat(ItemStack item) {

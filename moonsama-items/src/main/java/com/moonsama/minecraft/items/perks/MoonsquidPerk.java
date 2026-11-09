@@ -40,7 +40,7 @@ public final class MoonsquidPerk extends Perk {
         PlayerInventory inventory = player.getInventory();
         ItemStack helmet = inventory.getHelmet();
         if (helmet == null || helmet.getType().isAir()) {
-            inventory.setHelmet(ctx.items().buildPerkItem(HELMET_ID, Material.SUGAR, HELMET_MODEL, "Moonsquid",
+            inventory.setHelmet(ctx.items().buildPerkItem(player, HELMET_ID, Material.SUGAR, HELMET_MODEL, "Moonsquid",
                     List.of("Aqua Affinity while the Moonsquid is equipped")));
             ItemStack placed = inventory.getHelmet();
             if (placed != null) {
