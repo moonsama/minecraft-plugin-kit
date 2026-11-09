@@ -1,5 +1,6 @@
 package com.moonsama.minecraft.whale;
 
+import com.moonsama.minecraft.api.SoulboundItems;
 import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.format.NamedTextColor;
 import net.kyori.adventure.text.format.TextDecoration;
@@ -17,13 +18,18 @@ import org.bukkit.plugin.Plugin;
 import java.util.List;
 import java.util.Locale;
 
-/** The Whale Scepter: a bound item that appears in the inventory of players with enough power. */
+/**
+ * The Whale Scepter: appears in the inventory of players with enough power, soulbound to them
+ * (MoonsamaCore keeps it in their own inventory).
+ */
 public final class Scepter {
     private final NamespacedKey key;
+    private final SoulboundItems soulbound;
     private final WhaleConfig config;
 
-    public Scepter(Plugin plugin, WhaleConfig config) {
+    public Scepter(Plugin plugin, SoulboundItems soulbound, WhaleConfig config) {
         this.key = new NamespacedKey(plugin, "whale_scepter");
+        this.soulbound = soulbound;
         this.config = config;
     }
 
@@ -32,7 +38,7 @@ public final class Scepter {
                 && item.getItemMeta().getPersistentDataContainer().has(key, PersistentDataType.BYTE);
     }
 
-    public ItemStack build(double power) {
+    public ItemStack build(Player owner, double power) {
         WhaleConfig.WhaleMode mode = config.whaleMode();
         ItemStack item = new ItemStack(mode.scepterMaterial());
         ItemMeta meta = item.getItemMeta();
@@ -48,7 +54,7 @@ public final class Scepter {
         meta.addItemFlags(ItemFlag.HIDE_UNBREAKABLE, ItemFlag.HIDE_ATTRIBUTES);
         meta.getPersistentDataContainer().set(key, PersistentDataType.BYTE, (byte) 1);
         item.setItemMeta(meta);
-        return item;
+        return soulbound.bind(item, owner, SoulboundItems.Movement.FREE);
     }
 
     /** Gives, refreshes or removes the scepter to match {@code power}. */
@@ -59,12 +65,13 @@ public final class Scepter {
         int found = -1;
         ItemStack[] contents = inventory.getContents();
         for (int slot = 0; slot < contents.length; slot++) {
-            if (isScepter(contents[slot])) {
-                if (found < 0) {
-                    found = slot;
-                } else {
-                    inventory.setItem(slot, null); // duplicates never survive
-                }
+            if (!isScepter(contents[slot])) {
+                continue;
+            }
+            if (found < 0 && soulbound.isBoundTo(contents[slot], player)) {
+                found = slot;
+            } else {
+                inventory.setItem(slot, null); // duplicates and copies from before soulbinding never survive
             }
         }
         if (!wanted) {
@@ -73,7 +80,7 @@ public final class Scepter {
             }
             return;
         }
-        ItemStack fresh = build(power);
+        ItemStack fresh = build(player, power);
         if (found >= 0) {
             if (!fresh.isSimilar(contents[found])) {
                 inventory.setItem(found, fresh);

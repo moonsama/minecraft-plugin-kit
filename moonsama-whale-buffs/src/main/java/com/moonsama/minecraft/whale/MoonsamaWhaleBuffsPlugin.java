@@ -1,6 +1,7 @@
 package com.moonsama.minecraft.whale;
 
 import com.moonsama.minecraft.api.MoonsamaService;
+import com.moonsama.minecraft.api.SoulboundItems;
 import com.moonsama.minecraft.api.event.PortalHoldingsLoadedEvent;
 import com.moonsama.minecraft.api.event.PortalPlayerErasedEvent;
 import org.bukkit.command.Command;
@@ -23,13 +24,15 @@ import java.util.Optional;
 /** Moon Power buffs for linked holders. See config.yml and README.md. */
 public final class MoonsamaWhaleBuffsPlugin extends JavaPlugin implements Listener, TabCompleter {
     private MoonsamaService moonsama;
+    private SoulboundItems soulbound;
     private WhaleBuffs buffs;
     private SkinBridge skins;
 
     @Override
     public void onEnable() {
         moonsama = getServer().getServicesManager().load(MoonsamaService.class);
-        if (moonsama == null) {
+        soulbound = getServer().getServicesManager().load(SoulboundItems.class);
+        if (moonsama == null || soulbound == null) {
             throw new IllegalStateException("MoonsamaCore service is unavailable");
         }
         saveDefaultConfig();
@@ -48,7 +51,7 @@ public final class MoonsamaWhaleBuffsPlugin extends JavaPlugin implements Listen
             getLogger().severe("config.yml is invalid: " + e.getMessage() + " — whale buffs stay OFF.");
             return;
         }
-        buffs = new WhaleBuffs(this, moonsama, config);
+        buffs = new WhaleBuffs(this, moonsama, soulbound, config);
         if (!config.enabled()) {
             getLogger().info("Whale buffs are disabled (enabled: false).");
             return;
