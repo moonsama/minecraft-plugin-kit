@@ -28,6 +28,7 @@ The core plugin also emits:
 - `PortalPlayerErasedEvent`
 - `EconomyOperationEvent`
 - `AssetHoldChangedEvent`
+- `SoulboundItemRemovedEvent` (see [Soulbound items](#soulbound-items))
 
 See `examples/offhand-demo` for an entitlement check, custom item, and fixed
 price purchase. `moonsama-skins` is a complete feature plugin built the same
@@ -41,9 +42,8 @@ It also registers `SkinService` with the services manager and fires
 `softdepend: [MoonsamaSkins]`, keeps every reference to the skins API in one
 class (`SkinHatBridge`) and only instantiates it when the plugin is present, so
 item skins and off-hands keep working on servers without `MoonsamaSkins`.
-Cosmetic items it hands out are tagged in the persistent data container and
-protected against dropping, storing and death drops by cancelling the relevant
-events; ownership is re-checked from `PortalHoldingsLoadedEvent`.
+Cosmetic items it hands out are soulbound to the player (see below), and
+ownership is re-checked from `PortalHoldingsLoadedEvent`.
 
 `moonsama-wardrobe` shows how to build on two services at once. It depends on
 `MoonsamaSkins` (`SkinService.wearCustom` wears a Mojang-signed texture that is
@@ -54,6 +54,39 @@ feature plugins never see them and degrade gracefully when
 `SkinSigner.isAvailable()` is false. Rendering runs on the plugin's own
 single-thread executor and signing on Core's, so neither touches the main
 thread; only the final `wearCustom` hops back to it.
+
+## Soulbound items
+
+An item that represents an NFT's utility must stay with the NFT's owner. Do not
+guard it with your own event handlers: bind it with the `SoulboundItems`
+service, and MoonsamaCore keeps it with its owner for every plugin on the server.
+
+```java
+SoulboundItems soulbound = getServer().getServicesManager().load(SoulboundItems.class);
+ItemStack wand = soulbound.bind(buildWand(), player, SoulboundItems.Movement.FREE);
+player.getInventory().addItem(wand);
+```
+
+- `Movement.FREE`: the owner may move it anywhere in their own hotbar, storage
+  rows and off-hand, F-swap included. `Movement.LOCKED`: it stays in the slot
+  you put it in (hats, helmets).
+- It never leaves the owner: no dropping, containers (the ender chest
+  included), crafting grid, bundles, item frames, armor stands, allays, pots or
+  shelves, and nobody else can pick it up. The owner keeps it through death, in
+  the same slot.
+- A bound item found where it does not belong (with another player, in a
+  container, on the ground) is deleted and `SoulboundItemRemovedEvent` fires,
+  with the owner if they are online. So **bound items must be rebuildable**:
+  rebuild from your own records on that event (next tick), on join and on
+  respawn. An escaped copy is never returned.
+- `isBoundTo(item, player)` tells a player's own copy from any other. Check it
+  before an item grants anything; a copy should only ever work for its owner.
+- Item data is visible to game clients, so the owner is stored as a keyed hash
+  (`plugins/MoonsamaCore/soulbound.key`), never as a UUID or Portal id.
+- Do not put bound items into your own menus; use plain icons.
+
+`moonsama-items` (off-hands FREE, hats LOCKED) and the Whale Scepter in
+`moonsama-whale-buffs` are complete examples.
 
 ## Spend, reward, and refund
 

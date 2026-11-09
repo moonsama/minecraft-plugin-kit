@@ -2,6 +2,8 @@ package com.moonsama.minecraft.whale;
 
 import com.moonsama.minecraft.api.AssetHolding;
 import com.moonsama.minecraft.api.MoonsamaService;
+import com.moonsama.minecraft.api.SoulboundItems;
+import com.moonsama.minecraft.api.event.SoulboundItemRemovedEvent;
 import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.format.NamedTextColor;
 import net.kyori.adventure.title.Title;
@@ -21,17 +23,13 @@ import org.bukkit.event.entity.EntityDamageByEntityEvent;
 import org.bukkit.event.entity.EntityDamageEvent;
 import org.bukkit.event.entity.EntityPotionEffectEvent;
 import org.bukkit.event.entity.PlayerDeathEvent;
-import org.bukkit.event.inventory.InventoryClickEvent;
-import org.bukkit.event.inventory.InventoryType;
 import org.bukkit.event.player.PlayerChangedWorldEvent;
-import org.bukkit.event.player.PlayerDropItemEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
 import org.bukkit.event.player.PlayerRespawnEvent;
 import org.bukkit.inventory.EquipmentSlot;
 import org.bukkit.inventory.EquipmentSlotGroup;
-import org.bukkit.inventory.ItemStack;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
@@ -111,11 +109,11 @@ public final class WhaleBuffs implements Listener {
     private BukkitTask ticker;
     private volatile boolean stopped;
 
-    public WhaleBuffs(Plugin plugin, MoonsamaService moonsama, WhaleConfig config) {
+    public WhaleBuffs(Plugin plugin, MoonsamaService moonsama, SoulboundItems soulbound, WhaleConfig config) {
         this.plugin = plugin;
         this.moonsama = moonsama;
         this.config = config;
-        this.scepter = new Scepter(plugin, config);
+        this.scepter = new Scepter(plugin, soulbound, config);
         this.healthKey = new NamespacedKey(plugin, "moon_power");
     }
 
@@ -493,28 +491,18 @@ public final class WhaleBuffs implements Listener {
         }
     }
 
-    @EventHandler(ignoreCancelled = true)
-    public void onDrop(PlayerDropItemEvent event) {
-        if (scepter.isScepter(event.getItemDrop().getItemStack())) {
-            event.setCancelled(true);
+    /** MoonsamaCore deleted an escaped scepter (it is soulbound): hand the owner a new one. */
+    @EventHandler
+    public void onSoulboundRemoved(SoulboundItemRemovedEvent event) {
+        if (!scepter.isScepter(event.item())) {
+            return;
         }
-    }
-
-    @EventHandler(ignoreCancelled = true)
-    public void onInventoryClick(InventoryClickEvent event) {
-        if (event.getView().getTopInventory().getType() == InventoryType.CRAFTING) {
-            return; // own inventory: shuffle freely
-        }
-        ItemStack current = event.getCurrentItem();
-        ItemStack cursor = event.getCursor();
-        if (scepter.isScepter(current) || scepter.isScepter(cursor)) {
-            event.setCancelled(true);
-        }
+        event.owner().map(plugin.getServer()::getPlayer).ifPresent(player ->
+                plugin.getServer().getScheduler().runTask(plugin, () -> refresh(player)));
     }
 
     @EventHandler
     public void onDeath(PlayerDeathEvent event) {
-        event.getDrops().removeIf(scepter::isScepter);
         Tracker tracker = trackers.get(event.getEntity().getUniqueId());
         if (tracker != null && tracker.whaleMode()) {
             endWhaleMode(event.getEntity(), tracker, true);

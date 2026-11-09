@@ -4,6 +4,7 @@ import com.moonsama.minecraft.api.AssetHolding;
 import com.moonsama.minecraft.api.HoldingsSnapshot;
 import com.moonsama.minecraft.api.MoonsamaService;
 import org.bukkit.entity.Player;
+import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.PlayerInventory;
 import org.bukkit.plugin.Plugin;
@@ -22,6 +23,9 @@ import java.util.logging.Level;
  * Methods touching a {@link Player} run on the main thread; async entry points hop back onto it.
  */
 public final class ItemsService {
+    /** {@code PlayerInventory} index of the off-hand slot. */
+    static final int OFFHAND_SLOT = 40;
+
     private final Plugin plugin;
     private final MoonsamaService moonsama;
     private final ItemsCatalog catalog;
@@ -107,7 +111,7 @@ public final class ItemsService {
     /** Applies {@code skin} to the tool in the player's main hand once ownership is confirmed. */
     public CompletableFuture<Result> applySkin(Player player, ItemSkin skin) {
         ItemStack held = player.getInventory().getItemInMainHand();
-        if (!skin.appliesTo(held.getType())) {
+        if (!skin.appliesTo(held.getType()) || items.isManagedCosmetic(held)) {
             return CompletableFuture.completedFuture(Result.WRONG_ITEM);
         }
         return verify(player.getUniqueId(), skin.requirement()).thenCompose(result -> onMain(() -> {
@@ -115,7 +119,7 @@ public final class ItemsService {
                 return result;
             }
             ItemStack tool = player.getInventory().getItemInMainHand();
-            return items.applySkin(tool, skin) ? Result.OK : Result.WRONG_ITEM;
+            return !items.isManagedCosmetic(tool) && items.applySkin(tool, skin) ? Result.OK : Result.WRONG_ITEM;
         }));
     }
 
@@ -146,9 +150,15 @@ public final class ItemsService {
                 return false;
             }
         }
-        inventory.setItemInOffHand(items.buildOffhand(offhand));
+        inventory.setItemInOffHand(items.buildOffhand(player, offhand));
         offhandStore.put(player.getUniqueId(), offhand.id());
         return true;
+    }
+
+    /** The player's own copy of the off-hand they have selected (any form): the only one whose perk works. */
+    public boolean isCurrentOffhand(Player player, ItemStack item) {
+        Optional<String> id = items.offhandOf(item);
+        return id.isPresent() && id.equals(offhandStore.get(player.getUniqueId())) && items.isBoundTo(item, player);
     }
 
     /** Removes the cosmetic off-hand and forgets the choice. Main thread only. */
@@ -158,18 +168,79 @@ public final class ItemsService {
         return removed;
     }
 
-    /** Hands the stored off-hand back (join/respawn) if the slot is free. Main thread only. */
+    /**
+     * Leaves exactly one copy of the selected off-hand (join, respawn, after MoonsamaCore deleted
+     * one). Copies may sit anywhere in the inventory; a missing one is rebuilt into the off-hand,
+     * or into a free slot when the off-hand holds a real item. Main thread only.
+     */
     public void restoreOffhand(Player player) {
+        PlayerInventory inventory = player.getInventory();
         Optional<Offhand> stored = offhandStore.get(player.getUniqueId()).flatMap(catalog::offhand);
         if (stored.isEmpty()) {
             offhandStore.remove(player.getUniqueId());
+            removeManagedOffhands(inventory);
             return;
         }
-        PlayerInventory inventory = player.getInventory();
-        ItemStack current = inventory.getItemInOffHand();
-        if (current.getType().isAir() || items.offhandOf(current).isPresent()) {
-            removeManagedOffhands(inventory);
-            inventory.setItemInOffHand(items.buildOffhand(stored.get()));
+        ItemStack[] contents = inventory.getContents();
+        List<Integer> copies = new ArrayList<>();
+        for (int slot = 0; slot < contents.length; slot++) {
+            if (items.offhandOf(contents[slot]).isEmpty()) {
+                continue;
+            }
+            if (isCurrentOffhand(player, contents[slot])) {
+                copies.add(slot);
+            } else {
+                inventory.setItem(slot, null); // another off-hand, or not bound to this player
+            }
+        }
+        int keep = copyToKeep(copies, inventory.getHeldItemSlot());
+        for (int slot : copies) {
+            if (slot != keep) {
+                inventory.setItem(slot, null);
+            }
+        }
+        if (keep >= 0) {
+            return;
+        }
+        ItemStack fresh = items.buildOffhand(player, stored.get());
+        if (inventory.getItemInOffHand().isEmpty()) {
+            inventory.setItemInOffHand(fresh);
+        } else if (inventory.firstEmpty() >= 0) {
+            inventory.setItem(inventory.firstEmpty(), fresh);
+        } // otherwise it comes back on the next join or respawn with room for it
+    }
+
+    /** Which copy survives: the one in the off-hand, then the one in the main hand, then the first. */
+    static int copyToKeep(List<Integer> copySlots, int heldSlot) {
+        if (copySlots.contains(OFFHAND_SLOT)) {
+            return OFFHAND_SLOT;
+        }
+        if (copySlots.contains(heldSlot)) {
+            return heldSlot;
+        }
+        return copySlots.isEmpty() ? -1 : copySlots.getFirst();
+    }
+
+    /**
+     * Removes copies from before soulbinding from the player's inventory and ender chest; the
+     * restore and hat sync that follow hand out bound ones. Bound copies that belong to someone
+     * else are MoonsamaCore's to remove. Main thread only.
+     */
+    public void removeStrays(Player player) {
+        removeUnboundCosmetics(player.getInventory());
+        removeUnboundCosmetics(player.getEnderChest());
+    }
+
+    /**
+     * Clears copies from before soulbinding out of a container. Bound copies are MoonsamaCore's
+     * to remove, so their owner gets them back. Main thread only.
+     */
+    public void removeUnboundCosmetics(Inventory container) {
+        ItemStack[] contents = container.getContents();
+        for (int slot = 0; slot < contents.length; slot++) {
+            if (items.isManagedCosmetic(contents[slot]) && !items.isBound(contents[slot])) {
+                container.setItem(slot, null);
+            }
         }
     }
 
@@ -207,8 +278,9 @@ public final class ItemsService {
         }
         removeStrayHats(inventory);
         if (helmet == null || helmet.getType().isAir() || wearingOurs) {
-            if (!wearingOurs || items.hatModelOf(helmet).orElse(-1) != rule.get().customModelData()) {
-                inventory.setHelmet(items.buildHat(catalog.hats(), rule.get()));
+            if (!wearingOurs || !items.isBoundTo(helmet, player)
+                    || items.hatModelOf(helmet).orElse(-1) != rule.get().customModelData()) {
+                inventory.setHelmet(items.buildHat(player, catalog.hats(), rule.get()));
             }
         }
         return rule;

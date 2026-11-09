@@ -9,6 +9,7 @@ import com.moonsama.minecraft.api.EconomyRequest;
 import com.moonsama.minecraft.api.HoldingsSnapshot;
 import com.moonsama.minecraft.api.MoonsamaService;
 import com.moonsama.minecraft.api.SkinSigner;
+import com.moonsama.minecraft.api.SoulboundItems;
 import com.moonsama.minecraft.api.PortalPlayer;
 import com.moonsama.minecraft.api.event.AssetHoldChangedEvent;
 import com.moonsama.minecraft.api.event.EconomyOperationEvent;
@@ -18,6 +19,7 @@ import com.moonsama.minecraft.api.event.PortalPlayerLinkedEvent;
 import com.moonsama.minecraft.economy.EconomyCoordinator;
 import com.moonsama.minecraft.skins.MineskinSigner;
 import com.moonsama.minecraft.skins.SignatureCache;
+import com.moonsama.minecraft.soulbound.SoulboundService;
 import com.moonsama.minecraft.economy.HoldCoordinator;
 import com.moonsama.minecraft.economy.CollectionAliases;
 import com.moonsama.minecraft.economy.PortalSyncService;
@@ -133,6 +135,12 @@ public final class MoonsamaPaperPlugin extends JavaPlugin implements MoonsamaSer
                 ServicePriority.Normal
         );
         registerSkinSigner();
+        Bukkit.getServicesManager().register(
+                SoulboundItems.class,
+                SoulboundService.enable(this, getDataFolder().toPath().resolve("soulbound.key")),
+                this,
+                ServicePriority.Normal
+        );
 
         MoonsamaCommand command = new MoonsamaCommand(this);
         var registeredCommand = getCommand("moonsama");

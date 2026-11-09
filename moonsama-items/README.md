@@ -13,9 +13,15 @@ follow the worn NFT skin). Bundles the item tables of `cosmetics-data`; the mode
 - `/items` opens a menu of the item skins and off-hands the player owns. Clicking a skin
   applies it to the tool in the main hand; clicking an off-hand puts it in the off-hand slot.
 - `/items skin <id>|clear`, `/items offhand <id>|none`, `/items list`, `/items status`.
-- Off-hands and hats are managed items: they cannot be dropped, moved, swapped to the main
-  hand or lost on death, and the stored off-hand comes back on join/respawn. When Portal
-  reports the token is gone, the cosmetic is removed (`unequip-when-sold`).
+- Off-hands and hats are soulbound to the player through MoonsamaCore. An off-hand
+  cosmetic can be moved anywhere in the player's own inventory and F-swapped to the main
+  hand, but its perk only works from the off-hand slot. Hats stay on the head. Neither can
+  be dropped, stored (ender chest included), put in item frames or bundles, or lost on
+  death, and a copy that ends up anywhere else is deleted and handed back to its owner.
+- The selected off-hand comes back on join/respawn (one copy, wherever the player keeps
+  it; a new one goes into the off-hand, or a free slot when the off-hand holds something
+  else). When Portal reports the token is gone, the cosmetic is removed
+  (`unequip-when-sold`).
 
 ## Off-hand perks
 
@@ -44,6 +50,11 @@ also show as the vanilla item cooldown overlay.
 
 Differences from the legacy plugin, on purpose:
 
+- Soulbinding is MoonsamaCore's job, not a separate plugin, and stricter: cosmetics never
+  enter any container (the legacy soulbound plugin allowed crafting tables, anvils and
+  similar), copies that escape are deleted instead of waiting on the ground, and a perk
+  only works for the owner's own copy of their selected off-hand.
+- Off-hand forms never work as weapons, even when their look is a sword.
 - Moonbag applies the tier level as written in the tables (level II/III where the table says
   so); the old code always applied level I despite promising more.
 - The Detectore ore table had two typo'd keys (`nether_gold_core`, `nether_quartz_core`);

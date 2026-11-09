@@ -2,8 +2,10 @@ package com.moonsama.minecraft.items;
 
 import com.moonsama.minecraft.api.HoldingsSnapshot;
 import com.moonsama.minecraft.api.MoonsamaService;
+import com.moonsama.minecraft.api.SoulboundItems;
 import com.moonsama.minecraft.api.event.PortalHoldingsLoadedEvent;
 import com.moonsama.minecraft.api.event.PortalPlayerErasedEvent;
+import com.moonsama.minecraft.api.event.SoulboundItemRemovedEvent;
 import com.moonsama.minecraft.items.perks.PerkManager;
 import com.moonsama.minecraft.items.perks.PerkSettings;
 import org.bukkit.NamespacedKey;
@@ -15,14 +17,13 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
-import org.bukkit.event.entity.PlayerDeathEvent;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.event.inventory.InventoryDragEvent;
-import org.bukkit.event.player.PlayerDropItemEvent;
+import org.bukkit.event.inventory.InventoryOpenEvent;
+import org.bukkit.event.inventory.InventoryType;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerRespawnEvent;
 import org.bukkit.event.player.PlayerSwapHandItemsEvent;
-import org.bukkit.inventory.ItemStack;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.ServicePriority;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -63,9 +64,13 @@ public final class MoonsamaItemsPlugin extends JavaPlugin implements Listener, T
         getLogger().info(String.format(Locale.ROOT, "Loaded %d item skins, %d off-hands and %d hat rules",
                 catalog.itemSkins().size(), catalog.offhands().size(), catalog.hats().rules().size()));
 
+        SoulboundItems soulbound = getServer().getServicesManager().load(SoulboundItems.class);
+        if (soulbound == null) {
+            throw new IllegalStateException("MoonsamaCore soulbound service is unavailable");
+        }
         EquippedOffhandStore store = new EquippedOffhandStore(getDataFolder().toPath().resolve("offhands.json"));
         store.load();
-        service = new ItemsService(this, moonsama, catalog, new CosmeticItems(this), store);
+        service = new ItemsService(this, moonsama, catalog, new CosmeticItems(this, soulbound), store);
 
         getServer().getPluginManager().registerEvents(this, this);
         if (getConfig().getBoolean("hats.enabled", true)) {
@@ -73,7 +78,7 @@ public final class MoonsamaItemsPlugin extends JavaPlugin implements Listener, T
         }
         PerkSettings perkSettings = PerkSettings.from(getConfig().getConfigurationSection("offhands.perks"));
         if (offhandsEnabled() && perkSettings.enabled()) {
-            perks = new PerkManager(this, catalog, service.items(), perkSettings);
+            perks = new PerkManager(this, catalog, service.items(), perkSettings, service::isCurrentOffhand);
             getServer().getPluginManager().registerEvents(perks, this);
             perks.start();
             getLogger().info("Off-hand perks enabled for " + perks.registry().all().size() + " off-hands");
@@ -379,51 +384,47 @@ public final class MoonsamaItemsPlugin extends JavaPlugin implements Listener, T
     }
 
     // ------------------------------------------------- cosmetic item protection
+    // MoonsamaCore's soulbinding keeps the items with their owner (see docs/plugin-authoring.md);
+    // this plugin only rebuilds them and clears out copies from before soulbinding.
 
-    /** Off-hands and hats stay where the plugin put them: no dropping, storing or shuffling. */
-    @EventHandler(priority = EventPriority.HIGH, ignoreCancelled = true)
-    public void onCosmeticClick(InventoryClickEvent event) {
-        if (event.getInventory().getHolder(false) instanceof ItemsMenu) {
-            return;
-        }
-        CosmeticItems items = service.items();
-        if (items.isManagedCosmetic(event.getCurrentItem()) || items.isManagedCosmetic(event.getCursor())) {
-            event.setCancelled(true);
-            return;
-        }
-        if (event.getHotbarButton() >= 0 && event.getWhoClicked() instanceof Player player) {
-            ItemStack hotbar = player.getInventory().getItem(event.getHotbarButton());
-            if (items.isManagedCosmetic(hotbar)) {
-                event.setCancelled(true);
-            }
-        }
-    }
-
-    @EventHandler(priority = EventPriority.HIGH, ignoreCancelled = true)
-    public void onCosmeticDrag(InventoryDragEvent event) {
-        if (service.items().isManagedCosmetic(event.getOldCursor())) {
-            event.setCancelled(true);
-        }
-    }
-
-    @EventHandler(ignoreCancelled = true)
+    /** Off-hands may be F-swapped freely; the perk follows the off-hand slot. */
+    @EventHandler(priority = EventPriority.MONITOR, ignoreCancelled = true)
     public void onSwapHands(PlayerSwapHandItemsEvent event) {
-        if (service.items().isManagedCosmetic(event.getOffHandItem())
-                || service.items().isManagedCosmetic(event.getMainHandItem())) {
-            event.setCancelled(true);
+        Player player = event.getPlayer();
+        getServer().getScheduler().runTask(this, () -> {
+            if (player.isOnline() && perks != null) {
+                perks.sync(player);
+            }
+        });
+    }
+
+    /** Copies from before soulbinding (unbound) never belong in a container either. */
+    @EventHandler(priority = EventPriority.HIGHEST, ignoreCancelled = true)
+    public void onContainerOpen(InventoryOpenEvent event) {
+        InventoryType type = event.getInventory().getType();
+        if (type != InventoryType.CRAFTING && type != InventoryType.PLAYER && type != InventoryType.CREATIVE
+                && !(event.getInventory().getHolder(false) instanceof ItemsMenu)) {
+            service.removeUnboundCosmetics(event.getInventory());
         }
     }
 
-    @EventHandler(ignoreCancelled = true)
-    public void onDrop(PlayerDropItemEvent event) {
-        if (service.items().isManagedCosmetic(event.getItemDrop().getItemStack())) {
-            event.setCancelled(true);
-        }
-    }
-
+    /** MoonsamaCore deleted an escaped copy: hand the owner their selection back. */
     @EventHandler
-    public void onDeath(PlayerDeathEvent event) {
-        event.getDrops().removeIf(service.items()::isManagedCosmetic);
+    public void onSoulboundRemoved(SoulboundItemRemovedEvent event) {
+        CosmeticItems items = service.items();
+        if (!items.isManagedCosmetic(event.item())) {
+            return;
+        }
+        event.owner().map(getServer()::getPlayer).ifPresent(player -> getServer().getScheduler().runTask(this, () -> {
+            if (!player.isOnline()) {
+                return;
+            }
+            if (offhandsEnabled() && items.offhandOf(event.item()).isPresent()) {
+                service.restoreOffhand(player);
+            } else if (hats != null && items.isHat(event.item())) {
+                hats.sync(player);
+            }
+        }));
     }
 
     @EventHandler
@@ -433,6 +434,7 @@ public final class MoonsamaItemsPlugin extends JavaPlugin implements Listener, T
             if (!player.isOnline()) {
                 return;
             }
+            service.removeStrays(player);
             if (offhandsEnabled() && getConfig().getBoolean("offhands.reequip-on-join", true)) {
                 service.restoreOffhand(player);
             }
@@ -447,6 +449,7 @@ public final class MoonsamaItemsPlugin extends JavaPlugin implements Listener, T
     @EventHandler
     public void onJoin(PlayerJoinEvent event) {
         Player player = event.getPlayer();
+        service.removeStrays(player);
         if (offhandsEnabled() && getConfig().getBoolean("offhands.reequip-on-join", true)) {
             service.restoreOffhand(player);
         } else {

@@ -15,7 +15,7 @@ only apply while wearing a Moonsama or Exosama NFT skin).
 | Extra max health | 0.1 HP per power |
 | Extra melee damage | +2.5 % per power (100 power → ×3.5) |
 | Name colour | ≥1 gold, ≥50 blue, ≥100 light purple, ≥200 rainbow (chat and player list) |
-| Whale Scepter | given to players with ≥100 power; bound: cannot be dropped, stored or lost on death |
+| Whale Scepter | given to players with ≥100 power; soulbound through MoonsamaCore: moves freely in the owner's own inventory, cannot be dropped, stored or lost on death, and comes back if a copy is ever deleted |
 | Whale Mode | right-click the scepter: max health ×1.5 for 120 s, full heal, lightning, then 300 s cooldown |
 | Entitlement | only while wearing an NFT skin from `skins.collections` (`moonsama`, `exosama`, `moonsama-multiverse-art-eth`); set `require-entitled-skin: false` to buff every linked holder |
 

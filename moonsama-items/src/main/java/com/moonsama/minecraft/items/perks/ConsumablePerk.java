@@ -50,7 +50,7 @@ public abstract class ConsumablePerk extends Perk {
         }
         // The vanilla result (empty bottle / nothing) is replaced by the recharging form.
         state.startCooldown(cooldownMs);
-        event.setReplacement(ctx.items().buildOffhandForm(offhand, Material.IRON_SWORD, buzzerModel, List.of("Recharging")));
+        event.setReplacement(ctx.items().buildOffhandForm(player, offhand, Material.IRON_SWORD, buzzerModel, List.of("Recharging")));
         onConsumed(player, state);
         ctx.later(() -> {
             if (player.isOnline()) {

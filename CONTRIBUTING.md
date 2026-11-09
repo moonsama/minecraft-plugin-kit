@@ -149,9 +149,12 @@ hop. Never block the main thread on a future.
 with `holdings` before granting something when the cache is cold, and revalidate on
 `PortalHoldingsLoadedEvent`. Forget everything about a player on `PortalPlayerErasedEvent`.
 
-**Items handed out by a plugin are tagged** in the `PersistentDataContainer` with the
-plugin's own `NamespacedKey` and protected (no drop, no storing in containers, removed on
-death) by cancelling the relevant events. Look at `CosmeticItems` in `moonsama-items` and
+**Items handed out by a plugin are soulbound.** Tag them in the `PersistentDataContainer`
+with the plugin's own `NamespacedKey` so you can recognise them, then bind them to their
+owner with MoonsamaCore's `SoulboundItems` instead of cancelling events yourself; Core keeps
+them with the owner and deletes copies that escape, so rebuild on join, respawn and
+`SoulboundItemRemovedEvent`. See "Soulbound items" in
+[docs/plugin-authoring.md](docs/plugin-authoring.md), `CosmeticItems` in `moonsama-items` and
 `Scepter` in `moonsama-whale-buffs`.
 
 **Bridges for optional plugins.** If plugin A can *use* plugin B but must work without it,
