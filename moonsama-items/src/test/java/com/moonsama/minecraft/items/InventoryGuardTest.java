@@ -111,6 +111,21 @@ class InventoryGuardTest {
     }
 
     @Test
+    void recognizesOccupiedDestinationSwapAsForeignOffhandSwap() {
+        assertThat(InventoryGuard.foreignOffhandSwap(InventoryAction.HOTBAR_MOVE_AND_READD, -1, true)).isTrue();
+    }
+
+    @Test
+    void rejectsOccupiedBottomSwapAsForeignOffhandSwap() {
+        assertThat(InventoryGuard.foreignOffhandSwap(InventoryAction.HOTBAR_MOVE_AND_READD, -1, false)).isFalse();
+    }
+
+    @Test
+    void rejectsNumberKeyOccupiedSwapAsForeignOffhandSwap() {
+        assertThat(InventoryGuard.foreignOffhandSwap(InventoryAction.HOTBAR_MOVE_AND_READD, 3, true)).isFalse();
+    }
+
+    @Test
     void blocksTopInventoryClicks() {
         assertOutcome(true, SlotType.CONTAINER, 20, false, true, BLOCK);
     }

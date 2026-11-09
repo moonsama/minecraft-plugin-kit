@@ -31,9 +31,12 @@ public final class InventoryGuard {
         };
     }
 
-    /** Matches the captured F-key signature for swapping off-hand into a foreign top inventory. */
+    /** Matches the captured F-key signature for swapping off-hand into a foreign top
+     *  inventory: HOTBAR_SWAP (empty destination, button -1) and the occupied-destination
+     *  variant HOTBAR_MOVE_AND_READD, both delivered with hotbarButton -1 on the top side. */
     public static boolean foreignOffhandSwap(InventoryAction action, int hotbarButton, boolean clickedTop) {
-        return action == InventoryAction.HOTBAR_SWAP && hotbarButton < 0 && clickedTop;
+        return (action == InventoryAction.HOTBAR_SWAP || action == InventoryAction.HOTBAR_MOVE_AND_READD)
+                && hotbarButton < 0 && clickedTop;
     }
 
     /** Pure decision core for a click involving a managed off-hand cosmetic. */
