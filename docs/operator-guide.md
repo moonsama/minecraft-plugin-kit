@@ -233,6 +233,10 @@ design, but back it up with the rest of the server anyway.
   network volume, WAL memory-maps a shared file and can crash the JVM with `SIGBUS`. Set
   `MOONSAMA_SQLITE_JOURNAL_MODE=truncate` there; the plugin converts the database on the
   next start.
+- `plugins/MoonsamaCore/soulbound.key` is created on first start and signs which player
+  owns each soulbound item (off-hand cosmetics, hats, the Whale Scepter). Back it up with
+  `data.db`. Losing it is harmless but noticeable: every soulbound item then belongs to
+  nobody, is removed, and the plugins hand players fresh copies.
 - The per-plugin folders (`plugins/MoonsamaSkins/`, ...) hold only config files;
   skins and item data ship inside the JARs.
 

@@ -29,11 +29,16 @@ with direct Moonsama Portal integration.
   collections `multiversecostumes` / `multiversebackgrounds` so the wardrobe can check them, crash-safe economy with idempotent Portal transactions, SQLite storage
   (`storage.journal-mode`, default `wal`, `truncate` for bind-mounted volumes), resource
   pack serving with SHA-1 pinning, shared API (`MoonsamaApi`) for feature plugins.
+  Soulbound items (`SoulboundItems`): plugins bind items to their owner and Core keeps
+  them there (free movement in the owner's own inventory, nothing leaves it, escaped
+  copies are deleted and `SoulboundItemRemovedEvent` lets the plugin rebuild them).
 - **MoonsamaSkins**: NFT skins for `moonsama`, `exosama`, `gromlin`, `moonsama-embassy`,
   `moonsama-multiverse-art-eth` from bundled legacy signed textures; `/skins` menu and
   `/skins wear`; uniform collections (one skin per collection, e.g. Gromlin).
 - **MoonsamaItems**: legacy off-hand cosmetics and gameplay perks (Moonbag, scepters, …)
-  gated on Portal holdings, with custom models in the resource pack.
+  gated on Portal holdings, with custom models in the resource pack. Off-hand cosmetics are
+  soulbound: they move freely in the owner's inventory (F-swap included) and their perk
+  works only from the off-hand slot, for the owner's own copy.
 - **MoonsamaWardrobe**: custom skin compositions (Java port of the legacy Composer
   renderer in `skin-compositor`) with optional MineSkin signing; per-player signing budget
   (`signing-budget`) so one player cannot exhaust the MineSkin quota.
