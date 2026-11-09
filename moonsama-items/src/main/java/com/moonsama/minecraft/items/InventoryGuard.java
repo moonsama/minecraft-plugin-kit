@@ -31,6 +31,11 @@ public final class InventoryGuard {
         };
     }
 
+    /** Matches the captured F-key signature for swapping off-hand into a foreign top inventory. */
+    public static boolean foreignOffhandSwap(InventoryAction action, int hotbarButton, boolean clickedTop) {
+        return action == InventoryAction.HOTBAR_SWAP && hotbarButton < 0 && clickedTop;
+    }
+
     /** Pure decision core for a click involving a managed off-hand cosmetic. */
     public static ClickOutcome classifyOffhandClick(
             boolean clickedTop,

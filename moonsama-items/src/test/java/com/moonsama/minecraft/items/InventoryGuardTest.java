@@ -86,6 +86,31 @@ class InventoryGuardTest {
     }
 
     @Test
+    void recognizesForeignOffhandSwapCaptureSignature() {
+        assertThat(InventoryGuard.foreignOffhandSwap(InventoryAction.HOTBAR_SWAP, -1, true)).isTrue();
+    }
+
+    @Test
+    void rejectsNumberKeySwapAsForeignOffhandSwap() {
+        assertThat(InventoryGuard.foreignOffhandSwap(InventoryAction.HOTBAR_SWAP, 3, true)).isFalse();
+    }
+
+    @Test
+    void rejectsBottomInventorySwapAsForeignOffhandSwap() {
+        assertThat(InventoryGuard.foreignOffhandSwap(InventoryAction.HOTBAR_SWAP, -1, false)).isFalse();
+    }
+
+    @Test
+    void rejectsCursorSwapAsForeignOffhandSwap() {
+        assertThat(InventoryGuard.foreignOffhandSwap(InventoryAction.SWAP_WITH_CURSOR, -1, true)).isFalse();
+    }
+
+    @Test
+    void rejectsShiftMoveAsForeignOffhandSwap() {
+        assertThat(InventoryGuard.foreignOffhandSwap(InventoryAction.MOVE_TO_OTHER_INVENTORY, -1, true)).isFalse();
+    }
+
+    @Test
     void blocksTopInventoryClicks() {
         assertOutcome(true, SlotType.CONTAINER, 20, false, true, BLOCK);
     }

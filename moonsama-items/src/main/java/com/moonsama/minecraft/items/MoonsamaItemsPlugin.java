@@ -401,13 +401,21 @@ public final class MoonsamaItemsPlugin extends JavaPlugin implements Listener, T
             return;
         }
         CosmeticItems items = service.items();
+        boolean clickedTop = event.getClickedInventory() != null
+                && event.getClickedInventory() != event.getView().getBottomInventory();
+        if (InventoryGuard.foreignOffhandSwap(event.getAction(), event.getHotbarButton(), clickedTop)
+                && event.getWhoClicked() instanceof Player swapPlayer
+                && items.isManagedCosmetic(swapPlayer.getInventory().getItemInOffHand())) {
+            event.setCancelled(true);
+            return;
+        }
         ItemStack current = event.getCurrentItem();
         ItemStack cursor = event.getCursor();
         int hotbarButton = event.getHotbarButton();
         ItemStack hotbar = hotbarButton >= 0 && event.getWhoClicked() instanceof Player player
                 ? player.getInventory().getItem(hotbarButton)
                 : null;
-        boolean clickedTop = event.getClickedInventory() != event.getView().getBottomInventory();
+        boolean clickedOutsideBottom = event.getClickedInventory() != event.getView().getBottomInventory();
         boolean taintedCurrentBundle = bundleHoldsManaged(current, items);
         boolean taintedCursorBundle = bundleHoldsManaged(cursor, items);
         if (isBundleRetrieval(event.getAction())
@@ -416,7 +424,7 @@ public final class MoonsamaItemsPlugin extends JavaPlugin implements Listener, T
             event.setCancelled(true);
             return;
         }
-        if ((clickedTop && (taintedCurrentBundle || taintedCursorBundle))
+        if ((clickedOutsideBottom && (taintedCurrentBundle || taintedCursorBundle))
                 || (event.getAction() == InventoryAction.CLONE_STACK && taintedCurrentBundle)
                 || (isDropAction(event.getAction()) && (taintedCurrentBundle || taintedCursorBundle))
                 || (event.getAction() == InventoryAction.MOVE_TO_OTHER_INVENTORY && taintedCurrentBundle)) {
