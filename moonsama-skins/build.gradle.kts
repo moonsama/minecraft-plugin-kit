@@ -7,9 +7,9 @@ val paperApiVersion: String by rootProject
 
 dependencies {
     implementation(project(":cosmetics-data"))
-    compileOnly(project(":moonsama-paper"))
+    compileOnly(project(":moonsama-core"))
     compileOnly("io.papermc.paper:paper-api:$paperApiVersion")
-    testImplementation(project(":moonsama-paper"))
+    testImplementation(project(":moonsama-core"))
     testImplementation("io.papermc.paper:paper-api:$paperApiVersion")
 }
 

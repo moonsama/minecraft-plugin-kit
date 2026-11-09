@@ -5,7 +5,7 @@ plugins {
 val paperApiVersion: String by rootProject
 
 dependencies {
-    compileOnly(project(":moonsama-paper"))
+    compileOnly(project(":moonsama-core"))
     compileOnly("io.papermc.paper:paper-api:$paperApiVersion")
 }
 

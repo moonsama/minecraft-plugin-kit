@@ -43,7 +43,7 @@ handle credentials at all — only `MoonsamaCore` does.
 
 ```
 portal-client/        Paper-independent async HTTP client for the Portal API
-moonsama-paper/       MoonsamaCore: OAuth linking, SQLite store, economy, MoonsamaService API
+moonsama-core/        MoonsamaCore: OAuth linking, SQLite store, economy, MoonsamaService API
 cosmetics-data/       generated data: signed NFT skins, item/off-hand/hat mappings, compositor rules
 skin-compositor/      Paper-independent port of the legacy avatar renderer (PNG in, PNG out)
 moonsama-skins/       /skins       wear the skin of an NFT you hold
@@ -63,7 +63,7 @@ Everything under `references/`, `minecraft-plugins-old/`, `minecraft-resourcepac
 and the other paths in `.gitignore` is legacy reference material on a maintainer's disk.
 Nothing in the build depends on it, and none of it may be committed.
 
-Dependency direction, top to bottom: feature plugins → `moonsama-paper` (compile-only; the
+Dependency direction, top to bottom: feature plugins → `moonsama-core` (compile-only; the
 server provides it at runtime) → `portal-client`. `cosmetics-data` and `skin-compositor`
 are plain libraries that get shaded into the plugins that use them. Feature plugins never
 depend on each other's classes at compile time except through the documented *bridge*
@@ -204,7 +204,7 @@ Multiverse Avatars) or from a one-time MineSkin upload of the texture. Both rout
 ## Adding a feature plugin to the kit
 
 1. Copy the shape of the closest existing module (`moonsama-gatekeeper` is the smallest
-   complete one): `build.gradle.kts` with `compileOnly(project(":moonsama-paper"))` and
+   complete one): `build.gradle.kts` with `compileOnly(project(":moonsama-core"))` and
    `compileOnly("io.papermc.paper:paper-api:$paperApiVersion")`, `plugin.yml` with
    `depend: [MoonsamaCore]`, a commented `config.yml`, a `README.md` that states what it
    does, what it deliberately does *not* do, and every config key.
@@ -215,7 +215,7 @@ Multiverse Avatars) or from a one-time MineSkin upload of the texture. Both rout
 4. Follow the conventions above; if you have to break one, say why in the README.
 
 If your plugin is useful only to your own server, you do not need it in this repository:
-depend on the published `moonsama-paper` API as described in
+compile against `MoonsamaCore.jar` from a release (`compileOnly`), follow
 [docs/plugin-authoring.md](docs/plugin-authoring.md) and keep it in your own repo.
 
 ## Porting more legacy features

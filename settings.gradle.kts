@@ -16,7 +16,7 @@ rootProject.name = "moonsama-minecraft-plugin-kit"
 
 include(
     "portal-client",
-    "moonsama-paper",
+    "moonsama-core",
     "cosmetics-data",
     "skin-compositor",
     "moonsama-skins",
