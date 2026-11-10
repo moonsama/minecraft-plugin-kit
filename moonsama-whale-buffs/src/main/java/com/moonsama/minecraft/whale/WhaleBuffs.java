@@ -198,6 +198,9 @@ public final class WhaleBuffs implements Listener {
     public void refreshEntitlement(Player player) {
         Tracker tracker = trackerOf(player);
         tracker.entitled = entitled(player);
+        // Applying a skin re-sends the player to their own client (Paper's profile refresh), which
+        // clears the display-only icon; Paper re-sends only real effects, so push ours again.
+        tracker.fireIconShown = false;
         apply(player, tracker);
     }
 
