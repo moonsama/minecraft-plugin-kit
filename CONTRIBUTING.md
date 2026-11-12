@@ -20,14 +20,16 @@ Pick one; they all produce identical builds.
 
 ### Dev container
 
-`.devcontainer/devcontainer.json` builds an Ubuntu image with Temurin JDK 25, Docker in
+`.devcontainer/devcontainer.json` builds a Debian 12 image with Temurin JDK 25, Docker in
 Docker (the Paper stack from `compose.yaml` runs *inside* the dev container and ports
 `25565`/`8080` are forwarded to your machine), Python 3 for the maintenance scripts, and the
-Java/Gradle/Docker extensions. Gradle's cache and the inner Docker images live in named
-volumes so rebuilding the container does not re-download the world.
+Java/Gradle/Docker extensions. Gradle's cache, the inner Docker images and Claude Code's
+settings (if you use it) live in named volumes, so rebuilding the container does not
+re-download the world or log you out.
 
 Open the repository and choose **Reopen in Container** (or **Code → Codespaces → Create**
-on GitHub). The post-create step warms the Gradle cache and tells you what to do next;
+on GitHub). The post-create step prints what to do next (the Java extension downloads
+the dependencies while it imports the project, so the first `make build` takes longer);
 the `GRADLE=./gradlew` environment variable makes every `make` target use the local JDK.
 
 ### Portal credentials

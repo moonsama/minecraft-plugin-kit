@@ -26,18 +26,24 @@
     // The Makefile runs Gradle through Docker by default; inside the dev container the JDK is
     // local, so use the wrapper directly (faster, and IDE + CLI share one Gradle cache).
     "GRADLE": "./gradlew",
-    "GRADLE_USER_HOME": "/home/vscode/.gradle"
+    "GRADLE_USER_HOME": "/home/vscode/.gradle",
+    // Claude Code, if you use it, keeps its login, settings and sessions in a volume (below).
+    "CLAUDE_CONFIG_DIR": "/home/vscode/.claude"
   },
   "mounts": [
     // Keep Gradle's dependency cache and the inner Docker daemon's images across rebuilds.
     "source=moonsama-kit-gradle,target=/home/vscode/.gradle,type=volume",
-    "source=moonsama-kit-docker,target=/var/lib/docker,type=volume"
+    "source=moonsama-kit-docker,target=/var/lib/docker,type=volume",
+    "source=moonsama-kit-claude,target=/home/vscode/.claude,type=volume"
   ],
   "forwardPorts": [25565, 8080],
   "portsAttributes": {
     "25565": { "label": "Minecraft (Paper)", "onAutoForward": "silent" },
     "8080": { "label": "OAuth callback + resource pack", "onAutoForward": "silent" }
   },
+  // onCreate runs before the editor connects (so extensions never see root-owned volumes);
+  // postCreate only prints versions and next steps.
+  "onCreateCommand": "bash .devcontainer/on-create.sh",
   "postCreateCommand": "bash .devcontainer/post-create.sh",
   "customizations": {
     "vscode": {
@@ -51,6 +57,26 @@
       "settings": {
         "java.configuration.updateBuildConfiguration": "automatic",
         "java.compile.nullAnalysis.mode": "disabled",
+        // Maintainers may have the legacy sources in references/ (hundreds of old Gradle and
+        // Maven projects) and the dev server's world in dev-data/. Importing or watching them
+        // makes the editor hang; only the kit's own Gradle build is a Java project here.
+        "java.import.exclusions": [
+          "**/node_modules/**",
+          "**/.metadata/**",
+          "**/archetype-resources/**",
+          "**/META-INF/maven/**",
+          "**/references/**",
+          "**/dev-data/**"
+        ],
+        "files.watcherExclude": {
+          "**/references/**": true,
+          "**/dev-data/**": true,
+          "**/build/**": true,
+          "**/.gradle/**": true
+        },
+        "search.exclude": {
+          "**/dev-data/**": true
+        },
         "files.exclude": {
           "**/build": true,
           "**/.gradle": true
