@@ -14,7 +14,7 @@ Nothing yet - first release pending.
 
 ## [0.1.0] - unreleased
 
-Tested with Paper 26.3 build 246 (stable), Java 25.
+Tested with Paper 26.3 build 249 (stable), Java 25.
 
 Initial public kit for Paper 26.3 / Java 25, replacing the retired internal game backend
 with direct Moonsama Portal integration.
